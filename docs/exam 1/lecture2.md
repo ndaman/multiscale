@@ -1,950 +1,623 @@
-<style>
-.reveal section img { background:none; border:none; box-shadow:none; }
-.left {
-  left:-15%;
-  top:-10%;
-  text-align: left;
-  float: left;
-  width:45%;
-  height:30vh;
-  z-index:-10;
-}
-.right {
-  left:31.25%;
-  top: 75px;
-  float: right;
-  text-align: right;
-  z-index:-10;
-  width:48%;
-}
-</style>
-
-## AE 737: Mechanics of Damage Tolerance
-Lecture 2 - Common Stress Intensity Factors
-
-Dr. Nicholas Smith
-
-Wichita State University, Department of Aerospace Engineering
-
-January 9, 2019
-
----
-## schedule
-
-- 24 Jan - Common Stress Intensity Factors
-- 29 Jan - Superposition, Compounding
-- 31 Jan - Curved Boundaries, Homework 1 Due
-- 5 Feb - Plastic Zone
-
----
-## office hours
-
--   So far TBD students have participated in Doodle
--   Take advantage of office hours, this is time that I have already set
-    aside for you
--   If the regular office hours do not work for your schedule, send me
-    an e-mail and we can work out a time to meet
--   While in person visits are often the most helpful, I will always try
-    to answer questions as best as I can via e-mail
-
-----
-## fracture mechanics
-  -  In fracture mechanics we consider three different modes
-  -  Mode I is known as the "opening mode"
-  -  Mode II is known as the "sliding mode"
-  -  Mode III is known as the "tearing mode"
-
-----
-## fracture mechanics
-![An image of the three fracture modes, with a representative crack in the xy plane. The first mode showns a crack opening vertically in the z-direction, like jaws opening. The second mode is known as the sliding mode, where one face moves into the body (negative x direction) while the other end of the crack moves away from the body (positive x direction). The third mode is known as the tearing mode, and is similar to mode 2 but with the sliding occuring 90 degrees away in the y-direction.](images\Fracture_modes_v2.svg)
-
----
-## stress intensity
-  -  A key finding from Linear Elastic Fracture Mechanics (LEFM) is known as the *Stress Intensity Factor*
-  -  The stress intensity factor is often written in this form
-		`$$ K = \sigma \sqrt{ \pi a} \beta $$`
-    -  Where *K* is the stress intensity factor, `$ \sigma $` is the applied stress, *a* is the crack length, and `$ \beta $` is a dimensionless parameter depending on geometry
-
-----
-## stress Intensity
-  -  Be careful that although the notation is similar, the *Stress Intensity Factor* is different from the *Stress Concentration Factor* from strength of materials
-  -  We are usually most concerned with Mode I, but there will be a unique stress intensity factor for each mode, we label these `$ K_I $`, `$ K_{II} $`, and `$ K_{III} $`
-  -  If no subscript is given, assume Mode I
-
-----
-## stress intensity
-  -  For brittle materials (where "linear" fracture mechanics assumptions hold true) we can find the full stress field near the crack in terms of the stress intensity factor
-	`$$	\begin{align}
-		\begin{split}
-		\sigma_x &= \frac{K_I}{\sqrt{2\pi r}} \cos \frac{\theta}{2} \left(1-\sin \frac{\theta}{2}\sin \frac{3\theta}{2}\right)\\
-		\sigma_y &= \frac{K_I}{\sqrt{2\pi r}} \cos \frac{\theta}{2} \left(1+\sin \frac{\theta}{2}\sin \frac{3\theta}{2}\right)\\
-		\tau_{xy} &= \frac{K_I}{\sqrt{2\pi r}} \sin \frac{\theta}{2} \cos \frac{\theta}{2}\cos \frac{3\theta}{2}
-		\end{split}
-		\end{align} $$`
-
-----
-## mode II
-  -  Similarly for Mode II we find
-	`$$	\begin{align}
-		\begin{split}
-		\sigma_x &= \frac{-K_{II}}{\sqrt{2\pi r}} \sin \frac{\theta}{2} \left(2+\cos \frac{\theta}{2}\cos \frac{3\theta}{2}\right)\\
-		\sigma_y &= \frac{K_{II}}{\sqrt{2\pi r}} \sin \frac{\theta}{2} \cos \frac{\theta}{2}\cos \frac{3\theta}{2}\\
-		\tau_{xy} &= \frac{K_{II}}{\sqrt{2\pi r}} \cos \frac{\theta}{2} \left(1-\sin \frac{\theta}{2}\sin \frac{3\theta}{2}\right)
-		\end{split}
-		\end{align} $$`
-
-
-----
-## mode III
-  -  And for Mode III
-	`$$	\begin{align}
-		\begin{split}
-		\tau_{xz} &= \frac{-K_{III}}{\sqrt{2\pi r}} \sin \frac{\theta}{2} \\
-		\tau_{yz} &= \frac{K_{III}}{\sqrt{2\pi r}} \cos \frac{\theta}{2}
-		\end{split}
-		\end{align} $$`
+<span>upcoming schedule</span>
 
+-   Jan 23 - Tensor Transformation
 
----
-# common stress intensity factors
+-   Jan 25 - 1D micromechanics
 
-----
-## center crack, infinite width
-`$$K_I = \sigma \sqrt{\pi a}$$`
-![center crack, infinite width](images\center-infinite.svg)
+-   Jan 30 - Eshelby
 
-----
-## center crack, finite width
-![center crack, finite width](images\center-finite.svg)
+### outline
 
-----
-## center crack, finite width
+\[sections numbered\]
 
-`$$K_I = \sigma \sqrt{\pi a} \sqrt{\sec (\pi a/W)}$$`
-- Accurate within 0.3% for `$2a/W \le 0.7$`
-- within 1.0% for `$2a/W = -.8$`
-`$$K_I = \sigma \sqrt{\pi a} \left[1.0 - 0.025\left(\frac{2a}{W}\right)^2 + 0.06\left(\frac{2a}{W}\right)^4\right]\sqrt{\sec (\pi a/W)}$$`
-- Accurate within 0.1% for all crack lengths.
+Index Notation
+==============
 
-----
-## edge crack, semi-infinite width
+<span>index notation</span>
 
-`$$K_I = 1.122 \sigma \sqrt{\pi a}$$`
-![edge crack, semi-infinite](images\edge-infinite.svg)
+-   Consider the following
 
-----
-## edge crack, finite width
+-   
+    *s* = *a*<sub>1</sub>*x*<sub>1</sub> + *a*<sub>2</sub>*x*<sub>2</sub> + ... + *a*<sub>*n*</sub>*x*<sub>*n*</sub>
 
-![edge crack, finite width](images\edge-finite.svg)
+-   Which we could also write as
 
-----
-## edge crack, finite width
+-   
+    $$s = \\sum\_{i=1}^{n}a\_ix\_i$$
 
-`$$\beta = \left[1.122 - 0.231 \frac{a}{W} + 10.55 \left(\frac{a}{W}\right)^2 - 21.71 \left(\frac{a}{W}\right)^3 + 30.82 \left(\frac{a}{W}\right)^4\right]$$`
+-   Using index notation, and Einstein’s summation convention, we can also write this as
 
-- Within 0.5% accuracy for `$\frac{a}{W} < 0.6$`
+-   
+    *s* = *a*<sub>*i*</sub>*x*<sub>*i*</sub>
 
-`$$\beta = \frac{0.752 + 2.02\frac{a}{W} + 0.37\left(1-\sin \frac{\pi a}{2W}\right)^3}{\cos \frac{\pi a}{2W}}\sqrt{\frac{2W}{\pi a} \tan \frac{\pi a}{2W}}$$`
+<span>dummy index</span>
 
-- Within 0.5% accuracy for `$0 < \frac{a}{W} < 1.0$`
+-   In index notation, a repeated index implies summation
 
-----
-## edge crack, bending moment
-![edge crack under bending](images\bending.svg)
+-   This index is also referred to as a dummy index
 
-----
-## edge crack, bending moment
+-   It is called a “dummy index” because the expression would have the same meaning with any index in its place
 
-- The usual form for stress intensity still applies
-`$$K_I = \sigma \sqrt{\pi a} \beta$$`
-- Where `$\sigma = \frac{6M}{tW^2}$`
-`$$\beta = 1.122 - 1.40 \left(\frac{a}{W}\right) + 7.33 \left(\frac{a}{W}\right)^2 - 13.08\left(\frac{a}{W}\right)^3 + 14.0 \left(\frac{a}{W}\right)^4$$`
-- valid within 0.2% accuracy for `$\frac{a}{W} \le 0.6$`
+-   i.e. *i*, *j*, *k*, etc. would all have the same meaning when repeated
 
-----
-## edge crack, bending moment
-`$$\beta = \frac{0.923 + 0.199 \left(1-\sin \frac{\pi a}{2W}\right)^4}{\cos \frac{\pi a}{2W}}\sqrt{\frac{2W}{\pi a} \tan \frac{\pi a}{2W}}$$`
-- valid within 0.5% for any `$\frac{a}{W}$`
+-   Note, no index may be repeated more than once, thus the expression
+    $$s = \\sum\_{i=1}^{n}a\_ib\_ix\_i$$
+     could not be directly written in index notation
 
-----
-## nominal bending stress
+<span>free index</span>
 
-- The nominal bending stress is for rectangular cross-sections
-- A more general form is given by `$\sigma = \frac{Mc}{I}$`
-- Where for a rectangular cross-section, `$c=W/2$` and `$I=tW^3/12$` which simplifies as shown previously
+-   Any index which is not repeated in an index notation expression is referred to as a free index
 
-----
-## center crack, finite width, splitting forces
+-   The number of free indexes in an expression indicate the tensor order of that expression
 
-![center crack, finite widte, splitting forces](images\splitting-force.svg)
+-   No free indexes = scalar expression (0-order tensor)
 
-----
-## center crack, finite width, splitting forces
-
-- With an applied load we use a slightly modified form for the stress intensity factor `$K_I = \frac{P}{t \sqrt{\pi a}}\beta$`
-- With `$\beta$` in this case given as
-    `$$\beta = \frac{1 - 0.5\left(\frac{a}{W}\right)+0.975\left(\frac{a}{W}\right)^2 - 0.16\left(\frac{a}{W}\right)^3}{\sqrt{1-\left(\frac{a}{W}\right)}}$$`
-
-----
-## offset crack
-
-![off-center crack](images\off-center.svg)
-
-----
-## offset crack
-`$$K_{IA} = \sigma \sqrt{\pi a} \beta_c \beta_A \text{ and } K_{IB} = \sigma \sqrt{\pi a} \beta_c \beta_B$$`
-
-`$$ \beta_c = \sqrt{\sec \frac{\pi a}{W}}$$`
-
-----
-## offset crack
-`$$\begin{aligned}
-        &\begin{aligned}
-        {\beta_A} &= (1-0.025\lambda^2 + 0.6\lambda^4 - \gamma \lambda^{11})\\
-        &\qquad \sqrt{\sec \left(\frac{\pi \lambda}{2}\right)\frac{\sin \left(2\lambda - 4\frac{a}{W}\right)}{2\lambda - 4\frac{a}{W}}}
-        \end{aligned}\\
-        &\begin{aligned}
-        {\beta_B} &= (1-0.025\delta^2 + 0.06\delta^4 - \zeta \lambda^{30})\\
-        &\qquad \left(1+\frac{\sqrt{\sec\left(\frac{2\pi \lambda + 1.5\pi \delta}{7}\right)-1}}{1+0.21\sin \left( 8 \tan^{-1} \left(\frac{\lambda - \delta}{\lambda + \delta}\right)^{0.9}\right)}\right)
-        \end{aligned}
-        \end{aligned}$$
-`
-
-----
-## offset crack
-
-- The parameters `$\lambda$`, `$\delta$` are given as
-
-`$$\begin{aligned}
-      \lambda &= \frac{a}{b}\\
-      \delta &= \frac{a}{W-b}
-    \end{aligned}$$`
-
-----
-## offset crack
-- And `$\gamma$` and `$\zeta$` can be looked up on a table
-
-`$\frac{b}{W}$` |  `$\gamma$` |  `$\zeta$`
---- | --- | ---
-0.1 | 0.382 | 0.114
-0.25 | 0.136 | 0.286
-0.4 | 0.0 | 0.0
-0.5 | 0.0 | 0.0
-
-----
-## non-uniform stress, infinite width
-![arbitrary pressure function loading along crack](images\pressure-function.svg)
-
-----
-## non-uniform stress, infinite width
-
-- Stress intensity will be different at points $A$ and $B$
-
-`$$\begin{aligned}
-    K_{IA} &= \int_{-a}^{a} \frac{p(x)}{\sqrt{\pi a}}\frac{\sqrt{a-x}}{\sqrt{a+x}}dx\\
-    K_{IB} &= \int_{-a}^{a} \frac{p(x)}{\sqrt{\pi a}}\frac{\sqrt{a+x}}{\sqrt{a-x}}dx
-\end{aligned}$$`
-
-----
-## cracks around a hole
-![a crack around a hole under both remote stress and a local bearing load](images\bearing-through.svg)
-
-----
-## cracks around a hole
-- For symmetric through cracks under uniform applied stress, we have
-`$$\begin{aligned}
-    \beta &= \beta_1 + \beta_2\\
-    \beta_1 &= F_{c/R}F_wF_{ww}\\
-    \beta_2 &= \frac{\sigma_{br}}{\sigma} F_3 F_w F_{ww}\\
-    F_{c/R} &= \frac{3.404 + 3.8172 \frac{c}{R}}{1 + 3.9273\frac{c}{R} - 0.00695 \left(\frac{c}{R}\right)^2 }\\
-    F_w &= \sqrt{\sec \frac{\pi R}{W} \sec \frac{\pi (R+c)}{W}}
-\end{aligned}$$`
-
-----
-## cracks around a hole
-
-`$$\begin{aligned}
-    &\begin{aligned}
-    F_{ww} &= 1- \left(\left(1.32 \frac{W}{D} - 0.14\right)^{-(.98+\left(0.1\frac{W}{D}\right)^{0.1})}-0.02\right)\\
-    &\qquad \left(\frac{2c}{W-D}\right)^N
-    \end{aligned}\\
-    F_3 &= 0.098 + 0.3592 e^{-3.5089\frac{c}{R}} + 0.3817 e^{-0.5515 \frac{c}{R}}
-\end{aligned}$$
-`
-
-----
-## cracks around a hole
-
--  Note that
-`$$\begin{aligned}
-  \sigma_{br} &= \frac{P}{Dt}\\
-  N &= \frac{W}{D} + 2.5 \qquad \text{when} \qquad \frac{W}{D} < 2\\
-  N &= 4.5 \qquad \qquad \text{otherwise}
-\end{aligned}$$
-`
-- Also `$R$` is the radius, `$R= \frac{D}{2}$`
-
-----
-## cracks around a hole
-![a crack around a hole under both remote stress and a local bearing load, but there is only a crack on one side](images\bearing-single.svg)
-
-----
-## cracks around a hole
-
-`$$\begin{aligned}
-    \beta &= \beta_1 + \beta_2\\
-    \beta_1 &= \beta_3 F_w F_{ww}\\
-    \beta_2 &= \frac{\sigma_{br}}{\sigma} F_4 F_w F_{ww}\\
-    &\begin{aligned}
-    \beta_3 &= 0.7071 + 0.7548 \frac{R}{R+c} + 0.3415 \left(\frac{R}{R+C}\right)^2 + \\
-    &\qquad 0.6420 \left(\frac{R}{R+c}\right)^3 + 0.9196\left(\frac{R}{R+c}\right)^4
-    \end{aligned}\\
-    F_4 &= 0.9580 + 0.2561 \frac{c}{R} - 0.00193 \left(\frac{c}{R}\right)^{2.5} - 0.9804 \left(\frac{c}{R}\right)^{0.5}
-\end{aligned}$$
-`
-
-----
-## cracks around a hole
-
-`$$\begin{aligned}
-  F_w &= \sqrt{\sec \frac{\pi R}{W} \sec \frac{\pi (R + c/2)}{W-c}}\\
-  F_{ww} &= 1 - N^{-\frac{W}{D}} \left(\frac{2c}{W-D}\right)^{\frac{W}{D} + 0.5}\\
-  N &= 2.65 - 0.24\left(2.75 - \frac{W}{D}\right)^2\\
-  N &\ge 2.275 \qquad \text{(if $N < 2.275$, let $N=2.275$)}
-\end{aligned}$$
-`
-Also note that `$R$` indicates radius, `$R=\frac{D}{2}$`
-
----
-## group problems
-
-1.  Find `$K_I$` for a center-cracked panel with `$W/2a = 3$` and a
-    uniformly applied remote stress, `$\sigma$`.
-
-2.  Find `$K_I$` for an edge-cracked panel with `$W/a = 3$` and a uniformly
-    applied remote stress, `$\sigma$`.
-
-3.  Find `$K_I$` for an edge-cracked panel with `$W/a = 3$` and a remote
-    bending moment, `$M = tW^2\sigma/6$`.
-
-4.  Find `$K_I$` for a center-cracked panel with `$W/2a = 3$` and a
-    concentrated splitting force, `$P = \sigma a t$`.
-
-----
-## group problems
-5.  What do you think causes the difference (if any) in stress intensity
-    between these panels?
-
----
-## example 1
-
-![center-crack finite element simulation](images\center-crack.png)
-
-----
-## example 1
-
-![edge-crack finite element simulation](images\edge-crack.png)
-
----
-# 2D crack shapes
-
-----
-## crack depth
-- The previous stress intensity factors all assume a 2D problem (with a 1D crack)
-- Through the thickness, it is assumed that the crack length is the same
-- In many cases this is not an accurate assumption
-- We will now consider 2D crack shapes and their effect on the stress intensity factor
-
-----
-## elliptical flaw, infinite solid
-![a 3D drawing showing an elliptical-shaped internal flaw inside a body](images\internal flaw.svg) <!-- .element class="left" -->
-![a planar drawing showing dimensions for the elliptical flaw](images\internal-flaw-in-plane.svg) <!-- .element class="right" -->
-
-----
-## elliptical flaw, infinite solid
-
--   For an ellipse the stress intensity factor will vary with the angle, `$\phi$`
-
-`$$\begin{aligned}
-  K_I &= \sigma \sqrt{\pi a} \beta\\
-  \beta &= \sqrt{\frac{1}{Q}} f_\phi\\
-  Q &= 1+ 1.464 \left(\frac{a}{c}\right)^{1.65} \qquad \text{if $a/c \le 1$}
-\end{aligned}$$`
-
-----
-## elliptical flaw, infinite solid
-
--   For an ellipse the stress intensity factor will vary with the angle, `$\phi$`
-
-`$$\begin{aligned}
-  Q &= 1+ 1.464 \left(\frac{c}{a}\right)^{1.65} \qquad \text{if $a/c > 1$}\\
-  f_\phi &= \left(\left(\frac{a}{c}\right)^2 \cos^2 \phi + \sin^2 \phi \right)^{1/4}\qquad \text{if $a/c \le 1$}\\
-  f_\phi &= \left(\cos^2 \phi + \left(\frac{c}{a}\right)^2 \sin^2 \phi \right)^{1/4}\qquad \text{if $a/c > 1$}
-\end{aligned}$$`
-
-----
-## elliptical flaw, finite solid
-![a 3D drawing showing an elliptical-shaped internal flaw inside a body](images\internal flaw.svg) <!-- .element class="left" -->
-![a planar drawing showing dimensions for the elliptical flaw within a finite body](images\internal-flaw-finite.svg) <!-- .element class="right" -->
-
-----
-## finite solid
-
-`$$\begin{aligned}
-  \beta &= \sqrt{\frac{1}{Q}} F_e\\
-  F_e &= \left(M_1 + M_2 \left(\frac{a}{t}\right)^2 + M_3 \left(\frac{a}{t}\right)^4\right)g f_\phi f_w\\
-  f_w &= \sqrt{\sec\left(\frac{\pi c}{2b}\sqrt{\frac{a}{t}}\right)}\\
-  g &= 1 - \frac{\left(\frac{a}{t}\right)^4\left(2.6-2\frac{a}{t}\right)^{1/2}}{1+4\frac{a}{c}}\cos \phi
-\end{aligned}$$
-`
-
-----
-## elliptical flaw, finite solid
-
-`$$\begin{aligned}
-    M_2 &= \frac{0.05}{0.11+\left(\frac{a}{c}\right)^{3/2}}\\
-    M_3 &= \frac{0.29}{0.23\left(\frac{a}{c}\right)^{3/2}}
-\end{aligned}$$
-`
-
-----
-## elliptical flaw, finite solid
-- If `$a/c \le 1$`
-`$$\begin{aligned}
-  M_1 &= 1\\
-  Q &= 1+1.464\left(\frac{a}{c}\right)^{1.65}\\
-  f_\phi &= \left(\left(\frac{a}{c}\right)^2 \cos^2 \phi + \sin^2 \phi \right)^{1/4}
-\end{aligned}$$
-`
-
-----
-## elliptical flaw, finite solid
-- Otherwise (`$a/c > 1$`)
-
-`$$\begin{aligned}
-  M_1 &= \left(\frac{c}{a}\right)^{1/2}\\
-  Q &= 1+1.464\left(\frac{c}{a}\right)^{1.65}\\
-  f_\phi &= \left(\cos^2 \phi + \left(\frac{c}{a}\right)^2 \sin^2 \phi \right)^{1/4}
-\end{aligned}$$`
-
-----
-## semi-elliptical surface flaw, finite body
-![a 3D drawing showing a semi-elliptical-shaped flaw on the edge of a body](images\edge-flaw.svg) <!-- .element class="left" -->
-![a planar drawing showing dimensions for the semi-elliptical flaw within a finite body](images\edge-flaw-plane.svg) <!-- .element class="right" -->
-
-----
-## semi-elliptical surface flaw, finite body
-
-`$$\begin{aligned}
-  K_I &= \sigma \sqrt{\pi a} \beta\\
-  \beta &= \sqrt{\frac{1}{Q}} F_s\\
-  F_s &= \left(M_1 + M_2 \left(\frac{a}{t}\right)^2 + M_3 \left(\frac{a}{t}\right)^4\right)g f_\phi f_w\\
-  f_w &= \sqrt{\sec\left(\frac{\pi c}{2b}\sqrt{\frac{a}{t}}\right)}
-\end{aligned}$$
-`
-
-----
-## surface flaw, `$\frac{a}{c} \le 1$`
-
-`$$\begin{aligned}
-  M_1 &= 1.13 - 0.09 \left(\frac{a}{c}\right)\\
-  M_2 &= -0.52 + \frac{0.89}{0.2 + \frac{a}{c}}\\
-  M_3 &= 0.5 - \frac{1}{0.65 + \frac{a}{c}} + 14 \left(1-\frac{a}{c}\right)^4
-\end{aligned}$$`
-
-----
-## surface flaw, `$\frac{a}{c} \le 1$`
-
-`$$\begin{aligned}
-  Q &= 1 + 1.464\left(\frac{a}{c}\right)^{1.65}\\
-  f_\phi &= \left(\left(\frac{a}{c}\right)^2 \cos^2 \phi + \sin^2 \phi \right)^{1/4}\\
-  g &= 1 + \left(0.1 + 0.35 \left(\frac{a}{t}\right)^2\right)\left(1-\sin \phi\right)^2
-\end{aligned}$$`
-
-----
-## surface flaw, `$\frac{a}{c} > 1$`
-
-`$$\begin{aligned}
-  M_1 &= \left(\frac{c}{a}\right)^{1/2} \left(1 + 0.04 \frac{c}{a}\right)\\
-  M_2 &= 0.2 \left(\frac{c}{a}\right)^4\\
-  M_3 &= -0.11 \left(\frac{c}{a}\right)^4
-\end{aligned}$$
-`
-
-----
-## surface flaw, `$\frac{a}{c} > 1$`
-
-`$$\begin{aligned}
-  Q &= 1 + 1.464\left(\frac{c}{a}\right)^{1.65}\\
-  f_\phi &= \left(\cos^2 \phi + \left(\frac{c}{a}\right)^2 \sin^2 \phi \right)^{1/4}\\
-  g &= 1 + \left(0.1 + 0.35 \left(\frac{c}{a}\right)\left(\frac{a}{t}\right)^2\right)\left(1-\sin \phi\right)^2
-\end{aligned}$$
-`
-
-----
-## corner flaw, finite body
-
-![a 3D drawing showing an quarter-elliptical-shaped flaw on a corner](images\corner crack.svg) <!-- .element class="left" height=45% -->
-![a planar drawing showing dimensions for the quarter-elliptical corner crack](images\corner-crack-plane.svg) <!-- .element class="right" -->
-
-----
-## corner flaw, finite body
-
-`$$\begin{aligned}
-  K_I &= \sigma \sqrt{\pi a} \beta\\
-  \beta &= \sqrt{\frac{1}{Q}} F_c\\
-  F_c &= \left(M_1 + M_2 \left(\frac{a}{t}\right)^2 + M_3 \left(\frac{a}{t}\right)^4\right)g_1 g_2 f_\phi f_w\\
-  f_w &= 1 - 0.2 \lambda + 9.4 \lambda^2 - 19.4 \lambda^3 + 27.1 \lambda^4\\
-  \lambda &= \left(\frac{c}{b}\right)\left(\frac{a}{t}\right)^{1/2}
-\end{aligned}$$
-`
-
-----
-## corner flaw, finite body, `$\frac{a}{c} \le 1$`
-
-`$$\begin{aligned}
-  M_1 &= 1.08 - 0.03 \left(\frac{a}{c}\right)\\
-  M_2 &= -0.44 + \frac{1.06}{0.3 + \frac{a}{c}}\\
-  M_3 &= -0.5 + 0.25 \frac{a}{c} + 14.8 \left(1-\frac{a}{c}\right)^{1.5}\
-\end{aligned}$$
-`
-
-----
-## corner flaw, finite body, `$\frac{a}{c} \le 1$`
-
-`$$\begin{aligned}
-  Q &= 1 + 1.464\left(\frac{a}{c}\right)^{1.65}\\
-  f_\phi &= \left(\left(\frac{a}{c}\right)^2 \cos^2 \phi + \sin^2 \phi \right)^{1/4}\\
-  g_1 &= 1 + \left(0.08 + 0.4 \left(\frac{a}{t}\right)^2\right)\left(1-\sin \phi\right)^3\\
-  g_2 &= 1 + \left(0.08 + 0.15 \left(\frac{a}{t}\right)^2\right)\left(1-\cos \phi\right)^3
-\end{aligned}$$
-`
-
-----
-## corner flaw, finite body, `$\frac{a}{c} > 1$`
-
-`$$\begin{aligned}
-  M_1 &= \left(\frac{c}{a}\right)^{1/2} \left(1.08 - 0.03 \frac{c}{a}\right)\\
-  M_2 &= 0.375 \left(\frac{c}{a}\right)^4\\
-  M_3 &= -0.25 \left(\frac{c}{a}\right)^2
-\end{aligned}$$
-`
-
-----
-## corner flaw, finite body, `$\frac{a}{c} > 1$`
-
-`$$\begin{aligned}
-  Q &= 1 + 1.464\left(\frac{c}{a}\right)^{1.65}\\
-  f_\phi &= \left(\cos^2 \phi + \left(\frac{c}{a}\right)^2 \sin^2 \phi \right)^{1/4}\\
-  g_1 &= 1 + \left(0.08 + 0.4 \left(\frac{c}{t}\right)^2\right)\left(1-\sin \phi\right)^3\\
-  g_2 &= 1 + \left(0.08 + 0.15 \left(\frac{c}{t}\right)^2\right)\left(1-\cos \phi\right)^3
-\end{aligned}$$
-`
-
----
-## example 2
-
-![A surface flaw shown with a major diameter of 1.2 inches and a minor radius (the semi-elliptical axis) of 0.4 inches. The specimen is 6 inches long (direction of major elliptical axis) and 1.2 inches wide (in minor axis direction).](images\example-1.svg) <!-- .element class="left" -->
-
-<div class="right">
-<ul>
-  <li> Find maximum value of `$K_I$` for semi-elliptical surface flaw </li>
-  <li> `$\sigma = 20 \text{ kpsi}$` (in opening direction) </li>
-</div>
-
-----
-## example 2
-
-- Here we will use the formula for a semi-elliptical surface flaw
-- In the first step we find `$a/c = 0.4/0.6 < 1$`, so we use that set of formulae
-- A worked python notebook of this example can be found [here](https://nbviewer.jupyter.org/github/ndaman/damagetolerance/blob/master/examples/Finite%20Width.ipynb)
-
----
-# 2D cracks at a hole
-
-----
-## when to consider 2D crack shape
-- When do we need to worry about 2D crack shape?
-- The important factor is ratio of crack length to thickness
-- When crack length is less than 5 times thickness, 2D shape effects are not negligible
-
-----
-## cracks around a hole
-![A diagram of cracks around a hole, with a cross-section showing that the cracks are corner cracks in the thickness direction](images\bearing-symmetric-corner.svg)
-
-----
-## remote stress
-
-`$$\begin{aligned}
-  K_{I} &= \sigma \sqrt{\pi a} \beta\\
-  \beta &= \sqrt{\frac{1}{Q}} F_{ch}\\
-  F_{ch} &= \left(M_1 + M_2 \left(\frac{a}{t}\right)^2 + M_3 \left(\frac{a}{t}\right)^4\right)g_1 g_2 g_3 g_4 f_\phi f_w\\
-  f_w &= \sqrt{\sec \left(\frac{\pi r}{2b}\right)\sec \left(\frac{\pi (2r + nc)}{4(b-c) + 2nc} \sqrt{\frac{a}{t}}\right)}
-\end{aligned}$$
-`
-
-----
-## remote stress
-
-`$$\begin{aligned}
-  g_2 &= \frac{1+0.358\lambda+1.425\lambda^2 - 1.578\lambda^3+2.156\lambda^4}{1+0.13\lambda^2}\\
-  \lambda &= \frac{1}{1+(c/r)\cos \left(0.85 \phi \right)}
-\end{aligned}$$
-`
-Where `$n = $` number of cracks (1 or 2)
-
-----
-## remote stress when `$a/c \le 1$`
-
-`$$\begin{aligned}
-  M_1 &= 1.13 - 0.09 \left(a/c\right)\\
-  M_2 &= -0.54 + \frac{0.89}{0.2 + a/c}\\
-  M_3 &= 0.5 - \frac{1}{0.65 + a/c}+ 14 \left(1-a/c\right)^{24}\\
-  Q &= 1+1.464\left(a/c\right)^{1.65}
-\end{aligned}$$
-`
-
-----
-## remote stress when `$a/c \le 1$`
-
-`$$\begin{aligned}
-  g_1 &= 1 + \left(0.1+0.35 \left(a/t\right)^2\right)(1-\sin \phi)^2\\
-  g_3 &= (1+0.04 (a/c))\left(1+0.1(1-\cos \phi)^2\right)\left(0.85+0.15(a/t)^{1/4}\right)\\
-  g_4 &= 1 - 0.7(1-a/t)(a/c-0.2)(1-a/c)\\
-  f_\phi &= \left(\left(a/c\right)^2 \cos^2 \phi + \sin^2 \phi \right)^{1/4}
-\end{aligned}$$
-`
-
-----
-## remote stress when $a/c > 1$
-
-`$$\begin{aligned}
-  M_1 &= \sqrt{c/a}(1+0.04 (c/a))\\
-  M_2 &= 0.2(c/a)^4\\
-  M_3 &= -0.11(c/a)^4\\
-  Q &= 1+1.464\left(\frac{c}{a}\right)^{1.65}
-\end{aligned}$$
-`
-
-----
-## remote stress when $a/c > 1$
-
-`$$\begin{aligned}
-  g_1 &= 1 + \left(0.1+0.35 (c/a)\left(a/t\right)^2\right)(1-\sin \phi)^2\\
-  g_3 &= (1.13-0.09 (c/a))\left(1+0.1(1-\cos \phi)^2\right)\left(0.85+0.15(a/t)^{1/4}\right)\\
-  g_4 &= 1 \\
-  f_\phi &= \left(\cos^2 \phi + \left(\frac{c}{a}\right)^2 \sin^2 \phi \right)^{1/4}
-\end{aligned}$$
-`
-
-----
-## remote stress
-
-- The same formulas apply for both symmetric cracks (`$n=2$`) and a single crack (`$n=1$`) with one additional correction factor applied to the single crack case
-    `$$K_{I,single} = \sqrt{\frac{4/\pi + ac/2tr}{4/\pi + ac/tr}}K_{I,symmetric}$$`
-
-----
-## surface cracks around a hole
-![A diagram of cracks around a hole, with a cross-section showing that the cracks are surface flaws in the thickness direction](images\bearing-surface.svg)
-
-----
-## remote stress
-`$$\begin{aligned}
-  K_{I} &= \sigma \sqrt{\pi a} \beta\\
-  \beta &= \sqrt{\frac{1}{Q}} F_{sh}\\
-  F_{sh} &= \left(M_1 + M_2 \left(\frac{a}{t}\right)^2 + M_3 \left(\frac{a}{t}\right)^4\right)g_1 g_2 g_3 f_\phi f_w\\
-  f_w &= \sqrt{\sec \left(\frac{\pi r}{2b}\right)\sec \left(\frac{\pi (2r + nc)}{4(b-c) + 2nc} \sqrt{\frac{a}{t}}\right)}
-\end{aligned}$$
-`
-
-----
-## remote stress
-`$$\begin{aligned}
-  M_2 &= \frac{0.05}{0.11 + (a/c)^{3/2}}\\
-  M_3 &= \frac{0.29}{0.23 + (a/c)^{3/2}}
-\end{aligned}$$
-`
-Where `$n = $` number of cracks (1 or 2)
-
-----
-## remote stress
-
-`$$\begin{aligned}
-  g_1 &= 1- \frac{(a/t)^4(2.6-2a/t)^{1/2}}{1+4a/c}\cos \phi\\
-  g_2 &= \frac{1+0.358\lambda+1.425\lambda^2 - 1.578\lambda^3+2.156\lambda^4}{1+0.08\lambda^2}\\
-  \lambda &= \frac{1}{1+(c/r)\cos \left(0.9 \phi \right)}\\
-  g_3 &= 1+0.1(1-\cos \phi)^2 (1-a/t)^{10}
-\end{aligned}$$
-`
-
-----
-## remote stress `$a/c \le 1$`
-
-`$$\begin{aligned}
-  Q &= 1 + 1.464(a/c)^{1.65}\\
-  M_1 &= 1\\
-  f_\phi &= \left(\left(\frac{a}{c}\right)^2 \cos^2 \phi + \sin^2 \phi \right)^{1/4}
-\end{aligned}$$
-`
-
-----
-## remote stress $a/c > 1$
-`$$\begin{aligned}
-  Q &= 1 + 1.464(c/a)^{1.65}\\
-  M_1 &= \sqrt{c/a}\\
-  f_\phi &= \left(\cos^2 \phi + \left(\frac{c}{a}\right)^2 \sin^2 \phi \right)^{1/4}
-\end{aligned}$$
-`
-
-----
-## single-crack correction
-- When the surface crack is only on one side of the hole, we use the same correction as for corner cracks
-`$$K_{I,single} = \sqrt{\frac{4/\pi + ac/2tr}{4/\pi + ac/tr}}K_{I,symmetric}$$`
-
-----
-## edge crack on a lug
-![A through crack on only one side of a hole with only bearing forces, no remote stress](images\bearing-single.svg)
-
-----
-## edge crack on a lug
-
-`$$\begin{aligned}
-  K_I &= \sigma_{br} \sqrt{\pi c} \beta\\
-  \beta &= \left(\frac{G_0 D}{2W} + G_1\right)G_w G_L G_2\\
-  z &= \left(1+\frac{2C}{D}\right)^{-1}\\
-  G_0 &= 0.7071 + 0.7548z + 0.3415z^2 + 0.642z^3 + 0.9196z^4\\
-  G_1 &= 0.078z + 0.7588z^2 - 0.4293z^3 + 0.0644z^4 + 0.651z^5\\
-  G_L &= \left(\sec \left(\frac{\pi D}{2W}\right)\right)^{1/2}
-\end{aligned}$$
-`
-
-----
-## edge crack on a lug
-
-`$$\begin{aligned}
-  \lambda &= \frac{\pi}{2} \left(\frac{D+c}{W-c}\right)\\
-  G_w &= \left(\sec \lambda \right)^{1/2}\\
-  b &= \frac{W-D}{2}\\
-  A_1 &= 0.688 + 0.772 \frac{D}{W} + 0.613 \left(\frac{D}{W}\right)^2\\
-  A_2 &= 4.948 - 17.318 \frac{D}{W} + 16.785 \left(\frac{D}{W}\right)^2
-\end{aligned}$$
-`
-
-----
-## edge crack on a lug
-
-`$$\begin{aligned}
-    A_3 &= -14.297 + 62.994 \frac{D}{W} - 69.818 \left(\frac{D}{W}\right)^2\\
-    A_4 &= 12.35 - 58.644 \frac{D}{W} + 66.387 \left(\frac{D}{W}\right)^2\\
-    G_2 &= A_1 + A_2 \frac{c}{b} + A_3 \left(\frac{c}{b}\right)^2 + A_4 \left(\frac{c}{b}\right)^3
-\end{aligned}$$
-`
-
-----
-## corner crack on a lug
-![A single corner crack on one side of a hole under only bearing stress](images\bearing-single-corner.svg)
-
-----
-## corner crack on a lug
-
-`$$\begin{aligned}
-  \beta &= \left(\frac{G_0 D}{2W} + G_1\right)G_w\\
-  z &= \left(1 + 2\frac{c}{D} \cos (0.85 \phi)\right)^{-1}\\
-  f_0(z) &= 0.7071 + 0.7548z + 0.3415z^2 + 0.642z^3 + 0.9196z^4\\
-  f_1(z) &= 0.078z + 0.7588z^2 - 0.4293z^3 + 0.0644z^4 + 0.651z^5\\
-  G_0 &= \frac{f_0(z)}{d_0}\\
-  d_0 &= 1 + 0.13z^2
-\end{aligned}$$
-`
-
-----
-## corner crack on a lug
-
-`$$\begin{aligned}
-  g_p &= \left(\frac{W+D}{W-D}\right)^{1/2}\\
-  G_1 &= f_1(z) \left(\frac{g_p}{d_0}\right)\\
-  G_w &= M_0 g_1 g_3 g_4 f_\phi f_w f_x\\
-  v &= \frac{a}{t}
-\end{aligned}$$
-`
-
-----
-## corner crack on a lug
-
-`$$\begin{aligned}
-  \lambda &= \frac{\pi}{2} \sqrt{v} \left(\frac{D+c}{W-c}\right)\\
-  f_w &= \left(\sec \lambda \sec \frac{\pi D}{2W}\right)^{1/2}\\
-  x &= \frac{a}{c}
-\end{aligned}$$
-`
-
-----
-## corner crack on a lug `$a/c \le 1$`
-
-`$$\begin{aligned}
-  f_\phi &= \left(\left(\frac{a}{c}\cos \phi\right)^2 + \sin^2 \phi \right)^{1/4}\\
-  f_x &= \left(1+1.464 \left(\frac{a}{c}\right)^{1.65}\right)^{-1/2}\\
-  &\begin{aligned}
-    M_0 &= (1.13 - 0.09x) + \left(-0.54 + \frac{0.89}{0.2 + x}\right)v^2 {    \colorbox{red!50}{$\displaystyle+$}} \\
-    &\qquad \left(0.5 - \frac{1}{.65-x} + 14(1-x^{24})\right)v^4
-  \end{aligned}
-\end{aligned}$$
-`
-
-----
-## corner crack on a lug `$a/c \le 1$`
-
-`$$\begin{aligned}
-  g_1 &= 1 + \left(0.1 + 0.35 v^2\right)\left(1-\sin \phi\right)^2\\
-  g_3 &= \left(1+0.04x\right)\left(1 + 0.1 \left(1-\cos \phi \right)^2\right)\left(0.85 + 0.15v ^{1/4}\right)\\
-  g_4 &= 1 - 0.7 \left(1-v\right)\left(x - 0.2\right)\left(1-x\right)
-\end{aligned}$$
-`
-
-----
-## corner crack on a lug `$a/c > 1$`
-
-`$$\begin{aligned}
-  f_\phi &= \left(\left(\frac{ac}{c} \sin \phi \right)^2 + \cos^2 \phi \right)^{1/4}\\
-  f_x &= \left(1 + 1.464 \left(\frac{c}{a}\right)^{1.65}\right)^{-1/2}\\
-  M_0 &= x^{-1/2} + 0.04 x^{-3/2} + 0.2 x^{-4} v^2  - 0.11 x^{-4}v^4
-\end{aligned}$$
-`
-
-----
-## corner crack on a lug `$a/c > 1$`
-
-`$$\begin{aligned}
-  g_1 &= 1 + \left(0.1 + \frac{0.35}{x}v^2\right)\left(1-\sin \phi \right)^2\\
-  g_3 &= \left(1.13 + \frac{0.09}{x}\right)\left(1+0.1(1-\cos \phi)^2\right)\left(0.85 + 0.15v^{1/4}\right)\\
-  g_4 &= 1
-\end{aligned}$$
-`
-
-----
-## symmetric corner cracks under bending
-![Symmetric corner cracks around a hole under remote bending stress](images\bearing-symmetric-corner.svg)
-
-----
-## corner cracks under bending
-
-`$$\begin{aligned}
-  \sigma_b &= \frac{Mt}{2 I}\\
-  I &= \frac{bt^3}{6}\\
-  \beta &= H_{ch} \left(\frac{a}{cQ}\right)^{1/2} F_{ch}
-\end{aligned}$$
-`
-
-----
-## corner cracks under bending
-
-`$$\begin{aligned}
-  H_{ch} &= H_1 + (H_2 - H_1) \sin ^p \phi\\
-  H_1 &= 1 + G_{11} (a/t) + G_{12} (a/t)^2 + G_{13} (a/t)^3\\
-  H_2 &= 1 + G_21 (a/t) + G_{22}(a/t)^2 + G_{23}(a/t)^3
-\end{aligned}$$
-`
-
-----
-## corner cracks under bending
-
-`$$\begin{aligned}
-  F_{ch} &= \left(M_1 + M_2(a/t)^2 + M_3(a/t)^4\right)g_1 g_2 g_3 g_4 f_\phi f_w\\
-  \lambda &= \frac{1}{1 + (c/r) \cos (0.85 \phi)}\\
-  g_2 &= \frac{1 + .358 \lambda + 1.425 \lambda^2 - 1.578 \lambda^3 + 2.156 \lambda^4}{1 + 0.13\lambda^2}
-\end{aligned}$$
-`
-
-----
-## corner cracks under bending `$a/c \le 1$`
-
-`$$\begin{aligned}
-  M_1 &= 1.13 - 0.09 (a/c)\\
-  M_2 &= -0.54 + \frac{0.89}{0.2 + a/c}\\
-  M_3 &= 0.5 - \frac{1}{0.65+a/c} + 14(1-a/c)^4\\
-  Q &= 1 + 1.464(a/c)1.65
-\end{aligned}$$
-`
-
-----
-## corner cracks under bending `$a/c \le 1$`
-
-`$$\begin{aligned}
-  g_1 &= 1 + \left(0.1 + (a/t) v^2\right)\left(1-\sin \phi\right)^2\\
-  g_3 &= \left(1+0.04 (a/c) \right)\left(1 + 0.1 \left(1-\cos \phi \right)^2\right)\left(0.85 + 0.15(a/t) ^{1/4}\right)\\
-  g_4 &= 1 - 0.7 \left(1-a/t\right)\left(a/c - 0.2\right)\left(1-a/c\right)
-\end{aligned}$$
-`
-
-----
-## corner cracks under bending
-
-`$$\begin{aligned}
-  f_\phi &= \left(\left(\frac{a}{c}\cos \phi\right)^2 + \sin^2 \phi \right)^{1/4}\\
-  G_{11} &= -0.43 - 0.74 a/c - 0.84 (a/c)^2\\
-  G_{12} &= 1.25 - 1.19 a/c + 4.39 (a/c)^2\\
-  G_{13} &= -1.94 + 4.22 a/c - 5.51 (a/c)^2
-\end{aligned}$$
-`
-
-----
-## corner cracks under bending
-
-`$$\begin{aligned}
-  G_{21} &= -1.5 - 0.04 a/c - 1.73 (a/c)^2\\
-  G_{22} &= 1.71 - 3.17 a/c + 6.84 (a/c)^2\\
-  G_{23} &= -1.28 + 2.71 a/c - 5.22 (a/c)^2\\
-  p &= 0.1 + 1.3 a/t + 1.1 a/c - 0.7 (a/c) (a/t)
-\end{aligned}$$
-`
-
-----
-## corner cracks under bending `$a/c > 1$`
-
-`$$\begin{aligned}
-  M_1 &= (c/a)^{1/2}(1+0.04 c/a)\\
-  M_2 &= 0.2 (c/a)^4\\
-  M_3 &= -0.11 (c/a)^4\\
-  Q &= 1+ 1.464(c/a)^{1.65}\\
-  g_1 &= 1 + \left(0.1 0.35(c/a)(a/t)^2\right)\left(1-\sin \phi\right)^2\\
-  g_3 &= \left(1.13 - 0.09(c/a)\right)\left(1+ 0.1(1-\cos \phi)^2\right)\left(0.85 + 0.15(a/t)^{1/4}\right)\\
-  g_4 &= 1
-\end{aligned}$$
-`
-
-----
-## corner cracks under bending
-
-`$$\begin{aligned}
-  f_\phi &= \left(\left(\cos^2 \phi + \frac{c}{a}\sin \phi\right)^2  \right)^{1/4}\\
-  G_{11} &= -2.07 + 0.06 c/a\\
-  G_{12} &= 4.35 + 0.16 c/a\\
-  G_{13} &= -2.93 - 0.3c/a
-\end{aligned}$$
-`
-
-----
-## corner cracks under bending
-
-`$$\begin{aligned}
-  G_{21} &= -3.64 + 0.37c/a\\
-  G_{22} &= 5.87 - 0.49c/a\\
-  G_{23} &= -4.32 + 0.53c/a\\
-  p &= 0.2 + c/a + 0.6a/t
-\end{aligned}$$
-`
-
----
-## example 3
-![A problem with cracks around a hole. Dimensions given are .375 inch hole diameter, 5 inch wide specimen, 5,000 lb. remote load, 0.125 inch thickness, major crack radius .08 inches, minor crack radius .02 inches](images\example 2.svg)
-
-----
-## example
-
--   Case 1 - symmetric through cracks
--   Case 2 - single through crack
--   Case 3 - symmetric corner cracks
--   Case 4 - single corner crack
--   Case 5 - symmetric surface cracks
--   Case 6 - single surface crack
--   Viewable [here](https://nbviewer.jupyter.org/github/ndaman/damagetolerance/blob/master/examples/Cracks%20Around%20a%20Hole.ipynb)
+-   One free index = vector expression (1st-order tensor)
+
+-   Two free indexes = matrix expression (2nd-order tensor)
+
+<span>index notation</span>
+
+Free index vs. dummy index
+
+Free index is not repeated (on any term)
+
+Free index takes all values (1,2,3)
+
+e.g. *u*<sub>*i*</sub> = ⟨*u*<sub>1</sub>, *u*<sub>2</sub>, *u*<sub>3</sub>⟩
+
+Free indexes must match across terms in an expression or equation
+
+Dummy index is repeated on at least one term
+
+Dummy index indicates summation over all values
+
+e.g. *σ*<sub>*i**i*</sub> = *σ*<sub>11</sub> + *σ*<sub>22</sub> + *σ*<sub>33</sub>
+
+Index can not be used more than twice in the same term (*A*<sub>*i**j*</sub>*B*<sub>*j**k*</sub>*C*<sub>*k**l*</sub> is good, *A*<sub>*i**j*</sub>*B*<sub>*i**j*</sub>*C*<sub>*i**j*</sub> is not)
+
+<span>dummy index</span>
+
+-   The dummy index can be triggered by any repeated index in a .
+
+-   Summation or not?
+
+    -   *a*<sub>*i*</sub> + *b*<sub>*i**j*</sub>*c*<sub>*j*</sub>
+
+    -   *a*<sub>*i**j*</sub> + *b*<sub>*i**j*</sub>
+
+    -   *a*<sub>*i**j*</sub> + *b*<sub>*i**j*</sub>*c*<sub>*j*</sub>
+
+<span>matrix multiplication</span>
+
+-   How can we write matrix multiplication in index notation?
+
+-   $\\begin{bmatrix}
+            a\_{11} & a\_{12} \\\\
+            a\_{21} & a\_{22}
+            \\end{bmatrix}
+            \\begin{bmatrix}
+            b\_{11} & b\_{12} \\\\
+            b\_{21} & b\_{22}
+            \\end{bmatrix} =
+            \\begin{bmatrix}
+            c\_{11} & c\_{12} \\\\
+            c\_{21} & c\_{22}
+            \\end{bmatrix}$
+
+-   *c*<sub>11</sub> = *a*<sub>11</sub>*b*<sub>11</sub> + *a*<sub>12</sub>*b*<sub>21</sub>
+
+-   *c*<sub>12</sub> = *a*<sub>11</sub>*b*<sub>21</sub> + *a*<sub>12</sub>*b*<sub>22</sub>
+
+-   <span> </span>
+
+<span>special symbols</span>
+
+-   For convenience we define two symbols in index notation
+
+-   *Kronecker delta* is a general tensor form of the Identity Matrix
+    $$\\delta\_{ij} = \\left\\{
+            \\begin{array}{ll}
+            1& \\text{if $i=j$}\\\\
+            0& \\text{otherwise}
+            \\end{array}
+            \\right. = \\begin{bmatrix}
+            1 & 0 & 0\\\\
+            0 & 1 & 0 \\\\
+            0 & 0 & 1
+            \\end{bmatrix}$$
+
+-   Is also used for higher order tensors
+
+-   *δ*<sub>*i**j*</sub> = *δ*<sub>*j**i*</sub>
+
+-   *δ*<sub>*i**i*</sub>= 3
+
+-   *δ*<sub>*i**j*</sub>*a*<sub>*j*</sub>= *a*<sub>*i*</sub>
+
+-   *δ*<sub>*i**j*</sub>*a*<sub>*i**j*</sub>= *a*<sub>*i**i*</sub>
+
+<span>special symbols</span>
+
+-   *alternating symbol* or *permutation symbol*
+    $$\\epsilon\_{ijk} = \\left\\{
+            \\begin{array}{rl}
+            1 & \\text{if $ijk$ is an even permutation of 1,2,3}\\\\
+            -1 & \\text{if $ijk$ is an odd permutation of 1,2,3}\\\\
+            0 & \\text{otherwise}
+            \\end{array}
+            \\right.$$
+
+-   This symbol is not used as frequently as the *Kronecker delta*
+
+-   For our uses in this course, it is enough to know that 123, 231, and 312 are even permutations
+
+-   321, 132, 213 are odd permutations
+
+-   all other indexes are zero
+
+-   *ϵ*<sub>*i**j**k*</sub>*ϵ*<sub>*i**m**n*</sub> = *δ*<sub>*j**m*</sub>*δ*<sub>*k**n*</sub> − *δ*<sub>*j**n*</sub>*δ*<sub>*m**k*</sub>
+
+<span>substitution</span>
+
+-   When solving tensor equations, we often need to manipulate expressions
+
+-   We need to make sure the correct indexes are used when substituting, for example
+
+-   
+    *a*<sub>*i*</sub> = *U*<sub>*i**m*</sub>*b*<sub>*m*</sub>
+
+-   
+    *b*<sub>*i*</sub> = *V*<sub>*i**m*</sub>*c*<sub>*m*</sub>
+
+-   To substitute (\[eq:second\]) into (\[eq:first\]), we first need to change indexes
+
+<span>substitution</span>
+
+-   We need to change the free index, *i*, to *m* in (\[eq:second\])
+
+-   Since *m* is already used as the dummy index, we need to change that too
+
+-   
+    *b*<sub>*m*</sub> = *V*<sub>*m**j*</sub>*c*<sub>*j*</sub>
+
+-   We can now make the substitution
+
+-   
+    *a*<sub>*i*</sub> = *U*<sub>*i**m*</sub>*V*<sub>*m**j*</sub>*c*<sub>*j*</sub>
+
+<span>multiplication</span>
+
+-   We need to be careful with indexes when multiplying expressions
+
+-   
+    *p* = *a*<sub>*m*</sub>*b*<sub>*m*</sub>  and  *q* = *c*<sub>*m*</sub>*d*<sub>*m*</sub>
+
+-   We can express, *p**q*, but remember the dummy index cannot be repeated more than once
+
+-   
+    *p**q* ≠ *a*<sub>*m*</sub>*b*<sub>*m*</sub>*c*<sub>*m*</sub>*d*<sub>*m*</sub>
+
+-   Instead we must change the dummy index in one of the expressions first
+
+-   
+    *p**q* = *a*<sub>*m*</sub>*b*<sub>*m*</sub>*c*<sub>*n*</sub>*d*<sub>*n*</sub>
+
+<span>factoring</span>
+
+-   In the following expression, we would like to factor out *n*, but it has different indexes
+
+-   
+    *σ*<sub>*i**j*</sub>*n*<sub>*j*</sub> − *λ**n*<sub>*i*</sub> = 0
+
+-   Recall *δ*<sub>*i**j*</sub>*a*<sub>*j*</sub> = *a*<sub>*i*</sub>, we can rewrite *n*<sub>*i*</sub> = *δ*<sub>*i**j*</sub>*n*<sub>*j*</sub>
+
+-   
+    *σ*<sub>*i**j*</sub>*n*<sub>*j*</sub> − *λ**δ*<sub>*i**j*</sub>*n*<sub>*j*</sub> = 0
+
+-   
+    (*σ*<sub>*i**j*</sub> − *λ**δ*<sub>*i**j*</sub>)*n*<sub>*j*</sub> = 0
+
+<span>contraction</span>
+
+-   *σ*<sub>*i**i*</sub> is the contraction of *σ*<sub>*i**j*</sub>
+
+-   This can often be a useful tool in solving tensor equations
+
+-   
+    *σ*<sub>*i**j*</sub> = *λ**Δ**δ*<sub>*i**j*</sub> + 2*μ**E*<sub>*i**j*</sub>
+
+-   
+    *σ*<sub>*i**i*</sub> = *λ**Δ**δ*<sub>*i**i*</sub> + 2*μ**E*<sub>*i**i*</sub>
+
+<span>partial derivative</span>
+
+-   We indicate (partial) derivatives using a comma
+
+-   In three dimensions, we take the partial derivative with respect to each variable (*x*, *y*, *z* or *x*<sub>1</sub>, *x*<sub>2</sub>, *x*<sub>3</sub>)
+
+-   For example a scalar property, such as density, can have a different value at any point in space
+
+-   *ρ* = *ρ*(*x*<sub>1</sub>, *x*<sub>2</sub>, *x*<sub>3</sub>)
+    $$\\rho\_{,i} = \\frac{\\partial}{\\partial x\_i} \\rho = \\left\\langle \\frac{\\partial \\rho }{\\partial x\_1}, \\frac{\\partial \\rho }{\\partial x\_2}, \\frac{\\partial \\rho }{\\partial x\_3} \\right\\rangle$$
+
+<span>partial derivative</span>
+
+-   Similarly, if we take the partial derivative of a vector, it produces a matrix
+    $$u\_{i,j} = \\frac{\\partial}{\\partial x\_j} u\_i = \\begin{bmatrix}
+            \\frac{\\partial u\_1}{\\partial x\_1} & \\frac{\\partial u\_1}{\\partial x\_2} & \\frac{\\partial u\_1}{\\partial x\_3}\\\\
+            \\frac{\\partial u\_2}{\\partial x\_1} & \\frac{\\partial u\_2}{\\partial x\_2} & \\frac{\\partial u\_2}{\\partial x\_3}\\\\
+            \\frac{\\partial u\_3}{\\partial x\_1} & \\frac{\\partial u\_3}{\\partial x\_2} & \\frac{\\partial u\_3}{\\partial x\_3}
+            \\end{bmatrix}$$
+
+dyadic notation
+===============
+
+<span>dyadic notation</span>
+
+-   Dyadic notation is sometimes called tensor product notation
+
+-   Dyadic product: *C*<sub>*i**j*</sub> = *a*<sub>*i*</sub>*b*<sub>*j*</sub> is written as *C* = *a* ⊗ *b*
+
+-   Double dot product: *A*<sub>*i**j*</sub>*B*<sub>*j**i*</sub> = *c* is written as *A* : *B* = *c*
+
+transformation
+==============
+
+<span>linear transformation</span>
+
+-   Let us consider some transformation, **T**, which transforms any vector into another vector
+
+-   If we transform **Ta** = *c* and **Tb** = *d*
+
+-   We call **T** a linear transformation (and a tensor) if
+
+-   
+    $$\\begin{aligned}
+            \\textbf{T}(\\textbf{a} + \\textbf{b}) &= \\textbf{Ta} + \\textbf{Tb}\\\\
+            \\textbf{T}(\\alpha \\textbf{a}) = \\alpha\\textbf{Ta}
+            \\end{aligned}$$
+
+-   Where *α* is any arbitrary scalar and **a** **b** are arbitrary vectors
+
+<span>coordinate transformation in two dimensions</span>
+
+(0,3) node (yaxis) \[above\] <span>*x*<sub>2</sub></span> |- (3,0) node (xaxis) \[right\] <span>*x*<sub>1</sub></span>; (0,0) – (-2.12,2.12) node (yprime) \[above left\] <span>*x*<sub>2</sub><sup>′</sup></span>; (0,0) – (2.12,2.12) node (xprime) \[above right\] <span>*x*<sub>1</sub><sup>′</sup></span>; (0,0) – (1.5,1.5) node (v) \[above left\] <span>*v*</span>;
+
+<span>coordinate transformation in two dimensions</span>
+
+-   The vector, *v*, remains fixed, but we transform our coordinate system
+
+-   In the new coordinate system, the *x*<sub>2</sub><sup>′</sup> portion of *v* is zero.
+
+-   To transform the coordinate system, we first define some unit vectors.
+
+-   $\\hat{e}\_1$ is a unit vector in the direction of *x*<sub>1</sub>, while $\\hat{e}\_1^\\prime$ is a unit vector in the direction of *x*<sub>1</sub><sup>′</sup>
+
+<span>coordinate transformation in two dimensions</span>
+
+(0,3) node (yaxis) \[above\] <span>*x*<sub>2</sub></span> |- (3,0) node (xaxis) \[right\] <span>*x*<sub>1</sub></span>; (0,1) node (j) \[above right\] <span>$\\hat{e}\_2$</span> |- (1,0) node (i) \[below right\] <span>$\\hat{e}\_1$</span>; (0,0) – (-2.12,2.12) node (yprime) \[above left\] <span>*x*<sub>2</sub><sup>′</sup></span>; (0,0) – (2.12,2.12) node (xprime) \[above right\] <span>*x*<sub>1</sub><sup>′</sup></span>; (0,0) – (-.707,.707) node (jprime) \[above right\] <span>$\\hat{e}\_2^\\prime$</span>; (0,0) – (.707,.707) node (iprime) \[right\] <span>$\\hat{e}\_1^\\prime$</span>; (0,0) – (1.5,1.5) node (v) \[above left\] <span>*v*</span>; (0.5,0) arc (0:45:0.5) node (theta) \[below right = -0.1cm and 0.3cm\] <span>*θ*</span>;
+
+<span>coordinate transformation in two dimensions</span>
+
+-   For this example, let us assume *v* = ⟨2, 2⟩ and *θ* = 45<sup>∘</sup>
+
+-   We can write the transformed unit vectors, $\\hat{e}\_1^\\prime$ and $\\hat{e}\_2^\\prime$ in terms of $\\hat{e}\_1$, $\\hat{e}\_2$ and the angle of rotation, *θ*.
+    $$\\begin{aligned}
+                \\hat{e}\_1^\\prime &= \\langle \\hat{e}\_1 \\cos \\theta , \\hat{e}\_2 \\sin \\theta\\rangle\\\\
+                \\hat{e}\_2^\\prime &= \\langle -\\hat{e}\_1 \\sin \\theta , \\hat{e}\_2 \\cos \\theta \\rangle
+            \\end{aligned}$$
+
+<span>coordinate transformation in two dimensions</span>
+
+-   We can write the vector, *v*, in terms of the unit vectors describing our axis system
+
+-   $v = v\_1 \\hat{e}\_1 + v\_2 \\hat{e}\_2$
+
+-   (note: $\\hat{e}\_1=\\langle 1, 0 \\rangle$ and $\\hat{e}\_2 = \\langle 0,1 \\rangle$)
+
+-   *v* = ⟨2, 2⟩=2⟨1, 0⟩+2⟨0, 1⟩
+
+<span>coordinate transformation in two dimensions</span>
+
+-   When expressed in the transformed coordinate system, we refer to *v*<sup>′</sup>
+
+-   *v*<sup>′</sup> = ⟨*v*<sub>1</sub>cos*θ* + *v*<sub>2</sub>sin*θ*, −*v*<sub>1</sub>sin*θ* + *v*<sub>2</sub>cos*θ*⟩
+
+-   $v^\\prime = \\langle 2\\sqrt{2}, 0 \\rangle$
+
+-   We can recover the original vector from the transformed coordinates:
+
+-   $v = v\_1^\\prime \\hat{e}\_1^\\prime + v\_2^\\prime \\hat{e}\_2^\\prime$
+
+-   (note: $\\hat{e}\_1^\\prime=\\langle \\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2} \\rangle$ and $\\hat{e}\_2^\\prime = \\langle -\\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2} \\rangle$)
+
+-   $v = 2\\sqrt{2}\\langle \\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2} \\rangle, 0 \\langle -\\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2} \\rangle = \\langle 2, 2 \\rangle$
+
+<span>general coordinate transformation</span>
+
+-   Coordinate transformation can become much more complicated in three dimensions, and with higher-order tensors
+
+-   It is convenient to define a general form of the coordinate transformation in index notation
+
+-   We define *Q*<sub>*i**j*</sub> as the cosine of the angle between the *x*<sub>*i*</sub><sup>′</sup> axis and the *x*<sub>*j*</sub> axis.
+
+-   This is also referred to as the “direction cosine”
+    *Q*<sub>*i**j*</sub> = cos(*x*<sub>*i*</sub><sup>′</sup>, *x*<sub>*j*</sub>)
+
+<span>general coordinate transformation</span>
+
+-   We can use this form on our 2D transformation example
+    $$\\begin{aligned}
+            Q\_{ij} &= \\cos (x\_i^\\prime, x\_j)\\\\ &= \\begin{bmatrix}
+            \\cos (x\_1^\\prime, x\_1) & \\cos (x\_1^\\prime, x\_2)\\\\
+            \\cos (x\_2^\\prime, x\_1) & \\cos (x\_2^\\prime, x\_2)
+            \\end{bmatrix}\\\\ &= \\begin{bmatrix}
+            \\cos \\theta & \\cos (90-\\theta)\\\\
+            \\cos (90+\\theta) & \\cos \\theta
+            \\end{bmatrix} \\\\ &= \\begin{bmatrix}
+            \\cos \\theta & \\sin \\theta \\\\
+            -\\sin \\theta & \\cos \\theta
+            \\end{bmatrix}
+            \\end{aligned}$$
+
+<span>general coordinate transformation</span>
+
+-   We can transform any-order tensor using *Q*<sub>*i**j*</sub>
+
+-   Vectors (first-order tensors): *v*<sub>*i*</sub><sup>′</sup> = *Q*<sub>*i**j*</sub>*v*<sub>*j*</sub>
+
+-   Matrices (second-order tensors): *σ*<sub>*m**n*</sub><sup>′</sup> = *Q*<sub>*m**i*</sub>*Q*<sub>*n**j*</sub>*σ*<sub>*i**j*</sub>
+
+-   Fourth-order tensors: *C*<sub>*i**j**k**l*</sub><sup>′</sup> = *Q*<sub>*i**m*</sub>*Q*<sub>*j**n*</sub>*Q*<sub>*k**o*</sub>*Q*<sub>*l**p*</sub>*C*<sub>*m**n**o**p*</sub>
+
+<span>general coordinate transformation</span>
+
+-   We can similarly use *Q*<sub>*i**j*</sub> to find tensors in the original coordinate system
+
+-   Vectors (first-order tensors): *v*<sub>*i*</sub> = *Q*<sub>*j**i*</sub>*v*<sub>*j*</sub><sup>′</sup>
+
+-   Matrices (second-order tensors): *σ*<sub>*m**n*</sub> = *Q*<sub>*i**m*</sub>*Q*<sub>*j**n*</sub>*σ*<sub>*i**j*</sub><sup>′</sup>
+
+-   Fourth-order tensors: *C*<sub>*i**j**k**l*</sub> = *Q*<sub>*m**i*</sub>*Q*<sub>*n**j*</sub>*Q*<sub>*o**k*</sub>*Q*<sub>*p**l*</sub>*C*<sub>*m**n**o**p*</sub><sup>′</sup>
+
+<span>general coordinate transformation</span>
+
+-   We can derive some interesting properties of the transformation tensor, *Q*<sub>*i**j*</sub>
+
+-   We know that *v*<sub>*i*</sub> = *Q*<sub>*j**i*</sub>*v*<sub>*j*</sub><sup>′</sup> and that *v*<sub>*i*</sub><sup>′</sup> = *Q*<sub>*i**j*</sub>*v*<sub>*j*</sub>
+
+-   If we substitute (changing the appropriate indexes) we find:
+
+-   *v*<sub>*i*</sub> = *Q*<sub>*j**i*</sub>*Q*<sub>*j**k*</sub>*v*<sub>*k*</sub>
+
+-   We can now use the Kronecker Delta to substitute *v*<sub>*i*</sub> = *δ*<sub>*i**k*</sub>*v*<sub>*k*</sub> which gives
+
+-   *δ*<sub>*i**k*</sub>*v*<sub>*k*</sub> = *Q*<sub>*j**i*</sub>*Q*<sub>*j**k*</sub>*v*<sub>*k*</sub>
+
+Examples
+========
+
+<span>example</span>
+
+(0,0,0) – (3,0,0) node\[below left\] <span>*x*<sub>1</sub></span>; (0,0,0) – (0,3,0) node\[right\] <span>*x*<sub>2</sub></span>; (0,0,0) – (0,0,3) node\[above\] <span>*x*<sub>3</sub></span>;
+
+-   Find *Q*<sub>*i**j*</sub><sup>1</sup> for rotation of 60<sup>∘</sup> about *x*<sub>2</sub>
+
+-   Find *Q*<sub>*i**j*</sub><sup>2</sup> for rotation of 30<sup>∘</sup> about *x*<sub>3</sub><sup>′</sup>
+
+-   Find *e*<sub>*i*</sub><sup>′′</sup> after both rotations
+
+<span>example</span>
+
+(0,0,0) – (3,0,0) node\[below left\] <span>*x*<sub>1</sub></span>; (0,0,0) – (0,3,0) node\[right\] <span>*x*<sub>2</sub>, *x*<sub>2</sub><sup>′</sup></span>; (0,0,0) – (0,0,3) node\[above\] <span>*x*<sub>3</sub></span>; (0,0,0) – (2.6,0,1.5) node\[above\] <span>*x*<sub>3</sub><sup>′</sup></span>; (0,0,0) – (1.5,0,-2.6) node\[below left\] <span>*x*<sub>1</sub><sup>′</sup></span>; <span>above left</span><span>*θ*<sub>1</sub></span> <span>below left</span><span>*θ*<sub>1</sub></span>
+
+<span>example</span>
+
+(0,0,0) – (3,0,0) node\[below left\] <span>*x*<sub>1</sub></span>; (0,0,0) – (0,3,0) node\[right\] <span>*x*<sub>2</sub>, *x*<sub>2</sub><sup>′</sup></span>; (0,0,0) – (0,0,3) node\[above\] <span>*x*<sub>3</sub></span>; (0,0,0) – (2.6,0,1.5) node\[above\] <span>*x*<sub>3</sub><sup>′</sup>, *x*<sub>3</sub><sup>′′</sup></span>; (0,0,0) – (1.5,0,-2.6) node\[below left\] <span>*x*<sub>1</sub><sup>′</sup></span>; <span>above left</span><span>*θ*<sub>1</sub></span> <span>below left</span><span>*θ*<sub>1</sub></span>; ; (0,0,0) – (2.6,1.5,0) node\[below right\] <span>*x*<sub>1</sub><sup>′′</sup></span>; (0,0,0) – (-1.5,2.6,0) node\[below right\] <span>*x*<sub>2</sub><sup>′′</sup></span>; ; ;
+
+<span>example</span>
+
+-   *Q*<sub>*i**j*</sub><sup>1</sup> = cos(*x*<sub>*i*</sub><sup>′</sup>, *x*<sub>*j*</sub>)
+
+-   *Q*<sub>*i**j*</sub><sup>2</sup> = cos(*x*<sub>*i*</sub><sup>′′</sup>, *x*<sub>*j*</sub><sup>′</sup>)
+    $$Q\_{ij}^1 = \\begin{bmatrix}
+            \\cos 60 & \\cos 90 & \\cos 150\\\\
+            \\cos 90 & \\cos 0 & \\cos 90\\\\
+            \\cos 30 & \\cos 90 & \\cos 60
+            \\end{bmatrix}$$
+    $$Q\_{ij}^2 = \\begin{bmatrix}
+            \\cos 30 & \\cos 60 & \\cos 90\\\\
+            \\cos 120 & \\cos 30 & \\cos 90\\\\
+            \\cos 90 & \\cos 90 & \\cos 0
+            \\end{bmatrix}$$
+
+<span>example</span>
+
+-   We now use *Q*<sub>*i**j*</sub> to find $\\hat{e}\_i^\\prime$ and $\\hat{e}\_i^{\\prime \\prime}$
+
+-   First, we need to write $\\hat{e}\_i$ in a manner more consistent with index notation
+
+-   We will indicate axis direction with a superscript, e.g. $\\hat{e}\_1 = e\_i^1$
+
+-   *e*<sub>*i*</sub><sup>′</sup> = *Q*<sub>*i**j*</sub><sup>1</sup>*e*<sub>*j*</sub>
+
+-   *e*<sub>*i*</sub><sup>′′</sup> = *Q*<sub>*i**j*</sub><sup>2</sup>*e*<sub>*j*</sub><sup>′</sup>
+
+-   How do we find *e*<sub>*i*</sub><sup>′′</sup> in terms of *e*<sub>*i*</sub>?
+
+-   *e*<sub>*i*</sub><sup>′′</sup> = *Q*<sub>*i**j*</sub><sup>2</sup>*Q*<sub>*j**k*</sub><sup>1</sup>*e*<sub>*k*</sub>
+
+anisotropic elasticity
+======================
+
+<span>stiffness</span>
+
+-   In 3D, Hooke’s Law for linearly elastic materials is
+    *σ*<sub>*i**j*</sub> = *C*<sub>*i**j**k**l*</sub>*ϵ*<sub>*k**l*</sub>
+
+-   For isotropic materials, *C*<sub>*i**j**k**l*</sub> can be expressed in terms of two constants
+
+-   In general (anisotropic materials) more constants are needed and we use the full tensor
+
+<span>engineering notation</span>
+
+-   Fourth-order tensors are cumbersome to write, we often use engineering notation
+
+-   *σ* and *ϵ* are written as vectors and *C*<sub>*i**j**k**l*</sub> is written as a matrix.
+
+-   NOTE: Although *σ*<sub>*i**j*</sub>, *ϵ*<sub>*i**j*</sub> and *C*<sub>*i**j**k**l*</sub> are tensors, their counterparts in engineering notation are NOT formal tensors
+
+-   This means that the usual transformation laws do not apply
+
+&lt;handout:0&gt;<span>engineering notation</span> Expand *σ*<sub>*i**j*</sub> = *C*<sub>*i**j**k**l*</sub>*E*<sub>*k**l*</sub> on board for 1-2 terms
+
+<span>engineering notation</span>
+$$\\begin{bmatrix}
+        \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
+        \\end{bmatrix}
+        = \\begin{bmatrix}
+        C\_{1111} & C\_{1122} & C\_{1133} & C\_{1123} & C\_{1113} & C\_{1112} \\\\
+        C\_{1122} & C\_{2222} & C\_{2233} & C\_{2223} & C\_{1322} & C\_{1222} \\\\
+        C\_{1133} & C\_{2233} & C\_{3333} & C\_{2333} & C\_{1333} & C\_{1233} \\\\
+        C\_{1123} & C\_{2223} & C\_{2333} & C\_{2323} & C\_{1323} & C\_{1223} \\\\
+        C\_{1113} & C\_{1322} & C\_{1333} & C\_{1323} & C\_{1313} & C\_{1213} \\\\
+        C\_{1112} & C\_{1222} & C\_{1233} & C\_{1223} & C\_{1213} & C\_{1212}
+        \\end{bmatrix}\\begin{bmatrix}
+        E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
+        \\end{bmatrix}$$
+
+<span>compliance</span>
+$$\\begin{bmatrix}
+    E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
+    \\end{bmatrix}
+    = \\begin{bmatrix}
+    S\_{1111} & S\_{1122} & S\_{1133} & S\_{1123} & S\_{1113} & S\_{1112} \\\\
+    S\_{1122} & S\_{2222} & S\_{2233} & S\_{2223} & S\_{1322} & S\_{1222} \\\\
+    S\_{1133} & S\_{2233} & S\_{3333} & S\_{2333} & S\_{1333} & S\_{1233} \\\\
+    S\_{1123} & S\_{2223} & S\_{2333} & S\_{2323} & S\_{1323} & S\_{1223} \\\\
+    S\_{1113} & S\_{1322} & S\_{1333} & S\_{1323} & S\_{1313} & S\_{1213} \\\\
+    S\_{1112} & S\_{1222} & S\_{1233} & S\_{1223} & S\_{1213} & S\_{1212}
+    \\end{bmatrix}\\begin{bmatrix}
+    \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
+    \\end{bmatrix} + \\begin{bmatrix}
+    \\alpha\_{11} \\\\ \\alpha\_{22} \\\\ \\alpha\_{33} \\\\ 2\\alpha\_{23} \\\\ 2\\alpha\_{13} \\\\ 2\\alpha\_{12}
+    \\end{bmatrix}\\Delta T$$
+
+<span>physical interpretation</span>
+
+-   If we now consider the case of uniaxial tension, we see that
+    $$\\begin{aligned}
+            E\_{11} &= S\_{1111} \\sigma\_{11}\\\\
+            E\_{22} &= S\_{1122} \\sigma\_{11}\\\\
+            E\_{33} &= S\_{1133} \\sigma\_{11}\\\\
+            2E\_{23} &= S\_{1123} \\sigma\_{11}\\\\
+            2E\_{13} &= S\_{1113} \\sigma\_{11}\\\\
+            2E\_{12} &= S\_{1112} \\sigma\_{11}
+            \\end{aligned}$$
+
+-   *S*<sub>1111</sub> is familiar, acting like 1/*E*<sub>*Y*</sub>
+
+<span>poisson’s ratio</span>
+
+-   For isotropic materials we defined Poisson’s ratio as *ν* = −*E*<sub>22</sub>/*E*<sub>11</sub>
+
+-   For anisotropic materials, we can have a different Poisson’s ratio acting in different directions
+
+-   We define *ν*<sub>*i**j*</sub> = −*E*<sub>*j**j*</sub>/*E*<sub>*i**i*</sub> (with no summation), the ratio of the transverse strain in the *j* direction when stress is applied in the *i* direction
+
+-   For this example we can find *ν*<sub>12</sub> and *ν*<sub>13</sub> as
+    $$\\begin{aligned}
+            \\nu\_{12} &= -E\_{22}/E\_{11} = -S\_{1122}/S\_{1111}\\\\
+            \\nu\_{13} &= -E\_{33}/E\_{11} = -S\_{1133}/S\_{1111}
+            \\end{aligned}$$
+
+<span>poisson’s ratio</span>
+
+-   Note that we cannot, in general, say that *ν*<sub>12</sub> = *ν*<sub>21</sub>
+
+-   However, due to the symmetry of the stiffness/compliance tensors, we know that
+    $$\\begin{aligned}
+            \\nu\_{21} E\_{x} &= \\nu\_{12} E\_{y}\\\\
+            \\nu\_{31} E\_{x} &= \\nu\_{13} E\_{z}\\\\
+            \\nu\_{32} E\_{y} &= \\nu\_{23} E\_{z}
+            \\end{aligned}$$
+
+-   Where *E*<sub>*x*</sub> refer’s to the Young’s Modulus in the *x*-direction, etc.
+
+<span>shear coupling coefficients</span>
+
+-   An unfamiliar effect is that shear strains are introduced from a normal stress
+
+-   We define shear coupling coefficients as *η*<sub>1112</sub> = *η*<sub>16</sub> = −2*E*<sub>12</sub>/*E*<sub>11</sub> due to *σ*<sub>11</sub>
+
+-   These coupling terms can also effect shear strain in a different plane from the applied shear stress
+
+-   Like the Poisson’s ratio, these are not entirely independent
+    *η*<sub>61</sub>*E*<sub>*x*</sub> = *η*<sub>16</sub>*G*<sub>6</sub>
+
+-   Where *G*<sub>6</sub> is the shear modulus in the 12 plane
+
+<span>shear coupling coefficients</span>
+
+-   Shear coupling coefficients are sometimes placed in two groups
+
+-   Coefficients of mutual influence relate shear stress to normal strain and normal stress to shear strain
+
+-   Chentsov coefficients relate shear stress in one plane to shear strain in another plane
+
+-   In general we can say
+    *η*<sub>*n**m*</sub>*E*<sub>*m*</sub> = *η*<sub>*m**n*</sub>*G*<sub>*n*</sub>  (*m* = 1, 2, 3)  (*n* = 4, 5, 6)
+     and
+    *η*<sub>*n**m*</sub>*G*<sub>*m*</sub> = *η*<sub>*m**n*</sub>*G*<sub>*n*</sub>  (*m*, *n* = 4, 5, 6)  *m* ≠ *n*
+
+<span>orthotropic symmetry</span>
+$$\\begin{bmatrix}
+    \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
+    \\end{bmatrix}
+    = \\begin{bmatrix}
+    C\_{1111} & C\_{1122} & C\_{1133} & 0 & 0 & 0 \\\\
+    C\_{1122} & C\_{2222} & C\_{2233} & 0 & 0 & 0 \\\\
+    C\_{1133} & C\_{2233} & C\_{3333} & 0 & 0 & 0 \\\\
+    0 & 0 & 0 & C\_{2323} & 0 & 0 \\\\
+    0 & 0 & 0 & 0 & C\_{1313} & 0 \\\\
+    0 & 0 & 0 & 0 & 0 & C\_{1212}
+    \\end{bmatrix}\\begin{bmatrix}
+    E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
+    \\end{bmatrix}$$
+
+<span>transversely isotropic symmetry</span>
+$$\\begin{bmatrix}
+    \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
+    \\end{bmatrix}
+    = \\begin{bmatrix}
+    C\_{1111} & C\_{1122} & C\_{1133} & 0 & 0 & 0 \\\\
+    C\_{1122} & C\_{1111} & C\_{1133} & 0 & 0 & 0 \\\\
+    C\_{1133} & C\_{1133} & C\_{3333} & 0 & 0 & 0 \\\\
+    0 & 0 & 0 & C\_{1313} & 0 & 0 \\\\
+    0 & 0 & 0 & 0 & C\_{1313} & 0 \\\\
+    0 & 0 & 0 & 0 & 0 & 1/2(C\_{1111}-C\_{2222})
+    \\end{bmatrix}\\begin{bmatrix}
+    E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
+    \\end{bmatrix}$$
+
+<span>isotropic symmetry</span>
+$$\\begin{bmatrix}
+    \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
+    \\end{bmatrix}
+    = \\frac{E}{(1+\\nu)(1-2\\nu)}\\begin{bmatrix}
+    1-\\nu & \\nu & \\nu & 0 & 0 & 0 \\\\
+    \\nu & 1-\\nu & \\nu & 0 & 0 & 0 \\\\
+    \\nu & \\nu & 1-\\nu & 0 & 0 & 0 \\\\
+    0 & 0 & 0 & \\frac{1}{2}(1-2\\nu) & 0 & 0 \\\\
+    0 & 0 & 0 & 0 & \\frac{1}{2}(1-2\\nu) & 0 \\\\
+    0 & 0 & 0 & 0 & 0 & \\frac{1}{2}(1-2\\nu)
+    \\end{bmatrix}\\begin{bmatrix}
+    E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
+    \\end{bmatrix}$$
+
+<span>next class</span>
+
+-   Next class we will develop transformation laws for engineering stress/strain and stiffness
+
+
