@@ -180,7 +180,7 @@ eshelby’s equivalent inclusion
 
 -   *s* is the aspect ratio of the fibers
 
--   $I\_1=\\frac{2s}{{\\left(s^2-1\\right)}^{\\frac{3}{2}}}(s{\\left(s^2-1\\right)}^{\\frac{1}{2}}-{{\\cosh }^{{\\rm -}{\\rm 1}} s\\ })$
+-   `$I\_1=\\frac{2s}{{\\left(s^2-1\\right)}^{\\frac{3}{2}}}(s{\\left(s^2-1\\right)}^{\\frac{1}{2}}-{{\\cosh }^{{\\rm -}{\\rm 1}} s\\ })$`
 
 -   $Q=\\frac{3}{8(1-\\nu)}$
 
@@ -421,5 +421,3 @@ fiber orientation
 -   Self-consistent and Mori-Tanaka methods
 
 -   Textbook pages 131-150
-
-
