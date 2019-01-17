@@ -257,7 +257,20 @@ January 23, 2019
 - need to have WSU on-campus IP address to access license (can use [vpn](https://vpn.wichita.edu))
 - license format -> port number @ hostname
 - port number: 1718, hostname: aecomsol.wichita.edu
-- note: you do not need to install the license manager, and in this class we will not need Acoustics, Heat Transfer, Microfluidics, or Non-Linear Structurals Mechanics modules
+- note: you do not need to install the license manager, and in this class we will not need Acoustics, Heat Transfer, Microfluidics, or Non-Linear Structural Mechanics modules
+
+
+----
+
+## python
+
+- while I do not require you to use python, I use it for many examples so I will provide some installation instructions
+- a minimal installation can be done by installing [conda](https://conda.io/miniconda.html) (use 2.7)
+- afterwards install libraries using
+    ```bash
+    conda install ipython jupyter matplotlib numpy pandas scipy
+    ```
+- alternatively, you may use a cloud-based python installation, such as the one provided by [Microsoft](https://notebooks.azure.com/)
 
 ----
 
