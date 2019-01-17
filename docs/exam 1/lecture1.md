@@ -46,7 +46,7 @@ January 23, 2019
 -   Jan 23 - Intro to Micromechanics
 -   Jan 28 - Tensor review, Anisotropic Elasticity
 -   Feb 30 - Coordinate Transformation
--   Feb 4 - 1D Micromechanics
+-   Feb 4 - 1D Micromechanics (HW1 Due)
 
 ----
 ## outline
@@ -253,7 +253,7 @@ January 23, 2019
 
 ## comsol
 
-- the files needed for installation can be downloaded [here]()
+- the files needed for installation can be downloaded [here](https://drive.google.com/open?id=1IT4IlM9j0nTDVDE9L8QhhhpKa7RXEjyw)
 - need to have WSU on-campus IP address to access license (can use [vpn](https://vpn.wichita.edu))
 - license format -> port number @ hostname
 - port number: 1718, hostname: aecomsol.wichita.edu
@@ -267,7 +267,7 @@ January 23, 2019
 -   Different micromechanics software tools will utilize different theories to homogenize/de-homogenize
 -   SwiftComp is available [here](https://cdmhub.org/) (uses variational calculus)
 -   Some others are [CRAFT](http://craft.lma.cnrs-mrs.fr/) (uses Fourier transforms)
--   [MAC/GMC] (https://www.grc.nasa.gov/WWW/StructuresMaterials/MLP/software/mac-gmc/) (uses generalized method of cells)
+-   [MAC/GMC](https://www.grc.nasa.gov/WWW/StructuresMaterials/MLP/software/mac-gmc/) (uses generalized method of cells)
 
 ---
 
@@ -297,18 +297,19 @@ January 23, 2019
 -   Let us consider as an example the popular Halpin-Tsai equations
 $$ P_c = P_m \left (\frac{1 + \zeta \eta f}{1 - \eta f} \right)$$
 $$\eta = \frac{P_f/P_m - 1}{P_f/P_m + \zeta}$$
--   Where *f* is the fiber volume fraction, and *P* is some propertry, with *c* indicating composite properties, *f* indicating fiber properties and *m* indicating matrix properties
+
+----
+
+## halpin-tsai
+-   Where *f* is the fiber volume fraction, and *P* is some property, with *c* indicating composite properties, *f* indicating fiber properties and *m* indicating matrix properties
 
 ----
 
 ## halpin-tsai
 
--   The parameter, *ζ* is determined based on the type of property and composites (axial vs. transverse modulus, long vs. short fibers, etc.)
-
--   For axial stiffness of oriented short-fiber composites, we will use
-    *ζ* = 2*l*/*d*
-
--   Where *l*/*d* is the aspect ratio of the fibers
+-   The parameter, $\zeta$ is determined based on the type of property and composites (axial vs. transverse modulus, long vs. short fibers, etc.)
+-   For axial stiffness of oriented short-fiber composites, we will use $\zeta = 2l/d$
+-   Where $l/d$ is the aspect ratio of the fibers
 
 ----
 
@@ -318,7 +319,7 @@ $$\eta = \frac{P_f/P_m - 1}{P_f/P_m + \zeta}$$
 
 -   In our chosen software (Excel, MATLAB, Python), we set up the aspect ratios we will simulate (x-axis of plot)
 
--   Then we calculate *ζ*, *η* at each aspect ratio
+-   Then we calculate $\zeta$, $\eta$ at each aspect ratio
 
 -   It is often desirable to generalize equations as much as possible. We can divide by *P*<sub>*m*</sub> to find the normalized version, *P*<sub>*c*</sub>/*P*<sub>*m*</sub>.
 

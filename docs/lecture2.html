@@ -28,6 +28,7 @@
                          data-separator="^\n---$"
                          data-separator-vertical="^\n----$"
                          data-separator-notes="^Note:"
+                         data-attributes="--\s(.*?)$"
                          data-charset="iso-8859-15">
                 </section>
             </div>
@@ -47,7 +48,19 @@
                             { src: 'plugin/notes/notes.js', async: true },
                             { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                             { src: 'plugin/math/math.js', async: true }
-                    ]
+                    ],
+                    // set aspect ratio
+                    width: 1280,
+                    height: 720,
+                    // margins
+                    margin: 0.1,
+                    // min and max scaling allowed
+                    minScale: 0.2,
+                    maxScale: 1.5,
+                    // turn on slide numbers
+                    slideNumber: true,
+                    //add history, hopefull will fix links
+                    history: true
             });
         </script>
     </body>
