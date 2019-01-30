@@ -417,20 +417,20 @@ $$\\begin{aligned}
 ## general coordinate transformation
 
 -   We can similarly use `$Q_{ij}$` to find tensors in the original coordinate system
--   Vectors (first-order tensors): `$v_j = Q_{ji} v_i^\prime$`
--   Matrices (second-order tensors): `$\sigma_{mn} = Q_{mi}Q_{nj} \sigma_{ij}^\prime$`
--   Fourth-order tensors: `$C_{mnop} = Q_{mi}Q_{nj}Q_{ok}Q_{pl} C_{ijkl}^\prime$`
+-   Vectors (first-order tensors): `$v_j = Q_{ij} v_i^\prime$`
+-   Matrices (second-order tensors): `$\sigma_{mn} = Q_{im}Q_{jn} \sigma_{ij}^\prime$`
+-   Fourth-order tensors: `$C_{mnop} = Q_{im}Q_{jn}Q_{ko}Q_{lp} C_{ijkl}^\prime$`
 
 ----
 
 ## general coordinate transformation
 
 -   We can derive some interesting properties of the transformation tensor, `$Q_{ij}$`
--   We know that `$v_i^\prime = Q_{ij} v_j$` and that `$v_j = Q_{ji} v_i^\prime$`
+-   We know that `$v_i^\prime = Q_{ij} v_j$` and that `$v_j = Q_{ij} v_i^\prime$`
 -   If we substitute (changing the appropriate indexes) we find:
--   `$v_j = Q_{ji} Q_{ik} v_k$`
+-   `$v_j = Q_{ij} Q_{ik} v_k$`
 -   We can now use the Kronecker Delta to substitute `$v_j = \delta_{jk}v_k$`
--   `$\delta_{jk}v_k = Q_{ji} Q_{ik} v_k$`
+-   `$\delta_{jk}v_k = Q_{ij} Q_{ik} v_k$`
 
 ---
 
