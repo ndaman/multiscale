@@ -212,34 +212,26 @@ $$\[I+S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right )\] \\bar{\\ep
 ----
 ## example
 
--   Next, we rotate *S*<sub>*i**j**k**l*</sub> to find *S*<sup>45</sup> and *S*<sup>−45</sup>
-
+-   Next, we rotate *S*<sub>*i*jkl*</sub> to find *S*<sup>45</sup> and *S*<sup>-45</sup>
 -   Notice: the eshelby tensor, *S* accounts for rotation, we do not rotate *C*<sub>*f*</sub>
-
--   So we find *A*<sup>45</sup> and *A*−45
-    *A*<sup>45</sup> = \[*I*+*S*<sup>45</sup>(*C*<sub>*m*</sub>)<sup>−1</sup>(*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)\]<sup>−1</sup>
-    *A*<sup>−45</sup> = \[*I*+*S*<sup>−45</sup>(*C*<sub>*m*</sub>)<sup>−1</sup>(*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)\]<sup>−1</sup>
+-   So we find *A*<sup>45</sup> and *A*<sup>-45</sup>
+`$$A^{45} = \left[I + S^{45} (C_m)^{-1}(C_f-C_m) \right]^{-1}$$`
+`$$A^{-45} = \left[I + S^{-45} (C_m)^{-1}(C_f-C_m) \right]^{-1}$$`
 
 ----
 ## example
 
 -   This gives our total stiffness calculation as
-    *C* = *C*<sub>*m*</sub> + *v*<sup>45</sup>(*C*<sub>*f*</sub> − *C*<sub>*m*</sub>)*A*<sup>45</sup> + *v*<sup>−45</sup>(*C*<sub>*f*</sub> − *C*<sub>*m*</sub>)*A*<sup>−45</sup>
-
+`$$C = C_m + v^{45}(C_f-C_m)A^{45} + v^{-45}(C_f-C_m)A^{-45}$$`
 -   If we assume the volume fraction of fibers in our part is 20%
-
--   And that there are equally many in 45 and -45 directions
-
--   Then *v*<sup>45</sup> = *v*<sup>−45</sup> = 0.1
-
+-   And that there are equally many fibers in 45 and -45 directions
+-   Then *v*<sup>45</sup> = *v*<sup>-45</sup> = 0.1
 -   Note: Since this is not a dilute concentration, we would not expect this to be very accurate
 
 ----
 ## example
 
--   Python code for this example (with some typical values for *C*<sub>*m*</sub> and *C*<sub>*f*</sub>) is posted here
-
--   <http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/Eshelby.ipynb>
+-   Python code for this example (with some typical values for *C*<sub>*m*</sub> and *C*<sub>*f*</sub>) is posted [here](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Eshelby.ipynb)
 
 ---
 # fiber orientation
@@ -248,24 +240,22 @@ $$\[I+S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right )\] \\bar{\\ep
 ## fiber orientation
 
 -   While a laminate analogy works well for some cases, in general short fibers are not aligned in laminates
-
 -   It is not practical to model each possible fiber orientation as a separate inclusion
-
 -   Advani-Tucker introduced a tensorial representation of fiber orientation
 
 ----
 ## fiber in spherical coordinates
 
-\[fig:single\_fiber\]
+![single fiber coordinate system](images\single_fiber.png)
 
 ----
 ## fiber direction components
 
-----
-## c c Component & Definition
-*p*<sub>1</sub> & sin*θ*cos*ϕ*
-*p*<sub>2</sub> & sin*θ*sin*ϕ*
-*p*<sub>3</sub> & cos*θ*
+|Component | Definition |
+| --- | --- |
+|*p*<sub>1</sub> | `$\sin \theta \cos \phi$`|
+|*p*<sub>2</sub> | `$\sin \theta \sin \phi$`|
+|*p*<sub>3</sub> | `$\cos \theta$` |
 
 ----
 ## orientation tensor
