@@ -37,6 +37,7 @@ February 4, 2019
 
 ## outline
 - eshelby
+- aspect ratio
 
 ---
 # eshelby's equivalent inclusion
@@ -82,6 +83,7 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 -   It has been calculated exactly for ellipsoids, and numerically for other shapes
 
 ----
+<!-- -- id="eshelby-params" -->
 ## eshelby tensor
 
 -   *v* represents the matrix Poisson's ratio
@@ -90,148 +92,121 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 -   $Q=\\frac{3}{8(1-\\nu)}$
 -   $R=\\frac{1-2\\nu}{8(1-\\nu)}$
 -   $T=\\frac{Q\\left(4-3I\_1\\right)}{3(s^2-1)}$
--   *I*<sub>3</sub> = 4 − 2*I*<sub>1</sub>
+-   *I*<sub>3</sub>=4-2*I*<sub>1</sub>
 
 ----
+<!-- -- id="eshelby-tensor" -->
 ## eshelby tensor
 
-| *S*<sub>*i**j**k**l*</sub>                                                                              | Long Fibers                               | Short Fibers (Ellipsoids)                |
+| *S*<sub>*ijkl*</sub>                                                                              | Long Fibers                               | Short Fibers (Ellipsoids)                |
 |:--------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------------------------------------|
-| *S*<sub>1111</sub> = *S*<sub>2222</sub>                                                                 | $\\frac{5-\\nu}{8(1-\\nu)}$               | $Q+RI\_1+\\frac{3T}{4}$                  |
+| *S*<sub>1111</sub>=*S*<sub>2222</sub>                                                                 | $\\frac{5-\\nu}{8(1-\\nu)}$               | $Q+RI\_1+\\frac{3T}{4}$                  |
 | *S*<sub>3333</sub>                                                                                      | 0                                         | $\\frac{4Q}{3}+RI\_3+2s^2T$              |
-| *S*<sub>1122</sub> = *S*<sub>2211</sub>                                                                 | $\\frac{-1+4\\nu}{8(1-\\nu)}$             | $\\frac{Q}{3}-RI\_1+\\frac{4T}{3}$       |
-| *S*<sub>1133</sub> = *S*<sub>2233</sub>                                                                 | $\\frac{\\nu}{2(1-\\nu)}$                 | −*R**I*<sub>1</sub> − *s*<sup>2</sup>*T* |
-| *S*<sub>3311</sub> = *S*<sub>3322</sub>                                                                 | 0                                         | −*R**I*<sub>3</sub> − *T*                |
-| $\\begin{aligned}                                                                                       
-     S\_{1212} & = S\_{1221} \\\\& = S\_{2112}=S\_{2121}                                                  
-     \\end{aligned}$                                                                                      | $\\frac{3-4\\nu}{8\\left(1-\\nu\\right)}$ | $\\frac{Q}{3}+RI\_1+\\frac{T}{4}$        |
-| $\\begin{aligned}                                                                                       
-     S\_{1313} & = S\_{1331} \\\\&=S\_{3113}=S\_{3131}\\\\&=S\_{3232}=S\_{3223}\\\\&=S\_{2332}=S\_{2323}  
-     \\end{aligned}$                                                                                      | $\\frac{1}{4}$                            | $2R-\\frac{I\_1R}{2}-\\frac{1-s^2}{2}T$  |
-| all other *S*<sub>*i**j**k**l*</sub>                                                                    | 0                                         | 0                                        |
+| *S*<sub>1122</sub>=*S*<sub>2211</sub>                                                                 | $\\frac{-1+4\\nu}{8(1-\\nu)}$             | $\\frac{Q}{3}-RI\_1+\\frac{4T}{3}$       |
+| *S*<sub>1133</sub>=*S*<sub>2233</sub>                                                                 | $\\frac{\\nu}{2(1-\\nu)}$                 |-*R I*<sub>1</sub>-*s*<sup>2</sup>*T* |
+| *S*<sub>3311</sub>=*S*<sub>3322</sub>                                                                 | 0                                         |-*R I*<sub>3</sub>-*T*                |
+| $\\begin{aligned} S\_{1212} & = S\_{1221} \\\\& = S\_{2112}=S\_{2121} \\end{aligned}$          | $\\frac{3-4\\nu}{8\\left(1-\\nu\\right)}$ | $\\frac{Q}{3}+RI\_1+\\frac{T}{4}$        |
+| $\\begin{aligned} S\_{1313} & = S\_{1331} \\\\&=S\_{3113}=S\_{3131}\\\\&=S\_{3232}=S\_{3223}\\\\&=S\_{2332}=S\_{2323}   \end{aligned}$                                                                                      | $\\frac{1}{4}$                            | $2R-\\frac{I\_1R}{2}-\\frac{1-s^2}{2}T$  |
+| all other *S*<sub>*ijkl*</sub>                                                                    | 0                                         | 0                                        |
 
 ----
 ## inclusions
 
 -   Eshelby's initial thought experiment was for a homogeneous material
-
 -   To consider a different type of inclusion, we need to relate the transformation strain between some fictitious ellipsoid of matrix material which would be equivalent to our inclusion.
-
--   We will refer to the inclusion stiffness as *C*<sub>*f*</sub>, the transformation strain in the matrix as *ϵ*<sup>*T*</sup>, and the transformation strain in the inclusion *ϵ*<sup>*T*\*</sup>.
+-   We will refer to the inclusion stiffness as *C*<sub>*f*</sub>, the transformation strain in the matrix as $\epsilon^T$, and the transformation strain in the inclusion `$\epsilon^{T*}$`.
 
 ----
 ## inclusions
 
 -   We are trying to find a transformation equivalent to our inclusion, so we set
-    *σ*<sub>*I*</sub> = *C*<sub>*m*</sub>(*ϵ*<sup>*C*</sup> − *ϵ*<sup>*T*</sup>)=*C*<sub>*f*</sub>(*ϵ*<sup>*C*</sup> − *ϵ*<sup>*T*\*</sup>)
-
--   Now we sutbstitute the relation *ϵ*<sup>*C*</sup> = *S**ϵ*<sup>*T*</sup>
-    *C*<sub>*m*</sub>(*S* − *I*)*ϵ*<sup>*T*</sup> = *C*<sub>*f*</sub>(*S**ϵ*<sup>*T*</sup> − *ϵ*<sup>*T*\*</sup>)
-
+`$$\sigma_I = C_m(\epsilon^C - \epsilon^T) = C_f(\epsilon^C-\epsilon^{T*})$$`
+-   Now we substitute the relation `$\epsilon^C = S\epsilon^T$`
+`$$C_m(S - I)\epsilon^T = C_f(S \epsilon^T-\epsilon^{T*})$$`
 -   We can solve this to find the transformation strain
-    *ϵ*<sup>*T*</sup> = \[(*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)*S*+*C*<sub>*m*</sub>\]<sup>−1</sup>*C*<sub>*f*</sub>*ϵ*<sup>*T*\*</sup>
+`$$\epsilon^T = \left [ (C_f - C_m)S + C_m\right]^{-1} C_f \epsilon^{T*}$$`
 
 ----
 ## stiffness
 
--   Since the transformation strain is arbitrary, we can choose *ϵ*<sup>*T*</sup> such that *ϵ*<sup>*T*\*</sup> is 0
-
--   Now suppose we impose some strain, *ϵ*<sup>0</sup> on the composite
-
+-   Since the transformation strain is arbitrary, we can choose `$\epsilon^T$` such that `$\epsilon^{T*}$` is 0
+-   Now suppose we impose some strain, `$\epsilon^0$` on the composite
 -   The stress in the inclusion will be
-    *σ*<sub>*I*</sub> = *C*<sub>*m*</sub>(*ϵ*<sup>0</sup> + *ϵ*<sup>*C*</sup> − *ϵ*<sup>*T*</sup>)=*C*<sub>*f*</sub>(*ϵ*<sup>0</sup> + *ϵ*<sup>*C*</sup>)
-
+`$$\sigma_I = C_m (\epsilon^0 + \epsilon^C - \epsilon^T) = C_f (\epsilon^0 + \epsilon^C)$$`
 -   Simplifying terms gives
-    (*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)(*ϵ*<sup>0</sup>+*ϵ*<sup>*C*</sup>) = −*C*<sub>*m*</sub>*ϵ*<sup>*T*</sup>
+`$$\left ( C_f - C_m \right ) \left ( \epsilon^0 + \epsilon^C \right) = -C_m \epsilon^T$$`
 
 ----
 ## stiffness
 
--   We now assume $\\epsilon^0 + \\epsilon^C = \\bar{\\epsilon}^f$ and multiply both sides by *S**C*<sub>*m*</sub><sup>−1</sup>
-    $$S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right ) \\bar{\\epsilon}^f = -\\epsilon^C$$
-
--   Recall *S**ϵ*<sup>*T*</sup> = *ϵ*<sup>*C*</sup>
-
--   We can also write *ϵ*<sup>*C*</sup> in terms of $\\bar{\\epsilon}^f$
-    $$S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right ) \\bar{\\epsilon}^f = \\epsilon^0- \\bar{\\epsilon}^f$$
+-   We now assume $\\epsilon^0 + \\epsilon^C = \\bar{\\epsilon}^f$ and multiply both sides by `$S C_m^{-1}$`
+$$S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right ) \\bar{\\epsilon}^f = -\\epsilon^C$$
+-   Recall `$S\epsilon^T = \epsilon^C$`
+-   We can also write `$\epsilon^C$` in terms of $\\bar{\\epsilon}^f$
+$$S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right ) \\bar{\\epsilon}^f = \\epsilon^0- \\bar{\\epsilon}^f$$
 
 ----
 ## strain concentration tensor
 
 -   Finally, we can add $I\\bar{\\epsilon}^f$ to both sides to find
-    $$\[I+S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right )\] \\bar{\\epsilon}^f = \\epsilon^0$$
-
+$$\[I+S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right )\] \\bar{\\epsilon}^f = \\epsilon^0$$
 -   We define the inverse of the left-hand side the Eshelby strain-concentration tensor
-    *A*<sup>*E*</sup> = \[*I* + *S*(*C*<sub>*m*</sub>)<sup>−1</sup>(*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)\]<sup>−1</sup>
-
+`$$A^E = [I+S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right )]^{-1}$$`
 -   The stiffness can be calculated as
-    *C* = *C*<sub>*m*</sub> + *v*<sub>*i*</sub>(*C*<sub>*f*</sub> − *C*<sub>*m*</sub>)*A*<sup>*E*</sup>
+`$$C = C_m + v_i (C_f-C_m)A^E$$`
 
 ----
 ## stiffness
 
 -   This stiffness calculation is valid for any number of inclusions
-
 -   However, it is only appropriate for very dilute concentrations (&lt;1% volume fraction)
-
 -   This ensures that the assumption $\\epsilon^0 + \\epsilon^C = \\bar{\\epsilon}^f$
+
+---
+# aspect ratio
 
 ----
 ## aspect ratio
 
 -   Some studies have been done to evaluate Eshelby tensors for short fibers
-
 -   Long fibers are approximated by an ellipsoid with infinitely long major axis
-
 -   This is not appropriate for short fibers
-
 -   We could logically consider three different ellipsoids to represent a short fiber
 
 ----
 ## aspect ratio
 
-\[fig:ellipsoids\]
+![aspect ratio comparisons](images\ellipsoids.PNG)
 
 ----
 ## aspect ratio
 
 -   Steif and Hoysan investigated the effect of aspect ratio numerically
-
 -   Found that (a) and (c) were good for short fibers
-
 -   As fibers get longer, and as stiffness ratio of fiber to matrix increases, (a) gives best results
-
 -   (a) is also the easiest to use (same aspect ratio), so that is what is done in Eshelby-based models
 
 ----
 ## fiber orientation
 
 -   With Eshelby (and derivative models), fibers at different orientations are modeled as a different inclusion
-
 -   Since the Eshelby tensor, *S* is a fourth-order tensor, we can treat it the same way as *C*
-
--   Write it as 6x6 matrix, transform using *R*<sup>*σ*</sup>
+-   Write it as 6x6 matrix, transform using $R^\sigma$
 
 ----
 ## example
 
--   As an example, let us consider a “laminate” of short fiber composites
-
+-   As an example, let us consider a "laminate" of short fiber composites
 -   This is a good approximate for many 3D printed composites
-
--   We have a ±45<sup>∘</sup> laminate, with very short carbon fibers, *s* = 15
+-   We have a `$\pm 45^\circ$` laminate, with very short carbon fibers, *s* = 15
 
 ----
 ## example
 
--   First we find the Eshelby tensor for *s* = 15
-
--   We also need the matrix Poisson's ratio, *ν* = 0.40
-
--   We find the parameters on slide 19
-
--   Then we use slide 20 to find *S*<sub>*i**j**k**l*</sub>
-
+-   First we find the Eshelby tensor for *s* = 15
+-   We also need the matrix Poisson's ratio, *v* = 0.40
+-   We find the parameters [here](#/eshelby-params)
+-   Then we use [this slide](#/eshelby-tensor) to find *S*<sub>*ijkl*</sub>
 -   Notice that this assumes fibers are pointed in the 3-direction
 
 ----
@@ -266,8 +241,8 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 
 -   <http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/Eshelby.ipynb>
 
-fiber orientation
-=================
+---
+# fiber orientation
 
 ----
 ## fiber orientation
@@ -346,7 +321,5 @@ fiber orientation
 ## next class
 
 -   Orientation averaging
-
 -   Self-consistent and Mori-Tanaka methods
-
 -   Textbook pages 131-150
