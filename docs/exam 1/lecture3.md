@@ -1,4 +1,3 @@
-
 <style>
 .left {
   left:-8.33%;
@@ -301,8 +300,8 @@ $$\\begin{aligned}
 ----
 ## equivalent solid
 
--   We also know that in the fiber and matrix, respectively, Hooke’s Law still holds
-$$ \sigma_i = C_{ij} \epsilon_j $$
+-   We also know that in the fiber and matrix, respectively, Hooke's Law still holds
+`$$ \sigma_i = C_{ij} \epsilon_j $$`
 -   And this must be true for the average as well
 $$\\bar{\\sigma}\_i = C\_{ij} \\bar{\\epsilon}\_j$$
 
@@ -345,7 +344,7 @@ $$\\begin{aligned}
 
 -   In general, the Voigt assumption (homogeneous strain, rule of mixtures for stiffness) gives an upper bound for stiffness
 -   On the other hand, the Reuss assmption (homogeneous stress, rule of mixtures for compliance) gives a lower bound for stiffness
--   In uni-directional composites, the Voigt model is good enough for *E*<sub>1</sub> and *ν*<sub>12</sub> predictions, but not for *E*<sub>2</sub> or *G*<sub>12</sub>
+-   In uni-directional composites, the Voigt model is good enough for *E*<sub>1</sub> and *v*<sub>12</sub> predictions, but not for *E*<sub>2</sub> or *G*<sub>12</sub>
 
 ----
 ## subregions
@@ -368,7 +367,7 @@ $$\\begin{aligned}
 ----
 ## shear lag
 
-TODO: figure
+![shear lag diagram](images\shearlag-intro.PNG)
 
 ----
 ## shear lag
@@ -406,7 +405,7 @@ $$\\begin{aligned}
 -   Which we can substitute into our original force-balance equation to find
     $$\\frac{d\\sigma\_f}{dx} = \\frac{4 G\_m(u\_R-u\_f)}{ d r\_0 ln(r)}$$
 
--   But *d* = 2*r*<sub>0</sub>, so we can simplify to
+-   But *d*=2*r*<sub>0</sub>, so we can simplify to
     $$\\frac{d\\sigma\_f}{dx} = \\frac{2 G\_m(u\_R-u\_f)}{ r\_0^2 ln(r)}$$
 
 ----
@@ -414,30 +413,26 @@ $$\\begin{aligned}
 
 -   Finally, we differentiate with respect to *x* to replace the displacements with strains
 
--   We assume that *d**u*<sub>*R*</sub>/*d**x* is far enough away from the fiber such that the strain is equal to far-field strain
+-   We assume that *du*<sub>*R*</sub>/*dx* is far enough away from the fiber such that the strain is equal to far-field strain
 
 -   The solution to the differential equation is
-    *σ*<sub>*f*</sub> = *E*<sub>*f*</sub>*ϵ*<sub>1</sub> + *B*sinh(*n**x*/*r*)+*D*cos(*n**x*/*r*)
+`$$\sigma_f = E_f \epsilon_1 + B\sinh(nx/r) + D\cos(nx/r)$$`
 
 ----
 ## stress in fibers
 
-<img src="../Figures/shearlag.png" alt="Stress near the edge of fibers in shear lag model" style="width:80.0%" />
+![Stress near the edge of fibers in shear lag model](images\shearlag.png)
 
 ----
 ## normalizing
 
 -   An interesting finding was that when we normalized distance (x) by fiber diameter
-
 -   The shear stress was the same for any fiber length
-
 -   This means that most/all shear stress transfer occurs near the ends
-
 -   If fibers are not long enough, full stress profile does not develop, fibers contribute very little to stiffness
 
 ----
 ## next class
 
--   Eshelby’s equivalent inclusion
-
+-   Eshelby's equivalent inclusion
 -   Textbook pages 94-99 and 364 - 370 (I feel these are pretty confusing though)
