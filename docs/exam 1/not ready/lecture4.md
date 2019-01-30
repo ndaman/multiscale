@@ -1,196 +1,99 @@
-<span>upcoming schedule</span>
+<style>
+.left {
+  left:-8.33%;
+  text-align: left;
+  float: left;
+  width:50%;
+  z-index:-10;
+}
+.right {
+  left:31.25%;
+  top: 75px;
+  float: right;
+  text-align: right;
+  z-index:-10;
+  width:50%;
+}
+</style>
 
--   Jan 30 - Eshelby
+## AE 760AA: Micromechanics and multiscale modeling
+Lecture 4 - Eshelby
 
--   Feb 1 - Mean-field (HW 1 Due)
+Dr. Nicholas Smith
 
--   Feb 6 - Orientation Distribution
+Wichita State University, Department of Aerospace Engineering
 
--   Feb 8 - Variational Calculus
+February 4, 2019
 
-### outline
+---
+## schedule
 
-\[sections numbered\]
+-   Feb 4 - 1D Micromechanics (HW1 Due)
+-   Feb 6 - Mean-field
+-   Feb 11 - Orientation Averaging
+-   Feb 13 -
 
-shear lag
-=========
+----
 
-<span>discontinuous fibers</span>
+## outline
+- eshelby
 
--   The previous models all assumed that the constituent (fiber) was infinitely long
+---
+# eshelby's equivalent inclusion
 
--   There are many cases where we want to consider discontinuous fibers
-
--   Weaker than continuous composites, but easier to mass-produce, more shapes can be made
-
--   We will consider a simple model for aligned composites (shear lag)
-
-<span>shear lag</span>
-
-(10,-3) – (0,-3) arc (-90:-270:1cm and 3cm) – (10,3) ++ (0,-3) circle (1cm and 3cm);
-
-(0,-3) arc (-90:90:1cm and 3cm);
-
-(8,-1.5) – (2,-1.5) arc (-90:-270:0.5cm and 1.5cm) – (8,1.5) ++ (0,-1.5) circle (0.5cm and 1.5cm);
-
-(2,-1.5) arc (-90:90:0.5cm and 1.5cm);
-
-(2,2) – (5,2); at (3.5,2) <span>L</span>; (5,2) – (8,2); at (6.5,2) <span>L</span>; (8,0) – (8,1.5); at (7,0.5) <span>*r*<sub>0</sub></span>; (10,0) – (10,3); at (9.5,1) <span>R</span>; (-2,0) – (12,0); (12,0) – (13,0); at (14,0) <span>*ϵ*<sub>*x*</sub></span>; (-2,0) – (-3,0); at (-4,0) <span>*ϵ*<sub>*x*</sub></span>;
-
-<span>shear lag</span>
-
--   Balancing forces on a differential element we find
-    $$\\begin{aligned}
-                \\sum F\_x &= (\\sigma\_f + d\\sigma\_f) \\frac{\\pi d^2}{4} - \\sigma\_f\\frac{\\pi d^2}{4} - \\tau\_i (\\pi d) dx = 0\\\\
-                \\frac{d\\sigma\_f}{dx} &= \\frac{4\\tau\_i}{d}
-            \\end{aligned}$$
-
-<span>shear lag</span>
-
--   To integrate, we need to make some assumptions
-
--   It is commonly assumed that the normal stress on the end of the fibers is 0
-
--   Various assumptions are made about the shear stress, *τ*, Kelly-Tyson assumed it is constant (rigid plastic)
-
--   Cox assumed *τ* is a linear function of *x*
-
-<span>shear stress</span>
-
--   We can also find the shear stress by comparing adjacent annuli of matrix material around the fiber
-
--   This assumes that fiber and matrix are perfectly bonded (continuous displacement at boundary)
-
--   The force balance due to shear in adjacent annula means that *π**d**τ* = *π**d*<sub>0</sub>*τ*<sub>*i*</sub>
-
--   The shear stress far away from the fiber, *τ* = *G*<sub>*m*</sub>*γ*, and if $\\gamma = \\frac{du}{dr}$, then we can say
-    $$\\frac{r\_0}{r} \\tau\_i = G\_m \\frac{du}{dr}$$
-
-<span>shear stress</span>
-
--   We integrate to find that
-    $$\\tau\_i = \\frac{G\_m(u\_R-u\_f)}{r\_0 ln(r)}$$
-
--   Which we can substitute into our original force-balance equation to find
-    $$\\frac{d\\sigma\_f}{dx} = \\frac{4 G\_m(u\_R-u\_f)}{ d r\_0 ln(r)}$$
-
--   But *d* = 2*r*<sub>0</sub>, so we can simplify to
-    $$\\frac{d\\sigma\_f}{dx} = \\frac{2 G\_m(u\_R-u\_f)}{ r\_0^2 ln(r)}$$
-
-<span>shear lag</span>
-
--   Finally, we differentiate with respect to *x* to replace the displacements with strains
-
--   We assume that *d**u*<sub>*R*</sub>/*d**x* is far enough away from the fiber such that the strain is equal to far-field strain
-
--   The solution to the differential equation is
-    *σ*<sub>*f*</sub> = *E*<sub>*f*</sub>*ϵ*<sub>1</sub> + *B*sinh(*n**x*/*r*)+*D*cos(*n**x*/*r*)
-
--   Where
-    $$n = \\left\[\\frac{2E\_m}{E\_f(1+\\nu\_m)\\ln(1/f)} \\right\]$$
-
-<span>shear lag</span>
-
--   To solve we substitute the fiber stress at both ends (0)
-    *σ*<sub>*f*</sub> = *E*<sub>*f*</sub>*ϵ*<sub>1</sub>\[1−cosh(*n**x*/*r*)sech(*n**s*)\]
-     Where *s* is fiber aspect ratio.
-
--   Take average fiber stress over the length of the fiber
-    $$\\bar{\\sigma}\_f = \\frac{1}{2L}\\int\_{-L}^L\\sigma\_f dx = \\frac{1}{2L}\\int\_{-L}^L E\_f \\epsilon\_1 \\left\[1 - \\cosh(nx/r) \\operatorname{sech}(ns) \\right\] dx$$
-
--   Which gives the average fiber stress as
-    $$\\bar{\\sigma}\_f = E\_f \\epsilon\_1 \\left\[ 1- \\frac{\\tanh(ns)}{2sn}\\right\]$$
-
-<span>stiffness</span>
-
--   With an average stress in the fibers known, the stiffness can be estimated using the rule of mixtures
-    $$E\_c = f E\_f \\left\[ 1- \\frac{\\tanh(ns)}{2sn}\\right\] + (1-f) E\_m$$
-
--   The shear lag model is not often used to predict stiffness
-
--   It is used often as a simple model to find local stresses in the fiber and surrounding matrix
-
-<span>stress in fibers</span>
-
-<img src="../Figures/shearlag.png" alt="Stress near the edge of fibers in shear lag model" style="width:80.0%" />
-
-<span>normalizing</span>
-
--   An interesting finding was that when we normalized distance (x) by fiber diameter
-
--   The shear stress was the same for any fiber length
-
--   This means that most/all shear stress transfer occurs near the ends
-
--   If fibers are not long enough, full stress profile does not develop, fibers contribute very little to stiffness
-
-eshelby’s equivalent inclusion
-==============================
-
-<span>eshelby</span>
+----
+## eshelby
 
 -   Eshelby formulated the exact elastic solution for an elliptical inclusion in an infinite matrix
-
 -   While this is not often useful, it serves as an exact analytical model to compare numerical results with
-
 -   It is also the base for more useful mean-field theories
 
-<span>eshelby’s thought experiment</span>
+----
+## eshelby's thought experiment
 
 -   Eshelby solution starts with a thought experiment
-
 -   Suppose we have a homogeneous, elastic body in equilibrium
-
 -   We now cut an ellipsoidal pieces out of that body and allow it to undergo a stress-free transformation, such as thermal expansion
+-   This stress-free transformation is referred to as the transformation strain, `$\epsilon^T$`
 
--   This stress-free transformation is referred to as the transformation strain, *ϵ*<sup>*T*</sup>
+----
+## eshelby's thought experiment
 
-<span>eshelby’s thought experiment</span>
+![Eshelby's thought experiment](images\eshelby.png)
 
-\[fig:eshelby\]
-
-<span>eshelby’s thought experiment</span>
+----
+## eshelby's thought experiment
 
 -   Now, we weld that expanded ellipsoid back into the original body
-
 -   Tractions need to be applied to force it to fit
+-   Once the stresses equilibrate, the ellipsoid has a constrained strain, `$\epsilon^C$`
 
--   Once the stresses equilibrate, the ellipsoid has a constrained strain, *ϵ*<sup>*C*</sup>
-
-<span>eshelby</span>
+----
+## eshelby
 
 -   After equilibrium is reached the inclusion is still under a state of uniform strain
-
--   The inclusion stress, *σ*<sub>*I*</sub> can be found as:
-    *σ*<sub>*I*</sub> = *C*<sub>*m*</sub>(*ϵ*<sup>*C*</sup>−*ϵ*<sup>*T*</sup>)
-     Where *C*<sub>*m*</sub> is the stiffness of the material.
-
--   One of Eshelby’s critical findings is that
-    *ϵ*<sup>*C*</sup> = *S**ϵ*<sup>*T*</sup>
-
+-   The inclusion stress, `$\sigma_I$` can be found as:
+`$$\sigma_I = C_m (\epsilon^C - \epsilon^T)$$`
+Where *C*<sub>*m*</sub> is the stiffness of the material.
+-   One of Eshelby's critical findings is that
+`$$\epsilon^C = S \epsilon^T$$`
 -   *S* is known as the Eshelby Tensor, and is a fourth-order tensor
-
--   Function of shape and poisson’s ratio
-
+-   Function of shape and poisson's ratio
 -   It has been calculated exactly for ellipsoids, and numerically for other shapes
 
-<span>eshelby tensor</span>
+----
+## eshelby tensor
 
--   *ν* represents the matrix Poisson’s ratio
-
+-   *v* represents the matrix Poisson's ratio
 -   *s* is the aspect ratio of the fibers
-
 -   `$I_1 = \frac{2s}{\left(s^2-1\right)^{\frac{3}{2}}}(s{\left(s^2-1\right)}^{\frac{1}{2}}-\cosh^{-1} s)$`
-
 -   $Q=\\frac{3}{8(1-\\nu)}$
-
 -   $R=\\frac{1-2\\nu}{8(1-\\nu)}$
-
 -   $T=\\frac{Q\\left(4-3I\_1\\right)}{3(s^2-1)}$
-
 -   *I*<sub>3</sub> = 4 − 2*I*<sub>1</sub>
 
-<span>eshelby tensor</span> \[tab:eshelby\]
+----
+## eshelby tensor
 
 | *S*<sub>*i**j**k**l*</sub>                                                                              | Long Fibers                               | Short Fibers (Ellipsoids)                |
 |:--------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------------------------------------|
@@ -207,15 +110,17 @@ eshelby’s equivalent inclusion
      \\end{aligned}$                                                                                      | $\\frac{1}{4}$                            | $2R-\\frac{I\_1R}{2}-\\frac{1-s^2}{2}T$  |
 | all other *S*<sub>*i**j**k**l*</sub>                                                                    | 0                                         | 0                                        |
 
-<span>inclusions</span>
+----
+## inclusions
 
--   Eshelby’s initial thought experiment was for a homogeneous material
+-   Eshelby's initial thought experiment was for a homogeneous material
 
 -   To consider a different type of inclusion, we need to relate the transformation strain between some fictitious ellipsoid of matrix material which would be equivalent to our inclusion.
 
 -   We will refer to the inclusion stiffness as *C*<sub>*f*</sub>, the transformation strain in the matrix as *ϵ*<sup>*T*</sup>, and the transformation strain in the inclusion *ϵ*<sup>*T*\*</sup>.
 
-<span>inclusions</span>
+----
+## inclusions
 
 -   We are trying to find a transformation equivalent to our inclusion, so we set
     *σ*<sub>*I*</sub> = *C*<sub>*m*</sub>(*ϵ*<sup>*C*</sup> − *ϵ*<sup>*T*</sup>)=*C*<sub>*f*</sub>(*ϵ*<sup>*C*</sup> − *ϵ*<sup>*T*\*</sup>)
@@ -226,7 +131,8 @@ eshelby’s equivalent inclusion
 -   We can solve this to find the transformation strain
     *ϵ*<sup>*T*</sup> = \[(*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)*S*+*C*<sub>*m*</sub>\]<sup>−1</sup>*C*<sub>*f*</sub>*ϵ*<sup>*T*\*</sup>
 
-<span>stiffness</span>
+----
+## stiffness
 
 -   Since the transformation strain is arbitrary, we can choose *ϵ*<sup>*T*</sup> such that *ϵ*<sup>*T*\*</sup> is 0
 
@@ -238,7 +144,8 @@ eshelby’s equivalent inclusion
 -   Simplifying terms gives
     (*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)(*ϵ*<sup>0</sup>+*ϵ*<sup>*C*</sup>) = −*C*<sub>*m*</sub>*ϵ*<sup>*T*</sup>
 
-<span>stiffness</span>
+----
+## stiffness
 
 -   We now assume $\\epsilon^0 + \\epsilon^C = \\bar{\\epsilon}^f$ and multiply both sides by *S**C*<sub>*m*</sub><sup>−1</sup>
     $$S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right ) \\bar{\\epsilon}^f = -\\epsilon^C$$
@@ -248,7 +155,8 @@ eshelby’s equivalent inclusion
 -   We can also write *ϵ*<sup>*C*</sup> in terms of $\\bar{\\epsilon}^f$
     $$S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right ) \\bar{\\epsilon}^f = \\epsilon^0- \\bar{\\epsilon}^f$$
 
-<span>strain concentration tensor</span>
+----
+## strain concentration tensor
 
 -   Finally, we can add $I\\bar{\\epsilon}^f$ to both sides to find
     $$\[I+S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right )\] \\bar{\\epsilon}^f = \\epsilon^0$$
@@ -259,7 +167,8 @@ eshelby’s equivalent inclusion
 -   The stiffness can be calculated as
     *C* = *C*<sub>*m*</sub> + *v*<sub>*i*</sub>(*C*<sub>*f*</sub> − *C*<sub>*m*</sub>)*A*<sup>*E*</sup>
 
-<span>stiffness</span>
+----
+## stiffness
 
 -   This stiffness calculation is valid for any number of inclusions
 
@@ -267,7 +176,8 @@ eshelby’s equivalent inclusion
 
 -   This ensures that the assumption $\\epsilon^0 + \\epsilon^C = \\bar{\\epsilon}^f$
 
-<span>aspect ratio</span>
+----
+## aspect ratio
 
 -   Some studies have been done to evaluate Eshelby tensors for short fibers
 
@@ -277,11 +187,13 @@ eshelby’s equivalent inclusion
 
 -   We could logically consider three different ellipsoids to represent a short fiber
 
-<span>aspect ratio</span>
+----
+## aspect ratio
 
 \[fig:ellipsoids\]
 
-<span>aspect ratio</span>
+----
+## aspect ratio
 
 -   Steif and Hoysan investigated the effect of aspect ratio numerically
 
@@ -291,7 +203,8 @@ eshelby’s equivalent inclusion
 
 -   (a) is also the easiest to use (same aspect ratio), so that is what is done in Eshelby-based models
 
-<span>fiber orientation</span>
+----
+## fiber orientation
 
 -   With Eshelby (and derivative models), fibers at different orientations are modeled as a different inclusion
 
@@ -299,7 +212,8 @@ eshelby’s equivalent inclusion
 
 -   Write it as 6x6 matrix, transform using *R*<sup>*σ*</sup>
 
-<span>example</span>
+----
+## example
 
 -   As an example, let us consider a “laminate” of short fiber composites
 
@@ -307,11 +221,12 @@ eshelby’s equivalent inclusion
 
 -   We have a ±45<sup>∘</sup> laminate, with very short carbon fibers, *s* = 15
 
-<span>example</span>
+----
+## example
 
 -   First we find the Eshelby tensor for *s* = 15
 
--   We also need the matrix Poisson’s ratio, *ν* = 0.40
+-   We also need the matrix Poisson's ratio, *ν* = 0.40
 
 -   We find the parameters on slide 19
 
@@ -319,7 +234,8 @@ eshelby’s equivalent inclusion
 
 -   Notice that this assumes fibers are pointed in the 3-direction
 
-<span>example</span>
+----
+## example
 
 -   Next, we rotate *S*<sub>*i**j**k**l*</sub> to find *S*<sup>45</sup> and *S*<sup>−45</sup>
 
@@ -329,7 +245,8 @@ eshelby’s equivalent inclusion
     *A*<sup>45</sup> = \[*I*+*S*<sup>45</sup>(*C*<sub>*m*</sub>)<sup>−1</sup>(*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)\]<sup>−1</sup>
     *A*<sup>−45</sup> = \[*I*+*S*<sup>−45</sup>(*C*<sub>*m*</sub>)<sup>−1</sup>(*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)\]<sup>−1</sup>
 
-<span>example</span>
+----
+## example
 
 -   This gives our total stiffness calculation as
     *C* = *C*<sub>*m*</sub> + *v*<sup>45</sup>(*C*<sub>*f*</sub> − *C*<sub>*m*</sub>)*A*<sup>45</sup> + *v*<sup>−45</sup>(*C*<sub>*f*</sub> − *C*<sub>*m*</sub>)*A*<sup>−45</sup>
@@ -342,7 +259,8 @@ eshelby’s equivalent inclusion
 
 -   Note: Since this is not a dilute concentration, we would not expect this to be very accurate
 
-<span>example</span>
+----
+## example
 
 -   Python code for this example (with some typical values for *C*<sub>*m*</sub> and *C*<sub>*f*</sub>) is posted here
 
@@ -351,7 +269,8 @@ eshelby’s equivalent inclusion
 fiber orientation
 =================
 
-<span>fiber orientation</span>
+----
+## fiber orientation
 
 -   While a laminate analogy works well for some cases, in general short fibers are not aligned in laminates
 
@@ -359,18 +278,22 @@ fiber orientation
 
 -   Advani-Tucker introduced a tensorial representation of fiber orientation
 
-<span>fiber in spherical coordinates</span>
+----
+## fiber in spherical coordinates
 
 \[fig:single\_fiber\]
 
-<span>fiber direction components</span>
+----
+## fiber direction components
 
-<span>c c</span> Component & Definition
+----
+## c c Component & Definition
 *p*<sub>1</sub> & sin*θ*cos*ϕ*
 *p*<sub>2</sub> & sin*θ*sin*ϕ*
 *p*<sub>3</sub> & cos*θ*
 
-<span>orientation tensor</span>
+----
+## orientation tensor
 
 -   Within a given volume, a distribution of fibers can be defined by some orientation distribution function, *ψ*(*θ*, *ϕ*).
 
@@ -382,7 +305,8 @@ fiber orientation
 
 -   Note: any order tensor may be defined in this manner, the orientation distribution function must be even, due to fiber symmetry, and thus any odd-ordered tensor will be zero.
 
-<span>orientation tensor</span>
+----
+## orientation tensor
 
 -   It can be noted that some symmetries must exist due to the way the tensors are defined.
 
@@ -393,7 +317,8 @@ fiber orientation
     *a*<sub>*i**j**k**l*</sub> = *a*<sub>*j**i**k**l*</sub> = *a*<sub>*k**i**j**l*</sub>
      and so on for any permutation of *i*, *j*, *k* and *l*.
 
-<span>orientation tensor</span>
+----
+## orientation tensor
 
 -   The orientation tensor is also normalized such that:
     *a*<sub>*i**i*</sub> = 1
@@ -402,19 +327,23 @@ fiber orientation
     *a*<sub>*i**j**k**k*</sub> = *a*<sub>*i**j*</sub>
     *a*<sub>*i**j**k**l**m**m*</sub> = *a*<sub>*i**j**k**l*</sub>
 
-<span>example - 2D random</span>
+----
+## example - 2D random
 
 <img src="../Figures/random2D" alt="A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_{11} = a_{22} = \frac{1}{2}, with all other a_{ij} = 0." style="width:60.0%" />
 
-<span>example - 3D random</span>
+----
+## example - 3D random
 
 <img src="../Figures/random3D" alt="A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_{11} = a_{22} = a_{33} = \frac{1}{3}, with all other a_{ij} = 0." style="width:60.0%" />
 
-<span>example - aligned 45</span>
+----
+## example - aligned 45
 
 <img src="../Figures/aligned45" alt="A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a_{11} = 1 and all other a_{ij} = 0." style="width:60.0%" />
 
-<span>next class</span>
+----
+## next class
 
 -   Orientation averaging
 
