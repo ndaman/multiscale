@@ -260,52 +260,51 @@ $$\[I+S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right )\] \\bar{\\ep
 ----
 ## orientation tensor
 
--   Within a given volume, a distribution of fibers can be defined by some orientation distribution function, *ψ*(*θ*, *ϕ*).
-
+-   Within a given volume, a distribution of fibers can be defined by some orientation distribution function, `$\psi(\theta, \phi)$`.
 -   Advani and Tucker introduced tensor representations of fiber orientation distribution functions
-    *a*<sub>*i**j*</sub> = ∮*p*<sub>*i*</sub>*p*<sub>*j*</sub>*ψ*(*p*)*d**p*
-
+`$$a_{ij} = \oint p_i p_j \psi(p) dp$$`
 -   And
-    *a*<sub>*i**j**k**l*</sub> = ∮*p*<sub>*i*</sub>*p*<sub>*j*</sub>*p*<sub>*k*</sub>*p*<sub>*l*</sub>*ψ*(*p*)*d**p*
-
+`$$a_{ijkl} = \oint p_i p_j p_k p_l\psi(p) dp$$`
 -   Note: any order tensor may be defined in this manner, the orientation distribution function must be even, due to fiber symmetry, and thus any odd-ordered tensor will be zero.
 
 ----
 ## orientation tensor
 
 -   It can be noted that some symmetries must exist due to the way the tensors are defined.
-
 -   In the second order tensor we have
-    *a*<sub>*i**j*</sub> = *a*<sub>*j**i*</sub>
-
+`$$a_{ij} = a_{ji}$$`
 -   and in the fourth order tensor
-    *a*<sub>*i**j**k**l*</sub> = *a*<sub>*j**i**k**l*</sub> = *a*<sub>*k**i**j**l*</sub>
-     and so on for any permutation of *i*, *j*, *k* and *l*.
+`$$a_{ijkl} = a_{jikl} = a_{kijl}$$`
+     and so on for any permutation of *i*, *j*, *k* and *l*.
 
 ----
 ## orientation tensor
 
 -   The orientation tensor is also normalized such that:
-    *a*<sub>*i**i*</sub> = 1
-
+`$$a_{ii} = 1$$`
 -   And any lower-order tensor can be expressed in terms of the next higher-order tensor, for example
-    *a*<sub>*i**j**k**k*</sub> = *a*<sub>*i**j*</sub>
-    *a*<sub>*i**j**k**l**m**m*</sub> = *a*<sub>*i**j**k**l*</sub>
+`$$a_{ijkk} = a_{ij}$$`
 
 ----
 ## example - 2D random
 
-<img src="../Figures/random2D" alt="A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_{11} = a_{22} = \frac{1}{2}, with all other a_{ij} = 0." style="width:60.0%" />
+![A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0.](images\random2D.PNG)
+
+A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor *a*<sub>11</sub> = *a*<sub>22</sub> = 0.5, with all other *a*<sub>*ij*</sub>=0.
 
 ----
 ## example - 3D random
 
-<img src="../Figures/random3D" alt="A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_{11} = a_{22} = a_{33} = \frac{1}{3}, with all other a_{ij} = 0." style="width:60.0%" />
+![A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0.](images\random3D.PNG)
+
+A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a<sub>11</sub> = a<sub>22</sub> = a<sub>33</sub> = 1/3, with all other a<sub>ij</sub> = 0.
 
 ----
 ## example - aligned 45
 
-<img src="../Figures/aligned45" alt="A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a_{11} = 1 and all other a_{ij} = 0." style="width:60.0%" />
+![A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.](images\aligned45.PNG)
+
+A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.
 
 ----
 ## next class
