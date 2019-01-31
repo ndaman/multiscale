@@ -31,7 +31,7 @@ February 4, 2019
 -   Feb 4 - 1D Micromechanics (HW1 Due)
 -   Feb 6 - Mean-field
 -   Feb 11 - Orientation Averaging
--   Feb 13 -
+-   Feb 13 - Variational Calculus (HW2 Due)
 
 ----
 
@@ -95,7 +95,7 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 -   *I*<sub>3</sub>=4-2*I*<sub>1</sub>
 
 ----
-<!-- -- id="eshelby-tensor" -->
+<!-- -- id="table" -->
 ## eshelby tensor
 
 | *S*<sub>*ijkl*</sub>                                                                              | Long Fibers                               | Short Fibers (Ellipsoids)                |
@@ -206,7 +206,7 @@ $$\[I+S \\left( C\_m \\right ) ^{-1} \\left ( C\_f - C\_m \\right )\] \\bar{\\ep
 -   First we find the Eshelby tensor for *s* = 15
 -   We also need the matrix Poisson's ratio, *v* = 0.40
 -   We find the parameters [here](#/eshelby-params)
--   Then we use [this slide](#/eshelby-tensor) to find *S*<sub>*ijkl*</sub>
+-   Then we use [this slide](#/table) to find *S*<sub>*ijkl*</sub>
 -   Notice that this assumes fibers are pointed in the 3-direction
 
 ----
