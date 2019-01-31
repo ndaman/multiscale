@@ -86,19 +86,23 @@ $$\\begin{aligned}
 -   Mori and Tanaka's critical assumption is that $\\hat{A} = A^E$
 -   This means that the stress in each fiber is related to the average matrix strain in the same way that a dilute fiber would be related to remote strain
 -   While this may not generally be true at the local level, when averaged about the entire composite, it gives very good results
--   Substituting *A*<sup>*E*</sup> gives the following expression for *A*<sup>*M**T*</sup>
-    *A*<sup>*M**T*</sup> = *A*<sup>*E*</sup>\[*V*<sub>*f*</sub>*A*<sup>*E*</sup>+*V*<sub>*m*</sub>*I*\]<sup>−1</sup>
-     where
-    *A*<sup>*E*</sup> = \[*I* + *S*(*C*<sub>*m*</sub>)<sup>−1</sup>(*C*<sub>*f*</sub>−*C*<sub>*m*</sub>)\]<sup>−1</sup>
+-   Substituting *A*<sup>*E*</sup> gives the following expression for *A*<sup>*MT*</sup>
+
+*A*<sup>*MT*</sup> = *A*<sup>*E*</sup>\[*V*<sub>*f*</sub>*A*<sup>*E*</sup> + *V*<sub>*m*</sub>*I*\]<sup>-1</sup>
+
+where
+
+*A*<sup>*E*</sup> = \[*I* + *S*(*C*<sub>*m*</sub>)<sup>-1</sup>(*C*<sub>*f*</sub> - *C*<sub>*m*</sub>)\]<sup>-1</sup>
 
 ----
 ## multiple inclusions
 
 -   When we have multiple inclusions (or orientations), we follow a slightly different scheme in Mori-Tanaka
 -   We first add all Eshelby concentration tensors (multiplied by volume fraction)
-    *A*<sup>*T**o**t*</sup> = ∑*V*<sub>*i*</sub>*A*<sub>*i*</sub><sup>*E*</sup>
+`$$A^{Tot} = \sum V_i A_i^E$$`
 -   And then calculate the Mori-Tanaka strain concentration tensor at each orientation as
-    *A*<sub>*i*</sub><sup>*M**T*</sup> = *A*<sub>*i*</sub><sup>*E*</sup>\[(1−*V*<sub>*f*</sub>)*I*+*A*<sup>*T**o**t*</sup>\]<sup>−1</sup>
+
+*A*<sub>*i*</sub><sup>*MT*</sup> = *A*<sub>*i*</sub><sup>*E*</sup>\[(1 - *V*<sub>*f*</sub>)*I* + *A*<sup>*Tot*</sup>\]<sup>-1</sup>
 
 ---
 # halpin-tsai
@@ -126,17 +130,18 @@ $$\\eta = \\frac{P\_f/P\_m - 1}{P\_f/P\_m + \\zeta}$$
 -   It is worth mentioning that when $\zeta=0$ the Halpin-Tsai equations reduce to the inverse rule of mixtures
 $$\\frac{1}{P} = \\frac{V\_f}{P\_f} + \\frac{V\_m}{P\_m}$$
 -   and when $\zeta = \infty$ they reduce to the rule of mixtures
-    *P* = *V*<sub>*f*</sub>*P*<sub>*f*</sub> + *V*<sub>*m*</sub>*P*<sub>*m*</sub>
+
+*P* = *V*<sub>*f*</sub>*P*<sub>*f*</sub> + *V*<sub>*m*</sub>*P*<sub>*m*</sub>
 
 ----
 ## halpin-tsai
 
-|               *P*|  *P*<sub>*f*</sub>|  *P*<sub>*m*</sub>|              *ζ*|
+|               *P*|  *P*<sub>*f*</sub>|  *P*<sub>*m*</sub>|          $\zeta$|
 |-----------------:|------------------:|------------------:|----------------:|
 |  *E*<sub>11</sub>|  *E*<sub>*f*</sub>|  *E*<sub>*m*</sub>|  $2\\frac{L}{d}$|
 |  *E*<sub>22</sub>|  *E*<sub>*f*</sub>|  *E*<sub>*m*</sub>|                2|
 |  *G*<sub>12</sub>|  *G*<sub>*f*</sub>|  *G*<sub>*m*</sub>|                1|
-|  *ν*<sub>12</sub>|  *ν*<sub>*f*</sub>|  *ν*<sub>*m*</sub>|                ∞|
+|  *v*<sub>12</sub>|  *v*<sub>*f*</sub>|  *v*<sub>*m*</sub>|         $\infty$|
 
 ----
 ## example
