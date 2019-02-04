@@ -11,9 +11,9 @@ February 11, 2019
 ## schedule
 
 -   Feb 11 - Orientation Averaging
--   Feb 13 - Variational Calculus (HW2 Due)
+-   Feb 13 - Physical measurements (HW2 Due)
 -   Feb 18 - Variational Calculus
--   Feb 20
+-   Feb 20 - Variational Calculus
 
 ----
 ### outline

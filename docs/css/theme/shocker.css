@@ -271,7 +271,6 @@ body {
 left and right columns
 **/
 .left {
-  left:-15%;
   top:-10%;
   text-align: left;
   float: left;
@@ -280,7 +279,6 @@ left and right columns
   z-index:-10;
 }
 .right {
-  left:31.25%;
   top: 75px;
   float: right;
   text-align: left;
