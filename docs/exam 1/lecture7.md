@@ -30,7 +30,7 @@ February 13, 2019
 -   This gives a way to systematically check whether your rotations are correct
 -   You can check any coordinate transformation as long as you know the unit vectors of your primed coordinate system in the global coordinates
 
-    *x* = [*Q*<sup>*T*</sup>]*x*<sup>''</sup>
+    *x* = [*Q*<sup>*T*</sup>]*x*<sup>'</sup>
 
 ----
 ## common homework errors
@@ -65,12 +65,12 @@ February 13, 2019
 ----
 ## microscopy
 
-![image](../Figures/cut_fiber.JPG) TODO: alt text
+![An image showing the ellipse that results from cutting a cylinder at an angle that isn't perpendicular to the axis.](images\cut_fiber.JPG)
 
 ----
 ## fiber in spherical coordinates
 
-![](images\single_fiber.png) TODO: alt text
+![Relating the spherical coordinate system to direction vectors to describe fiber orientation](images\single_fiber.png)
 
 ----
 ## fiber direction components
@@ -84,7 +84,7 @@ February 13, 2019
 ----
 ## measurements
 
-![](images\coordinates.PNG) TODO: alt text
+![Defining some terms for analyzing the cross-section of an elliptical fiber cut. Phi is the angle between the major axis of the ellipse and the 1 axis, x1, y1 mark the bottom left point of the ellipse, x2, y2 mark the upper right point of the ellipse (the major axis), while x3,y3 and x4,y4 mark the ends of the minor axis](images\coordinates.PNG)
 
 ----
 ## calculations
@@ -106,27 +106,27 @@ $$\\sin \\phi = \\frac{Y}{M} \\cos \\phi = \\frac{X}{M} \\cos \\theta = \\frac{m
 ----
 ## microscopy
 
-![](images\plies.png) TODO: alt text
+![A microscopic image of a composite laminate, showing plies at different angles](images\plies.png)
 
 ----
 ## microscopy
 
-![](images\thresh1.png) TODO: alt text
+![An image from some analysis to find the volume fraction of fibers in an image.](images\thresh1.png)
 
 ----
 ## microscopy
 
-![](images\thresh2.png) TODO: alt text
+![A demonstration that choosing the correct threshold value to convert greyscale images to only black and white is essential to correctly determining the volume fraction.](images\thresh2.png)
 
 ----
 ## microscopy
 
-![](images\ply_thickness.png) TODO: alt text
+![Ply thickness can be measured from a microscopic image](images\ply_thickness.png)
 
 ----
 ## microscopy
 
-![](images\spacing.png) TODO: alt text
+![It can also be useful sometimes to measure the distance between a fiber and its nearest neighbors.](images\spacing.png)
 
 ----
 ## software
