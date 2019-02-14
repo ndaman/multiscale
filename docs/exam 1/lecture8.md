@@ -13,6 +13,7 @@ February 18, 2019
 -   Feb 18 - Variational Calculus
 -   Feb 20 - Variational Calculus
 -   Feb 25 - Bounds and Boundary Conditions (HW 3 Due)
+-   Feb 27 -
 
 ----
 ## outline
@@ -105,7 +106,8 @@ $$\\frac{\\partial F}{\\partial u\_i} + \\lambda \\frac{\\partial f}{\\partial u
 ## functional
 
 -   A functional of some unknown function *y*(*x*) is defined as
-    *I* = *I*\[*y*(*x*)\]
+
+    *I* = *I*\[*y*(*x*)\]
 -   A functional depends on all values of *y*(*x*) over some interval
 -   We will often use the form
 $$I\[y\] = \\int\_a^b F(x,y(x),\\dot{y}(x))dx$$
