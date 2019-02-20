@@ -192,7 +192,7 @@ $$I\[y\] = \\int\_0^L \\left\[ \\frac{1}{2} EI (\\ddot{y})^2 - fy\\right\] dx$$
 ## example
 
 -   Minimize the functional
-$$I[y,z] = \int_{x_0}^{x_1} (y_2 - z_2) dx $$
+$$I[y,z] = \int_{x_0}^{x_1} (y^2 - z^2) dx $$
 
 -   Under the constraint
 $$\\dot{y} - y + z = 0$$

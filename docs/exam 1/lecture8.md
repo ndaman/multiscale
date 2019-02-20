@@ -13,7 +13,7 @@ February 18, 2019
 -   Feb 18 - Variational Calculus
 -   Feb 20 - Variational Calculus
 -   Feb 25 - Bounds and Boundary Conditions (HW 3 Due)
--   Feb 27 -
+-   Feb 27 - Project Description
 
 ----
 ## outline
