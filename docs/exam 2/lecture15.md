@@ -12,10 +12,18 @@ April 3, 2019
 
 - Apr 3 - Method of Cells
 - Apr 8 - Damage Theory
+- Apr 10 - Damage Theory
+- Apr 15 - Dislocation Theory
 
 ----
 ## outline
 
+<!-- vim-markdown-toc GFM -->
+
+* method of cells
+* results
+
+<!-- vim-markdown-toc -->
 
 ---
 # method of cells
