@@ -18,6 +18,16 @@ April 8, 2019
 ----
 ## outline
 
+
+<!-- vim-markdown-toc GFM -->
+
+* failure
+* spherical void growth
+* cylindrical void growth
+* micro cracks
+
+<!-- vim-markdown-toc -->
+
 ---
 # failure
 
