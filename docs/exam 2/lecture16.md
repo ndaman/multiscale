@@ -115,7 +115,7 @@ $$\\sigma\_{ij} = L\_{ijkl}\\left(\\dot{\\epsilon}\_{kl}^\\infty + \\dot{\\epsil
 
 -   But we know that there is no stress inside the void, thus we can say
 
-$$dot{\\epsilon}\_{kl}^\\infty + \\dot{\\epsilon}\_{kl}^d - \\dot{\\epsilon}\_{kl}^\* = 0$$
+$$\\dot{\\epsilon}\_{kl}^\\infty + \\dot{\\epsilon}\_{kl}^d - \\dot{\\epsilon}\_{kl}^\* = 0$$
 
 -   Where, in this case, $\\dot{\\epsilon}\_{kl}^\*$ is the strain-rate of the void
 
@@ -289,47 +289,26 @@ $$f^\*(f) = \\begin{cases}
 ----
 ## dcb
 
+<div>
 ![](..\images\dcb1.png)
 
-----
-## dcb
+![](..\images\dcb2.png) <!-- .element class="fragment" style="position:absolute;top:0;left:0;" -->
 
-![](..\images\dcb2.png)
+![](..\images\dcb3.png) <!-- .element class="fragment" -->
 
-----
-## dcb
+![](..\images\dcb4.png) <!-- .element class="fragment" -->
 
-![](..\images\dcb3.png)
+![](..\images\dcb5.png) <!-- .element class="fragment" -->
 
-----
-## dcb
+![](..\images\dcb6.png) <!-- .element class="fragment" -->
 
-![](..\images\dcb4.png)
+![](..\images\dcb7.png) <!-- .element class="fragment" -->
 
-----
-## dcb
+![](..\images\dcb8.png) <!-- .element class="fragment" -->
 
-![](..\images\dcb5.png)
+![](..\images\dcb9.png) <!-- .element class="fragment" -->
 
-----
-## dcb
-
-![](..\images\dcb6.png)
-
-----
-## dcb
-
-![](..\images\dcb7.png)
-
-----
-## dcb
-
-![](..\images\dcb8.png)
-
-----
-## dcb
-
-![](..\images\dcb9.png)
+</div>
 
 ----
 ## single crack
