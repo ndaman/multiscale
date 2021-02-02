@@ -1,35 +1,3 @@
-<style>
-.left {
-  left:-8.33%;
-  text-align: left;
-  float: left;
-  width:50%;
-  z-index:-10;
-}
-.right {
-  left:31.25%;
-  top: 75px;
-  float: right;
-  text-align: right;
-  z-index:-10;
-  width:50%;
-}
-.bottom-left{
-  left: 0;
-  bottom: 0;
-  position: fixed;
-  width: 50%;
-  text-align: left;
-}
-.bottom-right{
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  width: 50%;
-  text-align: right;
-}
-</style>
-
 ## AE 760AA: Micromechanics and multiscale modeling
 Lecture 2 - Tensor review, Anisotropic Elasticity
 
@@ -37,19 +5,20 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-January 28, 2019
+February 4, 2021
 
 ---
 ## schedule
 
--   Jan 28 - Tensor review, Anisotropic Elasticity
--   Feb 30 - Coordinate Transformation
--   Feb 4 - 1D Micromechanics (HW1 Due)
--   Feb 6 - Orientation Averaging
+-   Feb 4 - Tensor review, Anisotropic Elasticity
+-   Feb 9 - Coordinate Transformation
+-   Feb 11 - 1D Micromechanics (HW1 Due)
+-   Feb 16 - Orientation Averaging
 
 ----
 
 ## outline
+
 - index notation
 - anisotropic elasticity
 
@@ -61,11 +30,13 @@ January 28, 2019
 ## index notation
 
 -   Consider the following
--   *s* = *a*<sub>1</sub>*x*<sub>1</sub> + *a*<sub>2</sub>*x*<sub>2</sub> + ... + *a*<sub>*n*</sub>*x*<sub>*n*</sub>
+-   *s* = *a*<sub>1</sub>*x*<sub>1</sub> + *a*<sub>2</sub>*x*<sub>2</sub> + ... + *a*<sub>*n*</sub>*x*<sub>*n*</sub>
 -   Which we could also write as
-    $$s = \sum_{i=1}^{n}a_ix_i$$
+
+`$$s = \sum_{i=1}^{n}a_ix_i$$`
+
 -   Using index notation, and Einstein’s summation convention, we can also write this as
-    *s* = *a*<sub>*i*</sub>*x*<sub>*i*</sub>
+*s* = *a*<sub>*i*</sub>*x*<sub>*i*</sub>
 
 ----
 
@@ -82,8 +53,10 @@ January 28, 2019
 ## dummy index
 
 -   Note, no index may be repeated more than once, thus the expression
-$$s = \sum_{i=1}^{n}a_ib_ix_i$$
-     could not be directly written in index notation
+
+`$$s = \sum_{i=1}^{n}a_ib_ix_i$$`
+
+could not be directly written in index notation
 
 ----
 
@@ -98,24 +71,23 @@ $$s = \sum_{i=1}^{n}a_ib_ix_i$$
 ----
 
 ## index notation
-### free index vs. dummy index
 
 <div class="left">
-  <ul>
-    <li>Free index is not repeated (on any term)</li>
-    <li>Free index takes all values (1,2,3)</li>
-    <li>e.g. $u_i = \langle u_1, u_2, u_3 \rangle$</li>
-    <li>Free indexes must match across terms in an expression or equation</li>
-  </ul>
+
+- Free index is not repeated (on any term)
+- Free index takes all values (1,2,3)
+- e.g. `$u_i = \langle u_1, u_2, u_3 \rangle$`
+- Free indexes must match across terms in an expression or equation
+
 </div>
 
 <div class="right">
-  <ul>
-    <li>Dummy index is repeated on at least one term</li>
-    <li>Dummy index indicates summation over all values</li>
-    <li>e.g. `$\sigma_{ii} = \sigma_{11} + \sigma_{22} + \sigma_{33}$` </li>
-    <li>Index can not be used more than twice in the same term (`$A_{ij}B_{jk}C_{kl}$` is good, `$A_{ij}B_{ij}C_{ij}$` is not)</li>
-  </ul>
+
+Dummy index is repeated on at least one term
+Dummy index indicates summation over all values
+e.g. `$\sigma_{ii} = \sigma_{11} + \sigma_{22} + \sigma_{33}$`
+Index can not be used more than twice in the same term (`$A_{ij}B_{jk}C_{kl}$` is good, `$A_{ij}B_{ij}C_{ij}$` is not)
+
 </div>
 
 ----
@@ -131,6 +103,7 @@ $$s = \sum_{i=1}^{n}a_ib_ix_i$$
 ----
 
 ## matrix multiplication
+
 -   How can we write matrix multiplication in index notation?
 
 `$$\begin{bmatrix}
@@ -146,12 +119,6 @@ $$s = \sum_{i=1}^{n}a_ib_ix_i$$
     c_{21} & c_{22}
   \end{bmatrix}$$`
 
-Note:
-see pattern
-c_11 = a_11 b_11 + a_12b_21
-c_12 = a_11 b_21 + a_12b_22
-builds to
-c_ij = a_ik b_kj
 
 ---
 
@@ -163,6 +130,7 @@ c_ij = a_ik b_kj
 
 -   For convenience we define two symbols in index notation
 -   *Kronecker delta* is a general tensor form of the Identity Matrix
+
 `$$\delta_{ij} = \left\{
 \begin{array}{ll}
   1& \text{if $i=j$}\\
@@ -173,6 +141,7 @@ c_ij = a_ik b_kj
   0 & 1 & 0 \\
   0 & 0 & 1
 \end{bmatrix}$$`
+
 -   Is also used for higher order tensors
 
 ----
@@ -187,7 +156,9 @@ c_ij = a_ik b_kj
 ----
 
 ## alternating symbol
+
 -   *alternating symbol* or *permutation symbol*
+
 `$$\epsilon_{ijk} = \left\{
 \begin{array}{rl}
   1 & \text{if $ijk$ is an even permutation of 1,2,3}\\
@@ -199,6 +170,7 @@ c_ij = a_ik b_kj
 ----
 
 ## alternating symbol
+
 -   This symbol is not used as frequently as the *Kronecker delta*
 -   For our uses in this course, it is enough to know that 123, 231, and 312 are even permutations
 -   321, 132, 213 are odd permutations
@@ -212,10 +184,14 @@ c_ij = a_ik b_kj
 ----
 
 ## substitution
+
 -   When solving tensor equations, we often need to manipulate expressions
 -   We need to make sure the correct indexes are used when substituting, for example
+
 `$$a_i = U_{im}{b_m} \label{eq:first} \tag{1}$$`
+
 `$$b_i = V_{im}{c_m} \label{eq:second} \tag{2}$$`
+
 -   To substitute (2) into (1), we first need to change indexes
 
 ----
@@ -224,9 +200,12 @@ c_ij = a_ik b_kj
 
 -   We need to change the free index, *i*, to *m* in (2)
 -   Since *m* is already used as the dummy index, we need to change that too
--   `$$b_m = V_{mj}{c_j} \label{eq:third} \tag{3}$$`
+
+`$$b_m = V_{mj}{c_j} \label{eq:third} \tag{3}$$`
+
 -   We can now make the substitution
--   `$$a_i = U_{im}V_{mj}{c_j} \label{eq:fourth} \tag{4}$$`
+
+`$$a_i = U_{im}V_{mj}{c_j} \label{eq:fourth} \tag{4}$$`
 
 ----
 
@@ -267,7 +246,7 @@ c_ij = a_ik b_kj
 ## partial derivative
 
 -   We indicate (partial) derivatives using a comma
--   In three dimensions, we take the partial derivative with respect to each variable (*x*, *y*, *z* or `$x_1$`, `$x_2$`, and `$x_3$`)
+-   In three dimensions, we take the partial derivative with respect to each variable (*x*, *y*, *z* or `$x_1$`, `$x_2$`, and `$x_3$`)
 -   For example a scalar property, such as density, can have a different value at any point in space
 -   `$\rho = \rho(x_1, x_2, x_3)$`
 -   `$\rho_{,i} = \frac{\partial}{\partial x_i} \rho = \left \langle \frac{\partial \rho }{\partial x_1}, \frac{\partial \rho }{\partial x_2}, \frac{\partial \rho }{\partial x_3} \right\rangle$`
@@ -277,6 +256,7 @@ c_ij = a_ik b_kj
 ## partial derivative
 
 -   Similarly, if we take the partial derivative of a vector, it produces a matrix
+
 `$$u_{i,j} = \frac{\partial}{\partial x_j} u_i = \begin{bmatrix}
   \frac{\partial u_1}{\partial x_1} & \frac{\partial u_1}{\partial x_2} & \frac{\partial u_1}{\partial x_3}\\
   \frac{\partial u_2}{\partial x_1} & \frac{\partial u_2}{\partial x_2} & \frac{\partial u_2}{\partial x_3}\\
@@ -290,9 +270,10 @@ c_ij = a_ik b_kj
 ----
 
 ## dyadic notation
+
 -   Dyadic notation is sometimes called tensor product notation
 -   Dyadic product: `$C_{ij} = a_i b_j$` is written as `$C = a \otimes b$`
--   Double dot product: `$A_{ij} B_{ji} = c$` is written as `$A : B = c$`
+-   Double dot product: `$A_{ij} B_{ji} = c$` is written as `$A : B = c$`
 
 ---
 
@@ -305,17 +286,20 @@ c_ij = a_ik b_kj
 -   Let us consider some transformation, **T**, which transforms any vector into another vector
 -   If we transform **T** *a* = *c* and **T** *b* = *d*
 -   We call **T** a linear transformation (and a tensor) if
+
 `$$\begin{aligned}
   \textbf{T}(\textbf{a} + \textbf{b}) &= \textbf{Ta} + \textbf{Tb}\\
   \textbf{T}(\alpha \textbf{a}) = \alpha\textbf{Ta}
-\end{aligned}$$
-`
+\end{aligned}$$`
+
 -   Where `$\alpha$` is any arbitrary scalar and *a*, *b* are arbitrary vectors
 
 ----
 
 ## coordinate transformation in two dimensions
-![An arbitrary vector drawn in the x-y coordinate system, with a transformed coordinate system overlayed such that `$x_1$` aligns with the direction of the vector](images\trans-vector.svg) <!-- .element width="60%" -->
+
+![An arbitrary vector drawn in the x-y coordinate system, with a transformed coordinate system overlayed such that `$x_1$` aligns with the direction of the vector](../images/trans-vector.svg) <!-- .element width="60%" -->
+
 
 ----
 
@@ -330,14 +314,15 @@ c_ij = a_ik b_kj
 
 ## coordinate transformation in two dimensions
 
-![Unit vector have been overlayed on top of the axes drawn previously, as described in the previous slide](images\trans-vec-unit.svg) <!-- .element width="60%" -->
+![Unit vector have been overlayed on top of the axes drawn previously, as described in the previous slide](../images/trans-vec-unit.svg) <!-- .element width="60%" -->
 
 ----
 
 ## coordinate transformation in two dimensions
 
--   For this example, let us assume `$v = \langle 2, 2 \rangle$` and `$\theta = 45^\circ$`
+-   For this example, let us assume `$v = \langle 2, 2 \rangle$` and `$\theta = 45^\circ$`
 -   We can write the transformed unit vectors, `$\hat{e}_1^\prime$` and `$\hat{e}_2^\prime$` in terms of `$\hat{e}_1$`, `$\hat{e}_2$` and the angle of rotation, `$\theta$`.
+
 `$$\begin{aligned}
     \hat{e}_1^\prime &= \langle \hat{e}_1 \cos \theta , \hat{e}_2 \sin \theta \rangle\\
     \hat{e}_2^\prime &= \langle -\hat{e}_1 \sin \theta , \hat{e}_2 \cos \theta \rangle
@@ -360,9 +345,9 @@ c_ij = a_ik b_kj
 -   `$v^\prime = \langle v_1 \cos \theta + v_2 \sin \theta, -v_1 \sin \theta + v_2 \cos \theta$`
 -   `$v^\prime = \langle 2\sqrt{2}, 0 \rangle$`
 -   We can recover the original vector from the transformed coordinates:
--   $v = v\_1^\\prime \\hat{e}\_1^\\prime + v\_2^\\prime \\hat{e}\_2^\\prime$
--   (note: $\\hat{e}\_1^\\prime=\\langle \\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2} \\rangle$ and $\\hat{e}\_2^\\prime = \\langle -\\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2} \\rangle$)
--   $v = 2\\sqrt{2}\\langle \\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2} \\rangle, 0 \\langle -\\frac{\\sqrt{2}}{2},\\frac{\\sqrt{2}}{2} \\rangle = \\langle 2, 2 \\rangle$
+-   `$v = v_1^\prime \hat{e}_1^\prime + v_2^\prime \hat{e}_2^\prime$`
+-   (note: `$\hat{e}_1^\prime=\langle \frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2} \rangle$` and `$\hat{e}_2^\prime = \langle -\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2} \rangle$`}
+-   `$v = 2\sqrt{2}\langle \frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2} \rangle, 0 \langle -\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2} \rangle = \langle 2, 2 \rangle$`
 
 ---
 
@@ -372,6 +357,7 @@ c_ij = a_ik b_kj
 -   It is convenient to define a general form of the coordinate transformation in index notation
 -   We define `$Q_{ij}$` as the cosine of the angle between the `$x_i^\prime$` axis and the `$x_j$` axis.
 -   This is also referred to as the "direction cosine"
+
 `$$Q_{ij} = \cos(x_i^\prime, x_j)$$`
 
 ----
@@ -396,21 +382,23 @@ c_ij = a_ik b_kj
 ## general coordinate transformation
 
 -   We can use this form on our 2D transformation example
-$$\\begin{aligned}
-  Q\_{ij} &= \\cos (x\_i^\\prime, x\_j)\\\\ &=
-  \\begin{bmatrix}
-  \\cos (x\_1^\\prime, x\_1) & \\cos (x\_1^\\prime, x\_2)\\\\
-  \\cos (x\_2^\\prime, x\_1) & \\cos (x\_2^\\prime, x\_2)
-  \\end{bmatrix}\\\\
-  &= \\begin{bmatrix}
-  \\cos \\theta & \\cos (90-\\theta)\\\\
-  \\cos (90+\\theta) & \\cos \\theta
-  \\end{bmatrix} \\\\
-  &= \\begin{bmatrix}
-  \\cos \\theta & \\sin \\theta \\\\
-  -\\sin \\theta & \\cos \\theta
-  \\end{bmatrix}
-\\end{aligned}$$
+
+`$$\begin{aligned}
+  Q_{ij} &= \cos (x_i^\prime, x_j)\\
+	&=
+  \begin{bmatrix}
+  \cos (x_1^\prime, x_1) & \cos (x_1^\prime, x_2)\\
+  \cos (x_2^\prime, x_1) & \cos (x_2^\prime, x_2)
+  \end{bmatrix}\\
+  &= \begin{bmatrix}
+  \cos \theta & \cos (90-\theta)\\
+  \cos (90+\theta) & \cos \theta
+  \end{bmatrix} \\
+  &= \begin{bmatrix}
+  \cos \theta & \sin \theta \\
+  -\sin \theta & \cos \theta
+  \end{bmatrix}
+\end{aligned}$$`
 
 ----
 
@@ -441,27 +429,30 @@ $$\\begin{aligned}
 ## example
 
 <div class="left">
-![An empty 3D axis](images\3d-axis.svg)<!-- .element width="90%" -->
+
+![An empty 3D axis](../images/3d-axis.svg)<!-- .element width="90%" -->
+
 </div>
 
 <div class="right">
-<ul>
-  <li>Find `$Q_{ij}^1$` for rotation of `$60^\circ$` about `$x_2$` </li>
-  <li>Find `$Q_{ij}^2$` for rotation of `$30^\circ$` about `$x_3^\prime$` </li>
-  <li>Find `$e_{i}^{\prime\prime}$` after both rotations </li>
+
+- Find `$Q_{ij}^1$` for rotation of `$60^\circ$` about `$x_2$` 
+- Find `$Q_{ij}^2$` for rotation of `$30^\circ$` about `$x_3^\prime$`
+- Find `$e_{i}^{\prime\prime}$` after both rotations 
+
 </div>
 
 ----
 
 ## example
 
-![An empty 3D axis with a superposed axis that has been rotated about the y-axis](images\3d-y-rot.svg)<!-- .element width="40%" -->
+![An empty 3D axis with a superposed axis that has been rotated about the y-axis](../images/3d-y-rot.svg)<!-- .element width="40%" -->
 
 ----
 
 ## example
 
-![An empty 3D axis with a superposed axis that has been rotated about the y-axis, and a further superposed rotation about the new z-axis](images\3d-z-rot.svg)<!-- .element width="40%" -->
+![An empty 3D axis with a superposed axis that has been rotated about the y-axis, and a further superposed rotation about the new z-axis](../images/3d-z-rot.svg)<!-- .element width="40%" -->
 
 
 ----
@@ -470,31 +461,30 @@ $$\\begin{aligned}
 
 -   `$Q_{ij}^1 = \cos(x_i^\prime,x_j)$`
 -   `$Q_{ij}^2 = \cos(x_i^{\prime\prime},x_j^\prime)$`
-$$Q\_{ij}^1 = \\begin{bmatrix}
-  \\cos 60 & \\cos 90 & \\cos 150\\\\
-  \\cos 90 & \\cos 0 & \\cos 90\\\\
-  \\cos 30 & \\cos 90 & \\cos 60
-\\end{bmatrix}$$
-$$Q\_{ij}^2 = \\begin{bmatrix}
-  \\cos 30 & \\cos 60 & \\cos 90\\\\
-  \\cos 120 & \\cos 30 & \\cos 90\\\\
-  \\cos 90 & \\cos 90 & \\cos 0
-\\end{bmatrix}$$
+
+`$$Q_{ij}^1 = \begin{bmatrix}
+  \cos 60 & \cos 90 & \cos 150\\
+  \cos 90 & \cos 0 & \cos 90\\
+  \cos 30 & \cos 90 & \cos 60
+\end{bmatrix}$$`
+
+`$$Q_{ij}^2 = \begin{bmatrix}
+  \cos 30 & \cos 60 & \cos 90\\
+  \cos 120 & \cos 30 & \cos 90\\
+  \cos 90 & \cos 90 & \cos 0
+\end{bmatrix}$$`
 
 ----
 
 ## example
 
--   We now use `$Q_{ij}$` to find $\\hat{e}\_i^\\prime$ and $\\hat{e}\_i^{\\prime \\prime}$
--   First, we need to write $\\hat{e}\_i$ in a manner more consistent with index notation
--   We will indicate axis direction with a superscript, e.g. $\\hat{e}\_1 = e\_i^1$
+-   We now use `$Q_{ij}$` to find `$\hat{e}_i^\prime$` and `$\hat{e}_i^{\prime \prime}$`
+-   First, we need to write `$\hat{e}_i$` in a manner more consistent with index notation
+-   We will indicate axis direction with a superscript, e.g. `$\hat{e}_1 = e_i^1$`
 -   `$e_i^\prime = Q_{ij}^1 e_j$`
 -   `$e_i^{\prime\prime} = Q_{ij}^2 e_j^\prime$`
 -   How do we find `$e_i^{\prime\prime}$` in terms of `$e_i$`?
 
-Note:
-e_i'' = Q_ij^2 Q_jk^1 e_k
-rows of Q_ij^e give e_i''
 
 ---
 
@@ -505,7 +495,9 @@ rows of Q_ij^e give e_i''
 ## stiffness
 
 -   In 3D, Hooke’s Law for linearly elastic materials is
+
 `$$\sigma_{ij} = C_{ijkl} \epsilon_{kl}$$`
+
 -   For isotropic materials, `$C_{ijkl}$` can be expressed in terms of two constants
 -   In general (anisotropic materials) more constants are needed and we use the full tensor
 
@@ -518,56 +510,78 @@ rows of Q_ij^e give e_i''
 -   NOTE: Although `$\sigma$`, `$\epsilon$` and `$C_{ijkl}$` are tensors, their counterparts in engineering notation are NOT formal tensors
 -   This means that the usual transformation laws do not apply
 
-Note:
-Expand sigma_ij = C_ijkl E_kl on board for 1-2 terms
 
 ----
 
 ## engineering notation
-$$\\begin{bmatrix}
-  \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
-  \\end{bmatrix}
-  = \\begin{bmatrix}
-  C\_{1111} & C\_{1122} & C\_{1133} & C\_{1123} & C\_{1113} & C\_{1112} \\\\
-  C\_{1122} & C\_{2222} & C\_{2233} & C\_{2223} & C\_{1322} & C\_{1222} \\\\
-  C\_{1133} & C\_{2233} & C\_{3333} & C\_{2333} & C\_{1333} & C\_{1233} \\\\
-  C\_{1123} & C\_{2223} & C\_{2333} & C\_{2323} & C\_{1323} & C\_{1223} \\\\
-  C\_{1113} & C\_{1322} & C\_{1333} & C\_{1323} & C\_{1313} & C\_{1213} \\\\
-  C\_{1112} & C\_{1222} & C\_{1233} & C\_{1223} & C\_{1213} & C\_{1212}
-  \\end{bmatrix}\\begin{bmatrix}
-  E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
-\\end{bmatrix}$$
+
+`$$\begin{bmatrix}
+  \sigma_{11}\\
+  \sigma_{22} \\
+  \sigma_{33} \\
+  \sigma_{23} \\
+  \sigma_{13} \\
+  \sigma_{12}
+  \end{bmatrix}
+  = \begin{bmatrix}
+  C_{1111} & C_{1122} & C_{1133} & C_{1123} & C_{1113} & C_{1112} \\
+  C_{1122} & C_{2222} & C_{2233} & C_{2223} & C_{1322} & C_{1222} \\
+  C_{1133} & C_{2233} & C_{3333} & C_{2333} & C_{1333} & C_{1233} \\
+  C_{1123} & C_{2223} & C_{2333} & C_{2323} & C_{1323} & C_{1223} \\
+  C_{1113} & C_{1322} & C_{1333} & C_{1323} & C_{1313} & C_{1213} \\
+  C_{1112} & C_{1222} & C_{1233} & C_{1223} & C_{1213} & C_{1212}
+  \end{bmatrix}\begin{bmatrix}
+  E_{11} \\
+	E_{22} \\
+	E_{33} \\
+	E_{23} \\
+	2E_{13} \\
+	2E_{12}
+\end{bmatrix}$$`
 
 ----
 
 ## compliance
-$$\\begin{bmatrix}
-  E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
-  \\end{bmatrix}
-  = \\begin{bmatrix}
-  S\_{1111} & S\_{1122} & S\_{1133} & S\_{1123} & S\_{1113} & S\_{1112} \\\\
-  S\_{1122} & S\_{2222} & S\_{2233} & S\_{2223} & S\_{1322} & S\_{1222} \\\\
-  S\_{1133} & S\_{2233} & S\_{3333} & S\_{2333} & S\_{1333} & S\_{1233} \\\\
-  S\_{1123} & S\_{2223} & S\_{2333} & S\_{2323} & S\_{1323} & S\_{1223} \\\\
-  S\_{1113} & S\_{1322} & S\_{1333} & S\_{1323} & S\_{1313} & S\_{1213} \\\\
-  S\_{1112} & S\_{1222} & S\_{1233} & S\_{1223} & S\_{1213} & S\_{1212}
-  \\end{bmatrix}\\begin{bmatrix}
-  \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
-  \\end{bmatrix}$$
+
+`$$\begin{bmatrix}
+  E_{11} \\
+	E_{22} \\
+	E_{33} \\
+	E_{23} \\
+	2E_{13} \\
+	2E_{12}
+  \end{bmatrix}
+  = \begin{bmatrix}
+  S_{1111} & S_{1122} & S_{1133} & S_{1123} & S_{1113} & S_{1112} \\
+  S_{1122} & S_{2222} & S_{2233} & S_{2223} & S_{1322} & S_{1222} \\
+  S_{1133} & S_{2233} & S_{3333} & S_{2333} & S_{1333} & S_{1233} \\
+  S_{1123} & S_{2223} & S_{2333} & S_{2323} & S_{1323} & S_{1223} \\
+  S_{1113} & S_{1322} & S_{1333} & S_{1323} & S_{1313} & S_{1213} \\
+  S_{1112} & S_{1222} & S_{1233} & S_{1223} & S_{1213} & S_{1212}
+  \end{bmatrix}\begin{bmatrix}
+  \sigma_{11} \\
+	\sigma_{22} \\
+	\sigma_{33} \\
+	\sigma_{23} \\
+	\sigma_{13} \\
+	\sigma_{12}
+\end{bmatrix}$$`
 
 ----
 
 ## physical interpretation
 
 -   If we now consider the case of uniaxial tension, we see that
-$$\\begin{aligned}
-  E\_{11} &= S\_{1111} \\sigma\_{11}\\\\
-  E\_{22} &= S\_{1122} \\sigma\_{11}\\\\
-  E\_{33} &= S\_{1133} \\sigma\_{11}\\\\
-  2E\_{23} &= S\_{1123} \\sigma\_{11}\\\\
-  2E\_{13} &= S\_{1113} \\sigma\_{11}\\\\
-  2E\_{12} &= S\_{1112} \\sigma\_{11}
-\\end{aligned}$$
+
+`$$\begin{aligned}
+  E_{11} &= S_{1111} \sigma_{11}\\
+  E_{22} &= S_{1122} \sigma_{11}\\
+  E_{33} &= S_{1133} \sigma_{11}\\
+  2E_{23} &= S_{1123} \sigma_{11}\\
+  2E_{13} &= S_{1113} \sigma_{11}\\
+  2E_{12} &= S_{1112} \sigma_{11}
+\end{aligned}$$`
+
 -   *S*<sub>1111</sub> is familiar, acting like 1/*E*<sub>*Y*</sub>
 
 ----
@@ -578,10 +592,11 @@ $$\\begin{aligned}
 -   For anisotropic materials, we can have a different Poisson's ratio acting in different directions
 -   We define `$\nu_{ij} = -E_{jj}/E_{ii}$` (with no summation), the ratio of the transverse strain in the *j* direction when stress is applied in the *i* direction
 -   For this example we can find `$\nu_{12}$` and `$\nu_{13}$` as
-$$\\begin{aligned}
-  \\nu\_{12} &= -E\_{22}/E\_{11} = -S\_{1122}/S\_{1111}\\\\
-  \\nu\_{13} &= -E\_{33}/E\_{11} = -S\_{1133}/S\_{1111}
-\\end{aligned}$$
+ 
+`$$\begin{aligned}
+  \nu_{12} &= -E_{22}/E_{11} = -S_{1122}/S_{1111}\\
+  \nu_{13} &= -E_{33}/E_{11} = -S_{1133}/S_{1111}
+\end{aligned}$$`
 
 ----
 
@@ -589,12 +604,14 @@ $$\\begin{aligned}
 
 -   Note that we cannot, in general, say that `$\nu_{12} = \nu_{21}$`
 -   However, due to the symmetry of the stiffness/compliance tensors, we know that
-$$\\begin{aligned}
-  \\nu\_{21} E\_{x} &= \\nu\_{12} E\_{y}\\\\
-  \\nu\_{31} E\_{x} &= \\nu\_{13} E\_{z}\\\\
-  \\nu\_{32} E\_{y} &= \\nu\_{23} E\_{z}
-\\end{aligned}$$
--   Where $E_x$ refer’s to the Young’s Modulus in the *x*-direction, etc.
+ 
+`$$\begin{aligned}
+  \nu_{21} E_{x} &= \nu_{12} E_{y}\\
+  \nu_{31} E_{x} &= \nu_{13} E_{z}\\
+  \nu_{32} E_{y} &= \nu_{23} E_{z}
+\end{aligned}$$`
+
+-   Where `$E_x$` refer’s to the Young’s Modulus in the *x*-direction, etc.
 
 ----
 
@@ -604,7 +621,9 @@ $$\\begin{aligned}
 -   We define shear coupling coefficients as `$\eta_{1112} = \eta_{16} = -2E_{12}/E_{11}$` due to `$\sigma_{11}$`
 -   These coupling terms can also effect shear strain in a different plane from the applied shear stress
 -   Like the Poisson's ratio, these are not entirely independent
+
 `$$ \eta_{61} E_x = \eta_{16} G_6 $$`
+
 -   Where `$G_6$` is the shear modulus in the 12 plane
 
 ----
@@ -615,60 +634,93 @@ $$\\begin{aligned}
 -   Coefficients of mutual influence relate shear stress to normal strain and normal stress to shear strain
 -   Chentsov coefficients relate shear stress in one plane to shear strain in another plane
 -   In general we can say
+
 `$$\eta_{nm} E_m = \eta_{mn} G_n \qquad \text{(m = 1,2,3) (n = 4,5,6)} $$`
+
 and
+
 `$$\eta_{nm} G_m = \eta_{mn} G_n \qquad \text{(m,n = 4,5,6)} \qquad m \ne n $$`
 
 ----
 
 ## orthotropic symmetry
-$$\\small \\begin{bmatrix}
-  \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
-  \\end{bmatrix}
-  = \\begin{bmatrix}
-  C\_{1111} & C\_{1122} & C\_{1133} & 0 & 0 & 0 \\\\
-  C\_{1122} & C\_{2222} & C\_{2233} & 0 & 0 & 0 \\\\
-  C\_{1133} & C\_{2233} & C\_{3333} & 0 & 0 & 0 \\\\
-  0 & 0 & 0 & C\_{2323} & 0 & 0 \\\\
-  0 & 0 & 0 & 0 & C\_{1313} & 0 \\\\
-  0 & 0 & 0 & 0 & 0 & C\_{1212}
-  \\end{bmatrix}\\begin{bmatrix}
-  E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
-\\end{bmatrix}$$
+
+`$$\small \begin{bmatrix}
+  \sigma_{11}\\
+	\sigma_{22} \\
+	\sigma_{33} \\\sigma_{23} \\
+	\sigma_{13} \\
+	\sigma_{12}
+  \end{bmatrix}
+  = \begin{bmatrix}
+  C_{1111} & C_{1122} & C_{1133} & 0 & 0 & 0 \\
+  C_{1122} & C_{2222} & C_{2233} & 0 & 0 & 0 \\
+  C_{1133} & C_{2233} & C_{3333} & 0 & 0 & 0 \\
+  0 & 0 & 0 & C_{2323} & 0 & 0 \\
+  0 & 0 & 0 & 0 & C_{1313} & 0 \\
+  0 & 0 & 0 & 0 & 0 & C_{1212}
+  \end{bmatrix}\begin{bmatrix}
+  E_{11}\\
+	E_{22} \\
+	E_{33} \\
+	E_{23} \\
+	2E_{13} \\
+	2E_{12}
+\end{bmatrix}$$`
 
 ----
 
 ## transversely isotropic symmetry
-$$\\small \\begin{bmatrix}
-  \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
-  \\end{bmatrix}
-  = \\begin{bmatrix}
-  C\_{1111} & C\_{1122} & C\_{1133} & 0 & 0 & 0 \\\\
-  C\_{1122} & C\_{1111} & C\_{1133} & 0 & 0 & 0 \\\\
-  C\_{1133} & C\_{1133} & C\_{3333} & 0 & 0 & 0 \\\\
-  0 & 0 & 0 & C\_{1313} & 0 & 0 \\\\
-  0 & 0 & 0 & 0 & C\_{1313} & 0 \\\\
-  0 & 0 & 0 & 0 & 0 & 1/2(C\_{1111}-C\_{2222})
-  \\end{bmatrix}\\begin{bmatrix}
-  E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
-\\end{bmatrix}$$
+
+`$$\small \begin{bmatrix}
+  \sigma_{11}\\
+	\sigma_{22} \\
+	\sigma_{33} \\\sigma_{23} \\
+	\sigma_{13} \\
+	\sigma_{12}
+  \end{bmatrix}
+  = \begin{bmatrix}
+  C_{1111} & C_{1122} & C_{1133} & 0 & 0 & 0 \\
+  C_{1122} & C_{1111} & C_{1133} & 0 & 0 & 0 \\
+  C_{1133} & C_{1133} & C_{3333} & 0 & 0 & 0 \\
+  0 & 0 & 0 & C_{1313} & 0 & 0 \\
+  0 & 0 & 0 & 0 & C_{1313} & 0 \\
+  0 & 0 & 0 & 0 & 0 & 1/2(C_{1111}-C_{2222})
+  \end{bmatrix}\begin{bmatrix}
+  E_{11}\\
+	E_{22} \\
+	E_{33} \\
+	E_{23} \\
+	2E_{13} \\
+	2E_{12}
+\end{bmatrix}$$`
 
 ----
 
 ## isotropic symmetry
-$$\\scriptsize \\begin{bmatrix}
-  \\sigma\_{11}\\\\ \\sigma\_{22} \\\\ \\sigma\_{33} \\\\\\sigma\_{23} \\\\ \\sigma\_{13} \\\\ \\sigma\_{12}
-  \\end{bmatrix}
-  = \\frac{E}{(1+\\nu)(1-2\\nu)}\\begin{bmatrix}
-  1-\\nu & \\nu & \\nu & 0 & 0 & 0 \\\\
-  \\nu & 1-\\nu & \\nu & 0 & 0 & 0 \\\\
-  \\nu & \\nu & 1-\\nu & 0 & 0 & 0 \\\\
-  0 & 0 & 0 & \\frac{1}{2}(1-2\\nu) & 0 & 0 \\\\
-  0 & 0 & 0 & 0 & \\frac{1}{2}(1-2\\nu) & 0 \\\\
-  0 & 0 & 0 & 0 & 0 & \\frac{1}{2}(1-2\\nu)
-  \\end{bmatrix}\\begin{bmatrix}
-  E\_{11}\\\\ E\_{22} \\\\ E\_{33} \\\\2E\_{23} \\\\ 2E\_{13} \\\\ 2E\_{12}
-\\end{bmatrix}$$
+
+`$$\scriptsize \begin{bmatrix}
+  \sigma_{11}\\
+	\sigma_{22} \\
+	\sigma_{33} \\\sigma_{23} \\
+	\sigma_{13} \\
+	\sigma_{12}
+  \end{bmatrix}
+  = \frac{E}{(1+\nu)(1-2\nu)}\begin{bmatrix}
+  1-\nu & \nu & \nu & 0 & 0 & 0 \\
+  \nu & 1-\nu & \nu & 0 & 0 & 0 \\
+  \nu & \nu & 1-\nu & 0 & 0 & 0 \\
+  0 & 0 & 0 & \frac{1}{2}(1-2\nu) & 0 & 0 \\
+  0 & 0 & 0 & 0 & \frac{1}{2}(1-2\nu) & 0 \\
+  0 & 0 & 0 & 0 & 0 & \frac{1}{2}(1-2\nu)
+  \end{bmatrix}\begin{bmatrix}
+  E_{11}\\
+	E_{22} \\
+	E_{33} \\
+	E_{23} \\
+	2E_{13} \\
+	2E_{12}
+\end{bmatrix}$$`
 
 ---
 

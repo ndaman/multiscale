@@ -1,36 +1,3 @@
-<style>
-.left {
-  left:-8.33%;
-  text-align: left;
-  float: left;
-  width:50%;
-  z-index:-10;
-}
-
-.right {
-  left:31.25%;
-  top: 75px;
-  float: right;
-  text-align: right;
-  z-index:-10;
-  width:50%;
-}
-.bottom-left{
-  left: 0;
-  bottom: 0;
-  position: fixed;
-  width: 50%;
-  text-align: left;
-}
-.bottom-right{
-  right: 0;
-  bottom: 0;
-  position: fixed;
-  width: 50%;
-  text-align: right;
-}
-</style>
-
 ## AE 760AA: Micromechanics and multiscale modeling
 Lecture 1 - Intro to Micromechanics
 
@@ -38,18 +5,19 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-January 23, 2019
+2 February 2021
 
 ---
 ## schedule
 
--   Jan 23 - Intro to Micromechanics
--   Jan 28 - Tensor review, Anisotropic Elasticity
--   Feb 30 - Coordinate Transformation
--   Feb 4 - 1D Micromechanics (HW1 Due)
+-   Feb 2 - Intro to Micromechanics
+-   Feb 4 - Tensor review, Anisotropic Elasticity
+-   Feb 9 - Coordinate Transformation
+-   Feb 11 - 1D Micromechanics (HW1 Due)
 
 ----
 ## outline
+
 - introduction
 - syllabus
 - micromechanics
@@ -59,11 +27,13 @@ January 23, 2019
 ---
 
 ## about me
-![family picture](images\IMG_5266_edit.jpg)
+
+![family picture](../images/IMG_5266_edit.jpg)
 
 ----
 
 ## education
+
   - B.S. in Mechanical Engineering from Brigham Young University
     - Worked with ATK to develop tab-less gripping system for tensile testing composite tow specimens
     - Needed to align the specimen, as well as grip it without causing a stress concentration
@@ -71,6 +41,7 @@ January 23, 2019
 ----
 
 ## education
+
   - M.S. and Ph.D. from School of Aeronautics and Astronautics at Purdue University
     - Worked with Boeing to simulate mold flows
     - First ever mold simulation with anisotropic viscosity
@@ -78,12 +49,14 @@ January 23, 2019
 ----
 
 ## research
-![picture of chopped carbon fiber prepreg](images\Formosa_Chopped_Carbon_Fiber_CSc_bw.jpg)
+
+![picture of chopped carbon fiber prepreg](../images/Formosa_Chopped_Carbon_Fiber_CSc_bw.jpg)
 
 ----
 
 ## research
-![picture of lamborghini symbol made from compression molded chopped carbon fiber](images\lamborghini-chopped-fiber-badges-rough.jpg)
+
+![picture of lamborghini symbol made from compression molded chopped carbon fiber](../images/lamborghini-chopped-fiber-badges-rough.jpg)
 
 ----
 
@@ -97,16 +70,20 @@ January 23, 2019
 
 ## research
 
-  <div class='left'>
-![picture illustrating the fused deposition modeling 3D printing process, where plastic filament is melted and deposited next to other filament, and fuses together](images\3D-printing.png)
-  </div>
+<div class='left'>
 
-  <div class='right'>
-  <ul>
-  <li> Composites are being used in 3D printing now </li>
-  <li> Printing patterns are optimized for isotropic materials </li>
-  <li> Sometimes composites hurt more than they help when not utilized properly </li>
-  </div>
+![picture illustrating the fused deposition modeling 3D printing process, where plastic filament is melted and deposited next to other filament, and fuses together](../images/3D-printing.png)
+
+</div>
+
+<div class='right'>
+
+
+- Composites are being used in 3D printing now
+- Printing patterns are optimized for isotropic materials 
+- Sometimes composites hurt more than they help when not utilized properly 
+
+</div>
 
 ----
 
@@ -200,7 +177,7 @@ January 23, 2019
 
 ## electrostatic force
 
-![a diagram plotting inter-atomic forces vs distance between atoms](images\electrostatic.png)
+![a diagram plotting inter-atomic forces vs distance between atoms](../images/electrostatic.png)
 
 ----
 
@@ -265,7 +242,7 @@ January 23, 2019
 ## python
 
 - while I do not require you to use python, I use it for many examples so I will provide some installation instructions
-- a minimal installation can be done by installing [conda](https://conda.io/miniconda.html) (use 2.7)
+- a minimal installation can be done by installing [conda](https://conda.io/miniconda.html) 
 - afterwards install libraries using
     ```bash
     conda install ipython jupyter matplotlib numpy pandas scipy
@@ -281,6 +258,14 @@ January 23, 2019
 -   SwiftComp is available [here](https://cdmhub.org/) (uses variational calculus)
 -   Some others are [CRAFT](http://craft.lma.cnrs-mrs.fr/) (uses Fourier transforms)
 -   [MAC/GMC](https://www.grc.nasa.gov/WWW/StructuresMaterials/MLP/software/mac-gmc/) (uses generalized method of cells)
+
+----
+## other software
+
+- Another software alternative, although not strictly micromechanics, is the MOOSE Framework
+- This is a little bit more similar to a standard FEA program (albeit open source and less user friendly)
+- But it does have some multi-scale capabilities built in via the "multi-app" interface
+
 
 ---
 
@@ -308,20 +293,23 @@ January 23, 2019
 
 -   To make a good scientific plot, we must first decide what we are plotting, and which plot style will best illustrate our data
 -   Let us consider as an example the popular Halpin-Tsai equations
-$$ P_c = P_m \left (\frac{1 + \zeta \eta f}{1 - \eta f} \right)$$
-$$\eta = \frac{P_f/P_m - 1}{P_f/P_m + \zeta}$$
+
+`$$ P_c = P_m \left (\frac{1 + \zeta \eta f}{1 - \eta f} \right)$$`
+
+`$$\eta = \frac{P_f/P_m - 1}{P_f/P_m + \zeta}$$`
 
 ----
 
 ## halpin-tsai
+
 -   Where *f* is the fiber volume fraction, and *P* is some property, with *c* indicating composite properties, *f* indicating fiber properties and *m* indicating matrix properties
 
 ----
 
 ## halpin-tsai
 
--   The parameter, $\zeta$ is determined based on the type of property and composites (axial vs. transverse modulus, long vs. short fibers, etc.)
--   For axial stiffness of oriented short-fiber composites, we will use $\zeta = 2l/d$
+-   The parameter, `$\zeta$` is determined based on the type of property and composites (axial vs. transverse modulus, long vs. short fibers, etc.)
+-   For axial stiffness of oriented short-fiber composites, we will use `$\zeta = 2l/d$`
 -   Where $l/d$ is the aspect ratio of the fibers
 
 ----
@@ -329,14 +317,12 @@ $$\eta = \frac{P_f/P_m - 1}{P_f/P_m + \zeta}$$
 ## plotting
 
 -   We are interested in plotting the effect of aligned, short-fiber reinforcements
-
 -   In our chosen software (Excel, MATLAB, Python), we set up the aspect ratios we will simulate (x-axis of plot)
-
--   Then we calculate $\zeta$, $\eta$ at each aspect ratio
-
+-   Then we calculate `$\zeta$`, `$\eta$` at each aspect ratio
 -   It is often desirable to generalize equations as much as possible. We can divide by *P*<sub>*m*</sub> to find the normalized version, *P*<sub>*c*</sub>/*P*<sub>*m*</sub>.
 
 ----
 
 ## plotting
+
 View rendered example [here](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Halpin-Tsai%20Example.ipynb)
