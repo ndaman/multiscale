@@ -5,6 +5,7 @@ classoption:
   - handout
   - 12pt
 papersize: letter
+links-as-notes: true
 output:
 	pdf_document:
 		latex_engine: xelatex
