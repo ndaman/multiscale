@@ -77,7 +77,7 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 -   `$I_1 = \frac{2s}{\left(s^2-1\right)^{\frac{3}{2}}}(s{\left(s^2-1\right)}^{\frac{1}{2}}-\cosh^{-1} s)$`
 -   `$Q=\frac{3}{8(1-\nu)}$`
 -   `$R=\frac{1-2\nu}{8(1-\nu)}$`
--   `$T=\frac{Q\left(4-3I\_1\right)}{3(s^2-1)}$`
+-   `$T=\frac{Q\left(4-3I_1\right)}{3(s^2-1)}$`
 -   `$I_3 = 4-2I_1$`
 
 ----
@@ -86,13 +86,13 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 
 | *S*<sub>*ijkl*</sub>                                                                              | Long Fibers                               | Short Fibers (Ellipsoids)                |
 |:--------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------------------------------------|
-| *S*<sub>1111</sub>=*S*<sub>2222</sub>                                                                 | $\frac{5-\nu}{8(1-\nu)}$               | $Q+RI\_1+\frac{3T}{4}$                  |
-| *S*<sub>3333</sub>                                                                                      | 0                                         | $\frac{4Q}{3}+RI\_3+2s^2T$              |
-| *S*<sub>1122</sub>=*S*<sub>2211</sub>                                                                 | $\frac{-1+4\nu}{8(1-\nu)}$             | $\frac{Q}{3}-RI\_1+\frac{4T}{3}$       |
+| *S*<sub>1111</sub>=*S*<sub>2222</sub>                                                                 | $\frac{5-\nu}{8(1-\nu)}$               | $Q+RI_1+\frac{3T}{4}$                  |
+| *S*<sub>3333</sub>                                                                                      | 0                                         | $\frac{4Q}{3}+RI_3+2s^2T$              |
+| *S*<sub>1122</sub>=*S*<sub>2211</sub>                                                                 | $\frac{-1+4\nu}{8(1-\nu)}$             | $\frac{Q}{3}-RI_1+\frac{4T}{3}$       |
 | *S*<sub>1133</sub>=*S*<sub>2233</sub>                                                                 | $\frac{\nu}{2(1-\nu)}$                 |-*R I*<sub>1</sub>-*s*<sup>2</sup>*T* |
 | *S*<sub>3311</sub>=*S*<sub>3322</sub>                                                                 | 0                                         |-*R I*<sub>3</sub>-*T*                |
-| $\begin{aligned} S\_{1212} & = S\_{1221} \\\\& = S\_{2112}=S\_{2121} \end{aligned}$          | $\frac{3-4\nu}{8\left(1-\nu\right)}$ | $\frac{Q}{3}+RI\_1+\frac{T}{4}$        |
-| $\begin{aligned} S\_{1313} & = S\_{1331} \\\\&=S\_{3113}=S\_{3131}\\\\&=S\_{3232}=S\_{3223}\\\\&=S\_{2332}=S\_{2323}   \end{aligned}$                                                                                      | $\frac{1}{4}$                            | $2R-\frac{I\_1R}{2}-\frac{1-s^2}{2}T$  |
+| $\begin{aligned} S_{1212} & = S_{1221} \\\\& = S_{2112}=S_{2121} \end{aligned}$          | $\frac{3-4\nu}{8\left(1-\nu\right)}$ | $\frac{Q}{3}+RI_1+\frac{T}{4}$        |
+| $\begin{aligned} S_{1313} & = S_{1331} \\\\&=S_{3113}=S_{3131}\\\\&=S_{3232}=S_{3223}\\\\&=S_{2332}=S_{2323}   \end{aligned}$                                                                                      | $\frac{1}{4}$                            | $2R-\frac{I_1R}{2}-\frac{1-s^2}{2}T$  |
 | all other *S*<sub>*ijkl*</sub>                                                                    | 0                                         | 0                                        |
 
 ----
@@ -135,19 +135,19 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 
 -   We now assume `$\epsilon^0 + \epsilon^C = \bar{\epsilon}^f$` and multiply both sides by `$S C_m^{-1}$`
 
-`$$S \left( C\_m \right ) ^{-1} \left ( C\_f - C\_m \right ) \bar{\epsilon}^f = -\epsilon^C$$`
+`$$S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right ) \bar{\epsilon}^f = -\epsilon^C$$`
 
 -   Recall `$S\epsilon^T = \epsilon^C$`
 -   We can also write `$\epsilon^C$` in terms of `$\bar{\epsilon}^f$`
 
-`$$S \left( C\_m \right ) ^{-1} \left ( C\_f - C\_m \right ) \bar{\epsilon}^f = \epsilon^0- \bar{\epsilon}^f$$`
+`$$S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right ) \bar{\epsilon}^f = \epsilon^0- \bar{\epsilon}^f$$`
 
 ----
 ## strain concentration tensor
 
 -   Finally, we can add `$I\bar{\epsilon}^f$` to both sides to find
 
-`$$\[I+S \left( C\_m \right ) ^{-1} \left ( C\_f - C\_m \right )\] \bar{\epsilon}^f = \epsilon^0$$`
+`$$[I+S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right )] \bar{\epsilon}^f = \epsilon^0$$`
 
 -   We define the inverse of the left-hand side the Eshelby strain-concentration tensor
 

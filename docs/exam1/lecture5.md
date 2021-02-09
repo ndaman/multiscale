@@ -63,10 +63,10 @@ February 16, 2021
 
 `$$\begin{aligned}
   V_f \hat{A} \bar{\epsilon}_m + V_m \bar{\epsilon_m} &= \epsilon^0\\
-  \left\[ V_f \hat{A} + V_m I\right\]\bar{\epsilon}_m &= \epsilon^0\\
-  \bar{\epsilon}_m &= \left\[ V_f \hat{A} + V_m I\right\]^{-1} \epsilon^0\\
-  \bar{\epsilon}_f &= \hat{A}\left\[ V_f \hat{A} + V_m I\right\]^{-1} \epsilon^0\\
-  A &= \hat{A}\left\[ V_f \hat{A} + V_m I\right\]^{-1}
+  \left[ V_f \hat{A} + V_m I\right]\bar{\epsilon}_m &= \epsilon^0\\
+  \bar{\epsilon}_m &= \left[ V_f \hat{A} + V_m I\right]^{-1} \epsilon^0\\
+  \bar{\epsilon}_f &= \hat{A}\left[ V_f \hat{A} + V_m I\right]^{-1} \epsilon^0\\
+  A &= \hat{A}\left[ V_f \hat{A} + V_m I\right]^{-1}
 \end{aligned}$$`
 
 ----
