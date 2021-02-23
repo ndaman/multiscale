@@ -12,7 +12,7 @@ February 18, 2021
 
 -   Feb 18 - Orientation Averaging (HW2 Due)
 -   Feb 23 - Variational Calculus
--   Feb 25 - Variational Calculus (HW3 Due)
+-   Feb 25 - Variational Calculus 
 -   Mar 2 - Physical measurements
 
 

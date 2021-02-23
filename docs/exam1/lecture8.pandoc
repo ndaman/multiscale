@@ -207,59 +207,75 @@ February 25, 2021
 
 ## euler lagrange
 
--   We can take the derivative of $\bar{y}$ to find
-$$\dot{\bar{y}} = \dot{y}(x) + \alpha \dot{\eta}(x)$\$
+-   We can take the derivative of \\(\bar{y}\\) to find
+
+\\[\dot{\bar{y}} = \dot{y}(x) + \alpha \dot{\eta}(x)\\]
+
 -   This now gives
-$$I[\alpha] = \int_{x_0}^{x_1} F(x,\bar{y},\dot{\bar{y}})dx = \int_{x_0}^{x_1} F(x,y(x) + \alpha \eta(x),\dot{y}(x) + \alpha \dot{\eta}(x))dx$\$
--   Once *y*(*x*) and $\eta(x)$ are chosen, *I* is a function of $\alpha\$
+ 
+\\[I[\alpha] = \int_{x_0}^{x_1} F(x,\bar{y},\dot{\bar{y}})dx = \int_{x_0}^{x_1} F(x,y(x) + \alpha \eta(x),\dot{y}(x) + \alpha \dot{\eta}(x))dx\\]
+
+-   Once *y*(*x*) and \\(\eta(x)\\) are chosen, *I* is a function of \\(\alpha\\)
 
 
 ## euler lagrange
 
--   We find the stationary function by letting $\frac{dI}{d \alpha} = 0\$
-$$\frac{dI}{d \alpha} = \int_{x_0}^{x_1} \frac{\partial F}{\partial \alpha} dx =
+-   We find the stationary function by letting \\(\frac{dI}{d \alpha} = 0\\)
+
+\\[\frac{dI}{d \alpha} = \int_{x_0}^{x_1} \frac{\partial F}{\partial \alpha} dx =
   \int_{x_0}^{x_1} \left ( \frac{\partial F}{\partial \bar{y}}\frac{\partial \bar{y}}{\partial \alpha}  +
-  \frac{\partial F}{\partial \dot{\bar{y}}}\frac{\partial \dot{\bar{y}}}{\partial \alpha}\right )dx$\$
+  \frac{\partial F}{\partial \dot{\bar{y}}}\frac{\partial \dot{\bar{y}}}{\partial \alpha}\right )dx\\]
+  
 -   This simplifies to
-$$\int_{x_0}^{x_1} \left ( \frac{\partial F}{\partial \bar{y}}\eta  +
-  \frac{\partial F}{\partial \dot{\bar{y}}}\dot{\eta}\right )dx$\$
+
+\\[\int_{x_0}^{x_1} \left ( \frac{\partial F}{\partial \bar{y}}\eta  +
+  \frac{\partial F}{\partial \dot{\bar{y}}}\dot{\eta}\right )dx\\]
 
 
 ## euler lagrange
 
--   Now we know that *I* will be stationary when $\alpha = 0$, in which case $\bar{y}=y$, therefore we can write
-$$\int_{x_0}^{x_1} \left ( \frac{\partial F}{\partial y}\eta  +
-  \frac{\partial F}{\partial \dot{y}}\dot{\eta}\right )dx = 0$\$
+-   Now we know that *I* will be stationary when \\(\alpha = 0\\) in which case \\(\bar{y}=y\\) therefore we can write
+
+\\[\int_{x_0}^{x_1} \left ( \frac{\partial F}{\partial y}\eta  +
+  \frac{\partial F}{\partial \dot{y}}\dot{\eta}\right )dx = 0\\]
+  
 -   And now we perform integration by parts on the second term
 
 
 ## integration by parts
 
 -   Recall that
-$$\int u dv = uv - \int v du$\$
+
+\\[\int u dv = uv - \int v du\\]
 
 -   We choose
-$$\begin{aligned}
+
+\\[\begin{aligned}
   u &= \frac{\partial F}{\partial \dot{y}}\\
   du &= \frac{d}{dx} \left( \frac{\partial F}{\partial y} \right)\\
   v &= \eta(x)\\
   dv &= \dot{\eta} dx
-\end{aligned}$\$
+\end{aligned}\\]
 
 
 ## integration by parts
 
 -   This gives (for the second term)
-$$\int_{x_0}^{x_1} \frac{\partial F}{\partial \dot{y}}\dot{\eta} dx = \frac{\partial F}{\partial \dot{y}}\eta |_{x_0}^{x_1} - \int_{x_0}^{x_1} \frac{d}{dx} \left( \frac{\partial F}{\partial y} \right) \eta(x)$\$
+
+\\[\int_{x_0}^{x_1} \frac{\partial F}{\partial \dot{y}}\dot{\eta} dx = \frac{\partial F}{\partial \dot{y}}\eta |_{x_0}^{x_1} - \int_{x_0}^{x_1} \frac{d}{dx} \left( \frac{\partial F}{\partial y} \right) \eta(x)\\]
+
 -   Combining with the original equation and simplifying gives
-$$\int_{x_0}^{x_1} \left [ \frac{\partial F}{\partial y} - \frac{d}{dx} \left( \frac{\partial F}{\partial y} \right) \right ]\eta dx + \frac{\partial F}{\partial \dot{y}}\eta |_{x_0}^{x_1} = 0$\$
+ 
+\\[\int_{x_0}^{x_1} \left [ \frac{\partial F}{\partial y} - \frac{d}{dx} \left( \frac{\partial F}{\partial y} \right) \right ]\eta dx + \frac{\partial F}{\partial \dot{y}}\eta |_{x_0}^{x_1} = 0\\]
 
 
 ## euler lagrange
 
 -   We already know that \\(\eta|_{x_0}^{x_1}=0\\), so we only need concern ourselves with the terms inside the integral
 -   Since this must be true for any arbitrary function, $\eta$, we can say that
-$$\frac{\partial F}{\partial y} - \frac{d}{dx} \left( \frac{\partial F}{\partial y} \right) = 0$\$
+
+\\[\frac{\partial F}{\partial y} - \frac{d}{dx} \left( \frac{\partial F}{\partial y} \right) = 0\\]
+
 -   This is known as the Euler-Lagrange equation
 -   A solution to the Euler-Lagrange equation is called an extremal, and an extremal which satisfies the boundary conditions is called a stationary function
 
@@ -267,7 +283,9 @@ $$\frac{\partial F}{\partial y} - \frac{d}{dx} \left( \frac{\partial F}{\partial
 ## variations
 
 -   In variational calculus, we define the first variation as
-$$\delta y = \bar{y} - y$\$
+
+\\[\delta y = \bar{y} - y\\]
+
 -   Note: while the variation follows many of the same rules as differentiation, it does not correspond to any slope, since $\eta$ is completely arbitrary
 
 
