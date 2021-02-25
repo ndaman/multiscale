@@ -1,0 +1,532 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  letterpaper,
+  ignorenonframetext,
+  aspectratio=43,
+  handout,
+  12pt]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usetheme[]{metropolis}
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\newif\ifbibliography
+% Make links footnotes instead of hotlinks:
+\DeclareRobustCommand{\href}[2]{#2\footnote{\url{#1}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{pgfpages}
+\pgfpagesuselayout{2 on 1}
+\providecommand{\tightlist}{%
+\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\makeatletter
+\makeatother
+\let\Oldincludegraphics\includegraphics
+\renewcommand{\includegraphics}[2][]{\Oldincludegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{#2}}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+Lecture 9 - Variational Calculus
+
+Dr.~Nicholas Smith
+
+Wichita State University, Department of Aerospace Engineering
+
+2 March, 2021
+\end{frame}
+
+\begin{frame}{schedule}
+\protect\hypertarget{schedule}{}
+\begin{itemize}
+\tightlist
+\item
+  Mar 2 - Variational Calculus
+\item
+  Mar 4 - Boundary Conditions (HW3 Due)
+\item
+  Mar 9 - Project Descriptions
+\item
+  March 11 - SwiftComp
+\end{itemize}
+\end{frame}
+
+\begin{frame}{outline}
+\protect\hypertarget{outline}{}
+\begin{itemize}
+\tightlist
+\item
+  boundary conditions
+\item
+  multiple variables
+\end{itemize}
+\end{frame}
+
+\begin{frame}{homework}
+\protect\hypertarget{homework}{}
+\begin{itemize}
+\tightlist
+\item
+  My Python functions are not a substitute for understanding the math
+\item
+  You can program in any language, but it is also possible to do
+  Mori-Tanaka in Excel
+\item
+  In my code I switched between tensor and matrix notation to avoid
+  re-writing equations
+\item
+  Alternatively, we could re-write tensor equations entirely
+\end{itemize}
+\end{frame}
+
+\begin{frame}{tensor equations}
+\protect\hypertarget{tensor-equations}{}
+\(a_{ijkl}^q = a_{ij}a_{kl}\)
+
+\[\begin{gathered}
+  a_4^l = -\frac{1}{35}(\delta_{ij} \delta_{kl} + \delta_{ik} \delta_{jl} + \delta_{il}\delta_{jk}) + \\
+  \frac{1}{7} (a_{ij} \delta_{kl} + a_{ik}\delta_{jl} + a_{il}\delta_{jk} + a_{kl} \delta_{ij} + a_{jl}\delta_{ik} + a_{jk}\delta_{il})
+\end{gathered}\]
+
+\begin{itemize}
+\tightlist
+\item
+  NOTE: Many of you copied my linear closure approximation, which used
+  constants for 2D orientation
+\item
+  In 2D replace \(-\frac{1}{35}\) and \(\frac{1}{7}\) with
+  \(-\frac{1}{24}\) and \(\frac{1}{6}\), respectively
+\end{itemize}
+\end{frame}
+
+\hypertarget{boundary-conditions}{%
+\section{boundary conditions}\label{boundary-conditions}}
+
+\begin{frame}{boundaries}
+\protect\hypertarget{boundaries}{}
+\begin{itemize}
+\tightlist
+\item
+  Not all problems of functionals have well-defined boundary conditions
+\item
+  The Euler-Lagrange equation will be the same
+\item
+  Consider the example
+\end{itemize}
+
+\[I[y] = \int_{x_0}^{x_1} [p(x)(\dot{y})^2 + q(x) y^2 + f(x)y]dx + h_1y^2(x_1) + h_0y^2(x_0)\]
+\end{frame}
+
+\begin{frame}{boundaries}
+\protect\hypertarget{boundaries-1}{}
+\begin{itemize}
+\tightlist
+\item
+  For the functional to be stationary we have
+\end{itemize}
+
+\[\begin{gathered}
+  I[y] = 2\int_{x_0}^{x_1} [-\dot{(p\dot{y})} + qy + f]\delta y dx + \\
+  2p\dot{y} \delta y|_{x_0}^{x_1} + 2h_1y(x_1)\delta y(x_1) + 2h_0y(x_0)\delta y(x_0) = 0
+\end{gathered}\]
+
+\begin{itemize}
+\tightlist
+\item
+  Satisfying the Euler-Lagrange equation will ensure the first line is
+  equal to zero
+\item
+  The second line forms the natural boundary conditions
+\end{itemize}
+
+\[\begin{aligned}
+  p(x_1) \dot{y}(x_1) + h_1 y(x_1) &= 0\\
+  -p(x_0) \dot{y}(x_0) + h_0 y(x_0) &= 0
+\end{aligned}\]
+\end{frame}
+
+\begin{frame}{natural and geometric boundaries}
+\protect\hypertarget{natural-and-geometric-boundaries}{}
+\begin{itemize}
+\tightlist
+\item
+  In general, if a functional contains the derivative of an unknown
+  function to the \emph{m}th order:
+\item
+  Boundary conditions expressed in terms of the unknown function to the
+  (\emph{m}-1)th order are geometric boundary conditions
+\item
+  Boundary conditions expressed in terms of the unknown function higher
+  than the (\emph{m} - 1)th order are natural boundary conditions
+\item
+  When there are geometric boundaries, the variation will be zero at the
+  boundaries
+\item
+  Otherwise the coefficients must equal zero
+\end{itemize}
+\end{frame}
+
+\begin{frame}{example}
+\protect\hypertarget{example}{}
+\begin{itemize}
+\tightlist
+\item
+  Find the governing differential equation and boundary conditions for a
+  bar of stiffness \emph{EA}, length \emph{L}
+\item
+  Subjected to a tensile load, \emph{p}(\emph{x})
+\item
+  There is a spring of stiffness \emph{k} attached to \emph{x}=\emph{L}
+\item
+  The bar is fixed at \emph{x}=0
+\end{itemize}
+\end{frame}
+
+\begin{frame}{subsidiary conditions}
+\protect\hypertarget{subsidiary-conditions}{}
+\begin{itemize}
+\tightlist
+\item
+  We have discussed problems with or without prescribed boundary
+  conditions
+\item
+  We may also have additional constraints (also known as subsidiary
+  conditions)
+\item
+  The can be formulated using the same method as the Lagrange Multiplier
+\end{itemize}
+\end{frame}
+
+\begin{frame}{subsidiary conditions}
+\protect\hypertarget{subsidiary-conditions-1}{}
+\begin{itemize}
+\tightlist
+\item
+  Consider a functional
+\end{itemize}
+
+\[I = \int_{x_0}^{x_1} F(y, \dot{y}, x) dx\]
+
+\begin{itemize}
+\tightlist
+\item
+  With boundary conditions, \(y(x_0)=y_0\) and \(y(x_1)=y_1\)
+\item
+  And the subsidiary condition
+\end{itemize}
+
+\[\int_{x_0}^{x_1} G(y, \dot{y}, x)dx = C\]
+\end{frame}
+
+\begin{frame}{subsidiary conditions}
+\protect\hypertarget{subsidiary-conditions-2}{}
+\begin{itemize}
+\tightlist
+\item
+  The stationary conditions for this functional can be obtained using
+\end{itemize}
+
+\[\delta I^* = 0\]
+
+\begin{itemize}
+\tightlist
+\item
+  Where
+\end{itemize}
+
+\[I^* = \int_{x_0}^{x_1} F(y, \dot{y}, x) dx + \lambda\left(\int_{x_0}^{x_1} G(y, \dot{y}, x)dx - C\right)\]
+\end{frame}
+
+\begin{frame}{subsidiary conditions}
+\protect\hypertarget{subsidiary-conditions-3}{}
+\begin{itemize}
+\tightlist
+\item
+  Carrying out the variation we find
+\end{itemize}
+
+\[\begin{gathered}
+  \delta I^* = \int_{x_0}^{x_1} \left \{ \frac{\partial F}{\partial y} - \frac{d}{dx} \frac{\partial F}{\partial \dot{y}} + \lambda \left [ \frac{\partial G}{\partial y} - \frac{d}{dx} \frac{\partial G}{\partial \dot{y}} \right ] \right \} \delta y dx + \\
+  \delta \lambda \left( \int_{x_0}^{x_1} G(y, \dot{y}, x)dx - C \right) = 0
+\end{gathered}\]
+
+\begin{itemize}
+\tightlist
+\item
+  Which gives the Euler-Lagrange equation
+\end{itemize}
+
+\[\frac{\partial F}{\partial y} - \frac{d}{dx} \frac{\partial F}{\partial \dot{y}} + \lambda \left[ \frac{\partial G}{\partial y} - \frac{d}{dx} \frac{\partial G}{\partial \dot{y}} \right]\]
+\end{frame}
+
+\begin{frame}{subsidiary conditions}
+\protect\hypertarget{subsidiary-conditions-4}{}
+\begin{itemize}
+\tightlist
+\item
+  If the subsidiary condition is given in terms of differential
+  equations instead of an integral
+\end{itemize}
+
+\[G(x,y,\dot{y}) = 0\]
+
+\begin{itemize}
+\tightlist
+\item
+  Then we must write the functional as
+\end{itemize}
+
+\[J[y,\lambda] = \int_{x_0}^{x_1} F(y, \dot{y}, x) dx + \int_{x_0}^{x_1} \lambda G(y, \dot{y}, x)dx\]
+
+\begin{itemize}
+\tightlist
+\item
+  Since \(\lambda\) will be a function of \emph{x}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{subsidiary conditions}
+\protect\hypertarget{subsidiary-conditions-5}{}
+\begin{itemize}
+\tightlist
+\item
+  The only difference in the Euler-Lagrange solution is that \(\lambda\)
+  will be inside the derivative
+\end{itemize}
+
+\[\frac{\partial F}{\partial y} - \frac{d}{dx} \frac{\partial F}{\partial \dot{y}} + \lambda \frac{\partial G}{\partial y} - \frac{d}{dx} \left(\lambda \frac{\partial G}{\partial \dot{y}}\right)\]
+\end{frame}
+
+\begin{frame}{example}
+\protect\hypertarget{example-1}{}
+\begin{itemize}
+\tightlist
+\item
+  A uniform power line with length \emph{C} and density \(\rho\) is
+  hanging between two points, \((x_0,y_0)\) and \((x_1,y_2)\)
+\item
+  With gravity acting in the \emph{y} direction, find the shape of the
+  power line in equilibrium
+\end{itemize}
+\end{frame}
+
+\hypertarget{multiple-variables}{%
+\section{multiple variables}\label{multiple-variables}}
+
+\begin{frame}{higher derivatives}
+\protect\hypertarget{higher-derivatives}{}
+\begin{itemize}
+\tightlist
+\item
+  While our development has only used one derivative of \emph{y}, it can
+  easily be extended
+\end{itemize}
+
+\[I[y] = \int_{x_0}^x{1} F(x,y,\dot{y},\ddot{y},\dddot{y},...,y^{(n)}) dx\]
+
+\begin{itemize}
+\tightlist
+\item
+  The first variation is
+\end{itemize}
+
+\[\delta I[y] = \int_{x_0}^x{1} \left[ \frac{\partial F}{\partial y} \delta y + \frac{\partial F}{\partial \dot{y}}\delta \dot{y} + ... + \frac{\partial F}{\partial y^{(n)}} \delta y^{(n)}\right]dx\]
+
+\begin{itemize}
+\tightlist
+\item
+  Carrying out successive integration by parts we find
+\end{itemize}
+
+\[\delta I[y] = \int_{x_0}^x{1} \left[ \frac{\partial F}{\partial y} - \frac{d}{dx}\left( \frac{\partial F}{\partial \dot{y}}\right) + ... + (-1)^n \frac{d^{n}}{dx^{n}}\left(\frac{\partial F}{\partial y^{(n)}}\right)\right] \delta ydx\]
+\end{frame}
+
+\begin{frame}{higher derivatives}
+\protect\hypertarget{higher-derivatives-1}{}
+\begin{itemize}
+\tightlist
+\item
+  The Euler-Lagrange equation is merely in the terms inside the integral
+\item
+  Boundary terms from integration vanish when
+  \(y, \dot{y}, ... , y^{(n)}\) are prescribed at the boundaries
+\end{itemize}
+\end{frame}
+
+\begin{frame}{multiple functions}
+\protect\hypertarget{multiple-functions}{}
+\begin{itemize}
+\tightlist
+\item
+  A functional could also consist of several functions, for example
+\end{itemize}
+
+\[I[y,z] = \int_{x_0}^x{1} F(x,y,z,\dot{y},\dot{z})dx\]
+
+\begin{itemize}
+\tightlist
+\item
+  Where both \emph{y} and \emph{z} are functions of \emph{x}
+\item
+  In this case the Euler-Lagrange equation is two equations
+\end{itemize}
+
+\[\frac{\partial F}{\partial y} - \frac{d}{dx}\left(\frac{\partial F}{\partial \dot{y}}\right) = 0 \qquad \frac{\partial F}{\partial z} - \frac{d}{dx}\left(\frac{\partial F}{\partial \dot{z}}\right) = 0\]
+\end{frame}
+
+\begin{frame}{multiple variables}
+\protect\hypertarget{multiple-variables-1}{}
+\begin{itemize}
+\tightlist
+\item
+  We could also have multiple fundamental variables in the functional,
+  for example
+\end{itemize}
+
+\[I [u] = \int \int_G F(x, y, u, u_{,x}, u_{,y}) dx dy\]
+
+\begin{itemize}
+\tightlist
+\item
+  The Euler-Lagrange equation is
+\end{itemize}
+
+\[\frac{\partial F}{\partial u} - \frac{\partial}{\partial x} \left( \frac{\partial F}{\partial u_{,x}} \right) - \frac{\partial}{\partial y} \left( \frac{\partial F}{\partial u_{,y}}\right) = 0\]
+
+\begin{itemize}
+\tightlist
+\item
+  If \emph{u} is prescribed along the boundary, then \(\delta u = 0\)
+  along the boundary, otherwise
+\end{itemize}
+
+\[\frac{\partial F}{\partial u_{,x}} n_x + \frac{\partial F}{\partial u_{,y}} n_y = 0\]
+
+along the boundary
+\end{frame}
+
+\begin{frame}{example}
+\protect\hypertarget{example-2}{}
+\begin{itemize}
+\tightlist
+\item
+  Minimize the mechanical potential energy of a beam with deflection
+  \emph{y} under applied force, \emph{f}(\emph{x})
+\end{itemize}
+
+\[I[y] = \int_0^L \left[ \frac{1}{2} EI (\ddot{y})^2 - fy\right] dx\]
+\end{frame}
+
+\begin{frame}{example}
+\protect\hypertarget{example-3}{}
+\begin{itemize}
+\tightlist
+\item
+  Minimize the functional
+\end{itemize}
+
+\[I[y,z] = \int_{x_0}^{x_1} (y^2 - z^2) dx \]
+
+\begin{itemize}
+\tightlist
+\item
+  Under the constraint
+\end{itemize}
+
+\[\dot{y} - y + z = 0\]
+\end{frame}
+
+\begin{frame}{next class}
+\protect\hypertarget{next-class}{}
+\begin{itemize}
+\tightlist
+\item
+  Converting between differential and variational statements
+\item
+  Approximate solutions
+\item
+  Variational asymptotic method
+\end{itemize}
+\end{frame}
+
+\end{document}
