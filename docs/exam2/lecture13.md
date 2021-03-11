@@ -161,4 +161,4 @@ where
 ----
 ## sample comsol file
 
--   A sample COMSOL file to show the implementation of periodic boundary conditions can be viewed [here](https://ndaman.github.io/multiscale/handouts/2d-periodic.mph)
+-   A sample COMSOL file to show the implementation of periodic boundary conditions can be viewed [here](http://ndaman.github.io/multiscale/handout/2d-periodic.mph)
