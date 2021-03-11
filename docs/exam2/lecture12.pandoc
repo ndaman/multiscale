@@ -1,4 +1,4 @@
-## AE 760AA: Micromechanics and multiscale modeling
+
 Lecture 12 - Hashin-Shtrikman Bounds
 
 Dr. Nicholas Smith
@@ -7,7 +7,7 @@ Wichita State University, Department of Aerospace Engineering
 
 March 18, 2021
 
-----
+
 ## schedule
 
 - Mar 18 - Hashin-Shtrickman bounds
@@ -16,7 +16,7 @@ March 18, 2021
 - Mar 30 - Method of Cells 
 
 
-----
+
 ## outline
 
 <!-- vim-markdown-toc GFM -->
@@ -26,159 +26,159 @@ March 18, 2021
 
 <!-- vim-markdown-toc -->
 
----
+
 # hashin-shtrikman
 
-----
+
 ## bounds
 
 -   We consider the Voigt and Reuss micromechanics models as bounding cases, properties should need exceed the limits of these two cases
 -   Hashin and Shtrikman used variational principles to define more rigorous bounds for composite properties
 -   They did this by comparing a heterogeneous composite RVE with an equivalent homogeneous RVE
 
-----
+
 ## heterogeneous
 
-`$$\begin{aligned}
+\\[\begin{aligned}
   \sigma_{ij,j} &= 0\\
   \sigma_{ij} &= C_{ijkl} \epsilon_{kl}\\
   U = \frac{1}{2} C_{ijkl} \epsilon_{ij}\epsilon_{kl}
-\end{aligned}$$`
+\end{aligned}\\]
 
-----
+
 ## homogeneous
 
-`$$\begin{aligned}
+\\[\begin{aligned}
         \sigma_{ij,j}^{(0)} &= 0\\
         \sigma_{ij}^{(0)} &= C_{ijkl}^{(0)} \epsilon_{kl}^{(0)}\\
         U = \frac{1}{2} C_{ijkl}^{(0)} \epsilon_{ij}^{(0)}\epsilon_{kl}^{(0)}
-\end{aligned}$$`
+\end{aligned}\\]
 
-----
+
 ## relation
 
 -   To relate the two boundary problems, we introduce the following
 
-`$$\begin{aligned}
+\\[\begin{aligned}
    u_i &= u_i^{(0)} + u_i^d\\
    \epsilon_{ij} &= \epsilon_{ij}^{(0)} + \epsilon_{ij}^d\\
    \sigma_{ij} &= p_{ij} + C_{ijkl}^{(0)} \epsilon_{kl} = p_{ij} + C_{ijkl}^{(0)}(\epsilon_{ij}^{(0)} + \epsilon_{ij}^d)
-\end{aligned}$$`
+\end{aligned}\\]
 
--   `$u_i^d$` is the disturbance displacement field and `$p_{ij}$` is called the polarization stress
+-   \\(u_i^d\\) is the disturbance displacement field and \\(p_{ij}\\) is called the polarization stress
 
-----
+
 ## boundary conditions
 
 -   One common RVE boundary condition is known as homogeneous displacement
 -   Under homogeneous displacement boundary conditions we have
 
-`$$u_i = \bar{u}_i = u_i^{(0)}$$`
+\\[u_i = \bar{u}_i = u_i^{(0)}\\]
 
 along the boundary
--   Under this condition we have `$u_d=0$` along the boundary
+-   Under this condition we have \\(u_d=0\\) along the boundary
 
-----
+
 ## hashin-shtrikman
 
 -   Hashin-Shtrikman then considered the following functional
 
-`$$ \Pi = \int_V (C_{ijkl}^{(0)}\epsilon_{ij}^{(0)}\epsilon_{kl}^{(0)} - \Delta C_{ijkl}^{-1}p_{ij}p_{kl} + p_{ij}\epsilon_{ij}^d + 2p_{ij}\epsilon_{ij}^{(0)})dV
-$$`
+\\[ \Pi = \int_V (C_{ijkl}^{(0)}\epsilon_{ij}^{(0)}\epsilon_{kl}^{(0)} - \Delta C_{ijkl}^{-1}p_{ij}p_{kl} + p_{ij}\epsilon_{ij}^d + 2p_{ij}\epsilon_{ij}^{(0)})dV
+\\]
 
 -   Where
 
-`$$\begin{aligned}
+\\[\begin{aligned}
   \Delta C_{ijkl} &= C_{ijkl} - C^{(0)}_{ijkl}\\
   p_{ij} &= \Delta C_{ijkl} \epsilon_{kl}\\
   \epsilon_{ij}^d &= \epsilon_{ij} - \epsilon_{ij}^{(0)}
-\end{aligned}$$`
+\end{aligned}\\]
 
 -   This functional corresponds to the strain energy in a composite when the strain field and polarization field are exact solutions
 
-----
+
 ## hashin-shtrikman
 
--   We can choose the comparison solid such that `$\delta \Pi$` will either be a local maximum or a local minimum
--   When `$\Delta C$` is negative definite then the stationary value of the functional is a minimum
--   When `$\Delta C$` is positive definite then the stationary value of the functional is a maximum
+-   We can choose the comparison solid such that \\(\delta \Pi\\) will either be a local maximum or a local minimum
+-   When \\(\Delta C\\) is negative definite then the stationary value of the functional is a minimum
+-   When \\(\Delta C\\) is positive definite then the stationary value of the functional is a maximum
 -   The functional will be stationary when
 
-`$$ \left ( C_{ijkl}^{(0)} \epsilon^d_{kl}\right)_{,j} + p_{ij,j} = 0 $$`
+\\[ \left ( C_{ijkl}^{(0)} \epsilon^d_{kl}\right)_{,j} + p_{ij,j} = 0 \\]
 
-----
+
 ## hashin-shtrikman
 
 -   In general, I don’t know how often you will need to use the Hashin-Shtrikman bounds
 -   For a more complete derivation, see textbook pp. 170-186
 
----
+
 # boundary conditions
 
-----
+
 ## macro and micro fields
 
 -   In micromechanics, one of our primary goals is to relate a heterogeneous material to some equivalent homogeneous material
--   We call `$\epsilon_{ij}$` and `$\sigma_{ij}$` the point-wise or microscopic strain and stress
--   `$\bar{\epsilon}_{ij}$` and `$\bar{\sigma}_{ij}$` are the macroscopic strain and stress, and are related by some unknown homogenized stiffness
+-   We call \\(\epsilon_{ij}\\) and \\(\sigma_{ij}\\) the point-wise or microscopic strain and stress
+-   \\(\bar{\epsilon}_{ij}\\) and \\(\bar{\sigma}_{ij}\\) are the macroscopic strain and stress, and are related by some unknown homogenized stiffness
 
-`$$\bar{\sigma}_{ij} = C_{ijkl}^* \bar{\epsilon}_{kl}$$`
+\\[\bar{\sigma}_{ij} = C_{ijkl}^* \bar{\epsilon}_{kl}\\]
 
--   In a homogeneous body (or equivalent homogeneous body), `$\bar{\sigma}_{ij}$` and `$\bar{\epsilon}_{ij}$` will be constant throughout
+-   In a homogeneous body (or equivalent homogeneous body), \\(\bar{\sigma}_{ij}\\) and \\(\bar{\epsilon}_{ij}\\) will be constant throughout
 
-----
+
 ## average stress theorem
 
--   In general the stress field `$\sigma_{ij}$` will not be constant in a heterogeneous body
+-   In general the stress field \\(\sigma_{ij}\\) will not be constant in a heterogeneous body
 -   If a heterogeneous body is subjected to homogeneous tractions with no body forces such that
 
-`$$t_i^0 = \bar{\sigma}_{ij}n_j$$`
+\\[t_i^0 = \bar{\sigma}_{ij}n_j\\]
 
 -   And we find that
 
-`$$\langle \sigma_{ij} \rangle = \bar{\sigma}_{ij}$$`
+\\[\langle \sigma_{ij} \rangle = \bar{\sigma}_{ij}\\]
 
-----
+
 ## average strain theorem
 
--   Similarly, in general the strain field, `$\epsilon_{ij}$` will not be constant in a heterogeneous body
+-   Similarly, in general the strain field, \\(\epsilon_{ij}\\) will not be constant in a heterogeneous body
 -   If a heterogeneous body is subjected to a homogeneous displacement such that
 
-`$$u_i^0 = \bar{\epsilon_{ij}}x_j$$`
+\\[u_i^0 = \bar{\epsilon_{ij}}x_j\\]
 
 -   And we find that
 
-`$$\langle \epsilon_{ij} \rangle = \bar{\epsilon}_{ij}$$`
+\\[\langle \epsilon_{ij} \rangle = \bar{\epsilon}_{ij}\\]
 
-----
+
 ## hill mandel macrohomogeneity condition
 
 -   Hill and Mandel posed the question: Under what conditions will the average strain energy density of a heterogeneous body be equivalent equivalent to a homogeneous body?
 -   In other words, they wanted show under what conditons
 
-`$$\langle \sigma_{ij} \epsilon_{ij} \rangle = \bar{\sigma}_{ij} \bar{\epsilon}_{ij}$$`
+\\[\langle \sigma_{ij} \epsilon_{ij} \rangle = \bar{\sigma}_{ij} \bar{\epsilon}_{ij}\\]
 
-----
+
 ## hill mandel macrohomogeneity
 
 -   First we note that
 
-`$$\bar{\sigma}_{ij} \bar{\epsilon}_{ij} = \frac{1}{V} \int_V \sigma_{ij} \bar{\epsilon}_{ij} dV = \frac{1}{V} \int_V \bar{\sigma}_{ij} \epsilon_{ij} dV = \frac{1}{V} \int_V \bar{\sigma}_{ij} u_{i,j} dV$$`
+\\[\bar{\sigma}_{ij} \bar{\epsilon}_{ij} = \frac{1}{V} \int_V \sigma_{ij} \bar{\epsilon}_{ij} dV = \frac{1}{V} \int_V \bar{\sigma}_{ij} \epsilon_{ij} dV = \frac{1}{V} \int_V \bar{\sigma}_{ij} u_{i,j} dV\\]
 
--   Thus we can say that when `$\langle \sigma_{ij} \epsilon_{ij} \rangle = \bar{\sigma}_{ij} \bar{\epsilon}_{ij}$`
+-   Thus we can say that when \\(\langle \sigma_{ij} \epsilon_{ij} \rangle = \bar{\sigma}_{ij} \bar{\epsilon}_{ij}\\)
 
-`$$\langle \sigma_{ij} \epsilon_{ij} \rangle - \bar{\sigma}_{ij} \bar{\epsilon}_{ij} = \frac{1}{V} \int_V (\sigma_{ij}u_{i,j} - \bar{\sigma}_{ij} u_{i,j} - \sigma_{ij}\bar{\epsilon}_{ij}+\bar{\sigma}_{ij} \bar{\epsilon}_{ij})dV$$`
+\\[\langle \sigma_{ij} \epsilon_{ij} \rangle - \bar{\sigma}_{ij} \bar{\epsilon}_{ij} = \frac{1}{V} \int_V (\sigma_{ij}u_{i,j} - \bar{\sigma}_{ij} u_{i,j} - \sigma_{ij}\bar{\epsilon}_{ij}+\bar{\sigma}_{ij} \bar{\epsilon}_{ij})dV\\]
 
-----
+
 ## hill mandel macrohomogeneity
 
 -   After some algebra and applying the divergence theorem, we can write this as
 
-`$$\langle \sigma_{ij} \epsilon_{ij} \rangle - \bar{\sigma}_{ij} \bar{\epsilon}_{ij} = \frac{1}{V} \oint_V n_k(\sigma_{ik} - \bar{\sigma_{ik}})(u_{i} - x_j\bar{\epsilon}_{ij})dS$$`
+\\[\langle \sigma_{ij} \epsilon_{ij} \rangle - \bar{\sigma}_{ij} \bar{\epsilon}_{ij} = \frac{1}{V} \oint_V n_k(\sigma_{ik} - \bar{\sigma_{ik}})(u_{i} - x_j\bar{\epsilon}_{ij})dS\\]
 
 -   The right-hand side can be made to vanish in various ways, but the most common are homogeneous traction, homogeneous displacement, and periodic boundary conditions
 
-----
+
 ## finite elements
 
 -   There are a few things we need to do when using finite elements
