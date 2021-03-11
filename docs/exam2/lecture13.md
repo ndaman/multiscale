@@ -5,16 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-March 27, 2019
+March 23, 2021
 
 ----
 ## schedule
 
-- Mar 27 - Periodic Boundary Conditions
-- Apr 1 - Fourier Analysis
-- Apr 3 - Method of Cells
-- Apr 8 - Damage Theory
-
+- Mar 23 - Periodic Boundary Conditions
+- Mar 25 - Fourier Analysis 
+- Mar 30 - Method of Cells 
+- Apr 2 - Damage Theory
 
 ----
 ## outline
@@ -40,12 +39,16 @@ March 27, 2019
 
 -   If we have a periodic structure, we denote corresponding faces with + and − superscripts
 -   From equilibrium, we know that the tractions on opposing faces must be equal and opposite
-    *t*<sub>*i*</sub><sup>+</sup> = −*t*<sub>*i*</sub><sup>−</sup>
--   The displacement on opposing surfaces will also be equal with
-    *ξ*<sub>*i*</sub><sup>+</sup> = *ξ*<sub>*i*</sub><sup>−</sup>
-     where
 
-$$\\xi\_i = u\_i - \\bar{\\epsilon\_{ij}}x\_j$$
+`$$ t_i^+ = -t_i^-$$`
+
+-   The displacement on opposing surfaces will also be equal with
+
+`$$ \xi_i^+ = \xi_i^- $$`
+
+where
+
+`$$\xi_i = u_i - \bar{\epsilon_{ij}}x_j$$`
 
 ----
 ## convergence
@@ -64,7 +67,7 @@ $$\\xi\_i = u\_i - \\bar{\\epsilon\_{ij}}x\_j$$
 ----
 ## general application
 
--   We find the stiffness by applying some arbitrary strain in all directions (i.e. $\\bar{\\epsilon}\_{11}=1$, $\\bar{\\epsilon}\_{22}=1$, etc.)
+-   We find the stiffness by applying some arbitrary strain in all directions (i.e. `$\bar{\epsilon}_{11}=1$`, `$\bar{\epsilon}_{22}=1$`, etc.)
 -   The volume average of stress then corresponds to the appropriate column of the stiffness matrix
 -   Some finite element software programs have a built-in method for periodic boundary conditions
 -   When such a method is not built-in, there are various strategies to enforce the boundary condition
@@ -74,39 +77,40 @@ $$\\xi\_i = u\_i - \\bar{\\epsilon\_{ij}}x\_j$$
 
 -   In ABAQUS PBC’s are implemented using equations for each boundary node
 -   Boundary nodes on a given face are tied to some “dummy” node
--   Equations for each node ensure that *ξ*<sub>*i*</sub><sup>+</sup> = *ξ*<sub>*i*</sub><sup>−</sup>
+-   Equations for each node ensure that `$\xi_i^+ = \xi_i^-$`
 
 ----
 ## COMSOL implementation
 
 -   While COMSOL has periodic boundary conditions built-in, there are some quirks to how it is implemented
--   The default periodic boundary condition is *u*<sub>*i*</sub><sup>+</sup> = *u*<sub>*i*</sub><sup>−</sup>
--   This is appropriate for faces where $\\bar{\\epsilon\_{ij}}x\_j = 0$
--   On faces where $\\bar{\\epsilon\_{ij}}x\_j \\ne 0$, however, we need to modify the default condition
+-   The default periodic boundary condition is `$u_i^+ = u_i^-$`
+-   This forces displacement to be exactly the same on opposing faces, but we would like for them to be the same with some arbitrary offset
+-   To implement this requires viewing and modifying the boundary condition equations
 
 ----
 ## COMSOL implementation
 
--   To the software, $\\xi\_i = u\_i - \\bar{\\epsilon\_{ij}}x\_j$ is all considered *u*<sub>*i*</sub>
--   On boundaries where $\\bar{\\epsilon\_{ij}}x\_j \\ne 0$, there should be no other source of displacement
--   Thus to the software $u\_i = \\bar{\\epsilon\_{ij}}x\_j$
--   On opposing faces, *x*<sub>*j*</sub><sup>+</sup> = −*x*<sub>*j*</sub><sup>−</sup>
--   This can be implemented in COMSOL using the antiperiodicity requirement
--   Some prescribed displacement is then applied in addition to the antiperiodicity requirement, but only on one of the faces
+-   From the Model Builder on the left-hand side, click the "eye" icon to show the equations
+![](../images/visibility.png)
 
 ----
 ## COMSOL implementation
 
--   In some configurations, adjacent faces with continuity and antiperiodicity can create stress concentrations in COMSOL
--   This can be resolved by changing the faces to “user-defined”
--   Displacements not important to the problem can be ommitted from the condition, and continuity/antiperiodicity constraints enabled only for those faces which concern them
+-   Next, add a global parameter for the arbitrary strain (in my equations I used 'C')
+-   Now we need to edit the periodic boundary equations in comsol to include an offset of 'C'
+-   For example we need to change u-solid.src2dst to u-C-solid.src2dst for the x-faces periodic boundary in COMSOL
+
+----
+## COMSOL implementation
+
+![](../images/equations.png)
 
 ----
 ## shear
 
 -   In shear the COMSOL implementation becomes a little bit tricky
 
-$$\\xi = u\_i - \\bar{\\epsilon}\_{ij}x\_j$$
+`$$\xi = u_i - \bar{\epsilon}_{ij}x_j$$`
 
 -   We need to define displacement on both surfaces under consideration (1 and 2 surface for 12 shear)
 -   To avoid stress concentrations, the periodic boundaries are implemented as:
@@ -135,10 +139,14 @@ $$\\xi = u\_i - \\bar{\\epsilon}\_{ij}x\_j$$
 
 -   For any software package, we take the results using the volume-average stiffness and strain
 -   Recall that in engineering notation we have
-    *σ*<sub>*i*</sub> = *C*<sub>*i**j*</sub>*ϵ*<sub>*j*</sub>
+
+`$$ \sigma_i = C_{ij} \epsilon_j$$`
+
 -   Before calculating stiffness values, you may want to check that you have a mostly uniform strain
 -   Stiffness values can be calculated as
-    *C*<sub>*ij*</sub> = *σ*<sub>*i*</sub>/*ϵ*<sub>*j*</sub>
+
+`$$ C_{ij} = \sigma_i/\epsilon_j$$`
+
 -   Where *j* is fixed for each load configuration
 
 ----
@@ -146,8 +154,11 @@ $$\\xi = u\_i - \\bar{\\epsilon}\_{ij}x\_j$$
 
 -   With boundaries under displacement control, we do not need to worry about constraining any other nodes to restrict rigid body motion
 -   The default (tetrahedral) mesh in COMSOL behaves adequately under these conditions (some small dimpling on the non-restricted surfaces)
--   In COMSOL, volume-average properties can be calculated by right-clicking derived values (under results) -&gt; average -&gt; volume average
+-   In COMSOL, volume-average properties can be calculated by right-clicking derived values (under results) > average > volume average
 -   Stress, strain, and stiffness can be found by typing in the “expressions”
 -   solid.sl11 (Stress Local 11 direction), solid.el11(Strain Local 11 direction)
 
+----
+## sample comsol file
 
+-   A sample COMSOL file to show the implementation of periodic boundary conditions can be viewed [here](https://ndaman.github.io/micromechanics/handouts/2d-periodic.mph)
