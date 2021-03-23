@@ -42,6 +42,9 @@ March 23, 2021
 
 \\[ t_i^+ = -t_i^-\\]
 
+
+## periodic boundary conditions
+
 -   The displacement on opposing surfaces will also be equal with
 
 \\[ \xi_i^+ = \xi_i^- \\]
@@ -161,4 +164,4 @@ where
 
 ## sample comsol file
 
--   A sample COMSOL file to show the implementation of periodic boundary conditions can be viewed [here](https://ndaman.github.io/micromechanics/handouts/2d-periodic.mph)
+-   A sample COMSOL file to show the implementation of periodic boundary conditions can be viewed [here](http://ndaman.github.io/multiscale/handout/2d-periodic.mph)

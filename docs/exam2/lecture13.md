@@ -42,6 +42,9 @@ March 23, 2021
 
 `$$ t_i^+ = -t_i^-$$`
 
+----
+## periodic boundary conditions
+
 -   The displacement on opposing surfaces will also be equal with
 
 `$$ \xi_i^+ = \xi_i^- $$`

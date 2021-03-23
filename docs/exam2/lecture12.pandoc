@@ -76,6 +76,7 @@ March 18, 2021
 \\[u_i = \bar{u}_i = u_i^{(0)}\\]
 
 along the boundary
+
 -   Under this condition we have \\(u_d=0\\) along the boundary
 
 
@@ -83,8 +84,7 @@ along the boundary
 
 -   Hashin-Shtrikman then considered the following functional
 
-\\[ \Pi = \int_V (C_{ijkl}^{(0)}\epsilon_{ij}^{(0)}\epsilon_{kl}^{(0)} - \Delta C_{ijkl}^{-1}p_{ij}p_{kl} + p_{ij}\epsilon_{ij}^d + 2p_{ij}\epsilon_{ij}^{(0)})dV
-\\]
+\\[ \Pi = \int_V (C_{ijkl}^{(0)}\epsilon_{ij}^{(0)}\epsilon_{kl}^{(0)} - \Delta C_{ijkl}^{-1}p_{ij}p_{kl} + p_{ij}\epsilon_{ij}^d + 2p_{ij}\epsilon_{ij}^{(0)})dV\\]
 
 -   Where
 
