@@ -1,4 +1,4 @@
-## AE 760AA: Micromechanics and multiscale modeling
+
 Lecture 14 - Fourier Analysis
 
 Dr. Nicholas Smith
@@ -88,11 +88,11 @@ March 25, 2021
 
 -   All Fourier schemes begin with the standard equations of linear elasticity
 
-`$$\begin{aligned}
+\\[\begin{aligned}
   \sigma_{ij}(x) &= C_{ijkl} \epsilon_{kl}(x)\\
   \sigma_{ij,j}(x) &=0\\
   \epsilon_{ij}(x) &= \frac{1}{2} (u_{i,j}(x) + u_{j,i}(x))
-\end{aligned}$$`
+\end{aligned}\\]
 
 -   While we have listed material properties as functions of *x*, we usually have only 2-3 phases of material, and thus these functions will be piecewise, simply differentiating between the phases
 
@@ -101,17 +101,17 @@ March 25, 2021
 
 -   Fourier Methds are based on the Lippmann-Schwinger equations where we define the polarization field as
 
-`$$\tau_{ij} = \sigma_{ij}(x)-C_{ijkl}^0 \epsilon_{kl}(x)$$`
+\\[\tau_{ij} = \sigma_{ij}(x)-C_{ijkl}^0 \epsilon_{kl}(x)\\]
 
 -   We also use the Green operator, which is given (in the Fourier space) as
 
-`$$ G_{ijkl}(q) = q_i \left[ q_m C_{mjkn^0 q_n}\right]^{-1} q_l $$`
+\\[ G_{ijkl}(q) = q_i \left[ q_m C_{mjkn^0 q_n}\right]^{-1} q_l \\]
 
 -   and the strain field can be expressed as
 
-`$$\epsilon_{ij}(x) = \bar{\epsilon}_{ij} - \int_{x^\prime} d^d x^\prime G_{ijkl} (x^\prime - x)\tau_{kl} (x^\prime)$$`
+\\[\epsilon_{ij}(x) = \bar{\epsilon}_{ij} - \int_{x^\prime} d^d x^\prime G_{ijkl} (x^\prime - x)\tau_{kl} (x^\prime)\\]
 
--   where `$q_i$` are Fourier wave vectors
+-   where \\(q_i\\) are Fourier wave vectors
 
 ----
 ## direct scheme
@@ -119,10 +119,10 @@ March 25, 2021
 -   These equations are generally solved iteratively, with different assumptions used to arrive at the solution
 -   The “direct” scheme solves the problem iteratively using
     
-`$$\begin{aligned}
+\\[\begin{aligned}
   \epsilon^{k=0} &= \bar{\epsilon}\\
   \epsilon^{k+1} &= \bar{\epsilon} - G \* (\sigma-C^0:\epsilon^k)
-\end{aligned}$$`
+\end{aligned}\\]
 
 -   Where each iteration is solved in the Fourier space (where the convolution integral is an algebraic product)
 -   The convergence of this method is quite slow when there is high contrast between the two phases
@@ -134,11 +134,11 @@ March 25, 2021
 -   One is referred to as the “acclerated scheme” another is known as the “augmented lagrangian”
 -   In the accelerated scheme the strain is calculated as
 
-`$$\epsilon^{k+1} = \epsilon^k + 2(C+C^0)^{-1}:C^0:\[\bar{\epsilon}-\epsilon^k-G\*(C:\epsilon^k-C^0:\epsilon^k)\]$$`
+\\[\epsilon^{k+1} = \epsilon^k + 2(C+C^0)^{-1}:C^0:[\bar{\epsilon}-\epsilon^k-G\*(C:\epsilon^k-C^0:\epsilon^k)]\\]
 
--   `$C^0$` is a reference stiffness, and while it is arbitrary, the choice of `$C^0$` does affect the convergence, and for isotropic materials the optimal `$C^0$` is given by
+-   \\(C^0\\) is a reference stiffness, and while it is arbitrary, the choice of \\(C^0\\) does affect the convergence, and for isotropic materials the optimal \\(C^0\\) is given by
     
-`$$k^0 = \sqrt{k^1 k^2} \qquad \mu^0 = \sqrt{\mu^1\mu^2}$$`
+\\[k^0 = \sqrt{k^1 k^2} \qquad \mu^0 = \sqrt{\mu^1\mu^2}\\]
 
 ---
 # installation
