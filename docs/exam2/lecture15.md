@@ -13,7 +13,7 @@ March 30, 2021
 - Mar 30 - Method of Cells 
 - Apr 1 - Damage Theory
 - Apr 6 - Damage Theory
-- Apr 8 - Dislocation Theory
+- Apr 8 - Dislocation Theory, Homework 5 Due
 
 ----
 ## outline

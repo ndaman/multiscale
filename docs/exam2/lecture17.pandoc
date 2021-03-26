@@ -1,4 +1,4 @@
-## AE 760AA: Micromechanics and multiscale modeling
+
 Lecture 17 - Localization
 
 Dr. Nicholas Smith
@@ -7,7 +7,7 @@ Wichita State University, Department of Aerospace Engineering
 
 April 8, 2021
 
-----
+
 ## schedule
 
 - Apr 8 - Localization, Homework 5 Due
@@ -15,17 +15,17 @@ April 8, 2021
 - Apr 15 - Homework 6 Due
 - Apr 22 - Homework 7 Due
 
----
+
 # localization
 
-----
+
 ## swiftcomp files
 
 -   As a reminder: you can access files generated in SwiftComp by mapping a network drive
 -   In Windows, right click “My Computer” click “Map Network Drive” and under “Folder” type <https://cdmhub.org/webdav>
 -   Login with other credentials and enter your cdmhub user name and password
 
-----
+
 ## localization
 
 -   There are some advantages to homogenization with specialized micromechanics tools, but mean field is usually good enough and more efficient
@@ -33,24 +33,24 @@ April 8, 2021
 -   In the homogenization step, we apply idealized loads to build an effective stiffness matrix
 -   In the localization step, we apply real loads to the large-scale structure and then extract local stresses
 
-----
+
 ## swiftcomp
 
 -   To perform localization in SwiftComp, we first mesh the microstructure and perform homogenization
 -   Now we use the homogenized stiffness as a custom, anisotropic material in any finite element package
 -   We run a finite element analysis and extract displacements, rotations, and strains at some element of interest
 
-----
+
 ## swiftcomp
 
--   In SwiftComp, `$v_1$`, `$v_2$`, `$v_3 $` refer to the macro displacements
--   `$C_{ijkl}$` is a matrix representation of the macro rotations
--   `$e_{11}$` etc. represent the strains
+-   In SwiftComp, \\(v_1\\), \\(v_2\\), \\(v_3 \\) refer to the macro displacements
+-   \\(C_{ijkl}\\) is a matrix representation of the macro rotations
+-   \\(e_{11}\\) etc. represent the strains
 -   In COMSOL, displacements are output with u, v, and w
 -   Rotations are given by solid.RotxX, solid.RotxY, etc.
 -   And strains were found in a previous homework, solid.el11, solid.el22, etc.
 
-----
+
 ## swiftcomp
 
 -   When meeting live, I use this time to demonstrate localization in SwiftComp

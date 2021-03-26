@@ -7,7 +7,7 @@ Wichita State University, Department of Aerospace Engineering
 
 March 25, 2021
 
-----
+
 ## schedule
 
 - Mar 25 - Fourier Analysis 
@@ -15,7 +15,7 @@ March 25, 2021
 - Apr 2 - Damage Theory
 
 
-----
+
 ## outline
 
 <!-- vim-markdown-toc GFM -->
@@ -26,17 +26,17 @@ March 25, 2021
 
 <!-- vim-markdown-toc -->
 
----
+
 # fourier methods
 
-----
+
 ## motivation
 
 -   Fourier transforms are often used to represent periodic data
 -   If we have a periodic microstructure, we can formulate the problem in Fourier space
 -   There are many Fast Fourier Transform (FFT) algorithms available to compute discrete problems very quickly
 
-----
+
 ## current implementations
 
 -   There are a few different codes (that I am aware of) that use Fourier techniques for modeling micromechanics
@@ -44,7 +44,7 @@ March 25, 2021
 -   [Morphhom](http://cmm.ensmp.fr/morphhom/) (another french group)
 -   [MASSIF](http://www.icmr.ucsb.edu/programs/3DWorkshop/Rollett-FFT-modeling-method.pdf) (modifications made by group at Los Alamos)
 
-----
+
 ## uses
 
 -   While many Micromechanics tools have been developed around specific applications (such as composites), FFT-based algorithms attempt to be somewhat more general
@@ -53,37 +53,37 @@ March 25, 2021
 -   This means it can be used to characterize a material, but cannot solve most structural problems
 -   Uses image-based inputs (pixels/voxels) which can directly relate to experiments (serial sectioning, 3D X-ray/CT scan), but are a little more difficult to develop conceptually
 
-----
+
 ## validation
 
 -   Prakash and Lebensohn validated the FFT method against FEM for a rolling simulation.
 -   [link](http://iopscience.iop.org/article/10.1088/0965-0393/17/6/064010/meta)
 
-----
+
 ## RVE
 
 ![image](../images/FFT-RVE.jpg)
 
-----
+
 ## deformed
 
 ![image](../images/FFT-deformed.jpg)
 
-----
+
 ## comparison
 
 ![image](../images/FFT-comparison.jpg)
 
----
+
 # theoretical basis
 
-----
+
 ## references
 
 -   Textbook chapter 11 (pp 419-431) discusses Fourier methods for periodic structural homogenization
 -   There are also many papers on the subject, [link](https://arxiv.org/pdf/1412.8398.pdf) (Fourier-based schemes for computing the mechanical response of composites with accurate local fields by Francois Willot) is a good review
 
-----
+
 ## linear elasticity
 
 -   All Fourier schemes begin with the standard equations of linear elasticity
@@ -96,7 +96,7 @@ March 25, 2021
 
 -   While we have listed material properties as functions of *x*, we usually have only 2-3 phases of material, and thus these functions will be piecewise, simply differentiating between the phases
 
-----
+
 ## lippmann-schwinger equations
 
 -   Fourier Methds are based on the Lippmann-Schwinger equations where we define the polarization field as
@@ -113,7 +113,7 @@ March 25, 2021
 
 -   where \\(q_i\\) are Fourier wave vectors
 
-----
+
 ## direct scheme
 
 -   These equations are generally solved iteratively, with different assumptions used to arrive at the solution
@@ -127,7 +127,7 @@ March 25, 2021
 -   Where each iteration is solved in the Fourier space (where the convolution integral is an algebraic product)
 -   The convergence of this method is quite slow when there is high contrast between the two phases
 
-----
+
 ## accelerated schemes
 
 -   There are many methods to accelerate the convergence for high contrast materials
@@ -140,10 +140,10 @@ March 25, 2021
     
 \\[k^0 = \sqrt{k^1 k^2} \qquad \mu^0 = \sqrt{\mu^1\mu^2}\\]
 
----
+
 # installation
 
-----
+
 ## installation
 
 -   For now, CraFT is the only FFT program I have tried, although I have contacted other authors so we may possibly be able to use those in the future as well
@@ -152,7 +152,7 @@ March 25, 2021
 -   Next, you need to download and install a Linux distribution to install in Virtualbox (or your virtual machine), I used [ubuntu](https://www.ubuntu.com/download)
 -   There are many tutorials on the internet if you wish to use a different Linux distribution, you may have to modify some commands slightly
 
-----
+
 ## compiling
 
 -   Next you need to obtain and compile the source for CraFT. I have the source code and will share it with you if you do not want to contact the authors directly
@@ -162,7 +162,7 @@ March 25, 2021
 -   Navigate to the CraFT directory `cd craft-1.0.12g`
 -   Type `make` and the program will compile
 
-----
+
 ## post processing
 
 -   CraFT includes some basic pre-processing, but no post-processing
