@@ -10,10 +10,11 @@ February 4, 2021
 ---
 ## schedule
 
--   Feb 4 - Tensor review, Anisotropic Elasticity
--   Feb 9 - Coordinate Transformation
--   Feb 11 - 1D Micromechanics (HW1 Due)
--   Feb 16 - Orientation Averaging
+
+-   20 Jan - Tensor review, Anisotropic Elasticity
+-   25 Jan - Coordinate Transformation
+-   27 Jan - 1D Micromechanics (HW1 Due)
+-   1 Feb - Orientation Averaging
 
 ----
 
@@ -117,7 +118,7 @@ Index can not be used more than twice in the same term (`$A_{ij}B_{jk}C_{kl}$` i
   \begin{bmatrix}
     c_{11} & c_{12} \\
     c_{21} & c_{22}
-  \end{bmatrix}$$`
+\end{bmatrix}$$`
 
 
 ---

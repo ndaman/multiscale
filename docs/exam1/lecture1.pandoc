@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-2 February 2021
+18 January 2022
 
 
 ## schedule
 
--   Feb 2 - Intro to Micromechanics
--   Feb 4 - Tensor review, Anisotropic Elasticity
--   Feb 9 - Coordinate Transformation
--   Feb 11 - 1D Micromechanics (HW1 Due)
+-   18 Jan - Intro to Micromechanics
+-   20 Jan - Tensor review, Anisotropic Elasticity
+-   25 Jan - Coordinate Transformation
+-   27 Jan - 1D Micromechanics (HW1 Due)
 
 
 ## outline
@@ -28,7 +28,7 @@ Wichita State University, Department of Aerospace Engineering
 
 ## about me
 
-![family picture](../images/IMG_5266_edit.jpg)
+![family picture](../images/family-photo-2020.jpg)
 
 
 
@@ -139,7 +139,7 @@ Wichita State University, Department of Aerospace Engineering
 -   Section 3 - damage
     -   Damage
     -   Dislocation
-    -   Final project (due 15 May)
+    -   Final project (due 11 May)
 
 
 
@@ -245,7 +245,14 @@ Wichita State University, Department of Aerospace Engineering
     ```bash
     conda install ipython jupyter matplotlib numpy pandas scipy
     ```
-- alternatively, you may use a cloud-based python installation, such as the one provided by [Microsoft](https://notebooks.azure.com/)
+- alternatively, you may use a cloud-based python installation, such as the one provided by [Microsoft](https://notebooks.azure.com/) or [Google](https://colab.research.google.com/)
+
+
+
+## digimat 
+
+- we have worked out an arrangement with MSC, which gives us access to another micromechanics software package known as Digimat
+- I am still working on providing installation files and instructions for this software package, but we will also have some training material available to help you learn to use it
 
 
 
@@ -323,4 +330,4 @@ Wichita State University, Department of Aerospace Engineering
 
 ## plotting
 
-View rendered example [here](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Halpin-Tsai%20Example.ipynb)
+View interactive example [here](https://colab.research.google.com/drive/1HomEorj-CZY-HAogFoNFff51SDQf9yEe?usp=sharing)

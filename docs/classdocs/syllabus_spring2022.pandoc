@@ -1,0 +1,149 @@
+---
+geometry: margin=1in 
+output: pdf_document
+---
+
+# AE 760AA - Micromechanics and Multi-scale Modeling
+
+## Spring 2022
+
+|             |                                         |                 |                   |
+| ---         | ---                                     | ---             | ---               |
+| Instructor: | Dr. Nicholas A Smith                    | Time:           | TR 5:35 - 6:50 pm | 
+| Department: | Aerospace Engineering                   | Classroom:      | 210 Wallace Hall  |
+| Email:      | Nicholas.A.Smith@wichita.edu            | Office:         | 200D Wallace Hall |
+| Phone:      | (316) 978-5919                          | Office Hours:   | TBD               |
+| Web-page:   | <http://ndaman.github.io/multiscale>    |                 |                   |
+
+## How to use this syllabus
+
+This syllabus provides you with information specific to this course, and it also provides information about important university policies.
+This document should be viewed as a course overview; it is not a contract and is subject to change as the semester evolves.
+Any changes to the syllabus will be uploaded to Blackboard and e-mailed to all students (at their e-mail address listed on Blackboard, make sure this is up-to-date).
+Many University policies are summarized in this document, but a more up-to-date and complete list of University policies can be found at <https://www.wichita.edu/faculty/development/syllabuspolicies.php>
+
+## Academic Honesty
+
+Students are responsible for knowing and following the Student Code of Conduct <http://webs.wichita.edu/inaudit/ch8_05.htm> and the Student Academic Honesty policy <http://webs.wichita.edu/inaudit/ch2_17.htm>
+
+## Course Description
+
+Many materials and structures consist of multiple phases.
+Micromechanics models can be used to homogenize a structure at some appropriate scale for more practical modeling.
+This course will cover the classical mean-field homogenization models.
+It will also explore several state-of-the-art numerical techniques used in micromechanics modeling, such as the method of cells, variational methods and Fourier transforms in addition to finite element techniques for periodicity.
+
+## Definition of a Credit Hour
+
+Success in this 3 credit hour course is based on the expectation that students will spend,
+for each unit of credit, a minimum of 45 hours over the length of the course
+(normally 3 hours per unit per week with 1 of the hours used for lecture) for instruction and preparation/studying or course related activities for a total of 135 hours.
+
+## Measurable Student Learning Outcomes
+
+Upon successful completion of this course, students will be able to
+
+* Model periodic structures
+* Evaluate strengths and weaknesses of micromechanical models
+* Compare analytical and numerical solutions to multi-scale problems
+* Define separate analyses in a multi-scale problem
+
+## Course Textbook
+
+The textbook used in this class is: *Introduction to Micromechanics and Nanomechanics*, Shaofan Li and Gang Wang
+
+## Prerequisites
+
+AE 731 (elasticity theory), AE 753 (composites), or equivalent
+
+## Grading Policy
+
+Homework (40\%),  Final Project (60\%).
+Final grades follow a traditional scale of:
+
+
+| A       | A-    | B+    | B     | B-    | C+    | C     | C-    | D+    | D     | D-    | F    |
+| ---     |  ---  | ---   | ---   | ---   | ---   |---    | ---   | ---   | ---   | ---   | ---  |
+| 93-100  | 90-93 | 87-90 | 83-87 | 80-83 | 77-80 | 73-77 | 70-73 | 67-70 | 63-67 | 60-63 | 0-60 |
+
+Per department policy, final course grades will not be disclosed before the official notifications by the University.
+
+## Homework
+
+Tentative homework due dates are given in the course schedule.
+This course is heavily homework and project driven, as such you are reminded to take extra care of due dates and the student academic integrity policy.
+No credit will be given for assignments which violate the academic integrity policy.
+
+## Final Project
+
+More details on the final project will be given after the third homework assignment.
+The final project is intended to serve as a cumulative application of all material used in this course, so be sure that you demonstrate the principles you have learned.
+Your task is to model some multi-scale problem using the techniques taught in this class.
+You should use at least one micromechanics software tool, compare your results to a converged finite element model, and make an appropriate comparison to an analytical model.
+Final projects are due on the day of our scheduled final exam, May 11.
+
+## Tentative Course Schedule
+
+| Week    | Date    | Topics                | Assignment/Exam |
+| ------- | ------- | -----------------     | --------------- |
+|	Week 1  | Jan 18  | Micromechanics        |                 |
+|	Week 2  | Jan 25  | Transformation        |                 |
+|	Week 3  | Feb 1   | Eshelby               | Homework 1 Due  |
+|	Week 4  | Feb 8   | Mean-Field            | |
+|	Week 5  | Feb 15  | Orientation Tensor    | Homework 2 Due  |
+|	Week 6  | Feb 22  | Variational Calculus  | Homework 3 Due  |
+|	Week 7  | Mar 1   | Finite Elements       | Project Abstract Due|
+|	Week 8  | Mar 8   | Finite Elements       | Homework 4 Due  |
+|         | Mar 15  | Spring Break          |                 | 
+|	Week 9  | Mar 22  | Fourier Methods       | Homework 5 Due  |
+|	Week 10 | Mar 29  | Micromechanics Software| Homework 6 Due  |
+| Week 11 | Apr 5   | Damage Theory         | |
+|	Week 12 | Apr 12  | Dislocation Thoery    | Homework 7 Due  |
+|	Week 13 | Apr 19  | Special Topics        |                 |
+|	Week 14 | Apr 26  | Special Topics        |                 |
+|	Week 15 | May 3   | Special Topics        | Final Project Due|
+
+## Important Academic Dates
+
+Classes begin January 18, there are no classes during Spring Break, which is March 14 - 20.
+
+## Disabilities
+
+If you have a physical, psychiatric/emotional, or learning disability that may impact on your ability to carry out assigned course work, I encourage you to contact the Office of Disability Services (DS).
+The office is located in Grace Wilkie Annex, room 150, (316) 978-3309 (voice/tty) (316-854-3032 videophone).
+DS will review your concerns and determine, with you, what academic accommodations are necessary and appropriate for you.
+All information and documentation of your disability is confidential and will not be released by DS without your written permission.
+
+## Counseling & Testing
+
+The WSU Counseling & Testing Center provides professional counseling services to students, faculty and staff;
+administers tests and offers test preparation workshops; and presents programs on topics promoting personal and professional growth. Services are low cost and confidential.
+They are located in room 320 of Grace Wilkie Hall, and their phone number is (316) 978-3440.
+The Counseling \& Testing Center is open on all days that the University is officially open.
+If you have a mental health emergency during the times that the Counseling & Testing Center is not open, please call COMCARE Crisis Services at (316) 660-7500.
+
+## Diversity and Inclusive
+
+Wichita State University is committed to being an inclusive campus that reflects the evolving diversity of society.
+To further this goal, WSU does not discriminate in its programs and activities on the basis of race, religion, color, national origin, gender, age, sexual orientation, gender identity, gender expression, marital status, political affiliation, status as a veteran, genetic information or disability.
+The following person has been designated to handle inquiries regarding nondiscrimination policies: Executive Director, Office of Equal Opportunity, Wichita State University, 1845 Fairmount, Wichita KS 67260-0138; telephone (316) 978-3186.
+
+## Intellectual Property
+
+Wichita State University students are subject to Board of Regents and University policies (see <http://webs.wichita.edu/inaudit/ch9_10.htm> ) regarding intellectual property rights.
+Any questions regarding these rights and any disputes that arise under these policies will be resolved by the President of the University, or the President’s designee, and such decision will constitute the final decision.
+
+## Shocker Alert System
+
+Get the emergency information you need instantly and effortlessly! With the Shocker Alert System, we will contact you by email the moment there is an emergency or weather alert that affects the campus.  Sign up at <http://www.wichita.edu/alert>
+
+## Title IX
+
+Title IX of the Educational Amendments of 1972 prohibits discrimination based on sex in any educational institution that receives federal funding.
+Wichita State University does not tolerate sex discrimination of any kind including:
+sexual misconduct; sexual harassment; relationship/sexual violence and stalking.
+These incidents may interfere with or limit an individual’s ability to benefit from or participate in the University’s educational programs or activities.
+Students are asked to immediately report incidents to the University Police Department, (316) 978- 3450 or the Title IX Coordinator (316) 978-5177.
+Students may also report incidents to an instructor, faculty or staff member, who are required by law to notify the Title IX Coordinator.
+If a student wishes to keep the information confidential, the student may speak with staff members of the Counseling and Testing Center (316) 978-3440 or Student Health Services (316)978-3620. For more information about Title IX, go to: <http://www.wichita.edu/thisis/home/?u=titleixf>
+

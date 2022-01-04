@@ -1,4 +1,4 @@
-#!/usr/sbin/perl
+#!/usr/bin/perl
 # ARGV[0] is original file, ARGV[1] is the new file
 # usually this will be something.md -> something.pandoc
 
