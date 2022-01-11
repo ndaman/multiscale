@@ -69,7 +69,7 @@ Where `$C_m$` is the stiffness of the material.
 -   It has been calculated exactly for ellipsoids, and numerically for other shapes
 
 ----
-<!-- .section id="eshelby-params" -->
+<!-- .slide id="eshelby-params" -->
 ## eshelby tensor
 
 -   `$\nu$` represents the matrix Poisson's ratio
@@ -81,7 +81,7 @@ Where `$C_m$` is the stiffness of the material.
 -   `$I_3 = 4-2I_1$`
 
 ----
-<!-- .section id="table" -->
+<!-- .slide id="table" -->
 ## eshelby tensor
 
 | `$S_{ijkl}$`  | Long Fibers                               | Short Fibers (Ellipsoids)                |
