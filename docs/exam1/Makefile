@@ -9,9 +9,6 @@ all : $(PANDOC) $(HANDOUTS)
 %.pdf : %.pandoc
 	pandoc -f markdown+tex_math_double_backslash+pipe_tables style.yaml $^ -t beamer -o $@
 
-%.html : %.md
-	pandoc -f gfm+pipe_tables $^ -t revealjs -s -o $@
-
 %.tex : %.pandoc
 	pandoc -f markdown+tex_math_double_backslash+pipe_tables style.yaml $^ -t beamer -s -o $@ 
 		
