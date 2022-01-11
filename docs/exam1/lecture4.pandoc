@@ -237,7 +237,7 @@ Where \\(C_m\\) is the stiffness of the material.
 
 ## example
 
--   Python code for this example (with some typical values for \\(C_m\\) and \\(C_f\\)) is posted [here](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Eshelby.ipynb)
+-   Python code for this example (with some typical values for \\(C_m\\) and \\(C_f\\)) is posted [here](https://colab.research.google.com/drive/1aUs_BfeWugyUfwQiKoPx5g-hxvrsQqNs?usp=sharing)
 
 
 # fiber orientation
