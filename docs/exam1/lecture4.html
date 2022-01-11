@@ -1,71 +1,471 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>style</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/metropolis.css" id="theme">
+  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-        <title>4 - 1D Micromechanics </title>
 
-        <link rel="stylesheet" href="../reveal.js/css/reveal.css">
-        <link rel="stylesheet" href="../reveal.js/css/theme/shocker.css">
+<section class="slide level2">
 
-        <!-- Theme used for syntax highlighting of code -->
-        <link rel="stylesheet" href="../reveal.js/lib/css/zenburn.css">
+<p>Lecture 4 - Eshelby</p>
+<p>Dr. Nicholas Smith</p>
+<p>Wichita State University, Department of Aerospace Engineering</p>
+<p>27 January 2022</p>
+</section>
+<section id="schedule" class="slide level2">
+<h2>schedule</h2>
+<ul>
+<li>27 Jan - 1D Micromechanics (HW1 Due)</li>
+<li>1 Feb - Orientation Averaging</li>
+<li>3 Feb - Mean-field (HW2 Due)</li>
+<li>8 Feb - Variational Calculus</li>
+</ul>
+</section>
+<section id="outline" class="slide level2">
+<h2>outline</h2>
+<ul>
+<li>eshelby</li>
+<li>aspect ratio</li>
+</ul>
+</section>
+<section>
+<section id="eshelbys-equivalent-inclusion" class="title-slide slide level1">
+<h1>eshelby’s equivalent inclusion</h1>
 
-        <!-- Printing and PDF exports -->
-        <script>
-            var link = document.createElement( 'link' );
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-            document.getElementsByTagName( 'head' )[0].appendChild( link );
-        </script>
-    </head>
-    <body>
-        <div class="reveal">
-            <div class="slides">
-                <section data-markdown="lecture4.md"
-                         data-separator="^\n---$"
-                         data-separator-vertical="^\n----$"
-                         data-separator-notes="^Note:"
-                         data-charset="utf-8">
-                </section>
-            </div>
-        </div>
+</section>
+<section id="eshelby" class="slide level2">
+<h2>eshelby</h2>
+<ul>
+<li>Eshelby formulated the exact elastic solution for an elliptical inclusion in an infinite matrix</li>
+<li>While this is not often useful, it serves as an exact analytical model to compare numerical results with</li>
+<li>It is also the base for more useful mean-field theories</li>
+</ul>
+</section>
+<section id="eshelbys-thought-experiment" class="slide level2">
+<h2>eshelby’s thought experiment</h2>
+<ul>
+<li>Eshelby solution starts with a thought experiment</li>
+<li>Suppose we have a homogeneous, elastic body in equilibrium</li>
+<li>We now cut an ellipsoidal pieces out of that body and allow it to undergo a stress-free transformation, such as thermal expansion</li>
+<li>This stress-free transformation is referred to as the transformation strain, <span class="math inline"><em>ϵ</em><sup><em>T</em></sup></span></li>
+</ul>
+</section>
+<section id="eshelbys-thought-experiment-1" class="slide level2">
+<h2>eshelby’s thought experiment</h2>
+<figure>
+<img data-src="../images/eshelby.png" alt="Eshelby’s thought experiment" /><figcaption aria-hidden="true">Eshelby’s thought experiment</figcaption>
+</figure>
+</section>
+<section id="eshelbys-thought-experiment-2" class="slide level2">
+<h2>eshelby’s thought experiment</h2>
+<ul>
+<li>Now, we weld that expanded ellipsoid back into the original body</li>
+<li>Tractions need to be applied to force it to fit</li>
+<li>Once the stresses equilibrate, the ellipsoid has a constrained strain, <span class="math inline"><em>ϵ</em><sup><em>C</em></sup></span></li>
+</ul>
+</section>
+<section id="eshelby-1" class="slide level2">
+<h2>eshelby</h2>
+<ul>
+<li>After equilibrium is reached the inclusion is still under a state of uniform strain</li>
+<li>The inclusion stress, <span class="math inline"><em>σ</em><sub><em>I</em></sub></span> can be found as:</li>
+</ul>
+<p><span class="math display"><em>σ</em><sub><em>I</em></sub> = <em>C</em><sub><em>m</em></sub>(<em>ϵ</em><sup><em>C</em></sup>−<em>ϵ</em><sup><em>T</em></sup>)</span></p>
+<p>Where <span class="math inline"><em>C</em><sub><em>m</em></sub></span> is the stiffness of the material. - One of Eshelby’s critical findings is that</p>
+<p><span class="math display"><em>ϵ</em><sup><em>C</em></sup> = <em>S</em><em>ϵ</em><sup><em>T</em></sup></span></p>
+<ul>
+<li><em>S</em> is known as the Eshelby Tensor, and is a fourth-order tensor</li>
+<li>Function of shape and poisson’s ratio</li>
+<li>It has been calculated exactly for ellipsoids, and numerically for other shapes</li>
+</ul>
+</section>
+<section id="eshelby-tensor" class="slide level2">
+<h2>eshelby tensor</h2>
+<ul>
+<li><span class="math inline"><em>ν</em></span> represents the matrix Poisson’s ratio</li>
+<li><em>s</em> is the aspect ratio of the fibers</li>
+<li><span class="math inline">$I_1 = \frac{2s}{\left(s^2-1\right)^{\frac{3}{2}}}(s{\left(s^2-1\right)}^{\frac{1}{2}}-\cosh^{-1} s)$</span></li>
+<li><span class="math inline">$Q=\frac{3}{8(1-\nu)}$</span></li>
+<li><span class="math inline">$R=\frac{1-2\nu}{8(1-\nu)}$</span></li>
+<li><span class="math inline">$T=\frac{Q\left(4-3I_1\right)}{3(s^2-1)}$</span></li>
+<li><span class="math inline"><em>I</em><sub>3</sub> = 4 − 2<em>I</em><sub>1</sub></span></li>
+</ul>
+</section>
+<section id="eshelby-tensor-1" class="slide level2">
+<h2>eshelby tensor</h2>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 68%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline"><em>S</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub></span></th>
+<th style="text-align: center;">Long Fibers</th>
+<th style="text-align: center;">Short Fibers (Ellipsoids)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline"><em>S</em><sub>1111</sub> = <em>S</em><sub>2222</sub></span></td>
+<td style="text-align: center;"><span class="math inline">$\frac{5-\nu}{8(1-\nu)}$</span></td>
+<td style="text-align: center;"><span class="math inline">$Q+RI_1+\frac{3T}{4}$</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline"><em>S</em><sub>3333</sub></span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline">$\frac{4Q}{3}+RI_3+2s^2T$</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline"><em>S</em><sub>1122</sub> = <em>S</em><sub>2211</sub></span></td>
+<td style="text-align: center;"><span class="math inline">$\frac{-1+4\nu}{8(1-\nu)}$</span></td>
+<td style="text-align: center;"><span class="math inline">$\frac{Q}{3}-RI_1+\frac{4T}{3}$</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline"><em>S</em><sub>1133</sub> = <em>S</em><sub>2233</sub></span></td>
+<td style="text-align: center;"><span class="math inline">$\frac{\nu}{2(1-\nu)}$</span></td>
+<td style="text-align: center;"><span class="math inline"> − <em>R</em><em>I</em><sub>1</sub> − <em>s</em><sup>2</sup><em>T</em></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline"><em>S</em><sub>3311</sub> = <em>S</em><sub>3322</sub></span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;"><span class="math inline"> − <em>R</em><em>I</em><sub>3</sub> − <em>T</em></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">$\begin{aligned} S_{1212} &amp; = S_{1221} \\&amp; = S_{2112}=S_{2121} \end{aligned}$</span></td>
+<td style="text-align: center;"><span class="math inline">$\frac{3-4\nu}{8\left(1-\nu\right)}$</span></td>
+<td style="text-align: center;"><span class="math inline">$\frac{Q}{3}+RI_1+\frac{T}{4}$</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">$\begin{aligned} S_{1313} &amp; = S_{1331} \\&amp;=S_{3113}=S_{3131}\\&amp;=S_{3232}=S_{3223}\\&amp;=S_{2332}=S_{2323} \end{aligned}$</span></td>
+<td style="text-align: center;"><span class="math inline">$\frac{1}{4}$</span></td>
+<td style="text-align: center;"><span class="math inline">$2R-\frac{I_1R}{2}-\frac{1-s^2}{2}T$</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">all other <span class="math inline"><em>S</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub></span></td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="inclusions" class="slide level2">
+<h2>inclusions</h2>
+<ul>
+<li>Eshelby’s initial thought experiment was for a homogeneous material</li>
+<li>To consider a different type of inclusion, we need to relate the transformation strain between some fictitious ellipsoid of matrix material which would be equivalent to our inclusion.</li>
+<li>We will refer to the inclusion stiffness as <span class="math inline"><em>C</em><sub><em>f</em></sub></span>, the transformation strain in the matrix as <span class="math inline"><em>ϵ</em><sup><em>T</em></sup></span>, and the transformation strain in the inclusion <span class="math inline"><em>ϵ</em><sup><em>T</em>*</sup></span>.</li>
+</ul>
+</section>
+<section id="inclusions-1" class="slide level2">
+<h2>inclusions</h2>
+<ul>
+<li>We are trying to find a transformation equivalent to our inclusion, so we set</li>
+</ul>
+<p><span class="math display"><em>σ</em><sub><em>I</em></sub> = <em>C</em><sub><em>m</em></sub>(<em>ϵ</em><sup><em>C</em></sup>−<em>ϵ</em><sup><em>T</em></sup>) = <em>C</em><sub><em>f</em></sub>(<em>ϵ</em><sup><em>C</em></sup>−<em>ϵ</em><sup><em>T</em>*</sup>)</span></p>
+<ul>
+<li>Now we substitute the relation <span class="math inline"><em>ϵ</em><sup><em>C</em></sup> = <em>S</em><em>ϵ</em><sup><em>T</em></sup></span></li>
+</ul>
+<p><span class="math display"><em>C</em><sub><em>m</em></sub>(<em>S</em>−<em>I</em>)<em>ϵ</em><sup><em>T</em></sup> = <em>C</em><sub><em>f</em></sub>(<em>S</em><em>ϵ</em><sup><em>T</em></sup>−<em>ϵ</em><sup><em>T</em>*</sup>)</span></p>
+<ul>
+<li>We can solve this to find the transformation strain</li>
+</ul>
+<p><span class="math display"><em>ϵ</em><sup><em>T</em></sup> = [(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>S</em>+<em>C</em><sub><em>m</em></sub>]<sup> − 1</sup><em>C</em><sub><em>f</em></sub><em>ϵ</em><sup><em>T</em>*</sup></span></p>
+</section>
+<section id="stiffness" class="slide level2">
+<h2>stiffness</h2>
+<ul>
+<li>Since the transformation strain is arbitrary, we can choose <span class="math inline"><em>ϵ</em><sup><em>T</em></sup></span> such that <span class="math inline"><em>ϵ</em><sup><em>T</em>*</sup></span> is 0</li>
+<li>Now suppose we impose some strain, <span class="math inline"><em>ϵ</em><sup>0</sup></span> on the composite</li>
+<li>The stress in the inclusion will be</li>
+</ul>
+<p><span class="math display"><em>σ</em><sub><em>I</em></sub> = <em>C</em><sub><em>m</em></sub>(<em>ϵ</em><sup>0</sup>+<em>ϵ</em><sup><em>C</em></sup>−<em>ϵ</em><sup><em>T</em></sup>) = <em>C</em><sub><em>f</em></sub>(<em>ϵ</em><sup>0</sup>+<em>ϵ</em><sup><em>C</em></sup>)</span></p>
+<ul>
+<li>Simplifying terms gives</li>
+</ul>
+<p><span class="math display">(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)(<em>ϵ</em><sup>0</sup>+<em>ϵ</em><sup><em>C</em></sup>) =  − <em>C</em><sub><em>m</em></sub><em>ϵ</em><sup><em>T</em></sup></span></p>
+</section>
+<section id="stiffness-1" class="slide level2">
+<h2>stiffness</h2>
+<ul>
+<li>We now assume <span class="math inline"><em>ϵ</em><sup>0</sup> + <em>ϵ</em><sup><em>C</em></sup> = <em>ϵ̄</em><sup><em>f</em></sup></span> and multiply both sides by <span class="math inline"><em>S</em><em>C</em><sub><em>m</em></sub><sup> − 1</sup></span></li>
+</ul>
+<p><span class="math display"><em>S</em>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>ϵ̄</em><sup><em>f</em></sup> =  − <em>ϵ</em><sup><em>C</em></sup></span></p>
+<ul>
+<li>Recall <span class="math inline"><em>S</em><em>ϵ</em><sup><em>T</em></sup> = <em>ϵ</em><sup><em>C</em></sup></span></li>
+<li>We can also write <span class="math inline"><em>ϵ</em><sup><em>C</em></sup></span> in terms of <span class="math inline"><em>ϵ̄</em><sup><em>f</em></sup></span></li>
+</ul>
+<p><span class="math display"><em>S</em>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>ϵ̄</em><sup><em>f</em></sup> = <em>ϵ</em><sup>0</sup> − <em>ϵ̄</em><sup><em>f</em></sup></span></p>
+</section>
+<section id="strain-concentration-tensor" class="slide level2">
+<h2>strain concentration tensor</h2>
+<ul>
+<li>Finally, we can add <span class="math inline"><em>I</em><em>ϵ̄</em><sup><em>f</em></sup></span> to both sides to find</li>
+</ul>
+<p><span class="math display">[<em>I</em>+<em>S</em>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)]<em>ϵ̄</em><sup><em>f</em></sup> = <em>ϵ</em><sup>0</sup></span></p>
+<ul>
+<li>We define the inverse of the left-hand side the Eshelby strain-concentration tensor</li>
+</ul>
+<p><span class="math display"><em>A</em><sup><em>E</em></sup> = [<em>I</em>+<em>S</em>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)]<sup> − 1</sup></span></p>
+<ul>
+<li>The stiffness can be calculated as</li>
+</ul>
+<p><span class="math display"><em>C</em> = <em>C</em><sub><em>m</em></sub> + <em>v</em><sub><em>i</em></sub>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>A</em><sup><em>E</em></sup></span></p>
+</section>
+<section id="stiffness-2" class="slide level2">
+<h2>stiffness</h2>
+<ul>
+<li>This stiffness calculation is valid for any number of inclusions</li>
+<li>However, it is only appropriate for very dilute concentrations (&lt;1% volume fraction)</li>
+<li>This ensures that the assumption <span class="math inline"><em>ϵ</em><sup>0</sup> + <em>ϵ</em><sup><em>C</em></sup> = <em>ϵ̄</em><sup><em>f</em></sup></span></li>
+</ul>
+</section></section>
+<section>
+<section id="aspect-ratio" class="title-slide slide level1">
+<h1>aspect ratio</h1>
 
-        <script src="../reveal.js/lib/js/head.min.js"></script>
-        <script src="../reveal.js/js/reveal.js"></script>
+</section>
+<section id="aspect-ratio-1" class="slide level2">
+<h2>aspect ratio</h2>
+<ul>
+<li>Some studies have been done to evaluate Eshelby tensors for short fibers</li>
+<li>Long fibers are approximated by an ellipsoid with infinitely long major axis</li>
+<li>This is not appropriate for short fibers</li>
+<li>We could logically consider three different ellipsoids to represent a short fiber</li>
+</ul>
+</section>
+<section id="aspect-ratio-2" class="slide level2">
+<h2>aspect ratio</h2>
+<figure>
+<img data-src="../images/ellipsoids.PNG" alt="aspect ratio comparisons" /><figcaption aria-hidden="true">aspect ratio comparisons</figcaption>
+</figure>
+</section>
+<section id="aspect-ratio-3" class="slide level2">
+<h2>aspect ratio</h2>
+<ul>
+<li>Steif and Hoysan investigated the effect of aspect ratio numerically</li>
+<li>Found that (a) and (c) were good for short fibers</li>
+<li>As fibers get longer, and as stiffness ratio of fiber to matrix increases, (a) gives best results</li>
+<li><ol type="a">
+<li>is also the easiest to use (same aspect ratio), so that is what is done in Eshelby-based models</li>
+</ol></li>
+</ul>
+</section>
+<section id="fiber-orientation" class="slide level2">
+<h2>fiber orientation</h2>
+<ul>
+<li>With Eshelby (and derivative models), fibers at different orientations are modeled as a different inclusion</li>
+<li>Since the Eshelby tensor, <em>S</em> is a fourth-order tensor, we can treat it the same way as <em>C</em></li>
+<li>Write it as 6x6 matrix, transform using <span class="math inline"><em>R</em><sup><em>σ</em></sup></span></li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>As an example, let us consider a “laminate” of short fiber composites</li>
+<li>This is a good approximate for many 3D printed composites</li>
+<li>We have a <span class="math inline"> ± 45<sup>∘</sup></span> laminate, with very short carbon fibers, <em>s</em> = 15</li>
+</ul>
+</section>
+<section id="example-1" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>First we find the Eshelby tensor for <em>s</em> = 15</li>
+<li>We also need the matrix Poisson’s ratio, <em>v</em> = 0.40</li>
+<li>We find the parameters <a href="#//eshelby-tensor">here</a></li>
+<li>Then we use <a href="#//eshelby-tensor-1">this slide</a> to find <em>S</em><sub><em>ijkl</em></sub></li>
+<li>Notice that this assumes fibers are pointed in the 3-direction</li>
+</ul>
+</section>
+<section id="example-2" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>Next, we rotate <span class="math inline"><em>S</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub></span> to find <span class="math inline"><em>S</em><sup>45</sup></span> and <span class="math inline"><em>S</em><sup> − 45</sup></span></li>
+<li>Notice: the eshelby tensor, <em>S</em> accounts for rotation, we do not rotate <span class="math inline"><em>C</em><sub><em>f</em></sub></span></li>
+<li>So we find <span class="math inline"><em>A</em><sup>45</sup></span> and <span class="math inline"><em>A</em><sup> − 45</sup></span></li>
+</ul>
+<p><span class="math display"><em>A</em><sup>45</sup> = [<em>I</em>+<em>S</em><sup>45</sup>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)]<sup> − 1</sup></span></p>
+<p><span class="math display"><em>A</em><sup> − 45</sup> = [<em>I</em>+<em>S</em><sup> − 45</sup>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)]<sup> − 1</sup></span></p>
+</section>
+<section id="example-3" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>This gives our total stiffness calculation as</li>
+</ul>
+<p><span class="math display"><em>C</em> = <em>C</em><sub><em>m</em></sub> + <em>v</em><sup>45</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>A</em><sup>45</sup> + <em>v</em><sup> − 45</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>A</em><sup> − 45</sup></span></p>
+<ul>
+<li>If we assume the volume fraction of fibers in our part is 20%</li>
+<li>And that there are equally many fibers in 45 and -45 directions</li>
+<li>Then <span class="math inline"><em>v</em><sup>45</sup> = <em>v</em><sup> − 45</sup> = 0.1</span></li>
+<li>Note: Since this is not a dilute concentration, we would not expect this to be very accurate</li>
+</ul>
+</section>
+<section id="example-4" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>Python code for this example (with some typical values for <span class="math inline"><em>C</em><sub><em>m</em></sub></span> and <span class="math inline"><em>C</em><sub><em>f</em></sub></span>) is posted <a href="http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Eshelby.ipynb">here</a></li>
+</ul>
+</section></section>
+<section>
+<section id="fiber-orientation-1" class="title-slide slide level1">
+<h1>fiber orientation</h1>
 
-        <script>
-            // More info about config & dependencies:
-            // - https://github.com/hakimel/reveal.js#configuration
-            // - https://github.com/hakimel/reveal.js#dependencies
-            Reveal.initialize({
-							math: {
-								mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js',
-								config: 'TeX-MML-AM_CHTML',
-								CommonHTML: { minScaleAdjust: 95 }
-							},
-							markdown: {
-								smartypants: true,
-								gfm: true
-							},
-              dependencies: [
-                { src: '../reveal.js/plugin/markdown/marked.js' },
-                { src: '../reveal.js/plugin/markdown/markdown.js' },
-                { src: '../reveal.js/plugin/notes/notes.js', async: true },
-                { src: '../reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                { src: '../reveal.js/plugin/math/math.js', async: true }
-              ],
-              hash: true
-            });
-						Reveal.configure({
-							keyboard: {
-								80: function() { window.location.search += '?print-pdf' }
-							}
-						});
-						Reveal.configure({slideNumber: 'c/t'});
-						Reveal.configure({showSlideNumber: 'all'});
-        </script>
-   </body>
+</section>
+<section id="fiber-orientation-2" class="slide level2">
+<h2>fiber orientation</h2>
+<ul>
+<li>While a laminate analogy works well for some cases, in general short fibers are not aligned in laminates</li>
+<li>It is not practical to model each possible fiber orientation as a separate inclusion</li>
+<li>Advani-Tucker introduced a tensorial representation of fiber orientation</li>
+</ul>
+</section>
+<section id="fiber-in-spherical-coordinates" class="slide level2">
+<h2>fiber in spherical coordinates</h2>
+<figure>
+<img data-src="../images/single_fiber.png" alt="single fiber coordinate system" /><figcaption aria-hidden="true">single fiber coordinate system</figcaption>
+</figure>
+</section>
+<section id="fiber-direction-components" class="slide level2">
+<h2>fiber direction components</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>p</em><sub>1</sub></td>
+<td><span class="math inline">sin <em>θ</em>cos <em>ϕ</em></span></td>
+</tr>
+<tr class="even">
+<td><em>p</em><sub>2</sub></td>
+<td><span class="math inline">sin <em>θ</em>sin <em>ϕ</em></span></td>
+</tr>
+<tr class="odd">
+<td><em>p</em><sub>3</sub></td>
+<td><span class="math inline">cos <em>θ</em></span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="orientation-tensor" class="slide level2">
+<h2>orientation tensor</h2>
+<ul>
+<li>Within a given volume, a distribution of fibers can be defined by some orientation distribution function, <span class="math inline"><em>ψ</em>(<em>θ</em>,<em>ϕ</em>)</span>.</li>
+<li>Advani and Tucker introduced tensor representations of fiber orientation distribution functions</li>
+</ul>
+<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em></sub> = ∮<em>p</em><sub><em>i</em></sub><em>p</em><sub><em>j</em></sub><em>ψ</em>(<em>p</em>)<em>d</em><em>p</em></span></p>
+<ul>
+<li>And</li>
+</ul>
+<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub> = ∮<em>p</em><sub><em>i</em></sub><em>p</em><sub><em>j</em></sub><em>p</em><sub><em>k</em></sub><em>p</em><sub><em>l</em></sub><em>ψ</em>(<em>p</em>)<em>d</em><em>p</em></span></p>
+<ul>
+<li>Note: any order tensor may be defined in this manner, the orientation distribution function must be even, due to fiber symmetry, and thus any odd-ordered tensor will be zero.</li>
+</ul>
+</section>
+<section id="orientation-tensor-1" class="slide level2">
+<h2>orientation tensor</h2>
+<ul>
+<li>It can be noted that some symmetries must exist due to the way the tensors are defined.</li>
+<li>In the second order tensor we have</li>
+</ul>
+<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em></sub> = <em>a</em><sub><em>j</em><em>i</em></sub></span></p>
+<ul>
+<li>and in the fourth order tensor</li>
+</ul>
+<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub> = <em>a</em><sub><em>j</em><em>i</em><em>k</em><em>l</em></sub> = <em>a</em><sub><em>k</em><em>i</em><em>j</em><em>l</em></sub></span></p>
+<p>and so on for any permutation of i, j, k and l.</p>
+</section>
+<section id="orientation-tensor-2" class="slide level2">
+<h2>orientation tensor</h2>
+<ul>
+<li>The orientation tensor is also normalized such that:</li>
+</ul>
+<p><span class="math display"><em>a</em><sub><em>i</em><em>i</em></sub> = 1</span></p>
+<ul>
+<li>And any lower-order tensor can be expressed in terms of the next higher-order tensor, for example</li>
+</ul>
+<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em><em>k</em><em>k</em></sub> = <em>a</em><sub><em>i</em><em>j</em></sub></span></p>
+</section>
+<section id="example---2d-random" class="slide level2">
+<h2>example - 2D random</h2>
+<figure>
+<img data-src="../images/random2D.PNG" alt="A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0." /><figcaption aria-hidden="true">A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0.</figcaption>
+</figure>
+<p>A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor <em>a</em><sub>11</sub> = <em>a</em><sub>22</sub> = 0.5, with all other <em>a</em><sub><em>ij</em></sub>=0.</p>
+</section>
+<section id="example---3d-random" class="slide level2">
+<h2>example - 3D random</h2>
+<figure>
+<img data-src="../images/random3D.PNG" alt="A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0." /><figcaption aria-hidden="true">A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0.</figcaption>
+</figure>
+<p>A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a<sub>11</sub> = a<sub>22</sub> = a<sub>33</sub> = 1/3, with all other a<sub>ij</sub> = 0.</p>
+</section>
+<section id="example---aligned-45" class="slide level2">
+<h2>example - aligned 45</h2>
+<figure>
+<img data-src="../images/aligned45.PNG" alt="A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a11 = 1 and all other aij = 0." /><figcaption aria-hidden="true">A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.</figcaption>
+</figure>
+<p>A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.</p>
+</section>
+<section id="next-class" class="slide level2">
+<h2>next class</h2>
+<ul>
+<li>Orientation averaging</li>
+<li>Self-consistent and Mori-Tanaka methods</li>
+<li>Textbook pages 131-150</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+      
+        // Push each slide change to the browser history
+        history: true,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
 </html>

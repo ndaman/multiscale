@@ -1,274 +1,455 @@
-## AE 760AA: Micromechanics and multiscale modeling
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>lecture4</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/black.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
 
-Lecture 4 - Eshelby
 
-Dr. Nicholas Smith
+<section class="slide level2">
 
-Wichita State University, Department of Aerospace Engineering
+<p>Lecture 4 - Eshelby</p>
+<p>Dr. Nicholas Smith</p>
+<p>Wichita State University, Department of Aerospace Engineering</p>
+<p>27 January 2022</p>
+</section>
+<section id="schedule" class="slide level2">
+<h2>schedule</h2>
+<ul>
+<li>27 Jan - 1D Micromechanics (HW1 Due)</li>
+<li>1 Feb - Orientation Averaging</li>
+<li>3 Feb - Mean-field (HW2 Due)</li>
+<li>8 Feb - Variational Calculus</li>
+</ul>
+</section>
+<section id="outline" class="slide level2">
+<h2>outline</h2>
+<ul>
+<li>eshelby</li>
+<li>aspect ratio</li>
+</ul>
+</section>
+<section>
+<section id="eshelbys-equivalent-inclusion" class="title-slide slide level1">
+<h1>eshelby’s equivalent inclusion</h1>
 
-27 January 2022
-
-|                                                                                                                                       |
-|---------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# schedule                                                                                                                         |
-| \- 27 Jan - 1D Micromechanics (HW1 Due) - 1 Feb - Orientation Averaging - 3 Feb - Mean-field (HW2 Due) - 8 Feb - Variational Calculus |
-
-## outline
-
--   eshelby
--   aspect ratio
-
-| \# eshelby’s equivalent inclusion                                                                                                                                                                                                                                       |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# eshelby                                                                                                                                                                                                                                                            |
-| \- Eshelby formulated the exact elastic solution for an elliptical inclusion in an infinite matrix - While this is not often useful, it serves as an exact analytical model to compare numerical results with - It is also the base for more useful mean-field theories |
-
-## eshelby’s thought experiment
-
--   Eshelby solution starts with a thought experiment
--   Suppose we have a homogeneous, elastic body in equilibrium
--   We now cut an ellipsoidal pieces out of that body and allow it to
-    undergo a stress-free transformation, such as thermal expansion
--   This stress-free transformation is referred to as the transformation
-    strain, `$\epsilon^T$`
-
-|                                                        |
-|--------------------------------------------------------|
-| \#\# eshelby’s thought experiment                      |
-| ![Eshelby’s thought experiment](../images/eshelby.png) |
-
-## eshelby’s thought experiment
-
--   Now, we weld that expanded ellipsoid back into the original body
--   Tractions need to be applied to force it to fit
--   Once the stresses equilibrate, the ellipsoid has a constrained
-    strain, `$\epsilon^C$`
-
-|                                                                                                                                                                                               |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# eshelby                                                                                                                                                                                  |
-| \- After equilibrium is reached the inclusion is still under a state of uniform strain - The inclusion stress, `$\sigma_I$` can be found as:                                                  |
-| `$$\sigma_I = C_m (\epsilon^C - \epsilon^T)$$`                                                                                                                                                |
-| Where `$C_m$` is the stiffness of the material. - One of Eshelby’s critical findings is that                                                                                                  |
-| `$$\epsilon^C = S \epsilon^T$$`                                                                                                                                                               |
-| \- *S* is known as the Eshelby Tensor, and is a fourth-order tensor - Function of shape and poisson’s ratio - It has been calculated exactly for ellipsoids, and numerically for other shapes |
-
+</section>
+<section id="eshelby" class="slide level2">
+<h2>eshelby</h2>
+<ul>
+<li>Eshelby formulated the exact elastic solution for an elliptical inclusion in an infinite matrix</li>
+<li>While this is not often useful, it serves as an exact analytical model to compare numerical results with</li>
+<li>It is also the base for more useful mean-field theories</li>
+</ul>
+</section>
+<section id="eshelbys-thought-experiment" class="slide level2">
+<h2>eshelby’s thought experiment</h2>
+<ul>
+<li>Eshelby solution starts with a thought experiment</li>
+<li>Suppose we have a homogeneous, elastic body in equilibrium</li>
+<li>We now cut an ellipsoidal pieces out of that body and allow it to undergo a stress-free transformation, such as thermal expansion</li>
+<li>This stress-free transformation is referred to as the transformation strain, \(^T\)</li>
+</ul>
+</section>
+<section id="eshelbys-thought-experiment-1" class="slide level2">
+<h2>eshelby’s thought experiment</h2>
+<figure>
+<img data-src="../images/eshelby.png" alt="Eshelby’s thought experiment" /><figcaption aria-hidden="true">Eshelby’s thought experiment</figcaption>
+</figure>
+</section>
+<section id="eshelbys-thought-experiment-2" class="slide level2">
+<h2>eshelby’s thought experiment</h2>
+<ul>
+<li>Now, we weld that expanded ellipsoid back into the original body</li>
+<li>Tractions need to be applied to force it to fit</li>
+<li>Once the stresses equilibrate, the ellipsoid has a constrained strain, \(^C\)</li>
+</ul>
+</section>
+<section id="eshelby-1" class="slide level2">
+<h2>eshelby</h2>
+<ul>
+<li>After equilibrium is reached the inclusion is still under a state of uniform strain</li>
+<li>The inclusion stress, \(_I\) can be found as:</li>
+</ul>
+<p>\[_I = C_m (^C - ^T)\]</p>
+<p>Where \(C_m\) is the stiffness of the material. - One of Eshelby’s critical findings is that</p>
+<p>\[^C = S ^T\]</p>
+<ul>
+<li><em>S</em> is known as the Eshelby Tensor, and is a fourth-order tensor</li>
+<li>Function of shape and poisson’s ratio</li>
+<li>It has been calculated exactly for ellipsoids, and numerically for other shapes</li>
+</ul>
 <!-- .slide id="eshelby-params" -->
+</section>
+<section id="eshelby-tensor" class="slide level2">
+<h2>eshelby tensor</h2>
+<ul>
+<li>\(\) represents the matrix Poisson’s ratio</li>
+<li><em>s</em> is the aspect ratio of the fibers</li>
+<li>\(I_1 = (s{(s<sup>2-1)}</sup>{}-^{-1} s)\)</li>
+<li>\(Q=\)</li>
+<li>\(R=\)</li>
+<li>\(T=\)</li>
+<li>\(I_3 = 4-2I_1\)</li>
+</ul>
+<!-- .slide id="table" -->
+</section>
+<section id="eshelby-tensor-1" class="slide level2">
+<h2>eshelby tensor</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">\(S_{ijkl}\)</th>
+<th style="text-align: center;">Long Fibers</th>
+<th style="text-align: center;">Short Fibers (Ellipsoids)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">\(S_{1111}=S_{2222}\)</td>
+<td style="text-align: center;">\(\)</td>
+<td style="text-align: center;">\(Q+RI_1+\)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">\(S_{3333}\)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">\(+RI_3+2s^2T\)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">\(S_{1122} = S_{2211}\)</td>
+<td style="text-align: center;">\(\)</td>
+<td style="text-align: center;">\(-RI_1+\)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">\(S_{1133} = S_{2233}\)</td>
+<td style="text-align: center;">\(\)</td>
+<td style="text-align: center;">\(-R I_1 - s^2T\)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">\(S_{3311} = S_{3322}\)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">\(-R I_3 - T\)</td>
+</tr>
+</tbody>
+</table>
+| \(
+\) | \(\) | \(+RI_1+\) | | \(
+<p>\) | \(\) | \(2R--T\) | | all other \(S_{ijkl}\) | 0 | 0 |</p>
+</section>
+<section id="inclusions" class="slide level2">
+<h2>inclusions</h2>
+<ul>
+<li>Eshelby’s initial thought experiment was for a homogeneous material</li>
+<li>To consider a different type of inclusion, we need to relate the transformation strain between some fictitious ellipsoid of matrix material which would be equivalent to our inclusion.</li>
+<li>We will refer to the inclusion stiffness as \(C_f\), the transformation strain in the matrix as \(^T\), and the transformation strain in the inclusion \(^{T*}\).</li>
+</ul>
+</section>
+<section id="inclusions-1" class="slide level2">
+<h2>inclusions</h2>
+<ul>
+<li>We are trying to find a transformation equivalent to our inclusion, so we set</li>
+</ul>
+<p>\[_I = C_m(^C - ^T) = C_f(<sup>C-</sup>{T*})\]</p>
+<ul>
+<li>Now we substitute the relation \(^C = S^T\)</li>
+</ul>
+<p>\[C_m(S - I)^T = C_f(S <sup>T-</sup>{T*})\]</p>
+<ul>
+<li>We can solve this to find the transformation strain</li>
+</ul>
+<p>\[^T = ^{-1} C_f ^{T*}\]</p>
+</section>
+<section id="stiffness" class="slide level2">
+<h2>stiffness</h2>
+<ul>
+<li>Since the transformation strain is arbitrary, we can choose \(^T\) such that \(^{T*}\) is 0</li>
+<li>Now suppose we impose some strain, \(^0\) on the composite</li>
+<li>The stress in the inclusion will be</li>
+</ul>
+<p>\[_I = C_m (^0 + ^C - ^T) = C_f (^0 + ^C)\]</p>
+<ul>
+<li>Simplifying terms gives</li>
+</ul>
+<p>\[( C_f - C_m ) ( ^0 + ^C ) = -C_m ^T\]</p>
+</section>
+<section id="stiffness-1" class="slide level2">
+<h2>stiffness</h2>
+<ul>
+<li>We now assume \(^0 + ^C = {}^f\) and multiply both sides by \(S C_m^{-1}\)</li>
+</ul>
+<p>\[S ( C_m ) ^{-1} ( C_f - C_m ) {}^f = -^C\]</p>
+<ul>
+<li>Recall \(S^T = ^C\)</li>
+<li>We can also write \(^C\) in terms of \({}^f\)</li>
+</ul>
+<p>\[S ( C_m ) ^{-1} ( C_f - C_m ) {}^f = ^0- {}^f\]</p>
+</section>
+<section id="strain-concentration-tensor" class="slide level2">
+<h2>strain concentration tensor</h2>
+<ul>
+<li>Finally, we can add \(I{}^f\) to both sides to find</li>
+</ul>
+<p>\[[I+S ( C_m ) ^{-1} ( C_f - C_m )] {}^f = ^0\]</p>
+<ul>
+<li>We define the inverse of the left-hand side the Eshelby strain-concentration tensor</li>
+</ul>
+<p>\[A^E = [I+S ( C_m ) ^{-1} ( C_f - C_m )]^{-1}\]</p>
+<ul>
+<li>The stiffness can be calculated as</li>
+</ul>
+<p>\[C = C_m + v_i (C_f-C_m)A^E\]</p>
+</section>
+<section id="stiffness-2" class="slide level2">
+<h2>stiffness</h2>
+<ul>
+<li>This stiffness calculation is valid for any number of inclusions</li>
+<li>However, it is only appropriate for very dilute concentrations (&lt;1% volume fraction)</li>
+<li>This ensures that the assumption \(^0 + ^C = {}^f\)</li>
+</ul>
+</section></section>
+<section>
+<section id="aspect-ratio" class="title-slide slide level1">
+<h1>aspect ratio</h1>
 
-## eshelby tensor
+</section>
+<section id="aspect-ratio-1" class="slide level2">
+<h2>aspect ratio</h2>
+<ul>
+<li>Some studies have been done to evaluate Eshelby tensors for short fibers</li>
+<li>Long fibers are approximated by an ellipsoid with infinitely long major axis</li>
+<li>This is not appropriate for short fibers</li>
+<li>We could logically consider three different ellipsoids to represent a short fiber</li>
+</ul>
+</section>
+<section id="aspect-ratio-2" class="slide level2">
+<h2>aspect ratio</h2>
+<figure>
+<img data-src="../images/ellipsoids.PNG" alt="aspect ratio comparisons" /><figcaption aria-hidden="true">aspect ratio comparisons</figcaption>
+</figure>
+</section>
+<section id="aspect-ratio-3" class="slide level2">
+<h2>aspect ratio</h2>
+<ul>
+<li>Steif and Hoysan investigated the effect of aspect ratio numerically</li>
+<li>Found that (a) and (c) were good for short fibers</li>
+<li>As fibers get longer, and as stiffness ratio of fiber to matrix increases, (a) gives best results</li>
+<li><ol type="a">
+<li>is also the easiest to use (same aspect ratio), so that is what is done in Eshelby-based models</li>
+</ol></li>
+</ul>
+</section>
+<section id="fiber-orientation" class="slide level2">
+<h2>fiber orientation</h2>
+<ul>
+<li>With Eshelby (and derivative models), fibers at different orientations are modeled as a different inclusion</li>
+<li>Since the Eshelby tensor, <em>S</em> is a fourth-order tensor, we can treat it the same way as <em>C</em></li>
+<li>Write it as 6x6 matrix, transform using \(R^\)</li>
+</ul>
+</section>
+<section id="example" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>As an example, let us consider a “laminate” of short fiber composites</li>
+<li>This is a good approximate for many 3D printed composites</li>
+<li>We have a \(^\) laminate, with very short carbon fibers, <em>s</em> = 15</li>
+</ul>
+</section>
+<section id="example-1" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>First we find the Eshelby tensor for <em>s</em> = 15</li>
+<li>We also need the matrix Poisson’s ratio, <em>v</em> = 0.40</li>
+<li>We find the parameters <a href="#//eshelby-params">here</a></li>
+<li>Then we use <a href="#//table">this slide</a> to find <em>S</em><sub><em>ijkl</em></sub></li>
+<li>Notice that this assumes fibers are pointed in the 3-direction</li>
+</ul>
+</section>
+<section id="example-2" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>Next, we rotate \(S_{ijkl}\) to find \(S^{45}\) and \(S^{-45}\)</li>
+<li>Notice: the eshelby tensor, <em>S</em> accounts for rotation, we do not rotate \(C_f\)</li>
+<li>So we find \(A^{45}\) and \(A^{-45}\)</li>
+</ul>
+<p>\[A^{45} = ^{-1}\]</p>
+<p>\[A^{-45} = ^{-1}\]</p>
+</section>
+<section id="example-3" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>This gives our total stiffness calculation as</li>
+</ul>
+<p>\[C = C_m + v<sup>{45}(C_f-C_m)A</sup>{45} + v<sup>{-45}(C_f-C_m)A</sup>{-45}\]</p>
+<ul>
+<li>If we assume the volume fraction of fibers in our part is 20%</li>
+<li>And that there are equally many fibers in 45 and -45 directions</li>
+<li>Then \(v^{45} = v^{-45} = 0.1\)</li>
+<li>Note: Since this is not a dilute concentration, we would not expect this to be very accurate</li>
+</ul>
+</section>
+<section id="example-4" class="slide level2">
+<h2>example</h2>
+<ul>
+<li>Python code for this example (with some typical values for \(C_m\) and \(C_f\)) is posted <a href="http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Eshelby.ipynb">here</a></li>
+</ul>
+</section></section>
+<section>
+<section id="fiber-orientation-1" class="title-slide slide level1">
+<h1>fiber orientation</h1>
 
--   `$\nu$` represents the matrix Poisson’s ratio
--   *s* is the aspect ratio of the fibers
--   `$I_1 = \frac{2s}{\left(s^2-1\right)^{\frac{3}{2}}}(s{\left(s^2-1\right)}^{\frac{1}{2}}-\cosh^{-1} s)$`
--   `$Q=\frac{3}{8(1-\nu)}$`
--   `$R=\frac{1-2\nu}{8(1-\nu)}$`
--   `$T=\frac{Q\left(4-3I_1\right)}{3(s^2-1)}$`
--   `$I_3 = 4-2I_1$`
+</section>
+<section id="fiber-orientation-2" class="slide level2">
+<h2>fiber orientation</h2>
+<ul>
+<li>While a laminate analogy works well for some cases, in general short fibers are not aligned in laminates</li>
+<li>It is not practical to model each possible fiber orientation as a separate inclusion</li>
+<li>Advani-Tucker introduced a tensorial representation of fiber orientation</li>
+</ul>
+</section>
+<section id="fiber-in-spherical-coordinates" class="slide level2">
+<h2>fiber in spherical coordinates</h2>
+<figure>
+<img data-src="../images/single_fiber.png" alt="single fiber coordinate system" /><figcaption aria-hidden="true">single fiber coordinate system</figcaption>
+</figure>
+</section>
+<section id="fiber-direction-components" class="slide level2">
+<h2>fiber direction components</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>p</em><sub>1</sub></td>
+<td>\(\)</td>
+</tr>
+<tr class="even">
+<td><em>p</em><sub>2</sub></td>
+<td>\(\)</td>
+</tr>
+<tr class="odd">
+<td><em>p</em><sub>3</sub></td>
+<td>\(\)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="orientation-tensor" class="slide level2">
+<h2>orientation tensor</h2>
+<ul>
+<li>Within a given volume, a distribution of fibers can be defined by some orientation distribution function, \((, )\).</li>
+<li>Advani and Tucker introduced tensor representations of fiber orientation distribution functions</li>
+</ul>
+<p>\[a_{ij} = p_i p_j (p) dp\]</p>
+<ul>
+<li>And</li>
+</ul>
+<p>\[a_{ijkl} = p_i p_j p_k p_l(p) dp\]</p>
+<ul>
+<li>Note: any order tensor may be defined in this manner, the orientation distribution function must be even, due to fiber symmetry, and thus any odd-ordered tensor will be zero.</li>
+</ul>
+</section>
+<section id="orientation-tensor-1" class="slide level2">
+<h2>orientation tensor</h2>
+<ul>
+<li>It can be noted that some symmetries must exist due to the way the tensors are defined.</li>
+<li>In the second order tensor we have</li>
+</ul>
+<p>\[a_{ij} = a_{ji}\]</p>
+<ul>
+<li>and in the fourth order tensor</li>
+</ul>
+<p>\[a_{ijkl} = a_{jikl} = a_{kijl}\]</p>
+<p>and so on for any permutation of i, j, k and l.</p>
+</section>
+<section id="orientation-tensor-2" class="slide level2">
+<h2>orientation tensor</h2>
+<ul>
+<li>The orientation tensor is also normalized such that:</li>
+</ul>
+<p>\[a_{ii} = 1\]</p>
+<ul>
+<li>And any lower-order tensor can be expressed in terms of the next higher-order tensor, for example</li>
+</ul>
+<p>\[a_{ijkk} = a_{ij}\]</p>
+</section>
+<section id="example---2d-random" class="slide level2">
+<h2>example - 2D random</h2>
+<figure>
+<img data-src="../images/random2D.PNG" alt="A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0." /><figcaption aria-hidden="true">A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0.</figcaption>
+</figure>
+<p>A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor <em>a</em><sub>11</sub> = <em>a</em><sub>22</sub> = 0.5, with all other <em>a</em><sub><em>ij</em></sub>=0.</p>
+</section>
+<section id="example---3d-random" class="slide level2">
+<h2>example - 3D random</h2>
+<figure>
+<img data-src="../images/random3D.PNG" alt="A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0." /><figcaption aria-hidden="true">A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0.</figcaption>
+</figure>
+<p>A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a<sub>11</sub> = a<sub>22</sub> = a<sub>33</sub> = 1/3, with all other a<sub>ij</sub> = 0.</p>
+</section>
+<section id="example---aligned-45" class="slide level2">
+<h2>example - aligned 45</h2>
+<figure>
+<img data-src="../images/aligned45.PNG" alt="A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a11 = 1 and all other aij = 0." /><figcaption aria-hidden="true">A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.</figcaption>
+</figure>
+<p>A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.</p>
+</section>
+<section id="next-class" class="slide level2">
+<h2>next class</h2>
+<ul>
+<li>Orientation averaging</li>
+<li>Self-consistent and Mori-Tanaka methods</li>
+<li>Textbook pages 131-150</li>
+</ul>
+</section></section>
+    </div>
+  </div>
 
-|                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <!-- .slide id="table" --> \#\# eshelby tensor                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| \| `$S_{ijkl}$` \| Long Fibers \| Short Fibers (Ellipsoids) \| \|:————-:\|:—————————————–:\|:—:\| \| `$S_{1111}=S_{2222}$` \| `$\frac{5-\nu}{8(1-\nu)}$`\| `$Q+RI_1+\frac{3T}{4}$` \| \| `$S_{3333}$` \| 0 \| `$\frac{4Q}{3}+RI_3+2s^2T$` \| \| `$S_{1122} = S_{2211}$` \| `$\frac{-1+4\nu}{8(1-\nu)}$` \| `$\frac{Q}{3}-RI_1+\frac{4T}{3}$` \| \| `$S_{1133} = S_{2233}$` \| `$\frac{\nu}{2(1-\nu)}$` \| `$-R I_1 - s^2T$` \| \| `$S_{3311} = S_{3322}$` \| 0 \| `$-R I_3 - T$` \| \| `$\begin{aligned} S_{1212} & = S_{1221} \\& = S_{2112}=S_{2121} \end{aligned}$` \| `$\frac{3-4\nu}{8\left(1-\nu\right)}$` \| `$\frac{Q}{3}+RI_1+\frac{T}{4}$` \| \| `$\begin{aligned} S_{1313} & = S_{1331} \\&=S_{3113}=S_{3131}\\&=S_{3232}=S_{3223}\\&=S_{2332}=S_{2323}   \end{aligned}$` \| `$\frac{1}{4}$` \| `$2R-\frac{I_1R}{2}-\frac{1-s^2}{2}T$` \| \| all other `$S_{ijkl}$` \| 0 \| 0 \| |
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
 
-## inclusions
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
 
--   Eshelby’s initial thought experiment was for a homogeneous material
--   To consider a different type of inclusion, we need to relate the
-    transformation strain between some fictitious ellipsoid of matrix
-    material which would be equivalent to our inclusion.
--   We will refer to the inclusion stiffness as `$C_f$`, the
-    transformation strain in the matrix as `$\epsilon^T$`, and the
-    transformation strain in the inclusion `$\epsilon^{T*}$`.
+  <script>
 
-|                                                                                  |
-|----------------------------------------------------------------------------------|
-| \#\# inclusions                                                                  |
-| \- We are trying to find a transformation equivalent to our inclusion, so we set |
-| `$$\sigma_I = C_m(\epsilon^C - \epsilon^T) = C_f(\epsilon^C-\epsilon^{T*})$$`    |
-| \- Now we substitute the relation `$\epsilon^C = S\epsilon^T$`                   |
-| `$$C_m(S - I)\epsilon^T = C_f(S \epsilon^T-\epsilon^{T*})$$`                     |
-| \- We can solve this to find the transformation strain                           |
-| `$$\epsilon^T = \left [ (C_f - C_m)S + C_m\right]^{-1} C_f \epsilon^{T*}$$`      |
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+      
+        // Push each slide change to the browser history
+        history: true,
 
-## stiffness
-
--   Since the transformation strain is arbitrary, we can choose
-    `$\epsilon^T$` such that `$\epsilon^{T*}$` is 0
--   Now suppose we impose some strain, `$\epsilon^0$` on the composite
--   The stress in the inclusion will be
-
-`$$\sigma_I = C_m (\epsilon^0 + \epsilon^C - \epsilon^T) = C_f (\epsilon^0 + \epsilon^C)$$`
-
--   Simplifying terms gives
-
-`$$\left ( C_f - C_m \right ) \left ( \epsilon^0 + \epsilon^C \right) = -C_m \epsilon^T$$`
-
-|                                                                                                              |
-|--------------------------------------------------------------------------------------------------------------|
-| \#\# stiffness                                                                                               |
-| \- We now assume `$\epsilon^0 + \epsilon^C = \bar{\epsilon}^f$` and multiply both sides by `$S C_m^{-1}$`    |
-| `$$S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right ) \bar{\epsilon}^f = -\epsilon^C$$`                  |
-| \- Recall `$S\epsilon^T = \epsilon^C$` - We can also write `$\epsilon^C$` in terms of `$\bar{\epsilon}^f$`   |
-| `$$S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right ) \bar{\epsilon}^f = \epsilon^0- \bar{\epsilon}^f$$` |
-
-## strain concentration tensor
-
--   Finally, we can add `$I\bar{\epsilon}^f$` to both sides to find
-
-`$$[I+S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right )] \bar{\epsilon}^f = \epsilon^0$$`
-
--   We define the inverse of the left-hand side the Eshelby
-    strain-concentration tensor
-
-`$$A^E = [I+S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right )]^{-1}$$`
-
--   The stiffness can be calculated as
-
-`$$C = C_m + v_i (C_f-C_m)A^E$$`
-
-|                                                                                                                                                                                                                                                 |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# stiffness                                                                                                                                                                                                                                  |
-| \- This stiffness calculation is valid for any number of inclusions - However, it is only appropriate for very dilute concentrations (&lt;1% volume fraction) - This ensures that the assumption `$\epsilon^0 + \epsilon^C = \bar{\epsilon}^f$` |
-
-# aspect ratio
-
-|                                                                                                                                                                                                                                                                                           |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# aspect ratio                                                                                                                                                                                                                                                                         |
-| \- Some studies have been done to evaluate Eshelby tensors for short fibers - Long fibers are approximated by an ellipsoid with infinitely long major axis - This is not appropriate for short fibers - We could logically consider three different ellipsoids to represent a short fiber |
-
-## aspect ratio
-
-![aspect ratio comparisons](../images/ellipsoids.PNG)
-
-|                                                                                                                                                                                                                                                                                                                                       |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# aspect ratio                                                                                                                                                                                                                                                                                                                     |
-| \- Steif and Hoysan investigated the effect of aspect ratio numerically - Found that (a) and (c) were good for short fibers - As fibers get longer, and as stiffness ratio of fiber to matrix increases, (a) gives best results - (a) is also the easiest to use (same aspect ratio), so that is what is done in Eshelby-based models |
-
-## fiber orientation
-
--   With Eshelby (and derivative models), fibers at different
-    orientations are modeled as a different inclusion
--   Since the Eshelby tensor, *S* is a fourth-order tensor, we can treat
-    it the same way as *C*
--   Write it as 6x6 matrix, transform using `$R^\sigma$`
-
-|                                                                                                                                                                                                                     |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# example                                                                                                                                                                                                        |
-| \- As an example, let us consider a “laminate” of short fiber composites - This is a good approximate for many 3D printed composites - We have a `$\pm 45^\circ$` laminate, with very short carbon fibers, *s* = 15 |
-
-## example
-
--   First we find the Eshelby tensor for *s* = 15
--   We also need the matrix Poisson’s ratio, *v* = 0.40
--   We find the parameters [here](#/eshelby-params)
--   Then we use [this slide](#/table) to find *S*<sub>*ijkl*</sub>
--   Notice that this assumes fibers are pointed in the 3-direction
-
-|                                                                                                                                                                                              |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# example                                                                                                                                                                                 |
-| \- Next, we rotate `$S_{ijkl}$` to find `$S^{45}$` and `$S^{-45}$` - Notice: the eshelby tensor, *S* accounts for rotation, we do not rotate `$C_f$` - So we find `$A^{45}$` and `$A^{-45}$` |
-| `$$A^{45} = \left[I + S^{45} (C_m)^{-1}(C_f-C_m) \right]^{-1}$$`                                                                                                                             |
-| `$$A^{-45} = \left[I + S^{-45} (C_m)^{-1}(C_f-C_m) \right]^{-1}$$`                                                                                                                           |
-
-## example
-
--   This gives our total stiffness calculation as
-
-`$$C = C_m + v^{45}(C_f-C_m)A^{45} + v^{-45}(C_f-C_m)A^{-45}$$`
-
--   If we assume the volume fraction of fibers in our part is 20%
--   And that there are equally many fibers in 45 and -45 directions
--   Then `$v^{45} = v^{-45} = 0.1$`
--   Note: Since this is not a dilute concentration, we would not expect
-    this to be very accurate
-
-|                                                                                                                                                                                              |
-|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# example                                                                                                                                                                                 |
-| \- Python code for this example (with some typical values for `$C_m$` and `$C_f$`) is posted [here](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Eshelby.ipynb) |
-
-# fiber orientation
-
-|                                                                                                                                                                                                                                                                               |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# fiber orientation                                                                                                                                                                                                                                                        |
-| \- While a laminate analogy works well for some cases, in general short fibers are not aligned in laminates - It is not practical to model each possible fiber orientation as a separate inclusion - Advani-Tucker introduced a tensorial representation of fiber orientation |
-
-## fiber in spherical coordinates
-
-![single fiber coordinate system](../images/single_fiber.png)
-
-|                                                                                                                                                                                     |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# fiber direction components                                                                                                                                                     |
-| \|Component \| Definition \| \| — \| — \| \|*p*<sub>1</sub> \| `$\sin \theta \cos \phi$`\| \|*p*<sub>2</sub> \| `$\sin \theta \sin \phi$`\| \|*p*<sub>3</sub> \| `$\cos \theta$` \| |
-
-## orientation tensor
-
--   Within a given volume, a distribution of fibers can be defined by
-    some orientation distribution function, `$\psi(\theta, \phi)$`.
--   Advani and Tucker introduced tensor representations of fiber
-    orientation distribution functions
-
-`$$a_{ij} = \oint p_i p_j \psi(p) dp$$`
-
--   And
-
-`$$a_{ijkl} = \oint p_i p_j p_k p_l\psi(p) dp$$`
-
--   Note: any order tensor may be defined in this manner, the
-    orientation distribution function must be even, due to fiber
-    symmetry, and thus any odd-ordered tensor will be zero.
-
-|                                                                                                                                 |
-|---------------------------------------------------------------------------------------------------------------------------------|
-| \#\# orientation tensor                                                                                                         |
-| \- It can be noted that some symmetries must exist due to the way the tensors are defined. - In the second order tensor we have |
-| `$$a_{ij} = a_{ji}$$`                                                                                                           |
-| \- and in the fourth order tensor                                                                                               |
-| `$$a_{ijkl} = a_{jikl} = a_{kijl}$$`                                                                                            |
-| and so on for any permutation of i, j, k and l.                                                                                 |
-
-## orientation tensor
-
--   The orientation tensor is also normalized such that:
-
-`$$a_{ii} = 1$$`
-
--   And any lower-order tensor can be expressed in terms of the next
-    higher-order tensor, for example
-
-`$$a_{ijkk} = a_{ij}$$`
-
-|                                                                                                                                                                                         |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# example - 2D random                                                                                                                                                                |
-| ![A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a\_11 = a\_22 = 0.5, with all other a\_ij = 0.](../images/random2D.PNG)       |
-| A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor *a*<sub>11</sub> = *a*<sub>22</sub> = 0.5, with all other *a*<sub>*ij*</sub>=0. |
-
-## example - 3D random
-
-![A visualization of a 3D random orientation distribution. This is
-expressed with the second-order tensor a\_11 = a\_22 = a\_33 = 1/3, with
-all other a\_ij = 0.](../images/random3D.PNG)
-
-A visualization of a 3D random orientation distribution. This is
-expressed with the second-order tensor a<sub>11</sub> = a<sub>22</sub> =
-a<sub>33</sub> = 1/3, with all other a<sub>ij</sub> = 0.
-
-|                                                                                                                                                                                                           |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| \#\# example - aligned 45                                                                                                                                                                                 |
-| ![A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.](../images/aligned45.PNG) |
-| A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.                             |
-
-## next class
-
--   Orientation averaging
--   Self-consistent and Mori-Tanaka methods
--   Textbook pages 131-150
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

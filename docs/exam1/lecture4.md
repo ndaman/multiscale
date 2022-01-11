@@ -69,7 +69,6 @@ Where `$C_m$` is the stiffness of the material.
 -   It has been calculated exactly for ellipsoids, and numerically for other shapes
 
 ----
-<!-- .slide id="eshelby-params" -->
 ## eshelby tensor
 
 -   `$\nu$` represents the matrix Poisson's ratio
@@ -81,7 +80,6 @@ Where `$C_m$` is the stiffness of the material.
 -   `$I_3 = 4-2I_1$`
 
 ----
-<!-- .slide id="table" -->
 ## eshelby tensor
 
 | `$S_{ijkl}$`  | Long Fibers                               | Short Fibers (Ellipsoids)                |
@@ -207,8 +205,8 @@ Where `$C_m$` is the stiffness of the material.
 
 -   First we find the Eshelby tensor for *s* = 15
 -   We also need the matrix Poisson's ratio, *v* = 0.40
--   We find the parameters [here](#/eshelby-params)
--   Then we use [this slide](#/table) to find *S*<sub>*ijkl*</sub>
+-   We find the parameters [here](#/eshelby-tensor)
+-   Then we use [this slide](#/eshelby-tensor-1) to find *S*<sub>*ijkl*</sub>
 -   Notice that this assumes fibers are pointed in the 3-direction
 
 ----

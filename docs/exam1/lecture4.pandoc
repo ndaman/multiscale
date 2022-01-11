@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-February 11, 2021
+27 January 2022
 
 
 ## schedule
 
--   Feb 11 - 1D Micromechanics (HW1 Due)
--   Feb 16 - Mean-field
--   Feb 18 - Orientation Averaging (HW2 Due)
--   Feb 23 - Variational Calculus
+-   27 Jan - 1D Micromechanics (HW1 Due)
+-   1 Feb - Orientation Averaging
+-   3 Feb - Mean-field (HW2 Due)
+-   8 Feb - Variational Calculus
 
 
 ## outline
@@ -59,7 +59,7 @@ February 11, 2021
 
 \\[\sigma_I = C_m (\epsilon^C - \epsilon^T)\\]
 
-Where *C*<sub>*m*</sub> is the stiffness of the material.
+Where \\(C_m\\) is the stiffness of the material.
 -   One of Eshelby's critical findings is that
  
 \\[\epsilon^C = S \epsilon^T\\]
@@ -69,10 +69,9 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 -   It has been calculated exactly for ellipsoids, and numerically for other shapes
 
 
-<!-- -- id="eshelby-params" -->
 ## eshelby tensor
 
--   *v* represents the matrix Poisson's ratio
+-   \\(\nu\\) represents the matrix Poisson's ratio
 -   *s* is the aspect ratio of the fibers
 -   \\(I_1 = \frac{2s}{\left(s^2-1\right)^{\frac{3}{2}}}(s{\left(s^2-1\right)}^{\frac{1}{2}}-\cosh^{-1} s)\\)
 -   \\(Q=\frac{3}{8(1-\nu)}\\)
@@ -81,26 +80,25 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 -   \\(I_3 = 4-2I_1\\)
 
 
-<!-- -- id="table" -->
 ## eshelby tensor
 
-| *S*<sub>*ijkl*</sub>                                                                              | Long Fibers                               | Short Fibers (Ellipsoids)                |
-|:--------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------------------------------------|
-| *S*<sub>1111</sub>=*S*<sub>2222</sub>                                                                 | $\frac{5-\nu}{8(1-\nu)}$               | $Q+RI_1+\frac{3T}{4}$                  |
-| *S*<sub>3333</sub>                                                                                      | 0                                         | $\frac{4Q}{3}+RI_3+2s^2T$              |
-| *S*<sub>1122</sub>=*S*<sub>2211</sub>                                                                 | $\frac{-1+4\nu}{8(1-\nu)}$             | $\frac{Q}{3}-RI_1+\frac{4T}{3}$       |
-| *S*<sub>1133</sub>=*S*<sub>2233</sub>                                                                 | $\frac{\nu}{2(1-\nu)}$                 |-*R I*<sub>1</sub>-*s*<sup>2</sup>*T* |
-| *S*<sub>3311</sub>=*S*<sub>3322</sub>                                                                 | 0                                         |-*R I*<sub>3</sub>-*T*                |
-| $\begin{aligned} S_{1212} & = S_{1221} \\\\& = S_{2112}=S_{2121} \end{aligned}$          | $\frac{3-4\nu}{8\left(1-\nu\right)}$ | $\frac{Q}{3}+RI_1+\frac{T}{4}$        |
-| $\begin{aligned} S_{1313} & = S_{1331} \\\\&=S_{3113}=S_{3131}\\\\&=S_{3232}=S_{3223}\\\\&=S_{2332}=S_{2323}   \end{aligned}$                                                                                      | $\frac{1}{4}$                            | $2R-\frac{I_1R}{2}-\frac{1-s^2}{2}T$  |
-| all other *S*<sub>*ijkl*</sub>                                                                    | 0                                         | 0                                        |
+| \\(S_{ijkl}\\)  | Long Fibers                               | Short Fibers (Ellipsoids)                |
+|:-------------:|:-----------------------------------------:|:---:|
+| \\(S_{1111}=S_{2222}\\) | \\(\frac{5-\nu}{8(1-\nu)}\\)| \\(Q+RI_1+\frac{3T}{4}\\) |
+| \\(S_{3333}\\) | 0 | \\(\frac{4Q}{3}+RI_3+2s^2T\\) |
+| \\(S_{1122} = S_{2211}\\) | \\(\frac{-1+4\nu}{8(1-\nu)}\\) | \\(\frac{Q}{3}-RI_1+\frac{4T}{3}\\) |
+| \\(S_{1133} = S_{2233}\\) | \\(\frac{\nu}{2(1-\nu)}\\) | \\(-R I_1 - s^2T\\) |
+| \\(S_{3311} = S_{3322}\\) | 0 | \\(-R I_3 - T\\) |
+| \\(\begin{aligned} S_{1212} & = S_{1221} \\& = S_{2112}=S_{2121} \end{aligned}\\) | \\(\frac{3-4\nu}{8\left(1-\nu\right)}\\) | \\(\frac{Q}{3}+RI_1+\frac{T}{4}\\) |
+| \\(\begin{aligned} S_{1313} & = S_{1331} \\&=S_{3113}=S_{3131}\\&=S_{3232}=S_{3223}\\&=S_{2332}=S_{2323}   \end{aligned}\\) | \\(\frac{1}{4}\\) | \\(2R-\frac{I_1R}{2}-\frac{1-s^2}{2}T\\) |
+| all other \\(S_{ijkl}\\) | 0 | 0 |
 
 
 ## inclusions
 
 -   Eshelby's initial thought experiment was for a homogeneous material
 -   To consider a different type of inclusion, we need to relate the transformation strain between some fictitious ellipsoid of matrix material which would be equivalent to our inclusion.
--   We will refer to the inclusion stiffness as *C*<sub>*f*</sub>, the transformation strain in the matrix as $\epsilon^T$, and the transformation strain in the inclusion \\(\epsilon^{T*}\\).
+-   We will refer to the inclusion stiffness as \\(C_f\\), the transformation strain in the matrix as \\(\epsilon^T\\), and the transformation strain in the inclusion \\(\epsilon^{T*}\\).
 
 
 ## inclusions
@@ -161,7 +159,7 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 ## stiffness
 
 -   This stiffness calculation is valid for any number of inclusions
--   However, it is only appropriate for very dilute concentrations (&lt;1% volume fraction)
+-   However, it is only appropriate for very dilute concentrations (<1% volume fraction)
 -   This ensures that the assumption \\(\epsilon^0 + \epsilon^C = \bar{\epsilon}^f\\)
 
 
@@ -207,8 +205,8 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 
 -   First we find the Eshelby tensor for *s* = 15
 -   We also need the matrix Poisson's ratio, *v* = 0.40
--   We find the parameters [here](#/eshelby-params)
--   Then we use [this slide](#/table) to find *S*<sub>*ijkl*</sub>
+-   We find the parameters [here](#/eshelby-tensor)
+-   Then we use [this slide](#/eshelby-tensor-1) to find *S*<sub>*ijkl*</sub>
 -   Notice that this assumes fibers are pointed in the 3-direction
 
 
@@ -237,7 +235,7 @@ Where *C*<sub>*m*</sub> is the stiffness of the material.
 
 ## example
 
--   Python code for this example (with some typical values for *C*<sub>*m*</sub> and *C*<sub>*f*</sub>) is posted [here](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Eshelby.ipynb)
+-   Python code for this example (with some typical values for \\(C_m\\) and \\(C_f\\)) is posted [here](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Eshelby.ipynb)
 
 
 # fiber orientation
