@@ -205,8 +205,8 @@ Where `$C_m$` is the stiffness of the material.
 
 -   First we find the Eshelby tensor for *s* = 15
 -   We also need the matrix Poisson's ratio, *v* = 0.40
--   We find the parameters [here](eshelby-tensor)
--   Then we use [this slide](eshelby-tensor-1) to find *S*<sub>*ijkl*</sub>
+-   We find the parameters [here](#/eshelby-tensor)
+-   Then we use [this slide](#/eshelby-tensor-1) to find *S*<sub>*ijkl*</sub>
 -   Notice that this assumes fibers are pointed in the 3-direction
 
 ----
