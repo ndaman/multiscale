@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-February 9, 2021
+25 January 2022
 
 ---
 ## schedule
 
--   Feb 9 - Coordinate Transformation
--   Feb 11 - 1D Micromechanics (HW1 Due)
--   Feb 16 - Mean-field
--   Feb 18 - Orientation Averaging (HW2 Due)
+-   25 Jan - Coordinate Transformation
+-   27 Jan - 1D Micromechanics (HW1 Due)
+-   1 Feb - Orientation Averaging
+-   3 Feb - Mean-field (HW2 Due)
 
 ----
 ## outline
@@ -283,6 +283,7 @@ E_{33} \\
 -   And since `$\sigma=CE$`, we can say
  
 `$$ R_\sigma CE = C^\prime E^\prime$$`
+
 -   Now we know that `$E^\prime = R_E E$`, so we substitute that to find
  
 `$$ R_\sigma CE = C^\prime R_E E$$`
@@ -320,7 +321,7 @@ E_{33} \\
 ## equivalent solid
 
 -   The goal of all micromechanics models is to use the known properties of constituents to find the large-scale behavior
--   We can find this by averaging the stress and strain tensors over the volume of some RVE
+-   We can find this by averaging the stress and strain tensors over the volume of some RVE 
 
 `$$\begin{aligned}
   \bar{\sigma}_{ij} &= \frac{1}{V}\int_V \sigma_{ij}(x,y,z) dV\\
@@ -370,7 +371,7 @@ E_{33} \\
   \bar{\sigma}_i &= \left( \frac{V_f}{V} C_{ij}^f + \frac{V_m}{V} C_{ij}^m\right)\bar{\epsilon}_j
 \end{aligned}$$`
 
--   This gives the well-known rule of mixtures for *C*<sub>*ij*</sub>
+-   This gives the well-known rule of mixtures for `$C_{ij}$`
  
 `$$C_{ij}^c = \frac{V_f}{V} C_{ij}^f + \frac{V_m}{V} C_{ij}^m$$`
 
@@ -393,13 +394,13 @@ E_{33} \\
 
 -   In general, the Voigt assumption (homogeneous strain, rule of mixtures for stiffness) gives an upper bound for stiffness
 -   On the other hand, the Reuss assmption (homogeneous stress, rule of mixtures for compliance) gives a lower bound for stiffness
--   In uni-directional composites, the Voigt model is good enough for *E*<sub>1</sub> and *v*<sub>12</sub> predictions, but not for *E*<sub>2</sub> or *G*<sub>12</sub>
+-   In uni-directional composites, the Voigt model is good enough for `$E_1$` and `$\nu_{12}$` predictions, but not for `$E_2$` or `$G_{12}$`
 
 ----
 ## subregions
 
 -   Hopkins and Chamis considered a refined model to subdivide the RVE into sub-regions
--   This gives reasonable predictions for *E*<sub>2</sub> and *G*<sub>12</sub>
+-   This gives reasonable predictions for `$E_2$` and `$G_{12}$`
 
 ---
 # discontinuous composites
@@ -459,7 +460,7 @@ E_{33} \\
 
 `$$\frac{d\sigma_f}{dx} = \frac{4 G_m(u_R-u_f)}{ d r_0 ln(r)}$$`
 
--   But *d*=2*r*<sub>0</sub>, so we can simplify to
+-   But `$d=2r_0$`, so we can simplify to
 
 `$$\frac{d\sigma_f}{dx} = \frac{2 G_m(u_R-u_f)}{ r_0^2 ln(r)}$$`
 
@@ -467,7 +468,7 @@ E_{33} \\
 ## shear lag
 
 -   Finally, we differentiate with respect to *x* to replace the displacements with strains
--   We assume that *du*<sub>*R*</sub>/*dx* is far enough away from the fiber such that the strain is equal to far-field strain
+-   We assume that `$du_R/dx$` is far enough away from the fiber such that the strain is equal to far-field strain
 -   The solution to the differential equation is
 
 `$$\sigma_f = E_f \epsilon_1 + B\sinh(nx/r) + D\cos(nx/r)$$`

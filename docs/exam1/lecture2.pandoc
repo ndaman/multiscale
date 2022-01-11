@@ -5,7 +5,7 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-February 4, 2021
+20 January 2022
 
 
 ## schedule
@@ -31,13 +31,14 @@ February 4, 2021
 ## index notation
 
 -   Consider the following
--   *s* = *a*<sub>1</sub>*x*<sub>1</sub> + *a*<sub>2</sub>*x*<sub>2</sub> + ... + *a*<sub>*n*</sub>*x*<sub>*n*</sub>
+-   \\(s = a_1 x_1 + a_2 x_2 + ... + a_n x_n\\)
 -   Which we could also write as
 
 \\[s = \sum_{i=1}^{n}a_ix_i\\]
 
 -   Using index notation, and Einstein’s summation convention, we can also write this as
-*s* = *a*<sub>*i*</sub>*x*<sub>*i*</sub>
+
+\\[s = a_ix_i\\]
 
 
 
@@ -150,7 +151,7 @@ Index can not be used more than twice in the same term (\\(A_{ij}B_{jk}C_{kl}\\)
 -   \\(\delta_{ij} = \delta_{ji}\\)
 -   \\(\delta_{ii} = 3\\)
 -   \\(\delta_{ij} a_j = a_{i}\\)
--   \\(\delta _{ij} b_{ij} = b_{ii}\\)
+-   \\(\delta_{ij} b_{ij} = b_{ii}\\)
 
 
 
