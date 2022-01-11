@@ -19,17 +19,17 @@
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/metropolis.css" id="theme">
-  
+  <p>\usepackage{pgfpages} \pgfpagesuselayout{2 on 1} \providecommand{\tightlist}{% \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}} \makeatletter \makeatother \let\Oldincludegraphics\includegraphics \renewcommand{\includegraphics}[2][]{\Oldincludegraphics[width=\textwidth,height=0.7\textheight,keepaspectratio]{#2}}</p>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
 
-<section class="slide level2">
-
+<section id="ae-760aa-micromechanics-and-multiscale-modeling" class="slide level2">
+<h2>AE 760AA: Micromechanics and multiscale modeling</h2>
 <p>Lecture 4 - Eshelby</p>
-<p>Dr. Nicholas Smith</p>
+<p>Dr. Nicholas Smith</p>
 <p>Wichita State University, Department of Aerospace Engineering</p>
 <p>27 January 2022</p>
 </section>
@@ -49,9 +49,12 @@
 <li>aspect ratio</li>
 </ul>
 </section>
+<section class="slide level2">
+
+</section>
 <section>
 <section id="eshelbys-equivalent-inclusion" class="title-slide slide level1">
-<h1>eshelby’s equivalent inclusion</h1>
+<h1>eshelby's equivalent inclusion</h1>
 
 </section>
 <section id="eshelby" class="slide level2">
@@ -63,108 +66,104 @@
 </ul>
 </section>
 <section id="eshelbys-thought-experiment" class="slide level2">
-<h2>eshelby’s thought experiment</h2>
+<h2>eshelby's thought experiment</h2>
 <ul>
 <li>Eshelby solution starts with a thought experiment</li>
 <li>Suppose we have a homogeneous, elastic body in equilibrium</li>
 <li>We now cut an ellipsoidal pieces out of that body and allow it to undergo a stress-free transformation, such as thermal expansion</li>
-<li>This stress-free transformation is referred to as the transformation strain, <span class="math inline"><em>ϵ</em><sup><em>T</em></sup></span></li>
+<li>This stress-free transformation is referred to as the transformation strain, <code>$\epsilon^T$</code></li>
 </ul>
 </section>
 <section id="eshelbys-thought-experiment-1" class="slide level2">
-<h2>eshelby’s thought experiment</h2>
-<figure>
-<img data-src="../images/eshelby.png" alt="Eshelby’s thought experiment" /><figcaption aria-hidden="true">Eshelby’s thought experiment</figcaption>
-</figure>
+<h2>eshelby's thought experiment</h2>
+<p><img data-src="../images/eshelby.png" alt="Eshelby&#39;s thought experiment" /></p>
 </section>
 <section id="eshelbys-thought-experiment-2" class="slide level2">
-<h2>eshelby’s thought experiment</h2>
+<h2>eshelby's thought experiment</h2>
 <ul>
 <li>Now, we weld that expanded ellipsoid back into the original body</li>
 <li>Tractions need to be applied to force it to fit</li>
-<li>Once the stresses equilibrate, the ellipsoid has a constrained strain, <span class="math inline"><em>ϵ</em><sup><em>C</em></sup></span></li>
+<li>Once the stresses equilibrate, the ellipsoid has a constrained strain, <code>$\epsilon^C$</code></li>
 </ul>
 </section>
 <section id="eshelby-1" class="slide level2">
 <h2>eshelby</h2>
 <ul>
 <li>After equilibrium is reached the inclusion is still under a state of uniform strain</li>
-<li>The inclusion stress, <span class="math inline"><em>σ</em><sub><em>I</em></sub></span> can be found as:</li>
+<li>The inclusion stress, <code>$\sigma_I$</code> can be found as:</li>
 </ul>
-<p><span class="math display"><em>σ</em><sub><em>I</em></sub> = <em>C</em><sub><em>m</em></sub>(<em>ϵ</em><sup><em>C</em></sup>−<em>ϵ</em><sup><em>T</em></sup>)</span></p>
-<p>Where <span class="math inline"><em>C</em><sub><em>m</em></sub></span> is the stiffness of the material. - One of Eshelby’s critical findings is that</p>
-<p><span class="math display"><em>ϵ</em><sup><em>C</em></sup> = <em>S</em><em>ϵ</em><sup><em>T</em></sup></span></p>
+<p><code>$$\sigma_I = C_m (\epsilon^C - \epsilon^T)$$</code></p>
+<p>Where <code>$C_m$</code> is the stiffness of the material.</p>
+<ul>
+<li>One of Eshelby's critical findings is that</li>
+</ul>
+<p><code>$$\epsilon^C = S \epsilon^T$$</code></p>
 <ul>
 <li><em>S</em> is known as the Eshelby Tensor, and is a fourth-order tensor</li>
-<li>Function of shape and poisson’s ratio</li>
+<li>Function of shape and poisson's ratio</li>
 <li>It has been calculated exactly for ellipsoids, and numerically for other shapes</li>
 </ul>
 </section>
 <section id="eshelby-tensor" class="slide level2">
 <h2>eshelby tensor</h2>
 <ul>
-<li><span class="math inline"><em>ν</em></span> represents the matrix Poisson’s ratio</li>
+<li><code>$\nu$</code> represents the matrix Poisson's ratio</li>
 <li><em>s</em> is the aspect ratio of the fibers</li>
-<li><span class="math inline">$I_1 = \frac{2s}{\left(s^2-1\right)^{\frac{3}{2}}}(s{\left(s^2-1\right)}^{\frac{1}{2}}-\cosh^{-1} s)$</span></li>
-<li><span class="math inline">$Q=\frac{3}{8(1-\nu)}$</span></li>
-<li><span class="math inline">$R=\frac{1-2\nu}{8(1-\nu)}$</span></li>
-<li><span class="math inline">$T=\frac{Q\left(4-3I_1\right)}{3(s^2-1)}$</span></li>
-<li><span class="math inline"><em>I</em><sub>3</sub> = 4 − 2<em>I</em><sub>1</sub></span></li>
+<li><code>$I_1 = \frac{2s}{\left(s^2-1\right)^{\frac{3}{2}}}(s{\left(s^2-1\right)}^{\frac{1}{2}}-\cosh^{-1} s)$</code></li>
+<li><code>$Q=\frac{3}{8(1-\nu)}$</code></li>
+<li><code>$R=\frac{1-2\nu}{8(1-\nu)}$</code></li>
+<li><code>$T=\frac{Q\left(4-3I_1\right)}{3(s^2-1)}$</code></li>
+<li><code>$I_3 = 4-2I_1$</code></li>
 </ul>
 </section>
 <section id="eshelby-tensor-1" class="slide level2">
 <h2>eshelby tensor</h2>
 <table>
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 68%" />
-<col style="width: 7%" />
-</colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: center;"><span class="math inline"><em>S</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub></span></th>
+<th style="text-align: center;"><code>$S_{ijkl}$</code></th>
 <th style="text-align: center;">Long Fibers</th>
 <th style="text-align: center;">Short Fibers (Ellipsoids)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline"><em>S</em><sub>1111</sub> = <em>S</em><sub>2222</sub></span></td>
-<td style="text-align: center;"><span class="math inline">$\frac{5-\nu}{8(1-\nu)}$</span></td>
-<td style="text-align: center;"><span class="math inline">$Q+RI_1+\frac{3T}{4}$</span></td>
+<td style="text-align: center;"><code>$S_{1111}=S_{2222}$</code></td>
+<td style="text-align: center;"><code>$\frac{5-\nu}{8(1-\nu)}$</code></td>
+<td style="text-align: center;"><code>$Q+RI_1+\frac{3T}{4}$</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="math inline"><em>S</em><sub>3333</sub></span></td>
+<td style="text-align: center;"><code>$S_{3333}$</code></td>
 <td style="text-align: center;">0</td>
-<td style="text-align: center;"><span class="math inline">$\frac{4Q}{3}+RI_3+2s^2T$</span></td>
+<td style="text-align: center;"><code>$\frac{4Q}{3}+RI_3+2s^2T$</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline"><em>S</em><sub>1122</sub> = <em>S</em><sub>2211</sub></span></td>
-<td style="text-align: center;"><span class="math inline">$\frac{-1+4\nu}{8(1-\nu)}$</span></td>
-<td style="text-align: center;"><span class="math inline">$\frac{Q}{3}-RI_1+\frac{4T}{3}$</span></td>
+<td style="text-align: center;"><code>$S_{1122} = S_{2211}$</code></td>
+<td style="text-align: center;"><code>$\frac{-1+4\nu}{8(1-\nu)}$</code></td>
+<td style="text-align: center;"><code>$\frac{Q}{3}-RI_1+\frac{4T}{3}$</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="math inline"><em>S</em><sub>1133</sub> = <em>S</em><sub>2233</sub></span></td>
-<td style="text-align: center;"><span class="math inline">$\frac{\nu}{2(1-\nu)}$</span></td>
-<td style="text-align: center;"><span class="math inline"> − <em>R</em><em>I</em><sub>1</sub> − <em>s</em><sup>2</sup><em>T</em></span></td>
+<td style="text-align: center;"><code>$S_{1133} = S_{2233}$</code></td>
+<td style="text-align: center;"><code>$\frac{\nu}{2(1-\nu)}$</code></td>
+<td style="text-align: center;"><code>$-R I_1 - s^2T$</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline"><em>S</em><sub>3311</sub> = <em>S</em><sub>3322</sub></span></td>
+<td style="text-align: center;"><code>$S_{3311} = S_{3322}$</code></td>
 <td style="text-align: center;">0</td>
-<td style="text-align: center;"><span class="math inline"> − <em>R</em><em>I</em><sub>3</sub> − <em>T</em></span></td>
+<td style="text-align: center;"><code>$-R I_3 - T$</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;"><span class="math inline">$\begin{aligned} S_{1212} &amp; = S_{1221} \\&amp; = S_{2112}=S_{2121} \end{aligned}$</span></td>
-<td style="text-align: center;"><span class="math inline">$\frac{3-4\nu}{8\left(1-\nu\right)}$</span></td>
-<td style="text-align: center;"><span class="math inline">$\frac{Q}{3}+RI_1+\frac{T}{4}$</span></td>
+<td style="text-align: center;"><code>$\begin{aligned} S_{1212} &amp; = S_{1221} \\&amp; = S_{2112}=S_{2121} \end{aligned}$</code></td>
+<td style="text-align: center;"><code>$\frac{3-4\nu}{8\left(1-\nu\right)}$</code></td>
+<td style="text-align: center;"><code>$\frac{Q}{3}+RI_1+\frac{T}{4}$</code></td>
 </tr>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">$\begin{aligned} S_{1313} &amp; = S_{1331} \\&amp;=S_{3113}=S_{3131}\\&amp;=S_{3232}=S_{3223}\\&amp;=S_{2332}=S_{2323} \end{aligned}$</span></td>
-<td style="text-align: center;"><span class="math inline">$\frac{1}{4}$</span></td>
-<td style="text-align: center;"><span class="math inline">$2R-\frac{I_1R}{2}-\frac{1-s^2}{2}T$</span></td>
+<td style="text-align: center;"><code>$\begin{aligned} S_{1313} &amp; = S_{1331} \\&amp;=S_{3113}=S_{3131}\\&amp;=S_{3232}=S_{3223}\\&amp;=S_{2332}=S_{2323}   \end{aligned}$</code></td>
+<td style="text-align: center;"><code>$\frac{1}{4}$</code></td>
+<td style="text-align: center;"><code>$2R-\frac{I_1R}{2}-\frac{1-s^2}{2}T$</code></td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">all other <span class="math inline"><em>S</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub></span></td>
+<td style="text-align: center;">all other <code>$S_{ijkl}$</code></td>
 <td style="text-align: center;">0</td>
 <td style="text-align: center;">0</td>
 </tr>
@@ -174,9 +173,9 @@
 <section id="inclusions" class="slide level2">
 <h2>inclusions</h2>
 <ul>
-<li>Eshelby’s initial thought experiment was for a homogeneous material</li>
+<li>Eshelby's initial thought experiment was for a homogeneous material</li>
 <li>To consider a different type of inclusion, we need to relate the transformation strain between some fictitious ellipsoid of matrix material which would be equivalent to our inclusion.</li>
-<li>We will refer to the inclusion stiffness as <span class="math inline"><em>C</em><sub><em>f</em></sub></span>, the transformation strain in the matrix as <span class="math inline"><em>ϵ</em><sup><em>T</em></sup></span>, and the transformation strain in the inclusion <span class="math inline"><em>ϵ</em><sup><em>T</em>*</sup></span>.</li>
+<li>We will refer to the inclusion stiffness as <code>$C_f$</code>, the transformation strain in the matrix as <code>$\epsilon^T$</code>, and the transformation strain in the inclusion <code>$\epsilon^{T*}$</code>.</li>
 </ul>
 </section>
 <section id="inclusions-1" class="slide level2">
@@ -184,63 +183,66 @@
 <ul>
 <li>We are trying to find a transformation equivalent to our inclusion, so we set</li>
 </ul>
-<p><span class="math display"><em>σ</em><sub><em>I</em></sub> = <em>C</em><sub><em>m</em></sub>(<em>ϵ</em><sup><em>C</em></sup>−<em>ϵ</em><sup><em>T</em></sup>) = <em>C</em><sub><em>f</em></sub>(<em>ϵ</em><sup><em>C</em></sup>−<em>ϵ</em><sup><em>T</em>*</sup>)</span></p>
+<p><code>$$\sigma_I = C_m(\epsilon^C - \epsilon^T) = C_f(\epsilon^C-\epsilon^{T*})$$</code></p>
 <ul>
-<li>Now we substitute the relation <span class="math inline"><em>ϵ</em><sup><em>C</em></sup> = <em>S</em><em>ϵ</em><sup><em>T</em></sup></span></li>
+<li>Now we substitute the relation <code>$\epsilon^C = S\epsilon^T$</code></li>
 </ul>
-<p><span class="math display"><em>C</em><sub><em>m</em></sub>(<em>S</em>−<em>I</em>)<em>ϵ</em><sup><em>T</em></sup> = <em>C</em><sub><em>f</em></sub>(<em>S</em><em>ϵ</em><sup><em>T</em></sup>−<em>ϵ</em><sup><em>T</em>*</sup>)</span></p>
+<p><code>$$C_m(S - I)\epsilon^T = C_f(S \epsilon^T-\epsilon^{T*})$$</code></p>
 <ul>
 <li>We can solve this to find the transformation strain</li>
 </ul>
-<p><span class="math display"><em>ϵ</em><sup><em>T</em></sup> = [(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>S</em>+<em>C</em><sub><em>m</em></sub>]<sup> − 1</sup><em>C</em><sub><em>f</em></sub><em>ϵ</em><sup><em>T</em>*</sup></span></p>
+<p><code>$$\epsilon^T = \left [ (C_f - C_m)S + C_m\right]^{-1} C_f \epsilon^{T*}$$</code></p>
 </section>
 <section id="stiffness" class="slide level2">
 <h2>stiffness</h2>
 <ul>
-<li>Since the transformation strain is arbitrary, we can choose <span class="math inline"><em>ϵ</em><sup><em>T</em></sup></span> such that <span class="math inline"><em>ϵ</em><sup><em>T</em>*</sup></span> is 0</li>
-<li>Now suppose we impose some strain, <span class="math inline"><em>ϵ</em><sup>0</sup></span> on the composite</li>
+<li>Since the transformation strain is arbitrary, we can choose <code>$\epsilon^T$</code> such that <code>$\epsilon^{T*}$</code> is 0</li>
+<li>Now suppose we impose some strain, <code>$\epsilon^0$</code> on the composite</li>
 <li>The stress in the inclusion will be</li>
 </ul>
-<p><span class="math display"><em>σ</em><sub><em>I</em></sub> = <em>C</em><sub><em>m</em></sub>(<em>ϵ</em><sup>0</sup>+<em>ϵ</em><sup><em>C</em></sup>−<em>ϵ</em><sup><em>T</em></sup>) = <em>C</em><sub><em>f</em></sub>(<em>ϵ</em><sup>0</sup>+<em>ϵ</em><sup><em>C</em></sup>)</span></p>
+<p><code>$$\sigma_I = C_m (\epsilon^0 + \epsilon^C - \epsilon^T) = C_f (\epsilon^0 + \epsilon^C)$$</code></p>
 <ul>
 <li>Simplifying terms gives</li>
 </ul>
-<p><span class="math display">(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)(<em>ϵ</em><sup>0</sup>+<em>ϵ</em><sup><em>C</em></sup>) =  − <em>C</em><sub><em>m</em></sub><em>ϵ</em><sup><em>T</em></sup></span></p>
+<p><code>$$\left ( C_f - C_m \right ) \left ( \epsilon^0 + \epsilon^C \right) = -C_m \epsilon^T$$</code></p>
 </section>
 <section id="stiffness-1" class="slide level2">
 <h2>stiffness</h2>
 <ul>
-<li>We now assume <span class="math inline"><em>ϵ</em><sup>0</sup> + <em>ϵ</em><sup><em>C</em></sup> = <em>ϵ̄</em><sup><em>f</em></sup></span> and multiply both sides by <span class="math inline"><em>S</em><em>C</em><sub><em>m</em></sub><sup> − 1</sup></span></li>
+<li>We now assume <code>$\epsilon^0 + \epsilon^C = \bar{\epsilon}^f$</code> and multiply both sides by <code>$S C_m^{-1}$</code></li>
 </ul>
-<p><span class="math display"><em>S</em>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>ϵ̄</em><sup><em>f</em></sup> =  − <em>ϵ</em><sup><em>C</em></sup></span></p>
+<p><code>$$S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right ) \bar{\epsilon}^f = -\epsilon^C$$</code></p>
 <ul>
-<li>Recall <span class="math inline"><em>S</em><em>ϵ</em><sup><em>T</em></sup> = <em>ϵ</em><sup><em>C</em></sup></span></li>
-<li>We can also write <span class="math inline"><em>ϵ</em><sup><em>C</em></sup></span> in terms of <span class="math inline"><em>ϵ̄</em><sup><em>f</em></sup></span></li>
+<li>Recall <code>$S\epsilon^T = \epsilon^C$</code></li>
+<li>We can also write <code>$\epsilon^C$</code> in terms of <code>$\bar{\epsilon}^f$</code></li>
 </ul>
-<p><span class="math display"><em>S</em>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>ϵ̄</em><sup><em>f</em></sup> = <em>ϵ</em><sup>0</sup> − <em>ϵ̄</em><sup><em>f</em></sup></span></p>
+<p><code>$$S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right ) \bar{\epsilon}^f = \epsilon^0- \bar{\epsilon}^f$$</code></p>
 </section>
 <section id="strain-concentration-tensor" class="slide level2">
 <h2>strain concentration tensor</h2>
 <ul>
-<li>Finally, we can add <span class="math inline"><em>I</em><em>ϵ̄</em><sup><em>f</em></sup></span> to both sides to find</li>
+<li>Finally, we can add <code>$I\bar{\epsilon}^f$</code> to both sides to find</li>
 </ul>
-<p><span class="math display">[<em>I</em>+<em>S</em>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)]<em>ϵ̄</em><sup><em>f</em></sup> = <em>ϵ</em><sup>0</sup></span></p>
+<p><code>$$[I+S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right )] \bar{\epsilon}^f = \epsilon^0$$</code></p>
 <ul>
 <li>We define the inverse of the left-hand side the Eshelby strain-concentration tensor</li>
 </ul>
-<p><span class="math display"><em>A</em><sup><em>E</em></sup> = [<em>I</em>+<em>S</em>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)]<sup> − 1</sup></span></p>
+<p><code>$$A^E = [I+S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right )]^{-1}$$</code></p>
 <ul>
 <li>The stiffness can be calculated as</li>
 </ul>
-<p><span class="math display"><em>C</em> = <em>C</em><sub><em>m</em></sub> + <em>v</em><sub><em>i</em></sub>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>A</em><sup><em>E</em></sup></span></p>
+<p><code>$$C = C_m + v_i (C_f-C_m)A^E$$</code></p>
 </section>
 <section id="stiffness-2" class="slide level2">
 <h2>stiffness</h2>
 <ul>
 <li>This stiffness calculation is valid for any number of inclusions</li>
 <li>However, it is only appropriate for very dilute concentrations (&lt;1% volume fraction)</li>
-<li>This ensures that the assumption <span class="math inline"><em>ϵ</em><sup>0</sup> + <em>ϵ</em><sup><em>C</em></sup> = <em>ϵ̄</em><sup><em>f</em></sup></span></li>
+<li>This ensures that the assumption <code>$\epsilon^0 + \epsilon^C = \bar{\epsilon}^f$</code></li>
 </ul>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
 <section id="aspect-ratio" class="title-slide slide level1">
@@ -258,9 +260,7 @@
 </section>
 <section id="aspect-ratio-2" class="slide level2">
 <h2>aspect ratio</h2>
-<figure>
-<img data-src="../images/ellipsoids.PNG" alt="aspect ratio comparisons" /><figcaption aria-hidden="true">aspect ratio comparisons</figcaption>
-</figure>
+<p><img data-src="../images/ellipsoids.PNG" alt="aspect ratio comparisons" /></p>
 </section>
 <section id="aspect-ratio-3" class="slide level2">
 <h2>aspect ratio</h2>
@@ -268,9 +268,7 @@
 <li>Steif and Hoysan investigated the effect of aspect ratio numerically</li>
 <li>Found that (a) and (c) were good for short fibers</li>
 <li>As fibers get longer, and as stiffness ratio of fiber to matrix increases, (a) gives best results</li>
-<li><ol type="a">
-<li>is also the easiest to use (same aspect ratio), so that is what is done in Eshelby-based models</li>
-</ol></li>
+<li>(a) is also the easiest to use (same aspect ratio), so that is what is done in Eshelby-based models</li>
 </ul>
 </section>
 <section id="fiber-orientation" class="slide level2">
@@ -278,22 +276,22 @@
 <ul>
 <li>With Eshelby (and derivative models), fibers at different orientations are modeled as a different inclusion</li>
 <li>Since the Eshelby tensor, <em>S</em> is a fourth-order tensor, we can treat it the same way as <em>C</em></li>
-<li>Write it as 6x6 matrix, transform using <span class="math inline"><em>R</em><sup><em>σ</em></sup></span></li>
+<li>Write it as 6x6 matrix, transform using <code>$R^\sigma$</code></li>
 </ul>
 </section>
 <section id="example" class="slide level2">
 <h2>example</h2>
 <ul>
-<li>As an example, let us consider a “laminate” of short fiber composites</li>
+<li>As an example, let us consider a "laminate" of short fiber composites</li>
 <li>This is a good approximate for many 3D printed composites</li>
-<li>We have a <span class="math inline"> ± 45<sup>∘</sup></span> laminate, with very short carbon fibers, <em>s</em> = 15</li>
+<li>We have a <code>$\pm 45^\circ$</code> laminate, with very short carbon fibers, <em>s</em> = 15</li>
 </ul>
 </section>
 <section id="example-1" class="slide level2">
 <h2>example</h2>
 <ul>
 <li>First we find the Eshelby tensor for <em>s</em> = 15</li>
-<li>We also need the matrix Poisson’s ratio, <em>v</em> = 0.40</li>
+<li>We also need the matrix Poisson's ratio, <em>v</em> = 0.40</li>
 <li>We find the parameters <a href="#//eshelby-tensor">here</a></li>
 <li>Then we use <a href="#//eshelby-tensor-1">this slide</a> to find <em>S</em><sub><em>ijkl</em></sub></li>
 <li>Notice that this assumes fibers are pointed in the 3-direction</li>
@@ -302,31 +300,34 @@
 <section id="example-2" class="slide level2">
 <h2>example</h2>
 <ul>
-<li>Next, we rotate <span class="math inline"><em>S</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub></span> to find <span class="math inline"><em>S</em><sup>45</sup></span> and <span class="math inline"><em>S</em><sup> − 45</sup></span></li>
-<li>Notice: the eshelby tensor, <em>S</em> accounts for rotation, we do not rotate <span class="math inline"><em>C</em><sub><em>f</em></sub></span></li>
-<li>So we find <span class="math inline"><em>A</em><sup>45</sup></span> and <span class="math inline"><em>A</em><sup> − 45</sup></span></li>
+<li>Next, we rotate <code>$S_{ijkl}$</code> to find <code>$S^{45}$</code> and <code>$S^{-45}$</code></li>
+<li>Notice: the eshelby tensor, <em>S</em> accounts for rotation, we do not rotate <code>$C_f$</code></li>
+<li>So we find <code>$A^{45}$</code> and <code>$A^{-45}$</code></li>
 </ul>
-<p><span class="math display"><em>A</em><sup>45</sup> = [<em>I</em>+<em>S</em><sup>45</sup>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)]<sup> − 1</sup></span></p>
-<p><span class="math display"><em>A</em><sup> − 45</sup> = [<em>I</em>+<em>S</em><sup> − 45</sup>(<em>C</em><sub><em>m</em></sub>)<sup> − 1</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)]<sup> − 1</sup></span></p>
+<p><code>$$A^{45} = \left[I + S^{45} (C_m)^{-1}(C_f-C_m) \right]^{-1}$$</code></p>
+<p><code>$$A^{-45} = \left[I + S^{-45} (C_m)^{-1}(C_f-C_m) \right]^{-1}$$</code></p>
 </section>
 <section id="example-3" class="slide level2">
 <h2>example</h2>
 <ul>
 <li>This gives our total stiffness calculation as</li>
 </ul>
-<p><span class="math display"><em>C</em> = <em>C</em><sub><em>m</em></sub> + <em>v</em><sup>45</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>A</em><sup>45</sup> + <em>v</em><sup> − 45</sup>(<em>C</em><sub><em>f</em></sub>−<em>C</em><sub><em>m</em></sub>)<em>A</em><sup> − 45</sup></span></p>
+<p><code>$$C = C_m + v^{45}(C_f-C_m)A^{45} + v^{-45}(C_f-C_m)A^{-45}$$</code></p>
 <ul>
 <li>If we assume the volume fraction of fibers in our part is 20%</li>
 <li>And that there are equally many fibers in 45 and -45 directions</li>
-<li>Then <span class="math inline"><em>v</em><sup>45</sup> = <em>v</em><sup> − 45</sup> = 0.1</span></li>
+<li>Then <code>$v^{45} = v^{-45} = 0.1$</code></li>
 <li>Note: Since this is not a dilute concentration, we would not expect this to be very accurate</li>
 </ul>
 </section>
 <section id="example-4" class="slide level2">
 <h2>example</h2>
 <ul>
-<li>Python code for this example (with some typical values for <span class="math inline"><em>C</em><sub><em>m</em></sub></span> and <span class="math inline"><em>C</em><sub><em>f</em></sub></span>) is posted <a href="http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Eshelby.ipynb">here</a></li>
+<li>Python code for this example (with some typical values for <code>$C_m$</code> and <code>$C_f$</code>) is posted <a href="http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Eshelby.ipynb">here</a></li>
 </ul>
+</section>
+<section class="slide level2">
+
 </section></section>
 <section>
 <section id="fiber-orientation-1" class="title-slide slide level1">
@@ -343,9 +344,7 @@
 </section>
 <section id="fiber-in-spherical-coordinates" class="slide level2">
 <h2>fiber in spherical coordinates</h2>
-<figure>
-<img data-src="../images/single_fiber.png" alt="single fiber coordinate system" /><figcaption aria-hidden="true">single fiber coordinate system</figcaption>
-</figure>
+<p><img data-src="../images/single_fiber.png" alt="single fiber coordinate system" /></p>
 </section>
 <section id="fiber-direction-components" class="slide level2">
 <h2>fiber direction components</h2>
@@ -359,15 +358,15 @@
 <tbody>
 <tr class="odd">
 <td><em>p</em><sub>1</sub></td>
-<td><span class="math inline">sin <em>θ</em>cos <em>ϕ</em></span></td>
+<td><code>$\sin \theta \cos \phi$</code></td>
 </tr>
 <tr class="even">
 <td><em>p</em><sub>2</sub></td>
-<td><span class="math inline">sin <em>θ</em>sin <em>ϕ</em></span></td>
+<td><code>$\sin \theta \sin \phi$</code></td>
 </tr>
 <tr class="odd">
 <td><em>p</em><sub>3</sub></td>
-<td><span class="math inline">cos <em>θ</em></span></td>
+<td><code>$\cos \theta$</code></td>
 </tr>
 </tbody>
 </table>
@@ -375,14 +374,14 @@
 <section id="orientation-tensor" class="slide level2">
 <h2>orientation tensor</h2>
 <ul>
-<li>Within a given volume, a distribution of fibers can be defined by some orientation distribution function, <span class="math inline"><em>ψ</em>(<em>θ</em>,<em>ϕ</em>)</span>.</li>
+<li>Within a given volume, a distribution of fibers can be defined by some orientation distribution function, <code>$\psi(\theta, \phi)$</code>.</li>
 <li>Advani and Tucker introduced tensor representations of fiber orientation distribution functions</li>
 </ul>
-<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em></sub> = ∮<em>p</em><sub><em>i</em></sub><em>p</em><sub><em>j</em></sub><em>ψ</em>(<em>p</em>)<em>d</em><em>p</em></span></p>
+<p><code>$$a_{ij} = \oint p_i p_j \psi(p) dp$$</code></p>
 <ul>
 <li>And</li>
 </ul>
-<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub> = ∮<em>p</em><sub><em>i</em></sub><em>p</em><sub><em>j</em></sub><em>p</em><sub><em>k</em></sub><em>p</em><sub><em>l</em></sub><em>ψ</em>(<em>p</em>)<em>d</em><em>p</em></span></p>
+<p><code>$$a_{ijkl} = \oint p_i p_j p_k p_l\psi(p) dp$$</code></p>
 <ul>
 <li>Note: any order tensor may be defined in this manner, the orientation distribution function must be even, due to fiber symmetry, and thus any odd-ordered tensor will be zero.</li>
 </ul>
@@ -393,11 +392,11 @@
 <li>It can be noted that some symmetries must exist due to the way the tensors are defined.</li>
 <li>In the second order tensor we have</li>
 </ul>
-<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em></sub> = <em>a</em><sub><em>j</em><em>i</em></sub></span></p>
+<p><code>$$a_{ij} = a_{ji}$$</code></p>
 <ul>
 <li>and in the fourth order tensor</li>
 </ul>
-<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em><em>k</em><em>l</em></sub> = <em>a</em><sub><em>j</em><em>i</em><em>k</em><em>l</em></sub> = <em>a</em><sub><em>k</em><em>i</em><em>j</em><em>l</em></sub></span></p>
+<p><code>$$a_{ijkl} = a_{jikl} = a_{kijl}$$</code></p>
 <p>and so on for any permutation of i, j, k and l.</p>
 </section>
 <section id="orientation-tensor-2" class="slide level2">
@@ -405,31 +404,25 @@
 <ul>
 <li>The orientation tensor is also normalized such that:</li>
 </ul>
-<p><span class="math display"><em>a</em><sub><em>i</em><em>i</em></sub> = 1</span></p>
+<p><code>$$a_{ii} = 1$$</code></p>
 <ul>
 <li>And any lower-order tensor can be expressed in terms of the next higher-order tensor, for example</li>
 </ul>
-<p><span class="math display"><em>a</em><sub><em>i</em><em>j</em><em>k</em><em>k</em></sub> = <em>a</em><sub><em>i</em><em>j</em></sub></span></p>
+<p><code>$$a_{ijkk} = a_{ij}$$</code></p>
 </section>
 <section id="example---2d-random" class="slide level2">
 <h2>example - 2D random</h2>
-<figure>
-<img data-src="../images/random2D.PNG" alt="A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0." /><figcaption aria-hidden="true">A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0.</figcaption>
-</figure>
+<p><img data-src="../images/random2D.PNG" alt="A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0." /></p>
 <p>A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor <em>a</em><sub>11</sub> = <em>a</em><sub>22</sub> = 0.5, with all other <em>a</em><sub><em>ij</em></sub>=0.</p>
 </section>
 <section id="example---3d-random" class="slide level2">
 <h2>example - 3D random</h2>
-<figure>
-<img data-src="../images/random3D.PNG" alt="A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0." /><figcaption aria-hidden="true">A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0.</figcaption>
-</figure>
+<p><img data-src="../images/random3D.PNG" alt="A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0." /></p>
 <p>A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a<sub>11</sub> = a<sub>22</sub> = a<sub>33</sub> = 1/3, with all other a<sub>ij</sub> = 0.</p>
 </section>
 <section id="example---aligned-45" class="slide level2">
 <h2>example - aligned 45</h2>
-<figure>
-<img data-src="../images/aligned45.PNG" alt="A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a11 = 1 and all other aij = 0." /><figcaption aria-hidden="true">A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.</figcaption>
-</figure>
+<p><img data-src="../images/aligned45.PNG" alt="A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a11 = 1 and all other aij = 0." /></p>
 <p>A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.</p>
 </section>
 <section id="next-class" class="slide level2">
