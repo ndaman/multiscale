@@ -10,21 +10,18 @@ Wichita State University, Department of Aerospace Engineering
 ---
 ## schedule
 
-
 -   20 Jan - Tensor review, Anisotropic Elasticity
 -   25 Jan - Coordinate Transformation
 -   27 Jan - 1D Micromechanics (HW1 Due)
 -   1 Feb - Orientation Averaging
 
 ----
-
 ## outline
 
 - index notation
 - anisotropic elasticity
 
 ---
-
 # index notation
 
 ----
@@ -41,7 +38,6 @@ Wichita State University, Department of Aerospace Engineering
 `$$s = a_ix_i$$`
 
 ----
-
 ## dummy index
 
 -   In index notation, a repeated index implies summation
@@ -85,10 +81,10 @@ could not be directly written in index notation
 
 <div class="right">
 
-Dummy index is repeated on at least one term
-Dummy index indicates summation over all values
-e.g. `$\sigma_{ii} = \sigma_{11} + \sigma_{22} + \sigma_{33}$`
-Index can not be used more than twice in the same term (`$A_{ij}B_{jk}C_{kl}$` is good, `$A_{ij}B_{ij}C_{ij}$` is not)
+- Dummy index is repeated on at least one term
+- Dummy index indicates summation over all values
+- e.g. `$\sigma_{ii} = \sigma_{11} + \sigma_{22} + \sigma_{33}$`
+- Index can not be used more than twice in the same term (`$A_{ij}B_{jk}C_{kl}$` is good, `$A_{ij}B_{ij}C_{ij}$` is not)
 
 </div>
 
@@ -536,7 +532,7 @@ Index can not be used more than twice in the same term (`$A_{ij}B_{jk}C_{kl}$` i
   E_{11} \\
 	E_{22} \\
 	E_{33} \\
-	E_{23} \\
+	2E_{23} \\
 	2E_{13} \\
 	2E_{12}
 \end{bmatrix}$$`
@@ -549,7 +545,7 @@ Index can not be used more than twice in the same term (`$A_{ij}B_{jk}C_{kl}$` i
   E_{11} \\
 	E_{22} \\
 	E_{33} \\
-	E_{23} \\
+	2E_{23} \\
 	2E_{13} \\
 	2E_{12}
   \end{bmatrix}
