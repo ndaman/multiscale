@@ -291,8 +291,8 @@ E_{33} \\
 ----
 ## stiffness transformation
 
--   We can right multiply both sides by *E*<sup>-1</sup> to cancel *E*
--   Then we can right multiply both sides by *R*<sub>*E*</sub><sup>-1</sup> to get *C*<sup>'</sup> by itself
+-   We can right multiply both sides by `$E^{-1}$` to cancel *E*
+-   Then we can right multiply both sides by `$R_E^{-1}$` to get `$C^\prime$` by itself
 
 `$$C^\prime = R_\sigma C (R_E)^{-1}$$`
 
@@ -321,7 +321,7 @@ E_{33} \\
 ## equivalent solid
 
 -   The goal of all micromechanics models is to use the known properties of constituents to find the large-scale behavior
--   We can find this by averaging the stress and strain tensors over the volume of some RVE 
+-   We can find this by averaging the stress and strain tensors over the volume of some RVE
 
 `$$\begin{aligned}
   \bar{\sigma}_{ij} &= \frac{1}{V}\int_V \sigma_{ij}(x,y,z) dV\\
@@ -490,4 +490,3 @@ E_{33} \\
 ## next class
 
 -   Eshelby's equivalent inclusion
--   Textbook pages 94-99 and 364 - 370 (I feel these are pretty confusing though)

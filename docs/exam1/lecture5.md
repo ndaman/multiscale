@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-February 16, 2021
+1 February 2022
 
 ---
 ## schedule
 
--   Feb 16 - Mean-field
--   Feb 18 - Orientation Averaging (HW2 Due)
--   Feb 23 - Variational Calculus
--   Feb 25 - Variational Calculus
+-   1 Feb - Mean-field
+-   3 Feb - Orientation Averaging (HW2 Due)
+-   8 Feb - Variational Calculus
+-   10 Feb - Variational Calculus
 
 ----
 ## outline
@@ -50,7 +50,7 @@ February 16, 2021
 
 `$$\bar{\epsilon}_f = \hat{A} \bar{\epsilon}_m$$`
 
--   For a dilute composite, $\bar{\epsilon}_m = \epsilon^0$, but this is not true in general
+-   For a dilute composite, `$\bar{\epsilon}_m = \epsilon^0$`, but this is not true in general
 
 ----
 ## strain concentration
@@ -75,7 +75,7 @@ February 16, 2021
 -   Mori and Tanaka's critical assumption is that `$\hat{A} = A^E$` 
 -   This means that the stress in each fiber is related to the average matrix strain in the same way that a dilute fiber would be related to remote strain
 -   While this may not generally be true at the local level, when averaged about the entire composite, it gives very good results
--   Substituting *A*<sup>*E*</sup> gives the following expression for *A*<sup>*MT*</sup>
+-   Substituting `$A^E$` gives the following expression for `$A^{MT}$`
 
 `$$ A^{MT} = A^E \left[ V_f A^E + V_m I \right]^{-1}$$`
 
@@ -115,7 +115,7 @@ where
 ## halpin-tsai
 
 -   the coefficient, `$\zeta$`, is a parameter based on the matrix Poisson's ratio used to differentiate between properties
--   Halpin and Tsai also made the ad-hoc assumption that while this form had been derived for a specific set of material properties, it could also be used to find *E*<sub>11</sub> or *E*<sub>22</sub>.
+-   Halpin and Tsai also made the ad-hoc assumption that while this form had been derived for a specific set of material properties, it could also be used to find `$E_{11}$` or `$E_{22}$`.
 -   They use constant values for `$\zeta$` since in most cases the dependence on the matrix Poisson's ratio is minimal.
 
 ----
@@ -127,23 +127,23 @@ where
 
 -   and when `$\zeta = \infty$` they reduce to the rule of mixtures
 
-*P* = *V*<sub>*f*</sub>*P*<sub>*f*</sub> + *V*<sub>*m*</sub>*P*<sub>*m*</sub>
+`$$P = V_f P_f + V_m P_m$$`
 
 ----
 ## halpin-tsai
 
-|              *P* | *P*<sub>*f*</sub> | *P*<sub>*m*</sub> |      `$\zeta$` |
+|              `$P$` | `$P_f$` | `$P_m$` |      `$\zeta$` |
 |-----------------:|------------------:|------------------:|---------------:|
-| *E*<sub>11</sub> | *E*<sub>*f*</sub> | *E*<sub>*m*</sub> |`$2\frac{L}{d}$`|
-| *E*<sub>22</sub> | *E*<sub>*f*</sub> | *E*<sub>*m*</sub> |              2 |
-| *G*<sub>12</sub> | *G*<sub>*f*</sub> | *G*<sub>*m*</sub> |              1 |
-| *v*<sub>12</sub> | *v*<sub>*f*</sub> | *v*<sub>*m*</sub> |     `$\infty$` |
+| `$E_{11}$` | `$E_f$` | `$E_m$` |`$2\frac{L}{d}$`|
+| `$E_{22}$` | `$E_f$` | `$E_m$` |              2 |
+| `$G_{12}$` | `$G_f$` | `$G_m$` |              1 |
+| `$\nu_{12}$` | `$\nu_f$` | `$\nu_m$` |     `$\infty$` |
 
 ----
 ## example
 
 -   We can continue our previous example and compare Eshelby, Mori-Tanaka, and Halpin-Tsai
--   [link](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Short%20Fiber%20Comparison.ipynb)
+-   [link](https://colab.research.google.com/drive/1lqCzj2sUxAlzo6aHf1AynGnXrgKRDdeS?usp=sharing)
 
 ---
 ## next class

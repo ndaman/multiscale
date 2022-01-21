@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-February 18, 2021
+3 February 2022
 
 ---
 ## schedule
 
--   Feb 18 - Orientation Averaging (HW2 Due)
--   Feb 23 - Variational Calculus
--   Feb 25 - Variational Calculus 
--   Mar 2 - Physical measurements
+-   3 Feb - Orientation Averaging (HW2 Due)
+-   8 Feb - Variational Calculus
+-   10 Feb - Variational Calculus
+-   15 Feb - Physical measurements
 
 
 ----
@@ -53,7 +53,7 @@ February 18, 2021
 `$$\langle T_{ij} \rangle = A_1 \langle p_i p_j \rangle + A_2 \delta_{ij}$$`
 
 -   but `$\langle p_i p_j \rangle$` is the second-order orientation tensor
--   The unknown constants, *A*<sub>1</sub> and *A*<sub>2</sub>, can be easily solved for in terms of the uni-directional properties
+-   The unknown constants, `$A_1$` and `$A_2$`, can be easily solved for in terms of the uni-directional properties
 
 ----
 ## orientation averaging
@@ -66,13 +66,13 @@ February 18, 2021
   B_4(\delta_{ij}\delta_{kl}) + B_5 (\delta_{ik}\delta_{jl} + \delta_{il}\delta_{jk})
 \end{gathered}$$`
 
--   We can solve for `$B_\alpha$` by considering fibers aligned in the three-direction, we have *a*<sub>3333</sub> = 1 and all other *a*<sub>*ijkl*</sub> = 0.
+-   We can solve for `$B_\alpha$` by considering fibers aligned in the three-direction, we have `$a_{3333} = 1$` and all other `$a_{ijkl} = 0$`.
 -   We can choose any values of *i*, *j*, *k*, *l* that would give 5 unique equations to solve equations for `$B_\alpha$`
 
 ----
 ## orientation averaging
 
--   Here we will consider *T*<sub>1111</sub>, *T*<sub>3333</sub>, *T*<sub>1122</sub>, *T*<sub>2233</sub>, *T*<sub>1313</sub>.
+-   Here we will consider `$T_{1111}$`, `$T_{3333}$`, `$T_{1122}$`, `$T_{2233}$`, `$T_{1313}$`.
 
 `$$\begin{aligned}
   T_{1111} &= B_4 + 2B_5\\
@@ -163,9 +163,9 @@ February 18, 2021
 ----
 ## orthotropic fitted closure
 
--   The symmetry of the orientation tensor requires that *A*<sub>66</sub> (which is *a*<sub>1212</sub>) be equal to *A*<sub>12</sub> (which is *a*<sub>1122</sub>).
--   By the same symmetry, we have *A*<sub>55</sub> = *A*<sub>13</sub> and *A*<sub>44</sub> = *A*<sub>23</sub>.
--   We also know that *a*<sub>*ijkk*</sub> = *a*<sub>*ij*</sub>, which imposes the following equations:
+-   The symmetry of the orientation tensor requires that `$A_{66}$` (which is `$a_{1212}$`) be equal to `$A_{12}$` (which is `$a_{1122}$`)
+-   By the same symmetry, we have `$A_{55} = A_{13}$` and `$A_{44} = A_{23}$`.
+-   We also know that `$a_{ijkk} = a_{ij}$`, which imposes the following equations:
 
 `$$\begin{aligned}
   A_{11} + A_{66} + A_{55} &= a_{11}\\
@@ -195,8 +195,8 @@ for second-order tensors and
 ## example
 
 -   Compare Mori-Tanaka stiffness predictions for direct calculation and orientation averaging
--   Compare [0/90]<sub>*S*</sub>, [`$\pm 45$`]<sub>*S*</sub>, and [`$0/\pm 45/90$`]<sub>*S*</sub>
--   [link](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Orientation%20Averaging.ipynb)
+-   Compare `$[0/90]_S$`, `$[\pm 45]_S$`, and `$[0/\pm 45/90]_S$`
+-   [link](https://colab.research.google.com/drive/1PpahfEvGbXo6P22jI_o0FCFUYOjmpQ3n?usp=sharing)
 -   Also compare the results with a closure approximation of the fourth-order tensor
 
 ---
@@ -216,10 +216,10 @@ for second-order tensors and
 ----
 ## stationary problems
 
--   If the function *F*(*u*<sub>1</sub>) is defined on a domain, then at $\frac{dF}{du_1}=1$ it is considered to be stationary
+-   If the function `$F(u_1)$` is defined on a domain, then at `$\frac{dF}{du_1}=1$` it is considered to be stationary
 -   This stationary point could be a minimum, maximum, or saddle point
--   We use the second derivative to determine which of these it is: &gt;0 for a minimum, &lt;0 for a maximum and =0 for a saddle point
--   For a function of *n* variables, *F*(*u*<sub>*n*</sub>) the stationary points are
+-   We use the second derivative to determine which of these it is: >0 for a minimum, <0 for a maximum and =0 for a saddle point
+-   For a function of *n* variables, `$F(u_n)$` the stationary points are
 
 `$$\frac{\partial F}{\partial u_i} = 0$$`
 
@@ -246,7 +246,7 @@ for all values of *i*
 
 `$$dF = \frac{\partial F}{\partial u_1} du_1 + ... + \frac{\partial F}{\partial u_n} du_n = 0$$`
 
--   The relationship between *du*<sub>*i*</sub> can be found by differentiating the constraint
+-   The relationship between `$du_i$` can be found by differentiating the constraint
 
 `$$df = \frac{\partial f}{\partial u_1} du_1 + ... + \frac{\partial f}{\partial u_n} du_n = 0$$`
 
@@ -261,7 +261,7 @@ for all values of *i*
 ----
 ## lagrange multiplier
 
--   The Lagrange Multiplier, `$\lambda$` is an arbitrary function of *u*<sub>*i*</sub>
+-   The Lagrange Multiplier, `$\lambda$` is an arbitrary function of `$u_i$`
 -   We can choose the Lagrange Multiplier such that
 
 `$$\frac{\partial F}{\partial u_n} + \lambda \frac{\partial f}{\partial u_n}  = 0$$`
@@ -285,5 +285,5 @@ for all values of *i*
 
 -   Design a box with given surface area such that the volume is maximized
 -   The box has no cover along one of the surfaces (open-face box)
--   This gives the surface area as *A* = *xy* + 2 *yz* + 2 *xz* = *C*
--   [worked example](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Lagrange%20Multipliers.ipynb)
+-   This gives the surface area as `$A = xy + 2 yz + 2 xz = C$`
+-   [worked example](https://colab.research.google.com/drive/1z570qNAVFE-I6zcn0A0x7pHn6x84T4vE?usp=sharing)

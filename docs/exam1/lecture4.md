@@ -11,8 +11,8 @@ Wichita State University, Department of Aerospace Engineering
 ## schedule
 
 -   27 Jan - 1D Micromechanics (HW1 Due)
--   1 Feb - Orientation Averaging
--   3 Feb - Mean-field (HW2 Due)
+-   1 Feb - Mean-field
+-   3 Feb - Orientation Averaging (HW2 Due)
 -   8 Feb - Variational Calculus
 
 ----
@@ -210,9 +210,9 @@ Where `$C_m$` is the stiffness of the material.
 ## example
 
 -   First we find the Eshelby tensor for *s* = 15
--   We also need the matrix Poisson's ratio, *v* = 0.40
+-   We also need the matrix Poisson's ratio, `$\nu = 0.4$`
 -   We find the parameters [here](#/eshelby-params)
--   Then we use [this slide](#/eshelby-table) to find *S*<sub>*ijkl*</sub>
+-   Then we use [this slide](#/eshelby-table) to find `$S_{ijkl}$`
 -   Notice that this assumes fibers are pointed in the 3-direction
 
 ----
@@ -263,9 +263,9 @@ Where `$C_m$` is the stiffness of the material.
 
 |Component | Definition |
 | --- | --- |
-|*p*<sub>1</sub> | `$\sin \theta \cos \phi$`|
-|*p*<sub>2</sub> | `$\sin \theta \sin \phi$`|
-|*p*<sub>3</sub> | `$\cos \theta$` |
+|`$p_1$` | `$\sin \theta \cos \phi$`|
+|`$p_2$` | `$\sin \theta \sin \phi$`|
+|`$p_3$` | `$\cos \theta$` |
 
 ----
 ## orientation tensor
