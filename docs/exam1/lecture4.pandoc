@@ -42,7 +42,7 @@ Wichita State University, Department of Aerospace Engineering
 
 ## eshelby's thought experiment
 
-![Eshelby's thought experiment](../images/eshelby.png)
+![Eshelby's thought experiment](../images/eshelby.png) <!-- .element width="50%" -->
 
 
 ## eshelby's thought experiment
@@ -98,6 +98,7 @@ Where \\(C_m\\) is the stiffness of the material.
 | \\(\begin{aligned} S_{1212} & = S_{1221} \\& = S_{2112}=S_{2121} \end{aligned}\\) | \\(\frac{3-4\nu}{8\left(1-\nu\right)}\\) | \\(\frac{Q}{3}+RI_1+\frac{T}{4}\\) |
 | \\(\begin{aligned} S_{1313} & = S_{1331} \\&=S_{3113}=S_{3131}\\&=S_{3232}=S_{3223}\\&=S_{2332}=S_{2323}   \end{aligned}\\) | \\(\frac{1}{4}\\) | \\(2R-\frac{I_1R}{2}-\frac{1+s^2}{2}T\\) |
 | all other \\(S_{ijkl}\\) | 0 | 0 |
+<!-- .element font-size="large" -->
 
 
 ## inclusions
@@ -117,15 +118,19 @@ Where \\(C_m\\) is the stiffness of the material.
 
 \\[C_m(S - I)\epsilon^T = C_f(S \epsilon^T-\epsilon^{T*})\\]
 
+
+## inclusions 
+
 -   We can solve this to find the transformation strain
 
 \\[\epsilon^T = \left [ (C_f - C_m)S + C_m\right]^{-1} C_f \epsilon^{T*}\\]
 
+-   Since the transformation strain is arbitrary, we can choose \\(\epsilon^T\\) such that \\(\epsilon^{T*}\\) is 0
+-   Now suppose we impose some strain, \\(\epsilon^0\\) on the composite
+
 
 ## stiffness
 
--   Since the transformation strain is arbitrary, we can choose \\(\epsilon^T\\) such that \\(\epsilon^{T*}\\) is 0
--   Now suppose we impose some strain, \\(\epsilon^0\\) on the composite
 -   The stress in the inclusion will be
 
 \\[\sigma_I = C_m (\epsilon^0 + \epsilon^C - \epsilon^T) = C_f (\epsilon^0 + \epsilon^C)\\]
@@ -147,7 +152,7 @@ Where \\(C_m\\) is the stiffness of the material.
 \\[S \left( C_m \right ) ^{-1} \left ( C_f - C_m \right ) \bar{\epsilon}^f = \epsilon^0- \bar{\epsilon}^f\\]
 
 
-## strain concentration tensor
+## strain concentration 
 
 -   Finally, we can add \\(I\bar{\epsilon}^f\\) to both sides to find
 
@@ -256,7 +261,7 @@ Where \\(C_m\\) is the stiffness of the material.
 
 ## fiber in spherical coordinates
 
-![single fiber coordinate system](../images/single_fiber.png)
+![single fiber coordinate system](../images/single_fiber.png) <!-- .element width="50%" -->
 
 
 ## fiber direction components
@@ -274,6 +279,9 @@ Where \\(C_m\\) is the stiffness of the material.
 -   Advani and Tucker introduced tensor representations of fiber orientation distribution functions
 
 \\[a_{ij} = \oint p_i p_j \psi(p) dp\\]
+
+
+## orientation tensor
 
 -   And
 
@@ -309,27 +317,26 @@ and so on for any permutation of i, j, k and l.
 
 ## example - 2D random
 
-![A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0.](../images/random2D.PNG)
+![A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = 0.5, with all other a_ij = 0.](../images/random2D.PNG) <!-- .element width="30%" -->
 
-A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor *a*<sub>11</sub> = *a*<sub>22</sub> = 0.5, with all other *a*<sub>*ij*</sub>=0.
+A visualization of a 2D random orientation distribution. This is expressed with the second-order tensor \\(a_{11} = a_{22} = 0.5\\) with all other \\(a_{ij} = 0\\).
 
 
 ## example - 3D random
 
-![A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0.](../images/random3D.PNG)
+![A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a_11 = a_22 = a_33 = 1/3, with all other a_ij = 0.](../images/random3D.PNG) <!-- .element width="30%" -->
 
-A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor a<sub>11</sub> = a<sub>22</sub> = a<sub>33</sub> = 1/3, with all other a<sub>ij</sub> = 0.
+A visualization of a 3D random orientation distribution. This is expressed with the second-order tensor \\(a_{11} = a_{22} = a_{33} = 1/3\\) with all other \\(a_{ij} = 0\\).
 
 
 ## example - aligned 45
 
-![A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.](../images/aligned45.PNG)
+![A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.](../images/aligned45.PNG) <!-- .element width="30%" -->
 
-A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with a<sub>11</sub> = 1 and all other a<sub>ij</sub> = 0.
+A visualization of a perfectly aligned, off-axis orientation distribution. This is expressed by rotating the tensor with \\(a_{11} = 1\\) and all other \\(a_{ij} = 0\\).
 
 
 ## next class
 
 -   Orientation averaging
 -   Self-consistent and Mori-Tanaka methods
--   Textbook pages 131-150

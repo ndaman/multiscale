@@ -50,14 +50,17 @@ Wichita State University, Department of Aerospace Engineering
 
 \\[\bar{\epsilon}_f = \hat{A} \bar{\epsilon}_m\\]
 
+--
+## mori-tanaka model
+
 -   For a dilute composite, \\(\bar{\epsilon}_m = \epsilon^0\\), but this is not true in general
-
-
-## strain concentration
 
 -   We also know that the average strain in the material must follow
 
 \\[\bar{\epsilon} = V_f \bar{\epsilon}_f + V_m \bar{\epsilon}_m = \epsilon^0\\]
+
+
+## strain concentration
 
 -   We can now express the strain concentration tensor in terms of the alternate strain concentration tensor
 
@@ -75,6 +78,10 @@ Wichita State University, Department of Aerospace Engineering
 -   Mori and Tanaka's critical assumption is that \\(\hat{A} = A^E\\) 
 -   This means that the stress in each fiber is related to the average matrix strain in the same way that a dilute fiber would be related to remote strain
 -   While this may not generally be true at the local level, when averaged about the entire composite, it gives very good results
+
+
+## mori-tanaka
+
 -   Substituting \\(A^E\\) gives the following expression for \\(A^{MT}\\)
 
 \\[ A^{MT} = A^E \left[ V_f A^E + V_m I \right]^{-1}\\]
@@ -91,6 +98,9 @@ where
 
 \\[A^{Tot} = \sum V_i A_i^E\\]
 
+
+## multiple inclusions
+
 -   And then calculate the Mori-Tanaka strain concentration tensor at each orientation as
 
 \\[A_i^{MT} = A_i^E \left[ (1-V_f)I + A^{Tot}\right]^{-1}\\]
@@ -103,6 +113,10 @@ where
 
 -   The Halpin-Tsai equations are some of the most commonly used short-fiber property models
 -   Although they are not based on the Eshelby elasticity solution as many other models, and thus lack some theoretical rigor, they have been shown to have very good agreement with experiments.
+
+
+## halpin-tsai
+
 -   They stem from a common form they identified in the generalized self-consistent model
 
 \\[\frac{P}{P_m} = \frac{1+\zeta \eta V_f}{1-\eta V_f}\\]

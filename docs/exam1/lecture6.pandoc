@@ -34,6 +34,9 @@ Wichita State University, Department of Aerospace Engineering
  
 \\[a_{ij} = \oint p_i p_j \psi(p) dp\\]
 
+
+## orientation tensor
+
 -   And
 
 \\[a_{ijkl} = \oint p_i p_j p_k p_l\psi(p) dp\\]
@@ -47,6 +50,9 @@ Wichita State University, Department of Aerospace Engineering
 -   The orientation average of *T*(*p*) is denoted by angle brackets and is given by
 
 \\[\langle T \rangle = \oint T(p) \psi (p) dp\\]
+
+
+## orientation averaging
 
 -   For a uni-directional fiber, we would expect \\(\langle T \rangle\\) to be transversely isotropic, which for a second-order tensor requires
  
@@ -99,7 +105,7 @@ Wichita State University, Department of Aerospace Engineering
 # closure approximations
 
 
-## closure approximations
+## closures
 
 -   While theoretically any-order orientation tensor is possible, in practice only the second-order tensor is used
 -   Microscopic measurements do not give enough information for higher-order tensors to be useful
@@ -108,7 +114,7 @@ Wichita State University, Department of Aerospace Engineering
 -   Closure Approximations are a way to approximate the fourth-order tensor from the second-order tensor
 
 
-## linear closure approximate
+## linear closure 
 
 -   For 3D orientations, the linear approximation is given by
 
@@ -138,6 +144,10 @@ Wichita State University, Department of Aerospace Engineering
 \\[a_4^h = (1-f)a_4^l + fa_4^q \\]
 
 -   Ideally, we would like *f* to be 1 for perfectly oriented fibers and 0 for random fibers
+
+
+## hybrid closure
+
 -   Advani proposes
 
 \\[ f = A a_{ij} a_{ji} - B\\]
@@ -149,6 +159,10 @@ Wichita State University, Department of Aerospace Engineering
 
 -   A more recent method that is commonly used is known as the orthotropic fitted closure
 -   The fourth-order tensor is approximated in the principal direction, then rotated back out if necessary
+
+
+## orthotropic fitted 
+
 -   In the principal direction, the fourth-order tensor will be orthotropic (represented in 6x6 as)
 
 \\[A_4 = \begin{bmatrix}
@@ -159,13 +173,18 @@ Wichita State University, Department of Aerospace Engineering
   0 & 0 & 0 & 0 & A_{55} & 0\\
   0 & 0 & 0 & 0 & 0 & A_{66}\\
 \end{bmatrix}\\]
+<!-- .element font-size="large" -->
 
 
-## orthotropic fitted closure
+## orthotropic fitted 
 
 -   The symmetry of the orientation tensor requires that \\(A_{66}\\) (which is \\(a_{1212}\\)) be equal to \\(A_{12}\\) (which is \\(a_{1122}\\))
 -   By the same symmetry, we have \\(A_{55} = A_{13}\\) and \\(A_{44} = A_{23}\\).
 -   We also know that \\(a_{ijkk} = a_{ij}\\), which imposes the following equations:
+
+
+
+## orthotropic fitted 
 
 \\[\begin{aligned}
   A_{11} + A_{66} + A_{55} &= a_{11}\\
@@ -207,6 +226,10 @@ for second-order tensors and
 
 -   A differential statement includes a set of governing differential equations established inside a domain and a set of boundary conditions to be satisfied along the boundaries
 -   A variational statement is to find stationary conditions for an integral with unknown functions in the integrand
+
+
+## variational statements 
+
 -   Variational statements are advantageous in the following aspects
     -   Clear physical meaning, invariant to coordinate system
     -   Can provide more realistic descriptions than differential statements (concentrated loads)
@@ -219,6 +242,10 @@ for second-order tensors and
 -   If the function \\(F(u_1)\\) is defined on a domain, then at \\(\frac{dF}{du_1}=1\\) it is considered to be stationary
 -   This stationary point could be a minimum, maximum, or saddle point
 -   We use the second derivative to determine which of these it is: >0 for a minimum, <0 for a maximum and =0 for a saddle point
+
+
+## stationary problems 
+
 -   For a function of *n* variables, \\(F(u_n)\\) the stationary points are
 
 \\[\frac{\partial F}{\partial u_i} = 0\\]
@@ -250,6 +277,9 @@ for all values of *i*
 
 \\[df = \frac{\partial f}{\partial u_1} du_1 + ... + \frac{\partial f}{\partial u_n} du_n = 0\\]
 
+
+## lagrange multiplier
+
 -   We can combine these two equations using a Lagrange Multiplier
 
 \\[\frac{\partial F}{\partial u_1} du_1 + ... + \frac{\partial F}{\partial u_n} du_n + \lambda \left[\frac{\partial f}{\partial u_1} du_1 + ... + \frac{\partial f}{\partial u_n} du_n \right]\\]
@@ -270,15 +300,14 @@ for all values of *i*
 
 \\[\frac{\partial F}{\partial u_i} + \lambda \frac{\partial f}{\partial u_i} = 0 \qquad i=1,2,...,n-1\\]
 
--   We now define a new function \\(F^* = F + \lambda f\\)
 
 
 ## lagrange multiplier
 
+-   We now define a new function \\(F^* = F + \lambda f\\)
 -   This converts a constrained problem in *n* variables to an unconstrained problem in *n* + 1 variables
 -   Notice that while the stationary values of \\(F^*\\) will be the same as the stationary values to *F*, they will not necessarily correspond
 -   For example, a minimum in \\(F^*\\) might be a maximum in *F*
--   This provides a systematic method for solving problems with any number of variables and constraints, and is also well-posed for numeric solutions
 
 
 ## example
