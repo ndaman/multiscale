@@ -88,8 +88,8 @@ Where `$C_m$` is the stiffness of the material.
 ## eshelby tensor
 <!-- -- id="eshelby-table" -->
 
-<!-- .element: font-size="large" -->
-| `$S_{ijkl}$`  | Long Fibers                               | Short Fibers (Ellipsoids)                |
+
+| `$S_{ijkl}$`  | Long Fibers                               | Short Fibers (Ellipsoids)                |<!-- .element font-size="large" -->
 |:-------------:|:-----------------------------------------:|:---:|
 | `$S_{1111}=S_{2222}$` | `$\frac{5-\nu}{8(1-\nu)}$`| `$Q+RI_1+\frac{3T}{4}$` |
 | `$S_{3333}$` | 0 | `$\frac{4Q}{3}+RI_3+2s^2T$` |
@@ -99,7 +99,6 @@ Where `$C_m$` is the stiffness of the material.
 | `$\begin{aligned} S_{1212} & = S_{1221} \\& = S_{2112}=S_{2121} \end{aligned}$` | `$\frac{3-4\nu}{8\left(1-\nu\right)}$` | `$\frac{Q}{3}+RI_1+\frac{T}{4}$` |
 | `$\begin{aligned} S_{1313} & = S_{1331} \\&=S_{3113}=S_{3131}\\&=S_{3232}=S_{3223}\\&=S_{2332}=S_{2323}   \end{aligned}$` | `$\frac{1}{4}$` | `$2R-\frac{I_1R}{2}-\frac{1+s^2}{2}T$` |
 | all other `$S_{ijkl}$` | 0 | 0 |
-<!-- .slide: font-size="large" -->
 
 ----
 ## inclusions
