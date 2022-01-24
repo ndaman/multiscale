@@ -268,28 +268,28 @@ E_{33} \\
     Q_{11}^2 & Q_{12}^2 & Q_{13}^2 & {    \colorbox{red}{$ Q_{12}Q_{13} $}} &  {    \colorbox{red}{$ Q_{11} Q_{13} $}} & {    \colorbox{red}{$ Q_{11}Q_{12} $}}\\
     Q_{21}^2 & Q_{22}^2 & Q_{23}^2 & {    \colorbox{red}{$ Q_{22}Q_{23} $}} &  {    \colorbox{red}{$ Q_{21} Q_{23} $}} & {    \colorbox{red}{$ Q_{21}Q_{22} $}}\\
     Q_{31}^2 & Q_{32}^2 & Q_{33}^2 & {    \colorbox{red}{$ Q_{32}Q_{33} $}} &  {    \colorbox{red}{$ Q_{31} Q_{33} $}} & {    \colorbox{red}{$ Q_{31}Q_{32} $}}\\
-    {    \colorbox{red}{$ Q_{21}Q_{31} $}} & {    \colorbox{red}{$ Q_{22}Q_{32} $}} & {    \colorbox{red}{$ Q_{23}Q_{33} $}} & Q_{23}Q_{32} + Q_{22}Q_{33} & Q_{23}Q_{31} + Q_{21}Q_{33} & Q_{22}Q_{31} + Q_{21}Q_{32}\\
-    {    \colorbox{red}{$ Q_{11}Q_{31} $}} & {    \colorbox{red}{$ Q_{12}Q_{32} $}} & {    \colorbox{red}{$ Q_{13}Q_{33} $}} & Q_{13}Q_{32} + Q_{12}Q_{33} & Q_{13}Q_{31} + Q_{11}Q_{33} & Q_{12}Q_{31} + Q_{11}Q_{32}\\
-    {    \colorbox{red}{$ Q_{11}Q_{21} $}} & {    \colorbox{red}{$ Q_{12}Q_{22} $}} & {    \colorbox{red}{$ Q_{13}Q_{23} $}} & Q_{13}Q_{22} + Q_{12}Q_{23} & Q_{13}Q_{21} + Q_{11}Q_{23} & Q_{12}Q_{21} + Q_{11}Q_{22}
+    {    \colorbox{red}{$ 2Q_{21}Q_{31} $}} & {    \colorbox{red}{$ 2Q_{22}Q_{32} $}} & {    \colorbox{red}{$ 2Q_{23}Q_{33} $}} & Q_{23}Q_{32} + Q_{22}Q_{33} & Q_{23}Q_{31} + Q_{21}Q_{33} & Q_{22}Q_{31} + Q_{21}Q_{32}\\
+    {    \colorbox{red}{$ 2Q_{11}Q_{31} $}} & {    \colorbox{red}{$ 2Q_{12}Q_{32} $}} & {    \colorbox{red}{$ 2Q_{13}Q_{33} $}} & Q_{13}Q_{32} + Q_{12}Q_{33} & Q_{13}Q_{31} + Q_{11}Q_{33} & Q_{12}Q_{31} + Q_{11}Q_{32}\\
+    {    \colorbox{red}{$ 2Q_{11}Q_{21} $}} & {    \colorbox{red}{$ 2Q_{12}Q_{22} $}} & {    \colorbox{red}{$ 2Q_{13}Q_{23} $}} & Q_{13}Q_{22} + Q_{12}Q_{23} & Q_{13}Q_{21} + Q_{11}Q_{23} & Q_{12}Q_{21} + Q_{11}Q_{22}
 \end{bmatrix}}\\]
 
 
-## stiffness transformation
+## stiffness 
 
 -   We can now formulate the transformation of the stiffness matrix. We know that
  
-\\[ \sigma^\prime = R \sigma_\sigma = C^\prime E^\prime\\]
+\\[ \sigma^\prime = R_\sigma\sigma = C^\prime E^\prime\\]
 
 -   And since \\(\sigma=CE\\), we can say
  
 \\[ R_\sigma CE = C^\prime E^\prime\\]
 
+
+## stiffness
+
 -   Now we know that \\(E^\prime = R_E E\\), so we substitute that to find
  
 \\[ R_\sigma CE = C^\prime R_E E\\]
-
-
-## stiffness transformation
 
 -   We can right multiply both sides by \\(E^{-1}\\) to cancel *E*
 -   Then we can right multiply both sides by \\(R_E^{-1}\\) to get \\(C^\prime\\) by itself
@@ -445,16 +445,18 @@ E_{33} \\
 
 \\[ \pi d t = \pi d_0 \tau_i \\]
 
+
+## shear stress
 -   The shear stress far away from the fiber, \\(\tau = G_m \gamma\\), and if \\(\gamma = \frac{du}{dr}\\) then we can say
 
 \\[\frac{r_0}{r} \tau_i = G_m \frac{du}{dr}\\]
 
-
-## shear stress
-
 -   We integrate to find that
 
 \\[\tau_i = \frac{G_m(u_R-u_f)}{r_0 ln(r)}\\]
+
+
+## shear stress
 
 -   Which we can substitute into our original force-balance equation to find
 
