@@ -88,6 +88,7 @@ Where `$C_m$` is the stiffness of the material.
 ## eshelby tensor
 <!-- -- id="eshelby-table" -->
 
+<!-- .element: font-size="large" -->
 | `$S_{ijkl}$`  | Long Fibers                               | Short Fibers (Ellipsoids)                |
 |:-------------:|:-----------------------------------------:|:---:|
 | `$S_{1111}=S_{2222}$` | `$\frac{5-\nu}{8(1-\nu)}$`| `$Q+RI_1+\frac{3T}{4}$` |
