@@ -451,7 +451,7 @@ E_{33} \\
 -   This assumes that fiber and matrix are perfectly bonded (continuous displacement at boundary)
 -   The force balance due to shear in adjacent annula means that
 
-`$$ \pi d t = \pi d_0 \tau_i $$`
+`$$ t \pi d \tau = t \pi d_0 \tau_i $$`
 
 ----
 ## shear stress
