@@ -90,7 +90,7 @@ Where `$C_m$` is the stiffness of the material.
 
 
 | `$S_{ijkl}$`  | Long Fibers                               | Short Fibers (Ellipsoids)                |
-|:---------:|:---:|:-------------:|
+|:--------:|:-----:|:-------------:|
 | `$S_{1111}=S_{2222}$` | `$\frac{5-\nu}{8(1-\nu)}$`| `$Q+RI_1+\frac{3T}{4}$` |
 | `$S_{3333}$` | 0 | `$\frac{4Q}{3}+RI_3+2s^2T$` |
 | `$S_{1122} = S_{2211}$` | `$\frac{-1+4\nu}{8(1-\nu)}$` | `$\frac{Q}{3}-RI_1+\frac{4T}{3}$` |
