@@ -21,6 +21,14 @@ Wichita State University, Department of Aerospace Engineering
 - transformation
 - engineering notation
 
+----
+## office hours
+
+- I expanded and combined office hours this semester
+- Mondays 4:00 - 5:00
+- Tuesdays 2:00 - 3:00
+- Fridays 3:00 - 4:00
+
 ---
 # transformation
 
