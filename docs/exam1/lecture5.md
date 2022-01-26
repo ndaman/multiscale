@@ -50,7 +50,7 @@ Wichita State University, Department of Aerospace Engineering
 
 `$$\bar{\epsilon}_f = \hat{A} \bar{\epsilon}_m$$`
 
---
+----
 ## mori-tanaka model
 
 -   For a dilute composite, `$\bar{\epsilon}_m = \epsilon^0$`, but this is not true in general
