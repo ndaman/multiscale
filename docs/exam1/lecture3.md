@@ -158,6 +158,21 @@ E_{33} \\
 2E_{13} \\
 2E_{12}
 \end{bmatrix}$$`
+----
+## orthotropic symmetry
+
+`$$\small \begin{bmatrix}
+S
+  \end{bmatrix}
+  = \begin{bmatrix}
+  1/E_1 & -\nu_{12}/E_1 & -\nu_{13}/E_1 & 0 & 0 & 0 \\
+  -\nu_{21}/E_2 & 1/E_2 & -\nu_{23}/E_2 & 0 & 0 & 0 \\
+  -\nu_{31}/E_3 & -\nu_{32}/E_3 & 1/E_3 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 1/G_{23} & 0 & 0 \\
+  0 & 0 & 0 & 0 & 1/G_{13} & 0 \\
+  0 & 0 & 0 & 0 & 0 & 1/G_{12}
+  \end{bmatrix}
+$$`
 
 ----
 ## transversely isotropic symmetry
@@ -185,6 +200,21 @@ E_{33} \\
 2E_{13} \\
 2E_{12}
 \end{bmatrix}$$`
+
+----
+## transversely isotropic symmetry
+
+`$$\small \begin{bmatrix}
+S  \end{bmatrix}
+  = \begin{bmatrix}
+  1/E_1 & -\nu_{12}/E_1 & -\nu_{13}/E_1 & 0 & 0 & 0 \\
+  -\nu_{12}/E_1 & 1/E_1 & -\nu_{13}/E_1 & 0 & 0 & 0 \\
+  -\nu_{13}/E_1 & -\nu_{13}/E_1 & 1/E_3 & 0 & 0 & 0 \\
+  0 & 0 & 0 & 1/G_{13} & 0 & 0 \\
+  0 & 0 & 0 & 0 & 1/G_{13} & 0 \\
+  0 & 0 & 0 & 0 & 0 & 2(1+\nu_{12})/E_1
+  \end{bmatrix}
+$$`
 
 ----
 ## isotropic symmetry
