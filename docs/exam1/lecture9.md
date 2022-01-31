@@ -212,6 +212,9 @@ Wichita State University, Department of Aerospace Engineering
 
 `$$\frac{\partial F}{\partial u} - \frac{\partial}{\partial x} \left( \frac{\partial F}{\partial u_{,x}} \right) - \frac{\partial}{\partial y} \left( \frac{\partial F}{\partial u_{,y}}\right) = 0$$`
 
+----
+## multiple variables 
+
 -   If *u* is prescribed along the boundary, then `$\delta u = 0$` along the boundary, otherwise
 
 `$$\frac{\partial F}{\partial u_{,x}} n_x + \frac{\partial F}{\partial u_{,y}} n_y = 0$$`
