@@ -375,7 +375,7 @@ Wichita State University, Department of Aerospace Engineering
 \\[F - \dot{y} \frac{\partial F}{\partial \dot{y}} = C\\]
 
 
-## brachistochrone problem
+## brachistochrone 
 
 -   If we return now to Bernoulli's problem, we had found
 
@@ -390,7 +390,7 @@ Wichita State University, Department of Aerospace Engineering
 \\[F - \dot{y} \frac{\partial F}{\partial \dot{y}} = C\\]
 
 
-## brachistochrone problem
+## brachistochrone
 
 -   Computing the partial derivative we find
 
@@ -401,7 +401,7 @@ Wichita State University, Department of Aerospace Engineering
 \\[\frac{\sqrt{1 + \dot{y}^2}}{\sqrt{2 g y}} - \frac{\dot{y}^2}{\sqrt{2 g y}\sqrt{1 + \dot{y}^2}} = C\\]
 
 
-## brachistrochrone problem
+## brachistochrone 
 
 -   Simplifying gives
 
@@ -416,7 +416,7 @@ Wichita State University, Department of Aerospace Engineering
 \\[\dot{y} = \frac{\sqrt{c_1-y}}{\sqrt{y}}\\]
 
 
-## brachistochrone problem
+## brachistochrone 
 
 -   The Brachistochrone problem can be solved using parametric equations
 
