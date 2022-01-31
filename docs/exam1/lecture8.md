@@ -334,6 +334,9 @@ Wichita State University, Department of Aerospace Engineering
 
 `$$\Delta F = \left [ F(x,y,\dot{y}) + \left( \delta y \frac{\partial F}{\partial y} + \delta \dot{y} \frac{\partial F}{\partial \dot{y}} + ... \right) \right]- F(x,y,\dot{y})$$`
 
+----
+## variations
+
 -   And thus we call the variation of *F*
 
 `$$\delta F = \frac{\partial F}{\partial y} \delta y + \frac{\partial F}{\partial \dot{y}} \delta \dot{y} + \epsilon_1$$`
