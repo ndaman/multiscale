@@ -158,6 +158,7 @@ E_{33} \\
 2E_{13} \\
 2E_{12}
 \end{bmatrix}$$`
+
 ----
 ## orthotropic symmetry
 
