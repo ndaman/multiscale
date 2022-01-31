@@ -11,17 +11,15 @@ Wichita State University, Department of Aerospace Engineering
 ## schedule
 
 -   3 Feb - Orientation Averaging (HW2 Due)
--   8 Feb - Variational Calculus
+-   8 Feb - Physical measurements
 -   10 Feb - Variational Calculus
--   15 Feb - Physical measurements
-
+-   15 Feb - Variational Calculus
 
 
 ## outline
 
 - orientation averaging
 - closure approximations
-- variational calculus
 
 
 # orientation average
@@ -218,101 +216,3 @@ for second-order tensors and
 -   [link](https://colab.research.google.com/drive/1PpahfEvGbXo6P22jI_o0FCFUYOjmpQ3n?usp=sharing)
 -   Also compare the results with a closure approximation of the fourth-order tensor
 
-
-# variational calculus
-
-
-## differential and variational statements
-
--   A differential statement includes a set of governing differential equations established inside a domain and a set of boundary conditions to be satisfied along the boundaries
--   A variational statement is to find stationary conditions for an integral with unknown functions in the integrand
-
-
-## variational statements 
-
--   Variational statements are advantageous in the following aspects
-    -   Clear physical meaning, invariant to coordinate system
-    -   Can provide more realistic descriptions than differential statements (concentrated loads)
-    -   More easily suited to solving problems numerically or approximately
-    -   Can be more systematic and consistent than building a set of differential equations
-
-
-## stationary problems
-
--   If the function \\(F(u_1)\\) is defined on a domain, then at \\(\frac{dF}{du_1}=1\\) it is considered to be stationary
--   This stationary point could be a minimum, maximum, or saddle point
--   We use the second derivative to determine which of these it is: >0 for a minimum, <0 for a maximum and =0 for a saddle point
-
-
-## stationary problems 
-
--   For a function of *n* variables, \\(F(u_n)\\) the stationary points are
-
-\\[\frac{\partial F}{\partial u_i} = 0\\]
-
-for all values of *i*
--   and to determine the type of stationary point we use
- 
-\\[\sum_{i,j=1,n} \frac {\partial^2 F}{\partial u_i \partial u_j}\\]
-
-
-## lagrange multipliers
-
--   Let us now consider a function of several variables, but the variables are subject to a constraint
-
-\\[ f(u_1, u_2, ... ) = 0\\]
-
--   Algebraically, we could use each provided constraint equation to reduce the number of variables
--   For large problems, it can be cumbersome or impossible to eliminate some variables
--   The Lagrange Multiplier method is an alternative, systematic approach
-
-
-## lagrange multiplier
-
--   For a constrained problem at a stationary point we will have
-
-\\[dF = \frac{\partial F}{\partial u_1} du_1 + ... + \frac{\partial F}{\partial u_n} du_n = 0\\]
-
--   The relationship between \\(du_i\\) can be found by differentiating the constraint
-
-\\[df = \frac{\partial f}{\partial u_1} du_1 + ... + \frac{\partial f}{\partial u_n} du_n = 0\\]
-
-
-## lagrange multiplier
-
--   We can combine these two equations using a Lagrange Multiplier
-
-\\[\frac{\partial F}{\partial u_1} du_1 + ... + \frac{\partial F}{\partial u_n} du_n + \lambda \left[\frac{\partial f}{\partial u_1} du_1 + ... + \frac{\partial f}{\partial u_n} du_n \right]\\]
-
--   We can re-group terms as
- 
-\\[\sum_{i=1}^n \left[\frac{\partial F}{\partial u_i} + \lambda \frac{\partial f}{\partial u_i} \right]du_i = 0\\]
-
-
-## lagrange multiplier
-
--   The Lagrange Multiplier, \\(\lambda\\) is an arbitrary function of \\(u_i\\)
--   We can choose the Lagrange Multiplier such that
-
-\\[\frac{\partial F}{\partial u_n} + \lambda \frac{\partial f}{\partial u_n}  = 0\\]
-
--   Which now leaves
-
-\\[\frac{\partial F}{\partial u_i} + \lambda \frac{\partial f}{\partial u_i} = 0 \qquad i=1,2,...,n-1\\]
-
-
-
-## lagrange multiplier
-
--   We now define a new function \\(F^* = F + \lambda f\\)
--   This converts a constrained problem in *n* variables to an unconstrained problem in *n* + 1 variables
--   Notice that while the stationary values of \\(F^*\\) will be the same as the stationary values to *F*, they will not necessarily correspond
--   For example, a minimum in \\(F^*\\) might be a maximum in *F*
-
-
-## example
-
--   Design a box with given surface area such that the volume is maximized
--   The box has no cover along one of the surfaces (open-face box)
--   This gives the surface area as \\(A = xy + 2 yz + 2 xz = C\\)
--   [worked example](https://colab.research.google.com/drive/1z570qNAVFE-I6zcn0A0x7pHn6x84T4vE?usp=sharing)

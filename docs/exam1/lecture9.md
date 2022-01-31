@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-2 March, 2021
+15 February 2022
 
 ----
 ## schedule
 
--   Mar 2 - Variational Calculus
--   Mar 4 - Boundary Conditions (HW3 Due)
--   Mar 9 - Project Descriptions
--   March 11 - SwiftComp
+-   15 Feb - Variational Calculus
+-   17 Feb - Boundary Conditions (HW3 Due)
+-   22 Feb - Project Descriptions
+-   24 Feb - SwiftComp (HW 4 Due)
 
 ----
 ## outline
@@ -67,6 +67,9 @@ Wichita State University, Department of Aerospace Engineering
   2p\dot{y} \delta y|_{x_0}^{x_1} + 2h_1y(x_1)\delta y(x_1) + 2h_0y(x_0)\delta y(x_0) = 0
 \end{gathered}$$`
 
+----
+## boundaries 
+
 -   Satisfying the Euler-Lagrange equation will ensure the first line is equal to zero
 -   The second line forms the natural boundary conditions
 
@@ -78,9 +81,9 @@ Wichita State University, Department of Aerospace Engineering
 ----
 ## natural and geometric boundaries
 
--   In general, if a functional contains the derivative of an unknown function to the *m*<sup>th</sup> order:
--   Boundary conditions expressed in terms of the unknown function to the (*m*-1)<sup>th</sup> order are geometric boundary conditions
--   Boundary conditions expressed in terms of the unknown function higher than the (*m* - 1)<sup>th</sup> order are natural boundary conditions
+-   In general, if a functional contains the derivative of an unknown function to the `$m^\text{th}$` order:
+-   Boundary conditions expressed in terms of the unknown function to the `$(m-1)^\text{th}$` order are geometric boundary conditions
+-   Boundary conditions expressed in terms of the unknown function higher than the `$(m-1)^\text{th}$` order are natural boundary conditions
 -   When there are geometric boundaries, the variation will be zero at the boundaries
 -   Otherwise the coefficients must equal zero
 
@@ -152,7 +155,7 @@ Wichita State University, Department of Aerospace Engineering
 ----
 ## subsidiary conditions
 
--   The only difference in the Euler-Lagrange solution is that $\lambda$ will be inside the derivative
+-   The only difference in the Euler-Lagrange solution is that `$\lambda$` will be inside the derivative
 
 `$$\frac{\partial F}{\partial y} - \frac{d}{dx} \frac{\partial F}{\partial \dot{y}} + \lambda \frac{\partial G}{\partial y} - \frac{d}{dx} \left(\lambda \frac{\partial G}{\partial \dot{y}}\right)$$`
 

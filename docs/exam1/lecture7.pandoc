@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-February 23, 2021
+8 February 2022
 
 
 ## schedule
 
--   Feb 23 - Physical measurements
--   Feb 25 - Variational Calculus 
--   Mar 2 - Variational Calculus
--   Mar 4 - Boundary Conditions (HW3 Due)
+-   8 Feb - Physical measurements
+-   10 Feb - Variational Calculus (HW2 Due)
+-   15 Feb - Variational Calculus
+-   17 Feb - Boundary Conditions (HW3 Due)
 
 
 ## outline
@@ -27,7 +27,7 @@ February 23, 2021
 
 ## checking transformations
 
--   Follow the procedure [here](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Orientation%20Playground.ipynb)
+-   Follow the procedure [here](https://colab.research.google.com/drive/1NWK3gGaSHLbOgfsK-XZDTvhpALrdCohc?usp=sharing)
 -   This gives a way to systematically check whether your rotations are correct
 -   You can check any coordinate transformation as long as you know the unit vectors of your primed coordinate system in the global coordinates
 

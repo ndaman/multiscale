@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-February 25, 2021
+10 February 2022
 
 ----
 ## schedule
 
--   Feb 25 - Variational Calculus 
--   Mar 2 - Variational Calculus
--   Mar 4 - Boundary Conditions (HW3 Due)
--   Mar 9 - Project Descriptions
+-   10 Feb - Variational Calculus (HW2 Due)
+-   15 Feb - Variational Calculus
+-   17 Feb - Boundary Conditions (HW3 Due)
+-   22 Feb - Project Descriptions
 
 ----
 ## outline
@@ -33,6 +33,10 @@ February 25, 2021
 
 -   A differential statement includes a set of governing differential equations established inside a domain and a set of boundary conditions to be satisfied along the boundaries
 -   A variational statement is to find stationary conditions for an integral with unknown functions in the integrand
+
+----
+## variational statements
+
 -   Variational statements are advantageous in the following aspects
     -   Clear physical meaning, invariant to coordinate system
     -   Can provide more realistic descriptions than differential statements (concentrated loads)
@@ -45,6 +49,10 @@ February 25, 2021
 -   If the function `$F(u_1)$` is defined on a domain, then at `$\frac{dF}{du_1}=1$` it is considered to be stationary
 -   This stationary point could be a minimum, maximum, or saddle point
 -   We use the second derivative to determine which of these it is: >0 for a minimum, <0 for a maximum and =0 for a saddle point
+
+----
+## stationary points
+
 -   For a function of *n* variables, `$F(u_n)$` the stationary points are
 
 `$$\frac{\partial F}{\partial u_i} = 0$$`
@@ -74,6 +82,9 @@ February 25, 2021
 -   The relationship between *du*<sub>*i*</sub> can be found by differentiating the constraint
 
 `$$df = \frac{\partial f}{\partial u_1} du_1 + ... + \frac{\partial f}{\partial u_n} du_n = 0$$`
+
+----
+## lagrange multiplier 
 
 -   We can combine these two equations using a Lagrange Multiplier
  
@@ -111,7 +122,7 @@ February 25, 2021
 -   Design a box with given surface area such that the volume is maximized
 -   The box has no cover along one of the surfaces (open-face box)
 -   This gives the surface area as `$A = xy + 2yz + 2xz = C$`
--   [worked example](http://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Lagrange%20Multipliers.ipynb)
+-   [worked example](https://colab.research.google.com/drive/1FwPoZyTFqZnGFyHpBhRj2PCqdtDACpNA?usp=sharing)
 
 ---
 # calculus of variations
@@ -224,12 +235,12 @@ February 25, 2021
 
 `$$\frac{dI}{d \alpha} = \int_{x_0}^{x_1} \frac{\partial F}{\partial \alpha} dx =
   \int_{x_0}^{x_1} \left ( \frac{\partial F}{\partial \bar{y}}\frac{\partial \bar{y}}{\partial \alpha}  +
-  \frac{\partial F}{\partial \dot{\bar{y}}}\frac{\partial \dot{\bar{y}}}{\partial \alpha}\right )dx$$`
+\frac{\partial F}{\partial \dot{\bar{y}}}\frac{\partial \dot{\bar{y}}}{\partial \alpha}\right )dx$$`
   
 -   This simplifies to
 
 `$$\int_{x_0}^{x_1} \left ( \frac{\partial F}{\partial \bar{y}}\eta  +
-  \frac{\partial F}{\partial \dot{\bar{y}}}\dot{\eta}\right )dx$$`
+\frac{\partial F}{\partial \dot{\bar{y}}}\dot{\eta}\right )dx$$`
 
 ----
 ## euler lagrange
@@ -237,7 +248,7 @@ February 25, 2021
 -   Now we know that *I* will be stationary when `$\alpha = 0$` in which case `$\bar{y}=y$` therefore we can write
 
 `$$\int_{x_0}^{x_1} \left ( \frac{\partial F}{\partial y}\eta  +
-  \frac{\partial F}{\partial \dot{y}}\dot{\eta}\right )dx = 0$$`
+\frac{\partial F}{\partial \dot{y}}\dot{\eta}\right )dx = 0$$`
   
 -   And now we perform integration by parts on the second term
 
