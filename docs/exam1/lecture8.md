@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-10 February 2022
+3 February 2022
 
 ----
 ## schedule
 
--   10 Feb - Variational Calculus (HW2 Due)
--   15 Feb - Variational Calculus
--   17 Feb - Boundary Conditions (HW3 Due)
--   22 Feb - Project Descriptions
+-   3 Feb - Variational Calculus (HW2 Due)
+-   8 Feb - Variational Calculus
+-   10 Feb - Variational Asymptotic Method (HW3 Due)
+-   15 Feb - Boundary Conditions 
 
 ----
 ## outline
@@ -21,7 +21,6 @@ Wichita State University, Department of Aerospace Engineering
 <!-- TOC START min:1 max:1 link:false update:true -->
 - lagrange multipliers
 - calculus of variations
-
 <!-- TOC END -->
 
 

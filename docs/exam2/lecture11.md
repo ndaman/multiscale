@@ -1,20 +1,19 @@
 ## AE 760AA: Micromechanics and multiscale modeling
-Lecture 12 - Hashin-Shtrikman Bounds
+Lecture 11 - Boundary Conditions
 
 Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-March 18, 2021
+17 February 2022
 
 ----
 ## schedule
 
-- Mar 18 - Hashin-Shtrickman bounds
-- Mar 23 - Periodic Boundary Conditions
-- Mar 25 - Fourier Analysis 
-- Mar 30 - Method of Cells 
-
+-   17 Feb - Boundary Conditions 
+-   22 Feb - Project Descriptions (HW 4 Due)
+-   24 Feb - FEA Workday
+-   29 Feb - SwiftComp
 
 ----
 ## outline
@@ -32,7 +31,7 @@ March 18, 2021
 ----
 ## bounds
 
--   We consider the Voigt and Reuss micromechanics models as bounding cases, properties should need exceed the limits of these two cases
+-   We consider the Voigt and Reuss micromechanics models as bounding cases, properties should never exceed the limits of these two cases
 -   Hashin and Shtrikman used variational principles to define more rigorous bounds for composite properties
 -   They did this by comparing a heterogeneous composite RVE with an equivalent homogeneous RVE
 
@@ -89,7 +88,7 @@ along the boundary
 -   Where
 
 `$$\begin{aligned}
-  \Delta C_{ijkl} &= C_{ijkl} - C^{(0)}_{ijkl}\\
+ \Delta C_{ijkl} &= C_{ijkl} - C^{(0)}_{ijkl}\\
   p_{ij} &= \Delta C_{ijkl} \epsilon_{kl}\\
   \epsilon_{ij}^d &= \epsilon_{ij} - \epsilon_{ij}^{(0)}
 \end{aligned}$$`
@@ -188,4 +187,133 @@ along the boundary
 -   Third, we should repeat our periodic structure (2x2, 3x3) to check that the effective stiffness remains constant
 -   We find homogenized properties by taking the volume-averaged stress and strain
 
+---
+# periodic boundary conditions
 
+----
+## periodic boundary conditions
+
+-   We have used the phrase multiple times in this course
+-   Periodic Boundary Conditions are used in many different fields, and can be implemented in slightly different ways
+-   Here we will first discuss the equations for periodic boundary conditions in structural mechanics, then discuss how these can be applied
+
+----
+## periodic boundary conditions
+
+-   If we have a periodic structure, we denote corresponding faces with + and - superscripts
+-   From equilibrium, we know that the tractions on opposing faces must be equal and opposite
+
+`$$ t_i^+ = -t_i^-$$`
+
+----
+## periodic boundary conditions
+
+-   The displacement on opposing surfaces will also be equal with
+
+`$$ \xi_i^+ = \xi_i^- $$`
+
+where
+
+`$$\xi_i = u_i - \bar{\epsilon_{ij}}x_j$$`
+
+----
+## convergence
+
+-   In general, homogeneous displacement boundary conditions give an upper bound estimate to stiffness properties
+-   Homogeneous traction boundary conditions give a lower estimate
+-   They converge to periodic boundary conditions for increasing RVE size
+
+----
+## general application
+
+-   In finite element software, solutions are derived from displacement
+-   Thus it is easiest to implement periodic displacement conditions
+-   Tractions will be automatically satisfied
+
+----
+## general application
+
+-   We find the stiffness by applying some arbitrary strain in all directions (i.e. `$\bar{\epsilon}_{11}=1$`, `$\bar{\epsilon}_{22}=1$`, etc.)
+-   The volume average of stress then corresponds to the appropriate column of the stiffness matrix
+-   Some finite element software programs have a built-in method for periodic boundary conditions
+-   When such a method is not built-in, there are various strategies to enforce the boundary condition
+
+----
+## ABAQUS implementation
+
+-   In ABAQUS PBC’s are implemented using equations for each boundary node
+-   Boundary nodes on a given face are tied to some “dummy” node
+-   Equations for each node ensure that `$\xi_i^+ = \xi_i^-$`
+
+----
+## COMSOL implementation
+
+-   While COMSOL has periodic boundary conditions built-in, there are some quirks to how it is implemented
+-   The default periodic boundary condition is `$u_i^+ = u_i^-$`
+-   This forces displacement to be exactly the same on opposing faces, but we would like for them to be the same with some arbitrary offset
+-   To implement this requires viewing and modifying the boundary condition equations
+
+----
+## COMSOL implementation
+
+-   From the Model Builder on the left-hand side, click the "eye" icon to show the equations
+![](../images/visibility.png)
+
+----
+## COMSOL implementation
+
+-   Next, add a global parameter for the arbitrary strain (in my equations I used 'C')
+-   Now we need to edit the periodic boundary equations in comsol to include an offset of 'C'
+-   For example we need to change u-solid.src2dst to u-C-solid.src2dst for the x-faces periodic boundary in COMSOL
+
+----
+## COMSOL implementation
+
+![](../images/equations.png)
+
+----
+## shear
+
+-   In shear the COMSOL implementation becomes a little bit tricky
+
+`$$\xi = u_i - \bar{\epsilon}_{ij}x_j$$`
+
+-   We need to define displacement on both surfaces under consideration (1 and 2 surface for 12 shear)
+
+----
+## rigid constraints
+
+-   In general the problem is not constrained against rigid body translation
+-   Since the displacements are periodic on the surfaces, it is most appropriate to create a point at the center and fix it
+-   Points can be generated from the geometry menu
+-   The constraint can be difficult to apply graphically (the point is not visible)
+-   Instead choose your point from the drop-down
+
+----
+## stiffness results
+
+-   For any software package, we take the results using the volume-average stiffness and strain
+-   Recall that in engineering notation we have
+
+`$$ \sigma_i = C_{ij} \epsilon_j$$`
+
+-   Before calculating stiffness values, you may want to check that you have a mostly uniform strain
+-   Stiffness values can be calculated as
+
+`$$ C_{ij} = \sigma_i/\epsilon_j$$`
+
+-   Where *j* is fixed for each load configuration
+
+----
+## other comments
+
+-   With boundaries under displacement control, we do not need to worry about constraining any other nodes to restrict rigid body motion
+-   The default (tetrahedral) mesh in COMSOL behaves adequately under these conditions (some small dimpling on the non-restricted surfaces)
+-   In COMSOL, volume-average properties can be calculated by right-clicking derived values (under results) > average > volume average
+-   Stress, strain, and stiffness can be found by typing in the “expressions”
+-   solid.sl11 (Stress Local 11 direction), solid.el11(Strain Local 11 direction)
+
+----
+## sample comsol file
+
+-   A sample COMSOL file to show the implementation of periodic boundary conditions can be viewed [here](http://ndaman.github.io/multiscale/handout/2d-periodic.mph)

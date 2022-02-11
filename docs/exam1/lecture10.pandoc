@@ -5,25 +5,25 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-4 March, 2021
+15 February 2022
 
 
 ## schedule
 
--   Mar 4 - Boundary Conditions (HW3 Due)
--   Mar 9 - Project Descriptions
--   Mar 11 - SwiftComp
--   Mar 16 - Work Day
+-   15 Feb - Variational Asymptotic Method (HW3 Due)
+-   17 Feb - Boundary Conditions 
+-   22 Feb - Project Descriptions (HW 4 Due)
+-   24 Feb - SwiftComp
 
 
 ## outline
+
 <!-- TOC START min:1 max:1 link:false update:true -->
 - converting to variational statements
 - ritz method
 - variational asymptotic method
 
 <!-- TOC END -->
-
 
 
 # converting to variational statements
@@ -94,13 +94,12 @@ Wichita State University, Department of Aerospace Engineering
 
 \\[ I[y] = \int_t \int_x F(x,t,y) dx dt \\]
 
--   Where boundary conditions are *y*(*x*<sub>1</sub>, *t*)=*y*<sub>1</sub>(*t*), *y*(*x*<sub>2</sub>, *t*)=*y*<sub>2</sub>(*t*) and *y*(*x*, *t*<sub>1</sub>)=*y*<sub>3</sub>(*x*)
--   Where boundary conditions are \\(y(x_1, t) = y_1(t), y(x_2,t) = y_2(t)\\) and \\(y(x,t_1)=y_3(x)\\)
+-   Where boundary conditions are \\(y(x_1, t) = y_1(t)\\), \\(y(x_1,t) = y_2(t)\\) and \\(y(x,t_1) = y_3(x)\\)
 -   The trial function will then have the form
 
 \\[y(x,t) = g^P (x) + \sum f_j (t) g(j) H(x) \\]
 
--   This gives a functional which can be solved for *f*<sub>*j*</sub>(*t*)
+-   This gives a functional which can be solved for \\(f_j(t)\\)
 
 \\[I[f] = \int_t F(f_j(t)) dt\\]
 
@@ -111,7 +110,7 @@ Wichita State University, Department of Aerospace Engineering
 
 \\[\frac{d^2 u}{dx^2} +u + x = 0\\]
 
-for \\(0 \le x \le 1\\) with *u*(0)=*u*(1)=0
+for \\(0 \le x \le 1\\) with \\(u(0) = u(1) = 0\\)
 
 
 ## examples
@@ -125,7 +124,7 @@ for \\(0 \le x \le 1\\) with *u*(0)=*u*(1)=0
 
 ## examples
 
-- worked solutions [here](https://nbviewer.jupyter.org/github/ndaman/multiscale/blob/master/examples/Ritz.ipynb)
+- worked solutions [here](https://colab.research.google.com/drive/1c-vmxkPmHK35NJvwysEsSZpSjZ_xI1Lo?usp=sharing)
 
 
 # variational asymptotic method
@@ -248,5 +247,4 @@ We say that \\(f(x)\\) is asymptotically equal to \\(g(x)\\)
 
 ## next class
 
--   Project description
--   SwiftComp
+-   Boundary conditions

@@ -1,19 +1,19 @@
 ## AE 760AA: Micromechanics and multiscale modeling
-Lecture 11 - Project Description
+Lecture 12 - Project Description
 
 Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-March 9, 2021
+22 February 2022
 
 ----
 ## schedule
 
--   Mar 9 - Project Descriptions
--   Mar 11 - SwiftComp
--   Mar 16 - Work Day
--   Mar 18 - Hashin-Shtrickman Bounds 
+-   22 Feb - Project Descriptions (HW 4 Due)
+-   24 Feb - FEA Workday
+-   1 Mar - SwiftComp
+-   3 Mar - Method of Cells (HW 5 Due)
 
 
 ----
@@ -50,6 +50,10 @@ March 9, 2021
 -   In your report you should assume that the reader is already familiar with Finite Elements and the Eshelby method
 -   The reader may not, however, be familiar with the micromechanics tool you are using
 -   You should describe the method that your chosen software is using (i.e. Variational Asymptotic Method for SwiftComp, Fourier Transforms for CRAFT, Method of Cells for MAC/GMC. etc.)
+
+----
+## project report
+
 -   Make some conclusions about the software you are using
     -   Have you demonstrated that the results from this method are correct?
     -   What advantages does it have over analytic methods and finite elements?
@@ -67,14 +71,14 @@ March 9, 2021
 ----
 ## project abstract
 
--   Due 3/26 
+-   Due 3/25
 -   Describe what problem you want to solve and what you will use to solve it
 -   List a few challenges you expect to face, how they could be overcome
 
 ----
 ## analytical method
 
--   I think homework 6 or 7 will be over the analytical model for your problem
+-   Homework 6 will cover the analytical model for your problem
 -   Due date will be provided later
 -   This is just to make sure things are on track for your final project
 

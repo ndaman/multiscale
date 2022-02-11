@@ -5,18 +5,19 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-15 February 2022
+10 February 2022
 
 ----
 ## schedule
 
--   15 Feb - Variational Calculus
--   17 Feb - Boundary Conditions (HW3 Due)
--   22 Feb - Project Descriptions
--   24 Feb - SwiftComp (HW 4 Due)
+-   8 Feb - Variational Calculus
+-   10 Feb - Variational asymptotic method (HW3 Due)
+-   15 Feb - Boundary Conditions
+-   17 Feb - Project Descriptions (HW4 Due)
 
 ----
 ## outline
+
 <!-- TOC START min:1 max:1 link:false update:true -->
 - boundary conditions
 - multiple variables
