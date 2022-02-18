@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-22 February 2022
+24 February 2022
 
 ----
 ## schedule
 
--   22 Feb - Project Descriptions (HW 4 Due)
--   24 Feb - FEA Workday
--   1 Mar - SwiftComp
--   3 Mar - Method of Cells (HW 5 Due)
+-   24 Feb - Project Descriptions (HW 4 Due)
+-   1 Mar - FEA In-class
+-   3 Mar - SwiftComp (In-class) (HW 5 Due)
+-   8 Mar - Method of Cells 
 
 
 ----
