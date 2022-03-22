@@ -1,86 +1,55 @@
 ## AE 760AA: Micromechanics and multiscale modeling
-Lecture 12 - Project Description
+Lecture 13 - SwiftComp
 
 Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-3 March 2022
+22 March 2022
 
 ----
 ## schedule
 
--   3 Mar - Project Descriptions (HW4 Resubmission Due)
--   8 Mar - FEA Work day
--   10 Mar - FEA Work day
--   (15 Mar) - Spring Break
-
+-   22 Mar - SwiftComp
+-   24 Mar - Fourier Analysis, HW 5 Due, Project Abstract Due
+-   29 Mar - Method of Cells
+-   31 Mar - Workday
 
 ----
 ## outline
 
 <!-- TOC START min:1 max:1 link:false update:true -->
-- final project
+- variational asymptotic method 
 - swiftcomp
+- asymptotic homogenization 
+- moose
 
 <!-- TOC END -->
 
 ---
-# final project
+# variational asymptotic method 
 
 ----
-## final project
+## variational asymptotic method 
 
--   Choose some multi-scale problem that we can use techniques from this class in
--   This could be related to research you are doing (modeling composite properties in a 3D-print)
--   You can also choose (or modify slightly) cases 3-6 from the Micromechanics challenge
--   Remember this project is in place of the final exam, you should demonstrate what you have learned in this course
-
-----
-## final project
-
--   There are three main parts to the analysis you will do on the final project
-    1.  A simplified model which can be solved using an analytical method (Eshelby)
-    2.  A parametric finite element model (validate to Eshelby, then scale to correct volume fraction)
-    3.  Some micromechanics software analysis (SwiftComp, CRAFT, MAC/GMC, etc.)
+- For more details see the paper:
+- Variational asymptotic method for unit cell homogenization of periodically heterogeneous materials
+- Wenbin Yu, Tian Tang
 
 ----
-## project report
+## assumptions
 
--   In your report you should assume that the reader is already familiar with Finite Elements and the Eshelby method
--   The reader may not, however, be familiar with the micromechanics tool you are using
--   You should describe the method that your chosen software is using (i.e. Variational Asymptotic Method for SwiftComp, Fourier Transforms for CRAFT, Method of Cells for MAC/GMC. etc.)
+- exact solutions of field variables have volume averages over the unit cell 
 
-----
-## project report
+`$$ u_i = \frac{1}{\Omega} \int_\Omega u_i d\Omega \equiv \langle u_i \rangle`
 
--   Make some conclusions about the software you are using
-    -   Have you demonstrated that the results from this method are correct?
-    -   What advantages does it have over analytic methods and finite elements?
-    -   Are there cases where you would expect your software to have difficulty?
+- effective material properties of the unit cell are independent of geometry, boundary conditions, and loading
+- homogenization is also only appropriate when `$h/l \ll 1$` where `$h$` is the characteristic size of the unit cell and `$l$` is the characteristic wavelength of deformation 
 
 ----
-## project rubric Projects will be graded on the following rubric
+## variational statement 
 
--   Analytic Model - 25%
--   Finite Element Analysis - 25%
--   Micromechanics Software - 25%
--   Conclusion - 15%
--   General Presentation - 10%
-
-----
-## project abstract
-
--   Due 3/25
--   Describe what problem you want to solve and what you will use to solve it
--   List a few challenges you expect to face, how they could be overcome
-
-----
-## analytical method
-
--   Homework 6 will cover the analytical model for your problem
--   Due date will be provided later
--   This is just to make sure things are on track for your final project
+![../images/vamuch-coords.png]
 
 ---
 # swiftcomp
