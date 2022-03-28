@@ -5,15 +5,14 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-March 30, 2021
+31 March 2022
 
 ----
 ## schedule
 
-- Mar 30 - Method of Cells 
-- Apr 1 - Damage Theory
-- Apr 6 - Damage Theory
-- Apr 8 - Dislocation Theory, Homework 5 Due
+-   31 Mar - Method of Cells
+-   5 Apr - Workday
+-   7 Apr - Damage Theory, HW 6 Due
 
 ----
 ## outline
@@ -83,7 +82,7 @@ March 30, 2021
 
 -   The next steps are to
 -   Perform the integration
--   Enforce periodicty over the entire RUC (instead of the sub-cells)
+-   Enforce periodicity over the entire RUC (instead of the sub-cells)
 -   Represent functions of *x* (`$w_i$`) with a Taylor Series approximation
 
 ----
@@ -130,7 +129,7 @@ March 30, 2021
 ----
 ## strain concentration tensor
 
--   The general form of the strain concentratio tensor from the method of cells is
+-   The general form of the strain concentration tensor from the method of cells is
 
 `$$A = \begin{bmatrix}
   1 & 0 & 0 & 0 & 0 & 0\\

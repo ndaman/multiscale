@@ -5,15 +5,15 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-24 March 2022
+29 March 2022
 
 ----
 ## schedule
 
--   24 Mar - Fourier Analysis, HW 5 Due, Project Abstract Due
--   29 Mar - Method of Cells
--   31 Mar - Workday
--   5 Apr - Damage Theory
+-   29 Mar - Fourier Analysis
+-   31 Mar - Method of Cells
+-   5 Apr - Workday
+-   7 Apr - Damage Theory, HW 6 Due
 
 ----
 ## outline
@@ -99,7 +99,7 @@ Wichita State University, Department of Aerospace Engineering
 ----
 ## lippmann-schwinger equations
 
--   Fourier Methds are based on the Lippmann-Schwinger equations where we define the polarization field as
+-   Fourier Methods are based on the Lippmann-Schwinger equations where we define the polarization field as
 
 `$$\tau_{ij} = \sigma_{ij}(x)-C_{ijkl}^0 \epsilon_{kl}(x)$$`
 
