@@ -5,14 +5,14 @@ Dr. Nicholas Smith
 
 Wichita State University, Department of Aerospace Engineering
 
-April 1, 2021
+12 April 2022
 
 ----
 ## schedule
 
-- Apr 1 - Damage Theory
-- Apr 6 - Damage Theory
-- Apr 8 - Dislocation Theory, Homework 5 Due
+- 12 Apr - Damage Theory
+- 14 Apr - Project Work Day
+- (19 Apr) - Class Canceled
 - Project Work Days
 
 ----
@@ -140,7 +140,7 @@ April 1, 2021
 ----
 ## mcclintock solution
 
--   To date, the mcClintock solution is the only exact analytic solution for void growth in non-linear solids
+-   To date, the McClintock solution is the only exact analytic solution for void growth in non-linear solids
 -   A full derivation, for some assumptions in yield criterion and plastic flow rule is in text pp. 268-271
 
 ----
