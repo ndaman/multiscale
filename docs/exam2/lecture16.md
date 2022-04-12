@@ -11,7 +11,7 @@ Wichita State University, Department of Aerospace Engineering
 ## schedule
 
 - 12 Apr - Damage Theory
-- 14 Apr - Project Work Day
+- 14 Apr - Dislocation Theory
 - (19 Apr) - Class Canceled
 - Project Work Days
 
@@ -244,7 +244,7 @@ Wichita State University, Department of Aerospace Engineering
 -   Mode II is known as the “sliding mode”
 -   Mode III is known as the “tearing mode”
 
-----
+---
 ## fracture mechanics
 
 ----
